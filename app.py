@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, g
 from pager import Pager
 # import sqlite3
 import datetime
+import os
 
 
 STATIC_FOLDER = 'static'
@@ -36,4 +37,4 @@ def moreinfo():
     
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
