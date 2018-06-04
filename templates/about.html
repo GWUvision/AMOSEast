@@ -1,0 +1,90 @@
+{% extends "layout.html" %} {% block title %}About {% endblock %} {% block content %}
+<div class="container" style="width:100%;">
+
+  <nav class="navbar">
+    <div class="navbar-header">
+
+      <span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/cameras/0/">Cameras</a></li>
+
+      {% include 'links.html' %}
+
+
+    </ul>
+  </nav>
+
+</div>
+
+<!--Background  -->
+<center>
+  <h2>Background</h2></center>
+<hr>
+<div class="row-center">
+  <div class="col-lg-12">
+    <div class="text-center">
+    <div>
+      <p>The Archive of Many Outdoor Scenes (AMOS) dataset contains images taken from webcams located around the world, the vast majority in the United States. Construction of AMOS began in March, 2006 and continues to this day. This dataset is unique in that it contains images from significantly more scenes than in previous work.</p>
+    </div>
+
+
+    </div>
+  </div>
+</div>
+
+<br>
+
+
+
+<!-- Team Members -->
+<center>
+  <h2>Our Team</h2></center>
+<hr>
+<div class="row-center">
+  <div class="col-lg-4">
+    <div class="text-center">
+      <img class="card-img-top" src="static/pless.png" width="200" height="300">
+      <div>
+        <h3>Dr. Robert Pless</h3>
+        <h5>Head Researcher and Chair of Computer Science @ GWU</h5>
+          <a href="#">pless@gwu.edu</a>
+          <a href="http://robertpless.com/">Website</a>
+        <hr>
+        <p> Dr. Robert Pless conducts research in the area of computer vision with applications to environmental science, medical imaging, robotics and virtual reality. He is particularly interested in studying data-driven and geometric techniques to more
+          robustly understand images taken “in the wild.” This research exploits the fact that cameras are incredibly precise measurement systems: if they are calibrated properly, then the vast quantities of visual data they collect can help us learn,
+          understand, and manipulate the world around us. At a high level, the current themes of research in his lab are: understanding visual change at scales from the sidewalk to the planet, studying next generation imaging systems for virtual reality
+          and robotics, and democratizing visual analytics with applications to social justice.</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card h-100 text-center">
+      <img class="card-img-top" src="static/shah.png" width="220" height="300">
+      <div class="card-body">
+        <h3>Suraj Shah</h3>
+        <h5>Undergraduate Researcher</h5>
+        <a href="">suraj98@gwu.edu</a>
+        <a href="http://surajshah.me/">Website</a>
+        <hr>
+        <p>Suraj is currently a sophomore at the George Washington University majoring in Computer Science with a minor in Business Administration. He loves exploring datasets, creating small projects, and learning new technical skills. He has experience using Pandas and Numpy with Python for advanced data analysis, including predicting certain data or extrapolating information.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100 text-center">
+      <img class="card-img-top" src="http://via.placeholder.com/250x300" alt="">
+      <h3>Kyle Rood</h3>
+      <h5>Undergraduate Researcher</h5>
+      <a href="">krood20@gwu.edu</a>
+      <a href="">Website</a>
+      <hr>
+      <p>Hello friends.</p>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
