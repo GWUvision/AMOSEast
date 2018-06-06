@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, g
 from pager import Pager
-# import sqlite3
 import datetime
 import os
+from flask_sqlalchemy import SQLAlchemy
+
 
 
 STATIC_FOLDER = 'static'
@@ -10,6 +11,12 @@ APPNAME = 'AMOS East'
 
 app = Flask(__name__, static_folder=STATIC_FOLDER)
 app.config.update(APPNAME=APPNAME,)
+app.config.from_object(os.environ['APP_SETTINGS'])
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+from models import *
+
 
 @app.route('/')
 def homepage():
