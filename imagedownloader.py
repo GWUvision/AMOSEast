@@ -26,6 +26,10 @@ headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KH
            'Accept-Language': 'en-US,en;q=0.8',
            'Connection': 'keep-alive'}
 
+DATABASE_URL = os.environ['DATABASE_URL']
+database = psycopg2.connect(DATABASE_URL, sslmode='require')
+# df = pd.read_sql_query("SELECT * FROM history", database)
+
 
 def md5(fname):
     hash_md5 = hashlib.md5()
