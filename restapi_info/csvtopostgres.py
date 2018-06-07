@@ -12,9 +12,9 @@ try:
     cur.execute("""COPY cameras(cameraid, name, url, latitude, longitude, last_width, last_height)
             FROM '/home/suraj/Documents/GWU/AMOSEast/restapi_info/data2.csv' DELIMITER ',' CSV HEADER """)
     print("Copied data from csv to postgres database...")
-    
+
 except:
     print ("Unable to copy data...")
-    
-    
+
+
 database.commit()

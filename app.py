@@ -19,7 +19,7 @@ db = SQLAlchemy(app)
 from models import *
 
 DATABASE_URL = os.environ['DATABASE_URL']
-# database = psycopg2.connect(DATABASE_URL, sslmode='require')
+database = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 # all_cameras = "SELECT cameraID, name, url, latitude, longitude FROM image_info"
 # conn.execute(all_cameras)
@@ -86,9 +86,11 @@ def homepage():
 #     return redirect('/cameras/' + request.form['index'])
 #
 #
-# @app.route('/about')
-# def aboutpage():
-#     return render_template('about.html')
+
+@app.route('/about')
+def aboutpage():
+    return render_template('about.html')
+
 #
 # @app.route('/map')
 # def mappage():
