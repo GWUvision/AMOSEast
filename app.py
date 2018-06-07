@@ -55,7 +55,7 @@ def homepage():
 def directory_view(ind=None):
     conn = get_db().cursor()
 
-    query2 = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY cameraid"  % (
+    query2 = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY cameraid" % (
         data[ind][0])
     conn.execute(query2)
     data2 = conn.fetchall()
@@ -88,24 +88,28 @@ def image_view(ind=None, ind2=None):
 @app.route('/goto', methods=['POST', 'GET'])
 def goto():
     return redirect('/cameras/' + request.form['index'])
-    
+
+
 @app.route('/about')
 def aboutpage():
     return render_template('about.html')
+
 
 @app.route('/map')
 def mappage():
     # implement google map api functionality here
     return render_template('map.html')
-    
+
+
 @app.route('/submitcam')
 def sumbitcam():
     return render_template('submitcam.html')
 
+
 @app.route('/moreinfo')
 def moreinfo():
     return render_template('moreinfo.html')
-    
+
 
 @app.teardown_appcontext
 def close_connection(exception):
