@@ -35,17 +35,17 @@ from models import *
 #     return db
 
 
-@app.route('/')
-def homepage():
-
-    conn = get_db().cursor()
-    count = "SELECT count(*) from cameras"
-    conn.execute(count)
-    data3 = conn.fetchone()
-
-    camera_count = data3[0]
-    camera_count = '{:,}'.format(camera_count)
-    return render_template('home.html', camera_count=camera_count)
+# @app.route('/')
+# def homepage():
+#
+#     conn = get_db().cursor()
+#     count = "SELECT count(*) from cameras"
+#     conn.execute(count)
+#     data3 = conn.fetchone()
+#
+#     camera_count = data3[0]
+#     camera_count = '{:,}'.format(camera_count)
+#     return render_template('home.html', camera_count=camera_count)
 
 
 # @app.route('/cameras/<int:ind>/')
