@@ -35,7 +35,7 @@ def md5(fname):
     return hash_md5.hexdigest()
 
 
-def test():
+def download_images():
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
     cur = conn.cursor()
 
