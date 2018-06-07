@@ -18,7 +18,7 @@ db = SQLAlchemy(app)
 
 from models import *
 
-DATABASE_URL = os.environ['DATABASE_URL']
+#DATABASE_URL = os.environ['DATABASE_URL']
 # database = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 # all_cameras = "SELECT cameraID, name, url, latitude, longitude FROM image_info"
@@ -31,7 +31,7 @@ DATABASE_URL = os.environ['DATABASE_URL']
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
-        db = g._database = psycopg2.connect(DATABASE_URL, sslmode='require')
+#        db = g._database = psycopg2.connect(DATABASE_URL, sslmode='require')
     return db
 
 
