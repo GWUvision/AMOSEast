@@ -1,5 +1,6 @@
 from app import db
 
+
 class Camera(db.Model):
     __tablename__ = 'cameras'
 
@@ -22,7 +23,7 @@ class Camera(db.Model):
         self.mhash = mhash
 
     def __repr__(self):
-        return '<image id={},name={}>'.format(self.id, self.name)
+        return '<image id={},name={}>'.format(self.cameraid, self.name)
 
 
 class Image(db.Model):
