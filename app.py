@@ -21,48 +21,53 @@ from models import *
 DATABASE_URL = os.environ['DATABASE_URL']
 database = psycopg2.connect(DATABASE_URL, sslmode='require')
 
-# all_cameras = "SELECT cameraID, name, url, latitude, longitude FROM image_info"
-# conn.execute(all_cameras)
-# data = conn.fetchall()
-# pager = Pager(len(data))
-#
+conn = psycopg2.connect(DATABASE_URL, sslmode='require').cursor()
+all_cameras = "SELECT cameraid, name, url, latitude, longitude FROM cameras"
+conn.execute(all_cameras)
+data = conn.fetchall()
+pager = Pager(len(data))
 
 
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
         db = g._database = psycopg2.connect(DATABASE_URL, sslmode='require')
-    return db
+        return db
 
 
 @app.route('/')
 def homepage():
 
     conn = get_db().cursor()
-    count = "SELECT count(*) from cameras"
-    conn.execute(count)
-    data3 = conn.fetchone()
-
-    camera_count = data3[0]
+    sql1 = "SELECT count(*) FROM cameras"
+    conn.execute(sql1)
+    camera_count = conn.fetchone()[0]
     camera_count = '{:,}'.format(camera_count)
-    return render_template('home.html', camera_count=camera_count)
+
+    sql2 = "SELECT count(*) FROM images"
+    conn.execute(sql2)
+    image_count = conn.fetchone()[0]
+    image_count = '{:,}'.format(image_count)
+
+    return render_template('home.html', camera_count=camera_count, image_count=image_count)
 
 
-# @app.route('/cameras/<int:ind>/')
-# def directory_view(ind=None):
-#     conn = get_db().cursor()
-#
-#     query2 = "SELECT filepath, curr_time from all_images WHERE cameraID=%d" %(data[ind][0])
-#     conn.execute(query2)
-#     data2 = conn.fetchall()
-#
-#     if ind >= pager.count:
-#         return render_template("404.html"), 404
-#     else:
-#         pager.current = ind
-#         return render_template('dirview.html', index=ind, pager=pager, data=data[ind], data2=data2[-1])
-#
-#
+@app.route('/cameras/<int:ind>/')
+def directory_view(ind=None):
+    conn = get_db().cursor()
+
+    query2 = "SELECT filepath, curr_time from images WHERE cameraid=%d" % (
+        data[ind][0])
+    conn.execute(query2)
+    data2 = conn.fetchall()
+
+    if ind >= pager.count:
+        return render_template("404.html"), 404
+    else:
+        pager.current = ind
+        return render_template('dirview.html', index=ind, pager=pager, data=data[ind], data2=data2[-1])
+
+
 # @app.route('/cameras/<int:ind>/<int:ind2>/')
 # def image_view(ind=None, ind2=None):
 #

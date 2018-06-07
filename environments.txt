@@ -1,3 +1,7 @@
 source env/bin/activate
 export APP_SETTINGS="config.DevelopmentConfig"
+<<<<<<< HEAD
 export DATABASE_URL="postgresql://krood20:@localhost/krood20"
+=======
+export DATABASE_URL="postgresql://suraj:password@localhost/amoseast"
+>>>>>>> dev
