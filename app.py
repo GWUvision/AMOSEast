@@ -102,8 +102,8 @@ def homepage():
 # @app.route('/moreinfo')
 # def moreinfo():
 #     return render_template('moreinfo.html')
-#
-#
+
+
 @app.teardown_appcontext
 def close_connection(exception):
     db = getattr(g, '_database', None)
