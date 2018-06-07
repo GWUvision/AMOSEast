@@ -39,27 +39,28 @@ def md5(fname):
     return hash_md5.hexdigest()
 
 
-def video_dir():
 
-    # threading.Timer(86400.0, self.video_dir).start()
-    list_of_images = []
-    rootDir = 'images/'
-    for dirpath, dirnames, files in os.walk(rootDir, topdown=True):
-        dirnames.sort(key=int)
-        list_of_images.append(files)
-
-    for i in range(1, len(list_of_images), 1):
-        images_in_folder = []
-        os.makedirs('videos/%d' % (i), exist_ok=True)
-
-        for j in range(len(list_of_images[i])):
-            print(list_of_images[i][j])
-            file_path = os.path.join('images/%d' %
-                                     (i), list_of_images[i][j])
-
-            images_in_folder.append(imageio.imread(file_path))
-        imageio.mimsave('videos/%d/movie%d.mp4' %
-                        (i, i), images_in_folder)
+# def video_dir():
+# 
+#     # threading.Timer(86400.0, self.video_dir).start()
+#     list_of_images = []
+#     rootDir = 'images/'
+#     for dirpath, dirnames, files in os.walk(rootDir, topdown=True):
+#         dirnames.sort(key=int)
+#         list_of_images.append(files)
+# 
+#     for i in range(1, len(list_of_images), 1):
+#         images_in_folder = []
+#         os.makedirs('videos/%d' % (i), exist_ok=True)
+# 
+#         for j in range(len(list_of_images[i])):
+#             print(list_of_images[i][j])
+#             file_path = os.path.join('images/%d' %
+#                                      (i), list_of_images[i][j])
+# 
+#             images_in_folder.append(imageio.imread(file_path))
+#         imageio.mimsave('videos/%d/movie%d.mp4' %
+#                         (i, i), images_in_folder)
 
 
 def image_insert():
@@ -132,5 +133,5 @@ def image_insert():
         except IndexError as e:
             pass
 
-image_insert()
+# image_insert()
 
