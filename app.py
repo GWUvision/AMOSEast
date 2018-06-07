@@ -18,8 +18,8 @@ db = SQLAlchemy(app)
 
 from models import *
 
-#DATABASE_URL = os.environ['DATABASE_URL']
-# database = psycopg2.connect(DATABASE_URL, sslmode='require')
+DATABASE_URL = os.environ['DATABASE_URL']
+database = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 # all_cameras = "SELECT cameraID, name, url, latitude, longitude FROM image_info"
 # conn.execute(all_cameras)
@@ -28,24 +28,24 @@ from models import *
 #
 
 
-# def get_db():
-#     db = getattr(g, '_database', None)
-#     if db is None:
-#         db = g._database = psycopg2.connect(DATABASE_URL, sslmode='require')
-#     return db
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = psycopg2.connect(DATABASE_URL, sslmode='require')
+    return db
 
 
-# @app.route('/')
-# def homepage():
-#
-#     conn = get_db().cursor()
-#     count = "SELECT count(*) from cameras"
-#     conn.execute(count)
-#     data3 = conn.fetchone()
-#
-#     camera_count = data3[0]
-#     camera_count = '{:,}'.format(camera_count)
-#     return render_template('home.html', camera_count=camera_count)
+@app.route('/')
+def homepage():
+
+    conn = get_db().cursor()
+    count = "SELECT count(*) from cameras"
+    conn.execute(count)
+    data3 = conn.fetchone()
+
+    camera_count = data3[0]
+    camera_count = '{:,}'.format(camera_count)
+    return render_template('home.html', camera_count=camera_count)
 
 
 # @app.route('/cameras/<int:ind>/')
@@ -86,9 +86,11 @@ from models import *
 #     return redirect('/cameras/' + request.form['index'])
 #
 #
-# @app.route('/about')
-# def aboutpage():
-#     return render_template('about.html')
+
+@app.route('/about')
+def aboutpage():
+    return render_template('about.html')
+
 #
 # @app.route('/map')
 # def mappage():
@@ -104,11 +106,11 @@ from models import *
 #     return render_template('moreinfo.html')
 
 
-# @app.teardown_appcontext
-# def close_connection(exception):
-#     db = getattr(g, '_database', None)
-#     if db is not None:
-#         db.close()
+@app.teardown_appcontext
+def close_connection(exception):
+    db = getattr(g, '_database', None)
+    if db is not None:
+        db.close()
 
 
 if __name__ == '__main__':
