@@ -1,7 +1,7 @@
 class Pager(object):
     def __init__(self, count):
         self.count = count
-        self.current = 1
+        self.current = 0
 
     @property
     def next(self):
