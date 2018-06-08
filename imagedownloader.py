@@ -59,10 +59,12 @@ def download_images():
             f.close()
 
             if(row[7] == md5('static/images/%s' % filepath)):
-                print("same image")
-                # TODO: Delete the image that was downloaded
+                print("Camera %s has not updated. Same image...")
+                os.remove('static/images/%s' %(filepath))
+                print("Image was removed from path")
+                
             else:
-                print("different")
+                print("Image %s from Camera %s is different" %(filepath, row[0]))
 
                 sql2 = "UPDATE cameras SET mhash=%s WHERE cameraid = %s"
                 cur.execute(
@@ -75,20 +77,28 @@ def download_images():
                 conn.commit()
 
         except urllib.error.HTTPError as err:
-            pass
+            print(err)
         except urllib.error.URLError as err:
-            pass
+            print(err)
         except timeout:
-            pass
+            print(err)
         except http.client.HTTPException as err:
-            pass
+            print(err)
         except http.client.IncompleteRead as err:
-            pass
+            print(err)
         except http.client.ImproperConnectionState as err:
-            pass
+            print(err)
         except http.client.RemoteDisconnected as err:
-            pass
+            print(err)
         except ConnectionResetError as err:
-            pass
+            print(err)
         except SocketError as err:
-            pass
+            print(err)
+            
+            
+download_images()
+
+
+
+
+
