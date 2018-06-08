@@ -1,36 +1,36 @@
 {% extends "layout.html" %} {% block title %}About {% endblock %} {% block content %}
 <div class="container" style="width:100%;">
 
-  <nav class="navbar">
-    <div class="navbar-header">
+	<nav class="navbar">
+		<div class="navbar-header">
 
-      <span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="/cameras/0/">Cameras</a></li>
+			<span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="/cameras/0/">Cameras</a></li>
 
-      {% include 'links.html' %}
+			{% include 'links.html' %}
 
 
-    </ul>
-  </nav>
+		</ul>
+	</nav>
 
 </div>
 
 <!--Background  -->
 <center>
-  <h2>Background</h2></center>
+	<h2>Background</h2></center>
 <hr>
 <div class="row-center">
-  <div class="col-lg-12">
-    <div class="text-center">
-    <div>
-      <h4>The AMOS project began in March 2006 and is currently maintained at The George Washington University by Robert Pless. We encourage you to learn more about the <a href="https://amoseast-stage.herokuapp.com/moreinfo">AMOS dataset and publications</a>. Options for browsing the dataset and contributing webcams to the archive are available in the navbar above.</h4>
-    </div>
+	<div class="col-lg-12">
+		<div class="text-center">
+			<div>
+				<h4>The AMOS project began in March 2006 and is currently maintained at The George Washington University by Robert Pless. We encourage you to learn more about the <a href="https://amoseast-stage.herokuapp.com/moreinfo">AMOS dataset and publications</a>. Options for browsing the dataset and contributing webcams to the archive are available in the navbar above.</h4>
+			</div>
 
 
-    </div>
-  </div>
+		</div>
+	</div>
 </div>
 
 <br>
@@ -39,51 +39,52 @@
 
 <!-- Team Members -->
 <center>
-  <h2>Our Team</h2></center>
+	<h2>Our Team</h2></center>
 <hr>
 <div class="row-center">
-  <div class="col-lg-4">
-    <div class="text-center">
-      <img class="card-img-top" src="static/pless.png" width="200" height="300">
-      <div>
-        <h3>Dr. Robert Pless</h3>
-        <h4>Head Researcher and Chair of Computer Science @ GWU</h4>
-          <a href="#">pless@gwu.edu</a>
-          <a href="http://robertpless.com/">Website</a>
-        <hr>
-        <p> Dr. Robert Pless conducts research in the area of computer vision with applications to environmental science, medical imaging, robotics and virtual reality. He is particularly interested in studying data-driven and geometric techniques to more
-          robustly understand images taken “in the wild.” This research exploits the fact that cameras are incredibly precise measurement systems: if they are calibrated properly, then the vast quantities of visual data they collect can help us learn,
-          understand, and manipulate the world around us. At a high level, the current themes of research in his lab are: understanding visual change at scales from the sidewalk to the planet, studying next generation imaging systems for virtual reality
-          and robotics, and democratizing visual analytics with applications to social justice.</p>
-      </div>
+	<div class="col-lg-4">
+		<div class="text-center">
+			<img class="card-img-top" src="static/pless.png" width="200" height="300">
+			<div>
+				<h3>Dr. Robert Pless</h3>
+				<h4>Head Researcher and Chair of Computer Science @ GWU</h4>
+				<a href="#">pless@gwu.edu</a>
+				<a href="http://robertpless.com/">Website</a>
+				<hr>
+				<p> Dr. Robert Pless conducts research in the area of computer vision with applications to environmental science, medical imaging, robotics and virtual reality. He is particularly interested in studying data-driven and geometric techniques to more robustly
+					understand images taken “in the wild.” This research exploits the fact that cameras are incredibly precise measurement systems: if they are calibrated properly, then the vast quantities of visual data they collect can help us learn, understand, and
+					manipulate the world around us. At a high level, the current themes of research in his lab are: understanding visual change at scales from the sidewalk to the planet, studying next generation imaging systems for virtual reality and robotics, and
+					democratizing visual analytics with applications to social justice.</p>
+			</div>
 
 
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="card h-100 text-center">
-      <img class="card-img-top" src="static/shah.png" width="220" height="300">
-      <div class="card-body">
-        <h3>Suraj Shah</h3>
-        <h4>Undergraduate Researcher</h4>
-        <a href="">suraj98@gwu.edu</a>
-        <a href="http://surajshah.me/">Website</a>
-        <hr>
-        <p>Suraj is currently a sophomore at the George Washington University majoring in Computer Science with a minor in Business Administration. He loves exploring datasets, creating small projects, and learning new technical skills. He has experience using Pandas and Numpy with Python for advanced data analysis, including predicting certain data or extrapolating information.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card h-100 text-center">
-      <img class="card-img-top" src="static/kyle.png" width="220" height="300">
-      <h3>Kyle Rood</h3>
-      <h4>Undergraduate Researcher</h4>
-      <a href="">krood20@gwu.edu</a>
-      <a href="https://krood20.github.io/website/">Website</a>
-      <hr>
-      <p>Kyle is currently a junior Computer Science student with a Sustainability minor at the George Washignton University.</p>
-    </div>
-  </div>
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="card h-100 text-center">
+			<img class="card-img-top" src="static/shah.png" width="220" height="300">
+			<div class="card-body">
+				<h3>Suraj Shah</h3>
+				<h4>Undergraduate Researcher</h4>
+				<a href="">suraj98@gwu.edu</a>
+				<a href="http://surajshah.me/">Website</a>
+				<hr>
+				<p>Suraj is currently a sophomore at the George Washington University majoring in Computer Science with a minor in Business Administration. He loves exploring datasets, creating small projects, and learning new technical skills. He has experience using
+					Pandas and Numpy with Python for advanced data analysis, including predicting certain data or extrapolating information.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="card h-100 text-center">
+			<img class="card-img-top" src="static/kyle.png" width="220" height="300">
+			<h3>Kyle Rood</h3>
+			<h4>Undergraduate Researcher</h4>
+			<a href="">krood20@gwu.edu</a>
+			<a href="https://krood20.github.io/website/">Website</a>
+			<hr>
+			<p>Kyle is currently a junior Computer Science student with a Sustainability minor at the George Washignton University.</p>
+		</div>
+	</div>
 </div>
 
 

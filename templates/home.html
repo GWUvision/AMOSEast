@@ -3,37 +3,36 @@
 
 <div class="container" style="width:100%;">
 
-  <nav class="navbar">
-    <div class="navbar-header">
+	<nav class="navbar">
+		<div class="navbar-header">
 
-      <span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="/cameras/0/">Cameras</a></li>
+			<span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="/cameras/0/">Cameras</a></li>
 
-      {% include 'links.html' %}
+			{% include 'links.html' %}
 
 
-    </ul>
-  </nav>
+		</ul>
+	</nav>
 </div>
 
 <!-- Intro Content -->
-  <div class="row-center">
-    <div class="col-lg-6">
-      <h2>Put some image here or example of images</h2>
-      <img class="img-fluid rounded mb-4">
-    </div>
-    <div class="col-lg-6">
-      <img src="/static/logo.png" alt="AMOS" width="400" height="100">
-      <h2>Welcome to AMOS, the Archive of Many Outdoor Scenes!</h2>
-      <h3>{{camera_count}} Cameras and {{image_count}} Images Counting!</h3>
-      <p>AMOS is a collection of long-term timelapse imagery from publicly accessible outdoor webcams around the world. We explore how to use these images to learn about the world around us, with a focus on understanding changes in natural environments and
-        understanding how people use public spaces. To support these applications, we work on fundamental research in camera geolocation, camera calibration, camera registration to GIS data, and the automatic annotation of events and objects in a scene.
-        The AMOS project began in March 2006 and is currently maintained at Washington University in St. Louis by Robert Pless and at the University of Kentucky by Nathan Jacobs. We encourage you to learn more about the AMOS dataset, project participants,
-        and publications.
-    </div>
-  </div>
+<div class="row-center">
+	<div class="col-lg-6">
+		<h2>Put some image here or example of images</h2>
+		<img class="img-fluid rounded mb-4">
+	</div>
+	<div class="col-lg-6">
+		<img src="/static/logo.png" alt="AMOS" width="400" height="100">
+		<h2>Welcome to AMOS, the Archive of Many Outdoor Scenes!</h2>
+		<h3>{{camera_count}} Cameras and {{image_count}} Images Counting!</h3>
+		<p>AMOS is a collection of long-term timelapse imagery from publicly accessible outdoor webcams around the world. We explore how to use these images to learn about the world around us, with a focus on understanding changes in natural environments and understanding
+			how people use public spaces. To support these applications, we work on fundamental research in camera geolocation, camera calibration, camera registration to GIS data, and the automatic annotation of events and objects in a scene. The AMOS project
+			began in March 2006 and is currently maintained at Washington University in St. Louis by Robert Pless and at the University of Kentucky by Nathan Jacobs. We encourage you to learn more about the AMOS dataset, project participants, and publications.
+	</div>
+</div>
 
 
 

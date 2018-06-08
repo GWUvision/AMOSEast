@@ -52,10 +52,11 @@ def homepage():
 
 
 @app.route('/cameras/<int:ind>/')
-def directory_view(ind=None):
+def directory_view(ind=1):
     conn = get_db().cursor()
 
-    camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY cameraid" %(all_cameras[ind][0])
+    camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY cameraid" % (
+        all_cameras[ind][0])
 
     conn.execute(camera_images_query)
     camera_images = conn.fetchall()
@@ -71,9 +72,9 @@ def directory_view(ind=None):
 def image_view(ind=None, ind2=None):
 
     conn = get_db().cursor()
-    query2 = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY cameraid" % (
-        pager.current)
-    conn.execute(query2)
+    camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY cameraid" % (
+        all_cameras[ind][0])
+    conn.execute(camera_images_query)
     data2 = conn.fetchall()
     pager2 = Pager(len(data2))
 
@@ -82,13 +83,12 @@ def image_view(ind=None, ind2=None):
     else:
         pager.current = ind
         pager2.current = ind2
-        return render_template('imageview.html', index=ind2, pager=pager, pager2=pager2, data2=data2[ind2], data=data[ind])
+        return render_template('imageview.html', index=ind2, pager=pager, pager2=pager2, data2=data2[ind2], data=all_cameras[ind])
 
 
 @app.route('/goto', methods=['POST', 'GET'])
 def goto():
     return redirect('/cameras/' + request.form['index'])
-
 
 @app.route('/about')
 def aboutpage():

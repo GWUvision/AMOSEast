@@ -1,46 +1,46 @@
 {% extends "layout.html" %} {% block title %}Cameras {{ data.name}} {% endblock %} {% block content %}
 <div class="container" style="width:100%;">
 
-  <nav class="navbar">
-    <div class="navbar-header">
+	<nav class="navbar">
+		<div class="navbar-header">
 
-      <span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
-    </div>
-    <form class="navbar-form navbar-left" role="search" name="goto" action="/goto" method="POST">
-      <div class="form-group">
-        <input type="text" name="index" class="form-control" placeholder="Go to index">
-      </div>
-      <button type="Go" class="btn btn-default">Go</button>
-    </form>
-    <ul class="nav navbar-nav">
-      <li><a href="/cameras/{{pager.prev}}">Previous Camera &larrhk;</a> </li>
-      <li><a href="/cameras/{{pager.next}}">Next Camera &rarrhk;</a> </li>
-      {% include 'links.html' %}
-    </ul>
-  </nav>
+			<span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
+		</div>
+		<form class="navbar-form navbar-left" role="search" name="goto" action="/goto" method="POST">
+			<div class="form-group">
+				<input type="text" name="index" class="form-control" placeholder="Go to index">
+			</div>
+			<button type="Go" class="btn btn-default">Go</button>
+		</form>
+		<ul class="nav navbar-nav">
+			<li><a href="/cameras/{{pager.prev}}">Previous Camera &larrhk;</a> </li>
+			<li><a href="/cameras/{{pager.next}}">Next Camera &rarrhk;</a> </li>
+			{% include 'links.html' %}
+		</ul>
+	</nav>
 
-  <div class="row">
-    <div class="col-md-6">
-      <h2>Name: {{data[1]}}</h2> {% include 'camera_table.html' %}
-    </div>
-    <div class="col-md-6">
-    <h4>Latest Captured Image</h4>
-      <div class="col-md-10">
-      <img src="{{ url_for('static', filename='images/'+data2[0]) }}" class="img-responsive center">
-      </div>
-    </div>
-  </div>
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Name: {{data[1]}}</h2> {% include 'camera_table.html' %}
+		</div>
+		<div class="col-md-6">
+			<h4>Latest Captured Image</h4>
+			<div class="col-md-10">
+				<img src="{{ url_for('static', filename='images/'+data2[0]) }}" class="img-responsive center">
+			</div>
+		</div>
+	</div>
 
 
-  <hr>
+	<hr>
 
-  <div class="row-center">
-    <center>
-      <h2>View All Images</h2></center>
-    <center>
-      <h3><a href="/cameras/{{pager.current}}/0/">ALL IMAGE VIEW</a></h3></center>
+	<div class="row-center">
+		<center>
+			<h2>View All Images</h2></center>
+		<center>
+			<h3><a href="/cameras/{{pager.current}}/0/">ALL IMAGE VIEW</a></h3></center>
 
-  </div>
+	</div>
 
 
 </div>

@@ -59,12 +59,11 @@ def download_images():
             f.close()
 
             if(row[7] == md5('static/images/%s' % filepath)):
-                print("Camera %s has not updated. Same image...")
+                print("Camera %s has not updated. Image was removed from path...")
                 os.remove('static/images/%s' %(filepath))
-                print("Image was removed from path")
                 
             else:
-                print("Image %s from Camera %s is different" %(filepath, row[0]))
+                print("Image %s from Camera %s is different. Saving image..." %(filepath, row[0]))
 
                 sql2 = "UPDATE cameras SET mhash=%s WHERE cameraid = %s"
                 cur.execute(
