@@ -1,7 +1,8 @@
 SERVER
 source env/bin/activate
 export APP_SETTINGS="config.DevelopmentConfig"
-export DATABASE_URL="postgresql://postgres:password@127.0.0.1:5432/postgres"
+export DATABASE_URL="postgresql://krood20:password@localhost/krood20"
+
 
 
 SURAJ
@@ -13,4 +14,4 @@ DATABASE_URL=postgresql://suraj:password@localhost/amoseast
 KYLE
 source env/bin/activate
 export APP_SETTINGS="config.DevelopmentConfig"
-DATABASE_URL=
+DATABASE_URL= postgres://kylerood:@localhost/kylerood
