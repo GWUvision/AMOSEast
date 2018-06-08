@@ -13,7 +13,7 @@ APPNAME = 'AMOS East'
 app = Flask(__name__, static_folder=STATIC_FOLDER)
 app.config.update(APPNAME=APPNAME,)
 app.config.from_object(os.environ['APP_SETTINGS'])
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 # db.create_all()
 
