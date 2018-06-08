@@ -1,0 +1,5 @@
+CREATE TABLE cameras(cameraID serial primary key, name TEXT, url TEXT, latitude real,
+        longitude real, last_width int, last_height int, mhash text);
+
+CREATE TABLE images(rowid serial primary key, filepath text,
+        curr_time timestamp, cameraID int, FOREIGN KEY(cameraID) references cameras(cameraID));
