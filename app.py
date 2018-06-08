@@ -88,7 +88,12 @@ def image_view(ind=None, ind2=None):
 
 @app.route('/goto', methods=['POST', 'GET'])
 def goto():
-    return redirect('/cameras/' + request.form['index'])
+
+    if not request.form['index']:
+        return redirect('/cameras/0')
+    else:
+        return redirect('/cameras/' + request.form['index'])
+
 
 @app.route('/about')
 def aboutpage():
@@ -102,7 +107,7 @@ def mappage():
 
 
 @app.route('/submitcam')
-def sumbitcam():
+def submitcam():
     return render_template('submitcam.html')
 
 
