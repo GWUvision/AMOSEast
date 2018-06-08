@@ -13,7 +13,8 @@ try:
             FROM '/pless_nfs/home/krood20/AMOSEast/restapi_info/data2.csv' DELIMITER ',' CSV HEADER """)
     print("Copied data from csv to postgres database...")
 
-    ##psql -c "\copy cameras FROM '/pless_nfs/home/krood20/AMOSEast/restapi_info/data2.csv' delimiter ',' csv header"
+    # psql - c "\copy cameras FROM '/pless_nfs/home/suraj98/AMOSEast/restapi_info/data2.csv' delimiter ',' csv header"
+
 
 except Exception as e:
     print ("Unable to copy data...")
