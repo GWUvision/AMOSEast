@@ -47,6 +47,7 @@ def download_images():
     cur.execute(sql)
     rows = cur.fetchall()
 
+    # TODO: figure out threading
     for row in rows:
 
         try:
