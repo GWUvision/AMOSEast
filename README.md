@@ -31,3 +31,4 @@
 ###
 
 -   To start the server: nohup php gunicorn app:app </dev/null &>/dev/null &
+-   To kill the server: pkill -KILL -u username
