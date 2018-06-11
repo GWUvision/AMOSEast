@@ -26,16 +26,20 @@ headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KH
 DATABASE_URL = os.environ['DATABASE_URL']
 database = psycopg2.connect(DATABASE_URL, sslmode='require')
 
+# md5 hash to give a hash to specific camera
+
 
 def md5(fname):
     hash_md5 = hashlib.md5()
     with open(fname, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
             hash_md5.update(chunk)
+    # hexdigest is the string value of the hash
     return hash_md5.hexdigest()
 
 
 def download_images():
+    # connect to database and get list of cameras
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
     cur = conn.cursor()
 
@@ -59,11 +63,13 @@ def download_images():
             f.close()
 
             if(row[7] == md5('static/images/%s' % filepath)):
-                print("Camera %s has not updated. Image was removed from path..." %(row[0]))
-                os.remove('static/images/%s' %(filepath))
-                
+                print(
+                    "Camera %s has not updated. Image was removed from path..." % (row[0]))
+                os.remove('static/images/%s' % (filepath))
+
             else:
-                print("Image from Camera %s is different. Saving image..." %(row[0]))
+                print("Image from Camera %s is different. Saving image..." %
+                      (row[0]))
 
                 sql2 = "UPDATE cameras SET mhash=%s WHERE cameraid = %s"
                 cur.execute(
@@ -93,11 +99,6 @@ def download_images():
             print(err)
         except SocketError as err:
             print(err)
-            
-            
+
+
 download_images()
-
-
-
-
-

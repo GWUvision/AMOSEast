@@ -4,9 +4,7 @@ export APP_SETTINGS="config.DevelopmentConfig"
 export DATABASE_URL="postgresql://krood20:password@localhost/krood20"
 
 
-
 export DATABASE_URL="postgresql://suraj98:password@localhost/suraj98"
-
 
 
 SURAJ
