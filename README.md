@@ -27,3 +27,7 @@
 -   Able to rate images on _wow factor_
 -   MD5 Hash for images
 -   Take webcams with already stored data and link to them
+
+###
+
+-   To start the server: nohup php gunicorn app:app </dev/null &>/dev/null &
