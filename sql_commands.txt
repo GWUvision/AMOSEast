@@ -3,3 +3,5 @@ CREATE TABLE cameras(cameraid serial primary key, name TEXT, url TEXT, latitude 
 
 CREATE TABLE images(rowid serial primary key, filepath text,
         curr_time timestamp, cameraid int, FOREIGN KEY(cameraid) references cameras(cameraid));
+
+CREATE TABLE submit_cams(rowid serial, url text, description text, curr_time timestamp);

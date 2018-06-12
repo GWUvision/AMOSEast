@@ -42,6 +42,24 @@ class Image(db.Model):
     def __repr__(self):
         return '<image id={}>'.format(self.rowid)
 
+#new class specifically for reviewing submitted cameras
+#make sure this is right
+class submit_cam(db.Model):
+    __tablename__ = 'submit_cams'
+
+    rowid = db.Column(db.Integer)
+    url = db.Column(db.String())
+    description = db.Column(db.String())
+    curr_time = db.Column(db.DateTime)
+
+    def __init__(self, url, description, curr_time):
+        self.url = url
+        self.description = description
+        self.curr_time = curr_time
+
+    def __repr__(self):
+        return '<image id={}>'.format(self.rowid)
+
 # def get_image(the_id):
 #     # return Image.query.filter(Image.id == the_id).first()
 #     return Image.query.get_or_404(the_id)
