@@ -71,8 +71,7 @@ with gevent.Timeout(10000000, False):
         jobs = [pool.spawn(download_file, url) for url in urls]
         pool.join(jobs, type(jobs))
 
-print('Finished %s' % (finished, N))
-
+print('Finished {0} {1}'.format(finished, N))
 
 
 
