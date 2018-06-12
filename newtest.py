@@ -31,72 +31,117 @@ hosts = []
 for row in rows:
     hosts.append(row[2])
  
-queue = Queue.Queue()
-out_queue = Queue.Queue()
+from gevent import monkey; monkey.patch_socket()
+import gevent
+from gevent import socket
+import urllib2
+import os
 
- 
-class ThreadUrl(threading.Thread):
-    """Threaded Url Grab"""
-    def __init__(self, queue, out_queue):
-        threading.Thread.__init__(self)
-        self.queue = queue
-        self.out_queue = out_queue
- 
-    def run(self):
-        while True:
-            #grabs host from queue
-            host = self.queue.get()
- 
-            filename = host.replace('http://', '')
-            #grabs urls of hosts and then grabs chunk of webpage
-            url = urllib2.urlopen(host)
-            chunk = urllib.urlretrieve(url, filename)
-            #place chunk into out queue
-            self.out_queue.put(chunk)
- 
-            #signals to queue job is done
-            self.queue.task_done()
- 
-class DatamineThread(threading.Thread):
-    """Threaded Url Grab"""
-    def __init__(self, out_queue):
-        threading.Thread.__init__(self)
-        self.out_queue = out_queue
- 
-    def run(self):
-        while True:
-            #grabs host from queue
-            chunk = self.out_queue.get()
- 
-            #parse the chunk
-            # soup = BeautifulSoup(chunk)
-            # print soup.findAll(['title'])
- 
-            #signals to queue job is done
-            self.out_queue.task_done()
- 
-start = time.time()
-def main():
- 
-    #spawn a pool of threads, and pass them queue instance
-    for i in range(5):
-        t = ThreadUrl(queue, out_queue)
-        t.setDaemon(True)
-        t.start()
- 
-    #populate queue with data
-    for host in hosts:
-        queue.put(host)
- 
-    for i in range(5):
-        dt = DatamineThread(out_queue)
-        dt.setDaemon(True)
-        dt.start()
+from gevent.pool import Pool
+pool = Pool(30)
+N = 30
+
+f = open('images-urllist.txt')
+data = f.readlines()
+f.close()
+
+urls = []
+for d in data:
+    urls.append(d[:-1])
+
+finished = 0
+
+def download_file(url):
+    global finished
+    print('starting %s' % url)
+    try:
+        data = urllib2.urlopen(url, timeout=10000)
+    except urllib2.URLError, e:
+        print 'e : ' % e
+    else:
+        data = data.read()
+        filename = os.path.basename(url)
+        f = open(filename, 'wb')
+        f.write(data)
+        f.close()
+    finally:
+        finished += 1
+
+
+with gevent.Timeout(10000000, False):
+    for x in xrange(10, 10 + N):
+        jobs = [pool.spawn(download_file, url) for url in urls]
+        pool.join(jobs)
+
+print('Finished %s' % (finished, N))
  
  
-    #wait on the queue until everything has been processed
-    queue.join()
-    out_queue.join()
- 
-main()
-print "Elapsed Time: %s" % (time.time() - start)
+# queue = Queue.Queue()
+# out_queue = Queue.Queue()
+# 
+# 
+# class ThreadUrl(threading.Thread):
+#     """Threaded Url Grab"""
+#     def __init__(self, queue, out_queue):
+#         threading.Thread.__init__(self)
+#         self.queue = queue
+#         self.out_queue = out_queue
+# 
+#     def run(self):
+#         while True:
+#             #grabs host from queue
+#             host = self.queue.get()
+# 
+#             filename = host.replace('http://', '')
+#             #grabs urls of hosts and then grabs chunk of webpage
+#             url = urllib2.urlopen(host)
+#             chunk = urllib.urlretrieve(url, filename)
+#             #place chunk into out queue
+#             self.out_queue.put(chunk)
+# 
+#             #signals to queue job is done
+#             self.queue.task_done()
+# 
+# class DatamineThread(threading.Thread):
+#     """Threaded Url Grab"""
+#     def __init__(self, out_queue):
+#         threading.Thread.__init__(self)
+#         self.out_queue = out_queue
+# 
+#     def run(self):
+#         while True:
+#             #grabs host from queue
+#             chunk = self.out_queue.get()
+# 
+#             #parse the chunk
+#             # soup = BeautifulSoup(chunk)
+#             # print soup.findAll(['title'])
+# 
+#             #signals to queue job is done
+#             self.out_queue.task_done()
+# 
+# start = time.time()
+# def main():
+# 
+#     #spawn a pool of threads, and pass them queue instance
+#     for i in range(5):
+#         t = ThreadUrl(queue, out_queue)
+#         t.setDaemon(True)
+#         t.start()
+# 
+#     #populate queue with data
+#     for host in hosts:
+#         queue.put(host)
+# 
+#     for i in range(5):
+#         dt = DatamineThread(out_queue)
+#         dt.setDaemon(True)
+#         dt.start()
+# 
+# 
+#     #wait on the queue until everything has been processed
+#     queue.join()
+#     out_queue.join()
+# 
+# main()
+# print "Elapsed Time: %s" % (time.time() - start)
