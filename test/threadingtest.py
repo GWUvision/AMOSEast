@@ -66,10 +66,10 @@ def download_file(url):
         finished += 1
 
 
-with gevent.Timeout(10000000, False):
-    for x in range(10, 10 + N):
-        jobs = [pool.spawn(download_file, url) for url in urls]
-        pool.join(jobs, type(jobs))
+# with gevent.Timeout(10000000, False):
+for x in range(10, 10 + N):
+    jobs = [pool.spawn(download_file, url) for url in urls]
+    # pool.join(jobs, type(jobs))
 
 print('Finished {0} {1}'.format(finished, N))
 
