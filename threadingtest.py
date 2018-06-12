@@ -43,12 +43,13 @@ camera_urls = []
 for camera in cameras:
     camera_urls.append([camera[0], camera[2], camera[7]])
 
+
 def download_file(index, url, mhash):
     global finished
     print('starting %s' % url)
     try:
         data = urllib.request.urlopen(url, timeout=5)
-        
+
         dt = str(datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
         data = data.read()
         filename = os.path.basename(dt)
@@ -63,7 +64,7 @@ def download_file(index, url, mhash):
                 "Camera %s has not updated. Image was removed from path..." % (index))
             os.remove('static/images/%s' % (filepath))
         else:
-            print("Image from Camera %s is different. Saving image..." %(index))
+            print("Image from Camera %s is different. Saving image..." % (index))
             hash_update = "UPDATE cameras SET mhash=%s WHERE cameraid = %s"
             cur.execute(
                 hash_update, (md5('static/images/%s' % filepath), index,))
@@ -73,7 +74,7 @@ def download_file(index, url, mhash):
             insert_image_table = "INSERT INTO images(filepath, curr_time, cameraid) VALUES(%s, %s, %s)"
             cur.execute(insert_image_table, (filepath, dt, index))
             conn.commit()
-        
+
     except urllib.error.HTTPError as err:
         print(err)
     except urllib.error.URLError as err:
