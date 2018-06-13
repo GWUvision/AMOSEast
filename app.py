@@ -113,12 +113,8 @@ def mappage():
     return render_template('map.html')
 
 
-@app.route('/submitcam')
+@app.route('/submitcam', methods=['POST', 'GET'])
 def submitcam():
-    return render_template('submitcam.html')
-
-@app.route('/submitcam', methods=['POST'])
-def submit_cam_post():
     if request.method == 'POST':
         #get the url and description from the html
         url = request.form['url']
@@ -133,11 +129,10 @@ def submit_cam_post():
         if (code / 100 >= 4):
             print('Nothing here')
         else:
-
-        # query the database --> usually in the else
-        query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (url, description, curr_time)
-        conn.execute(query)
-        connection.commit()
+            # query the database --> usually in the else
+            query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (url, description, curr_time)
+            conn.execute(query)
+            connection.commit()
     return render_template('submitcam.html')
 
 @app.route('/moreinfo')
