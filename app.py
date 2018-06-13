@@ -113,7 +113,7 @@ def mappage():
     return render_template('map.html')
 
 
-@app.route('/submitcam', methods=['GET', 'POST'])
+@app.route('/submitcam', methods=['POST'])
 def submitcam():
     if request.method == 'POST':
         # get the url and description from the html
