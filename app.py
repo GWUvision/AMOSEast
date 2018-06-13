@@ -102,12 +102,12 @@ def goto():
         return redirect('/cameras/' + request.form['index'])
 
 
-@app.route('/about')
+@app.route('/about', methods=['POST'])
 def aboutpage():
     return render_template('about.html')
 
 
-@app.route('/map')
+@app.route('/map', methods=['POST'])
 def mappage():
     # implement google map api functionality here
     return render_template('map.html')
@@ -138,7 +138,7 @@ def submitcam():
     return render_template('submitcam.html')
 
 
-@app.route('/moreinfo')
+@app.route('/moreinfo', methods=['POST'])
 def moreinfo():
     return render_template('moreinfo.html')
 
