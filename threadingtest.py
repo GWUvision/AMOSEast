@@ -10,8 +10,7 @@ import http.client
 # import cv2
 # import imageio
 
-from gevent import monkey
-from gevent import socket
+from gevent import monkey, socket
 from gevent.pool import Pool
 
 from urllib.parse import urlparse
@@ -20,7 +19,6 @@ from socket import error as SocketError
 
 monkey.patch_socket()
 pool = Pool(10)
-finished = 0
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cur = conn.cursor()
@@ -45,7 +43,6 @@ for camera in cameras:
 
 
 def download_file(index, url, mhash):
-    global finished
     print('starting %s' % url)
     try:
         data = urllib.request.urlopen(url, timeout=5)
