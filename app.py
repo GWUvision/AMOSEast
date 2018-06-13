@@ -102,21 +102,25 @@ def goto():
         return redirect('/cameras/' + request.form['index'])
 
 
-@app.route('/about', methods=['POST'])
+@app.route('/about')
 def aboutpage():
     return render_template('about.html')
 
 
-@app.route('/map', methods=['POST'])
+@app.route('/map')
 def mappage():
     # implement google map api functionality here
     return render_template('map.html')
 
 
-@app.route('/submitcam', methods=['POST'])
+@app.route('/submitcam')
 def submitcam():
+    return render_template('submitcam.html')
+
+@app.route('/submitcam', methods=['POST'])
+def submit_cam_post():
     if request.method == 'POST':
-        # get the url and description from the html
+        #get the url and description from the html
         url = request.form['url']
         description = request.form['description']
         curr_time = datetime.datetime.now()
@@ -125,20 +129,18 @@ def submitcam():
         conn = get_db().cursor()
 
         # error checking the url
-#        code = urlopen(url).code
-#        if (code / 100 >= 4):
-#            print('Nothing here')
-#        else:
+        code = urlopen(url).code
+        if (code / 100 >= 4):
+            print('Nothing here')
+        else:
 
         # query the database --> usually in the else
         query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (url, description, curr_time)
         conn.execute(query)
         connection.commit()
-
     return render_template('submitcam.html')
 
-
-@app.route('/moreinfo', methods=['POST'])
+@app.route('/moreinfo')
 def moreinfo():
     return render_template('moreinfo.html')
 
