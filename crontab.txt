@@ -1,1 +1,4 @@
-0 * * * * cd /home/suraj/Documents/GWU/AMOSEast && /home/suraj/Documents/GWU/AMOSEast/env/bin/python /home/suraj/Documents/GWU/AMOSEast/test.py
+chmod a+x threadingtest.py
+
+
+0 * * * * cd /home/suraj/Documents/GWU/AMOSEast && /home/suraj/Documents/GWU/AMOSEast/env/bin/python /home/suraj/Documents/GWU/AMOSEast/threadingtest.py
