@@ -24,6 +24,7 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cur = conn.cursor()
 
 
+# md5 hash for cameras to check if a camera has not been updated
 def md5(fname):
     hash_md5 = hashlib.md5()
     with open(fname, "rb") as f:
@@ -39,9 +40,11 @@ cameras = cur.fetchall()
 
 camera_urls = []
 for camera in cameras:
+    # append the index, url, and current hash to a list
     camera_urls.append([camera[0], camera[2], camera[7]])
 
 
+# Using threading to download files here
 def download_file(index, url, mhash):
     print('starting %s' % url)
     try:
@@ -100,3 +103,25 @@ jobs = [pool.spawn(download_file, index, url, mhash)
 # pool.map(jobs)
 
 print('Downloaded images')
+
+
+def video_dir():
+
+    list_of_images = []
+    rootDir = 'images/'
+    for dirpath, dirnames, files in os.walk(rootDir, topdown=True):
+        dirnames.sort(key=int)
+        list_of_images.append(files)
+
+    for i in range(1, len(list_of_images), 1):
+        images_in_folder = []
+        os.makedirs('videos/%d' % (i), exist_ok=True)
+
+        for j in range(len(list_of_images[i])):
+            print(list_of_images[i][j])
+            file_path = os.path.join('images/%d' %
+                                     (i), list_of_images[i][j])
+
+            images_in_folder.append(imageio.imread(file_path))
+        imageio.mimsave('videos/%d/movie%d.mp4' %
+                        (i, i), images_in_folder)

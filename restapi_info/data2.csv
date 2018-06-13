@@ -1,4 +1,4 @@
-cameraid,name,url,latitude,longitude,last_width,last_height,
+cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 1,VT,http://www.hazecam.net/images/main/burlington_right.jpg,44.478739,-73.19164,500,250,72485842c6a5ae969201856f73abda7f
 2,Anthem school,http://wwc.instacam.com/instacamimg/PHNAS/PHNAS_l.jpg,33.2765,-112.1872,1280,720,9fd84b21315ebc1bd73ff7bec3a396fe
 3,Coolidge High School,http://wwc.instacam.com/instacamimg/CLDGE/CLDGE_l.jpg,39.075880734474,-76.868118734,1280,720,71ae57046fd2e3e2ef5ce1c286c2103f

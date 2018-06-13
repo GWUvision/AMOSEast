@@ -61,12 +61,15 @@ def directory_view(ind=1):
 
     conn.execute(camera_images_query)
     camera_images = conn.fetchall()
+    try:
 
-    if ind >= pager.count:
-        return render_template("404.html"), 404
-    else:
-        pager.current = ind
-        return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1])
+        if ind >= pager.count:
+            return render_template("404.html"), 404
+        else:
+            pager.current = ind
+            return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1])
+    except IndexError as e:
+        return render_template('404.html'), 404
 
 
 @app.route('/cameras/<int:ind>/<int:ind2>/')
@@ -78,13 +81,16 @@ def image_view(ind=None, ind2=None):
     conn.execute(camera_images_query)
     data2 = conn.fetchall()
     pager2 = Pager(len(data2))
+    try:
 
-    if ind2 >= pager2.count or ind >= pager.count:
-        return render_template("404.html"), 404
-    else:
-        pager.current = ind
-        pager2.current = ind2
-        return render_template('imageview.html', index=ind2, pager=pager, pager2=pager2, data2=data2[ind2], data=all_cameras[ind])
+        if ind2 >= pager2.count or ind >= pager.count:
+            return render_template("404.html"), 404
+        else:
+            pager.current = ind
+            pager2.current = ind2
+            return render_template('imageview.html', index=ind2, pager=pager, pager2=pager2, data2=data2[ind2], data=all_cameras[ind])
+    except IndexError as e:
+        return render_template('404.html'), 404
 
 
 @app.route('/goto', methods=['POST', 'GET'])
@@ -107,25 +113,26 @@ def mappage():
     return render_template('map.html')
 
 
-@app.route('/submitcam', methods=['GET','POST'])
+@app.route('/submitcam', methods=['GET', 'POST'])
 def submitcam():
-    if request.method=='POST':
-        #get the url and description from the html
-        url=request.form['url']
-        description=request.form['description']
+    if request.method == 'POST':
+        # get the url and description from the html
+        url = request.form['url']
+        description = request.form['description']
         curr_time = datetime.datetime.now()
 
-        #connect to the database
+        # connect to the database
         conn = get_db().cursor()
 
-        #error checking the url
+        # error checking the url
 #        code = urlopen(url).code
 #        if (code / 100 >= 4):
 #            print('Nothing here')
 #        else:
 
-        #query the database --> usually in the else
-        query="INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (url,description,curr_time)
+        # query the database --> usually in the else
+        query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
+            url, description, curr_time)
         conn.execute(query)
         connection.commit()
 

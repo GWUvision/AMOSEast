@@ -26,9 +26,8 @@ headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KH
 DATABASE_URL = os.environ['DATABASE_URL']
 database = psycopg2.connect(DATABASE_URL, sslmode='require')
 
+
 # md5 hash to give a hash to specific camera
-
-
 def md5(fname):
     hash_md5 = hashlib.md5()
     with open(fname, "rb") as f:
