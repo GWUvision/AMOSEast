@@ -131,8 +131,7 @@ def submitcam():
 #        else:
 
         # query the database --> usually in the else
-        query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
-            url, description, curr_time)
+        query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (url, description, curr_time)
         conn.execute(query)
         connection.commit()
 
