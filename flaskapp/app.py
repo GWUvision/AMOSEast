@@ -64,7 +64,7 @@ def directory_view(ind=1):
     try:
 
         if ind >= pager.count:
-            return render_template("404.html"), 404
+            return render_template("404.html")
         else:
             pager.current = ind
 
@@ -78,7 +78,7 @@ def directory_view(ind=1):
 
             return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
     except IndexError as e:
-        return render_template('404.html'), 404
+        return render_template('404.html')
 
 
 @app.route('/cameras/<int:ind>/<int:ind2>/')
@@ -99,7 +99,7 @@ def image_view(ind=None, ind2=None):
             pager2.current = ind2
             return render_template('imageview.html', index=ind2, pager=pager, pager2=pager2, data2=data2[ind2], data=all_cameras[ind])
     except IndexError as e:
-        return render_template('404.html'), 404
+        return render_template('404.html')
 
 
 @app.route('/goto', methods=['POST', 'GET'])
