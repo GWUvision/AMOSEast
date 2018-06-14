@@ -1,9 +1,7 @@
 {% extends "layout.html" %} {% block title %}Dataset Info {% endblock %} {% block content %}
 <div class="container" style="width:100%;">
-
 	<nav class="navbar">
 		<div class="navbar-header">
-
 			<span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
 		</div>
 		<ul class="nav navbar-nav">
@@ -11,27 +9,20 @@
 			{% include 'links.html' %}
 		</ul>
 	</nav>
-
 </div>
-
 <h1><center>Information about AMOS</center></h1>
-
 <h3>Background</h3>
-
 <h4>The Archive of Many Outdoor Scenes (AMOS) dataset contains images taken from webcams located around the world, the vast majority in the United States. Construction of AMOS began in March, 2006 and continues to this day. This dataset is unique in that it contains images from significantly more scenes than in previous work.</h4>
 <br/>
-
 <h4>
 	The cameras in the dataset were selected by a group of graduate and undergraduate students using a standard web search engine. Images from each camera are captured several times per hour using a custom web crawler that ignores duplicate images and records
 	the capture time. The images from all cameras are 24-bit JPEG files that vary in size. Most are 640 x 480 pixels, but some are at a much higher resolution.
 </h4>
 <br/>
-
 <h4>
 	Each image's capture time is recorded in the image's file name. We use the format yyyymmdd_hhmmss.jpg (4 digits for year, and 2 digits each for month, day, hour minute, and second), and the timestamp is in GMT.
 </h4>
 <br/>
-
 <h4>
 	Why collect so many images? One impetus for collecting these images was to provide a dataset to enable empirical assessment of our ideas regarding the statistics of natural scenes captured from static cameras. These statistics have not been well studied
 	and are of great importance to surveillance algorithm and application development.

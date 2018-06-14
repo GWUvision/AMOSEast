@@ -1,19 +1,13 @@
 {% extends "layout.html" %} {% block title %}Home {% endblock %} {% block content %}
 
-
 <div class="container" style="width:100%;">
-
 	<nav class="navbar">
 		<div class="navbar-header">
-
 			<span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
 		</div>
 		<ul class="nav navbar-nav">
 			<li><a href="/cameras/0/">Cameras</a></li>
-
 			{% include 'links.html' %}
-
-
 		</ul>
 	</nav>
 </div>
@@ -30,63 +24,53 @@
 		<p>AMOS is a collection of long-term timelapse imagery from publicly accessible outdoor webcams around the world. We explore how to use these images to learn about the world around us, with a focus on understanding changes in natural environments and understanding
 			how people use public spaces. To support these applications, we work on fundamental research in camera geolocation, camera calibration, camera registration to GIS data, and the automatic annotation of events and objects in a scene. The AMOS project
 			began in March 2006 and is currently maintained at Washington University in St. Louis by Robert Pless and at the University of Kentucky by Nathan Jacobs. We encourage you to learn more about the AMOS dataset, project participants, and publications.
-			QUICK TEST TO SEE SOMETHING
-
-
-
 	</div>
+</div>
 
-	Another test to try something
 
 
-	<style>
-		/* Set the size of the div element that contains the map */
+<style>
+	/* Set the size of the div element that contains the map */
 
-		#map {
-			height: 400px;
-			/* The height is 400 pixels */
-			width: 100%;
-			/* The width is the width of the web page */
-		}
-	</style>
+	#map {
+		height: 400px;
+		/* The height is 400 pixels */
+		width: 100%;
+		/* The width is the width of the web page */
+	}
+</style>
 
-	<h3>My Google Maps Demo</h3>
-	<!--The div element for the map -->
-	<div id="map"></div>
-	<script>
-		// Initialize and add the map
-		function initMap() {
-			// The location of Uluru
-			var uluru = {
-				lat: 44.478739,
-				lng: -73.19164
-			};
-			// The map, centered at Uluru
-			var map = new google.maps.Map(
-				document.getElementById('map'), {
-					zoom: 4,
-					center: uluru
-				});
-			// The marker, positioned at Uluru
-			var marker = new google.maps.Marker({
-				position: uluru,
-				map: map
+<h3>My Google Maps Demo</h3>
+<!--The div element for the map -->
+<div id="map"></div>
+<script>
+	// Initialize and add the map
+	function initMap() {
+		// The location of Uluru
+		var uluru = {
+			lat: 44.478739,
+			lng: -73.19164
+		};
+		// The map, centered at Uluru
+		var map = new google.maps.Map(
+			document.getElementById('map'), {
+				zoom: 4,
+				center: uluru
 			});
-		}
-	</script>
-	<!--Load the API from the specified URL
+		// The marker, positioned at Uluru
+		var marker = new google.maps.Marker({
+			position: uluru,
+			map: map
+		});
+	}
+</script>
+<!--Load the API from the specified URL
 	      * The async attribute allows the browser to render the page while the API loads
 	      * The key parameter will contain your own API key (which is not needed for this tutorial)
 	      * The callback parameter executes the initMap() function
 	      -->
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdLYBRezN15XghhsB7fiy6jROT4uPsda8&callback=initMap">
-	</script>
-
-
-
-
-
-</div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdLYBRezN15XghhsB7fiy6jROT4uPsda8&callback=initMap">
+</script>
 
 
 

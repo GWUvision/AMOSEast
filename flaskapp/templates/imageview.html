@@ -1,10 +1,7 @@
 {% extends "layout.html" %} {% block title %}Images {% endblock %} {% block content %}
-
 <div class="container" style="width:100%;">
-
 	<nav class="navbar">
 		<div class="navbar-header">
-
 			<span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
 		</div>
 		<form class="navbar-form navbar-left" role="search" name="goto" action="/goto" method="POST">
@@ -18,10 +15,8 @@
 			<li><a href="/cameras/{{pager.current}}/{{pager2.next}}">Next Image &rarrhk;</a></li>
 			<li><a href="/cameras/{{pager.current}}/">Back to Camera</a></li>
 			{% include 'links.html' %}
-
 		</ul>
 	</nav>
-
 	<div class="row">
 		<div class="col-md-6">
 			<img src="{{ url_for('static', filename='images/'+data2[0]) }}" class="img-responsive center-block" alt="">
@@ -30,5 +25,4 @@
 			<h2>Name: {{data[1]}}</h2> {% include 'image_table.html' %}
 		</div>
 	</div>
-
 	{% endblock %}
