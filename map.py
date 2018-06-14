@@ -10,8 +10,8 @@ all_cameras_query = "SELECT cameraid, name, url, latitude, longitude FROM camera
 conn.execute(all_cameras_query)
 all_cameras = conn.fetchall()
 
-print(all_cameras[0][3])
-print(all_cameras[0][4])
+# print(all_cameras[0][3])
+# print(all_cameras[0][4])
 
 weather = Weather(unit=Unit.FAHRENHEIT)
 

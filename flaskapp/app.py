@@ -5,6 +5,8 @@ import os
 from flask import Flask, render_template, request, redirect, url_for, g
 from pager import Pager
 from flask_sqlalchemy import SQLAlchemy
+from weather import Weather, Unit
+
 
 
 STATIC_FOLDER = 'static'
@@ -13,7 +15,7 @@ APPNAME = 'AMOS East'
 app = Flask(__name__, static_folder=STATIC_FOLDER)
 app.config.update(APPNAME=APPNAME,)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 from models import *
@@ -66,7 +68,14 @@ def directory_view(ind=1):
             return render_template("404.html"), 404
         else:
             pager.current = ind
-            return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1])
+
+            weather = Weather(unit=Unit.FAHRENHEIT)
+                                    
+            lookup = weather.lookup_by_latlng(all_cameras[ind][3],all_cameras[ind][4])
+            condition = lookup.condition
+            w_info = [condition.temp + '\N{DEGREE SIGN}F and ' + condition.text]
+            
+            return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
     except IndexError as e:
         return render_template('404.html'), 404
 
@@ -149,4 +158,4 @@ def close_connection(exception):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
