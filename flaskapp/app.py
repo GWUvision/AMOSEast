@@ -64,21 +64,24 @@ def directory_view(ind=1):
     try:
 
         if ind >= pager.count:
-            return render_template("404.html")
+            return render_template("404.html"), 404
         else:
             pager.current = ind
+            try:
 
-            weather = Weather(unit=Unit.FAHRENHEIT)
+                weather = Weather(unit=Unit.FAHRENHEIT)
 
-            lookup = weather.lookup_by_latlng(
-                all_cameras[ind][3], all_cameras[ind][4])
-            condition = lookup.condition
-            w_info = [condition.temp +
-                      '\N{DEGREE SIGN}F and ' + condition.text]
-
+                lookup = weather.lookup_by_latlng(all_cameras[ind][3], all_cameras[ind][4])
+                condition = lookup.condition
+                w_info = [condition.temp +'\N{DEGREE SIGN}F and ' + condition.text]
+            except AttributeError as e:
+                w_info = ['No weather information available']
+                return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
+            except KeyError as e:
+                return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
             return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
     except IndexError as e:
-        return render_template('404.html')
+        return render_template('404.html'), 404
 
 
 @app.route('/cameras/<int:ind>/<int:ind2>/')
@@ -99,7 +102,7 @@ def image_view(ind=None, ind2=None):
             pager2.current = ind2
             return render_template('imageview.html', index=ind2, pager=pager, pager2=pager2, data2=data2[ind2], data=all_cameras[ind])
     except IndexError as e:
-        return render_template('404.html')
+        return render_template('404.html'), 404
 
 
 @app.route('/goto', methods=['POST', 'GET'])
