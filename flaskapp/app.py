@@ -8,7 +8,6 @@ from flask_sqlalchemy import SQLAlchemy
 from weather import Weather, Unit
 
 
-
 STATIC_FOLDER = 'static'
 APPNAME = 'AMOS East'
 
@@ -70,11 +69,13 @@ def directory_view(ind=1):
             pager.current = ind
 
             weather = Weather(unit=Unit.FAHRENHEIT)
-                                    
-            lookup = weather.lookup_by_latlng(all_cameras[ind][3],all_cameras[ind][4])
+
+            lookup = weather.lookup_by_latlng(
+                all_cameras[ind][3], all_cameras[ind][4])
             condition = lookup.condition
-            w_info = [condition.temp + '\N{DEGREE SIGN}F and ' + condition.text]
-            
+            w_info = [condition.temp +
+                      '\N{DEGREE SIGN}F and ' + condition.text]
+
             return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
     except IndexError as e:
         return render_template('404.html'), 404
