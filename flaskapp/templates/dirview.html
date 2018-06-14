@@ -37,19 +37,19 @@
 				#map {
 					height: 400px;
 					/* The height is 400 pixels */
-					width: 100%;
+					width: 50%;
 					/* The width is the width of the web page */
 				}
 			</style>
 
-			<h3>My Google Maps Demo</h3>
+			<h3>Location of Camera</h3>
 			<!--The div element for the map -->
 			<div id="map"></div>
 			<script>
 				// Initialize and add the map
 				function initMap() {
 					// The location of Uluru
-					var uluru = {
+					var loc = {
 						lat: 44.478739,
 						lng: -73.19164
 					};
@@ -57,11 +57,11 @@
 					var map = new google.maps.Map(
 						document.getElementById('map'), {
 							zoom: 4,
-							center: uluru
+							center: loc
 						});
 					// The marker, positioned at Uluru
 					var marker = new google.maps.Marker({
-						position: uluru,
+						position: loc,
 						map: map
 					});
 				}
