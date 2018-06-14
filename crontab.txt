@@ -8,4 +8,4 @@ source ~/.bashrc and exit out of terminal
 chmod a+x threadingtest.py
 
 
-0 * * * * cd /pless_nfs/home/suraj98/AMOSEast && /pless_nfs/home/suraj98/AMOSEast/env/bin/python /pless_nfs/home/suraj98/AMOSEast/threadingtest.py >> out.txt  2>&1
+0 * * * * cd /pless_nfs/home/suraj98/AMOSEast && /pless_nfs/home/suraj98/AMOSEast/env/bin/python /pless_nfs/home/suraj98/AMOSEast/threadingtest.py >> image_log_file.txt  2>&1
