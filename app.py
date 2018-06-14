@@ -12,11 +12,9 @@ APPNAME = 'AMOS East'
 
 app = Flask(__name__, static_folder=STATIC_FOLDER)
 app.config.update(APPNAME=APPNAME,)
-# app.config.from_object(os.environ['APP_SETTINGS'])
-# app.config.from_object('config')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
-# db.create_all()
 
 from models import *
 
