@@ -47,7 +47,7 @@ for camera in cameras:
 
 # Using threading to download files here
 def download_file(index, url, mhash):
-    print('starting %s' % url)
+    # print('starting %s' % url)
     try:
         data = urllib.request.urlopen(url, timeout=5)
 
@@ -65,7 +65,7 @@ def download_file(index, url, mhash):
                 "Camera %s has not updated. Image was removed from path..." % (index))
             os.remove('static/images/%s' % (filepath))
         else:
-            print("Image from Camera %s is different. Saving image..." % (index))
+            # print("Image from Camera %s is different. Saving image..." % (index))
             hash_update = "UPDATE cameras SET mhash=%s WHERE cameraid = %s"
             cur.execute(
                 hash_update, (md5('static/images/%s' % filepath), index,))
