@@ -1,0 +1,50 @@
+================================================================================================
+SQL COMMANDS FOR DATABASE
+================================================================================================
+
+CREATE TABLE cameras(cameraid serial primary key, name TEXT, url TEXT, latitude real,
+        longitude real, last_width int, last_height int, mhash text);
+
+CREATE TABLE images(rowid serial primary key, filepath text,
+        curr_time timestamp, cameraid int, FOREIGN KEY(cameraid) references cameras(cameraid));
+
+CREATE TABLE submit_cams(rowid serial, url text, description text, curr_time timestamp);
+
+================================================================================================
+environment variables for amostest and local
+================================================================================================
+source env/bin/activate
+
+SERVER
+export DATABASE_URL="postgresql://krood20:password@localhost/krood20"
+
+export DATABASE_URL="postgresql://suraj98:password@localhost/suraj98"
+
+SURAJ
+export DATABASE_URL=postgresql://suraj:password@localhost/amoseast
+
+KYLE
+export DATABASE_URL= postgres://kylerood:@localhost/kylerood
+
+
+================================================================================================
+Crontab set up to run python program for image downloading
+================================================================================================
+sudo nano .bashrc
+add to bashrc:
+DATABASE_URL=postgresql://suraj98:password@localhost/suraj98
+
+source ~/.bashrc and exit out of terminal
+
+
+chmod a+x threadingtest.py
+
+
+0 * * * * cd /pless_nfs/home/suraj98/AMOSEast && /pless_nfs/home/suraj98/AMOSEast/env/bin/python /pless_nfs/home/suraj98/AMOSEast/threadingtest.py >> image_log_file.txt  2>&1
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+{% extends "layout.html" %} {% block title %}Submit Camera {% endblock %} {% block content %}
+
+
+<div class="container" style="width:100%;">
+
+	<nav class="navbar">
+		<div class="navbar-header">
+
+			<span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="/cameras/0/">Cameras</a></li>
+			{% include 'links.html' %}
+
+
+		</ul>
+	</nav>
+</div>
+
+<h4>Add a camera</h4>
+
+<p>
+	Type in the url and your description below for evaluation!
+</p>
+
+<div class="large-8 columns">
+	<form action="/submitcam" method="post">
+		<input type="text" placeholder="url" name="url">
+		<br><br>
+		<input type="text" placeholder="Enter your description here" name="description" cols="50" rows="4"></textarea>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+
+{% endblock %}
