@@ -53,6 +53,8 @@
         	locations.push(loc);
         }
 
+        document.getElementById("insert").innerHTML = locations[0];
+
         var markers = locations.map(function(location, i) {
           return new google.maps.Marker({
             position: location,
@@ -66,6 +68,9 @@
       }
 
     </script>
+
+    <h1 id="insert"></h1>
+
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
     <script async defer
