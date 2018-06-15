@@ -53,7 +53,9 @@
           var lg_tmp = {{lg[i]}};
 
         	var loc = {lat: lt_tmp, lng: lg_tmp};
-        	locations.push(loc);
+        	var temp = locations;
+          //join the original array with the new values
+          locations = temp.concat(loc);
         }
 
 
