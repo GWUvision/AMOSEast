@@ -37,6 +37,17 @@
         // Note: The code uses the JavaScript Array.prototype.map() method to
         // create an array of markers based on a given "locations" array.
         // The map() method here has nothing to do with the Google Maps API.
+        var locations = []
+
+        lt_size = {{lt}}.length;
+
+        var i;
+        //putting all of the pins on the map
+        for(i = 0; i < lt_size; i++){
+        	var loc = {lat: {{lt[i]}}, lng: {{lg[i]}}};
+        	locations.push(loc);
+        }
+
         var markers = locations.map(function(location, i) {
           return new google.maps.Marker({
             position: location,
@@ -48,18 +59,6 @@
         var markerCluster = new MarkerClusterer(map, markers,
             {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
       }
-      var locations = []
-
-      lt_size = {{lt}}.length;
-
-      var i;
-      //putting all of the pins on the map
-      for(i = 0; i < lt_size; i++){
-      	var loc = {lat: {{lt[i]}}, lng: {{lg[i]}}};
-      	locations.push(loc);
-      }
-
-
 
       /*var locations = [
         {lat: -31.563910, lng: 147.154312},
