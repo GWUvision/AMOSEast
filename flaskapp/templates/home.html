@@ -52,6 +52,7 @@
 </script>
 
 	<h3>Location of Camera</h3>
+	<p id="test"></p>
 	<!--The div element for the map -->
 	<div id="map"></div>
 	<script>
@@ -70,6 +71,7 @@
 				});
 
 			lt_size = {{lt}}.length;
+			document.getElementById("test").innerHTML = lt_size;
 
 			var i;
 			//putting all of the pins on the map
