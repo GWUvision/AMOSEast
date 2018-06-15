@@ -49,7 +49,7 @@ def homepage():
     image_count = conn.fetchone()[0]
     image_count = '{:,}'.format(image_count)
 
-    return render_template('home.html', camera_count=camera_count, image_count=image_count)
+    return render_template('home.html', data=all_cameras[ind], camera_count=camera_count, image_count=image_count)
 
 
 @app.route('/cameras/<int:ind>/')
