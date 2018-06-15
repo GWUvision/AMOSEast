@@ -166,7 +166,10 @@ def close_connection(exception):
 
 @app.route('/cluster_test')
 def cluster_test():
-    return render_template('cluster_test.html')
+    lng = np.array(all_cameras)[:,4]
+    lat = np.array(all_cameras)[:,3]
+
+    return render_template('cluster_test.html', lg=lng, lt=lat)
 
 if __name__ == '__main__':
     app.run()
