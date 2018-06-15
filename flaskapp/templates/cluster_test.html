@@ -20,6 +20,7 @@
     </style>
   </head>
   <body>
+    <h1>Displaying all cams {{lt[0]}} {{lg[0]}}</h1>
     <div id="map"></div>
     <script>
 
@@ -37,16 +38,19 @@
         // Note: The code uses the JavaScript Array.prototype.map() method to
         // create an array of markers based on a given "locations" array.
         // The map() method here has nothing to do with the Google Maps API.
-        var locations = []
+        var locations = [
+          {lat: {{lt[0]}}, lng: {{lg[0]}}},
+          {lat: {{lt[1]}}, lng: {{lg[1]}}}
+        ]
 
-        lt_size = {{lt}}.length;
+        /*lt_size = {{lt}}.length;
 
         var i;
         //putting all of the pins on the map
         for(i = 0; i < lt_size; i++){
         	var loc = {lat: {{lt[i]}}, lng: {{lg[i]}}};
         	locations.push(loc);
-        }
+        }*/
 
         var markers = locations.map(function(location, i) {
           return new google.maps.Marker({
