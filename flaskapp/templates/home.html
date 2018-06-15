@@ -17,54 +17,6 @@
 	<div class="col-lg-6">
 		<h2>Put some image here or example of images</h2>
 
-		<style>
-			/* Set the size of the div element that contains the map */
-
-			#map {
-				height: 400px;
-				/* The height is 400 pixels */
-				width: 50%;
-				/* The width is the width of the web page */
-			}
-		</style>
-
-		<h3>Location of Camera</h3>
-		<!--The div element for the map -->
-		<div id="map"></div>
-		<script>
-			var lon = long;
-			var latit = lat;
-			//var long = {{ data[4]|round(4) }};
-			//var latit = {{ data[3]|round(3) }};
-
-			// Initialize and add the map
-			function initMap() {
-				// The location of Uluru
-				var loc = {
-					lat:  latit,  //44.478739,
-					lng: long //-73.19164
-				};
-				// The map, centered at Uluru
-				var map = new google.maps.Map(
-					document.getElementById('map'), {
-						zoom: 4,
-						center: loc
-					});
-				// The marker, positioned at Uluru
-				var marker = new google.maps.Marker({
-					position: loc,
-					map: map
-				});
-			}
-		</script>
-		<!--Load the API from the specified URL
-						* The async attribute allows the browser to render the page while the API loads
-						* The key parameter will contain your own API key (which is not needed for this tutorial)
-						* The callback parameter executes the initMap() function
-						-->
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdLYBRezN15XghhsB7fiy6jROT4uPsda8&callback=initMap">
-		</script>
-
 	</div>
 	<div class="col-lg-6">
 		<img src="/static/logo.png" alt="AMOS" width="400" height="100">
