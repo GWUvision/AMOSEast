@@ -1,6 +1,7 @@
 import psycopg2
 import datetime
 import os
+import numpy
 
 from flask import Flask, render_template, request, redirect, url_for, g
 from pager import Pager
@@ -49,7 +50,7 @@ def homepage():
     image_count = conn.fetchone()[0]
     image_count = '{:,}'.format(image_count)
 
-    lng = all_cameras[:,[4]]
+    lng = all_cameras[:,4]
     la = all_cameras[:,[3]]
 
     return render_template('home.html', long=lng, lat=la, camera_count=camera_count, image_count=image_count)
