@@ -1,5 +1,16 @@
 {% extends "layout.html" %} {% block title %}Home {% endblock %} {% block content %}
 
+<style>
+	/* Set the size of the div element that contains the map */
+
+	#map {
+		height: 400px;
+		/* The height is 400 pixels */
+		width: 50%;
+		/* The width is the width of the web page */
+	}
+</style>
+
 <div class="container" style="width:100%;">
 	<nav class="navbar">
 		<div class="navbar-header">
@@ -25,20 +36,54 @@
 
 	long_size = len(long)
 	latit_size = len(latit)
-	document.write("<br>Test1")
+	//document.write("<br>Test1")
+	/*
+		var i;
+		//getting the longitudes
+		for(i = 0; i < long_size; i++){
+			document.write("<br>Test1")
+		}
 
-	var i;
-	//getting the longitudes
-	for(i = 0; i < long_size; i++){
-		document.write("<br>Test1")
-	}
-
-	//getting the latitudes
-	for(i = 0; i < long_size; i++){
-		document.write("<br>Test2")
-	}
+		//getting the latitudes
+		for(i = 0; i < long_size; i++){
+			document.write("<br>Test2")
+		}*/
 
 </script>
+
+	<h3>Location of Camera</h3>
+	<!--The div element for the map -->
+	<div id="map"></div>
+	<script>
+		//var long = {{ data[4]|round(4) }};
+		//var latit = {{ data[3]|round(3) }};
+		// Initialize and add the map
+		function initMap() {
+			// The location of Uluru
+			var loc = {
+				lat:  latit[0],  //44.478739,
+				lng: long[0] //-73.19164
+			};
+			// The map, centered at Uluru
+			var map = new google.maps.Map(
+				document.getElementById('map'), {
+					zoom: 4,
+					center: loc
+				});
+			// The marker, positioned at Uluru
+			var marker = new google.maps.Marker({
+				position: loc,
+				map: map
+			});
+		}
+	</script>
+	<!--Load the API from the specified URL
+					* The async attribute allows the browser to render the page while the API loads
+					* The key parameter will contain your own API key (which is not needed for this tutorial)
+					* The callback parameter executes the initMap() function
+					-->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdLYBRezN15XghhsB7fiy6jROT4uPsda8&callback=initMap">
+	</script>
 
 
 	</div>
