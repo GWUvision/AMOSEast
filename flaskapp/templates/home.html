@@ -34,9 +34,6 @@
 	var long = {{lg}}.slice();
 	var latit = {{lt}}.slice();
 
-	console.log({{lg[0]}})
-	console.log({{lt[0]}})
-
 	//long_size = len(long)
 	//latit_size = len(latit)
 	//document.write("<br>Test1")
@@ -62,8 +59,8 @@
 		function initMap() {
 			// The location of Uluru
 			var loc = {
-				lat:  latit[0],
-				lng: long[0]
+				lat:  {{lg[0]}},
+				lng: {{lt[0]}}
 			};
 			// The map, centered at Uluru
 			var map = new google.maps.Map(
