@@ -73,27 +73,17 @@
 
 			var i;
 			//putting all of the pins on the map
-		//	for(i = 0; i < lt_size; i++){
-				var loc1 = {
-					lat:  {{lt[0]}},
-					lng: {{lg[0]}}
+			for(i = 0; i < lt_size; i++){
+				var loc = {
+					lat:  {{lt[i]}},
+					lng: {{lg[i]}}
 				};
 
-				var loc2 = {
-					lat:  {{lt[1]}},
-					lng: {{lg[1]}}
-				};
-
-				var pin1 = new google.maps.Marker({
-					position: loc1,
+				var pin = new google.maps.Marker({
+					position: loc,
 					map: map
 				});
-
-				var pin2 = new google.maps.Marker({
-					position: loc2,
-					map: map
-				});
-			//}
+			}
 		}
 	</script>
 	<!--Load the API from the specified URL
