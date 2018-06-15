@@ -48,7 +48,20 @@
         var markerCluster = new MarkerClusterer(map, markers,
             {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
       }
-      var locations = [
+      var locations = []
+
+      lt_size = {{lt}}.length;
+
+      var i;
+      //putting all of the pins on the map
+      for(i = 0; i < lt_size; i++){
+      	var loc = {lat: {{lt[i]}}, lng: {{lg[i]}}};
+      	locations.push(loc);
+      }
+
+
+
+      /*var locations = [
         {lat: -31.563910, lng: 147.154312},
         {lat: -33.718234, lng: 150.363181},
         {lat: -33.727111, lng: 150.371124},
@@ -72,7 +85,7 @@
         {lat: -42.734358, lng: 147.501315},
         {lat: -42.735258, lng: 147.438000},
         {lat: -43.999792, lng: 170.463352}
-      ]
+      ]*/
     </script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
