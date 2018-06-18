@@ -23,7 +23,7 @@ db = SQLAlchemy(app)
 from models import *
 
 DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='require').cursor()
+conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
 all_cameras_query = "SELECT cameraid, name, url, latitude, longitude FROM cameras ORDER BY cameraid"
 conn.execute(all_cameras_query)
 all_cameras = conn.fetchall()
