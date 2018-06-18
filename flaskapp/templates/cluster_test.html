@@ -38,13 +38,13 @@
         // Note: The code uses the JavaScript Array.prototype.map() method to
         // create an array of markers based on a given "locations" array.
         // The map() method here has nothing to do with the Google Maps API.
-        /*var locations = [
+        var locations = [
           {lat: {{lt[0]}}, lng: {{lg[0]}}},
           {lat: {{lt[1]}}, lng: {{lg[1]}}}
-        ]*/
+        ]
 
         //lt_size = {{lt}}.length;
-        var locations = [];
+        /*var locations = [];
 
         var i;
         //putting all of the pins on the map
@@ -56,7 +56,7 @@
         	var temp = locations;
           //join the original array with the new values
           locations = temp.concat(loc);
-        }
+        }*/
 
 
         var markers = locations.map(function(location, i) {
