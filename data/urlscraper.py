@@ -2,6 +2,7 @@ import eventlet
 import json
 import requests
 import sqlite3
+import csv
 import urllib.request
 from socket import timeout
 
@@ -64,3 +65,10 @@ class URLExtractor(object):
                             conn.execute(query, (index+1, entry['title'], value, entry['latitude'], entry['longitude'], entry['last_width'], entry['last_height']))
 
                             db.commit()
+                            
+with open('data.csv', 'rb') as inp, open('data_edit.csv', 'wb') as out:
+    writer = csv.writer(out)
+    for row in csv.reader(inp):
+        string = row[2]
+        if string[:4] == "http":
+            writer.writerow(row)
