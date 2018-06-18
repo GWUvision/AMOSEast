@@ -33,7 +33,7 @@ pager = Pager(len(all_cameras))
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
-        db = g._database = psycopg2.connect(DATABASE_URL, sslmode='require')
+        db = g._database = psycopg2.connect(DATABASE_URL, sslmode='allow')
         return db
 
 
