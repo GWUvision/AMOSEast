@@ -1,3 +1,8 @@
+<head>
+    {{ moment.include_jquery() }}
+    {{ moment.include_moment() }}
+</head>
+
 <table class="table table-striped">
 	<tbody>
 		<tr>
@@ -14,7 +19,7 @@
 		</tr>
 		<tr>
 			<td><b>Last Captured:</b></td>
-			<td>{{ data2[1] }}</td>
+			<td>{{ moment(data2[1]).format('MMMM Do YYYY, h:mm:ss a') }}</td>
 		</tr>
 		<tr>
 			<td><b>Current Weather:</b></td>
