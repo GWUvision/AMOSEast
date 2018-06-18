@@ -9,4 +9,5 @@ for path, subdirs, files in os.walk(root):
         # print(os.path.splitext(os.path.basename(name)))
         index, date, time = name.split('_')
         print(index, date, time)
-        
+        # datetime = date.split[:2]
+        # print(datetime)
