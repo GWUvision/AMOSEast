@@ -1,6 +1,5 @@
 <head>
-    {{ moment.include_jquery() }}
-    {{ moment.include_moment() }}
+	{{ moment.include_jquery() }} {{ moment.include_moment() }}
 </head>
 
 <table class="table table-striped">
@@ -24,6 +23,10 @@
 		<tr>
 			<td><b>Current Weather:</b></td>
 			<td>{{ weather[0] }}</td>
+		</tr>
+		<tr>
+			<td><b>View All Images:</b></td>
+			<td><a href="/cameras/{{pager.current}}/0/">All Camera Images</a></td>
 		</tr>
 	</tbody>
 </table>
