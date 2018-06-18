@@ -2,7 +2,7 @@
 	<tbody>
 		<tr>
 			<td><b>Current Time:</b></td>
-			<td>{{data2[1]}}</td>
+			<td>{{ moment(timestamp=data2[1], local=True).format('MMMM Do YYYY, h:mm:ss a') }}</td>
 		</tr>
 		<tr>
 			<td><b>File Path:</b></td>
