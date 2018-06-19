@@ -135,11 +135,26 @@ def historypage():
 def mappage():
     # implement google map api functionality here
     return render_template('map.html')
-    
+
+
 @app.route('/allcams')
 def allcamspage():
-    # implement google map api functionality here
-    return render_template('allcams.html')
+    conn = get_db().cursor()
+
+    sql1 = "SELECT filepath, curr_time from images WHERE cameraid=1 ORDER BY cameraid"
+    conn.execute(sql1)
+    cam1 = conn.fetchall()
+    cam1 = cam1[-1]
+
+    sql2 = "SELECT filepath, curr_time from images WHERE cameraid=2 ORDER BY cameraid"
+    conn.execute(sql2)
+    cam2 = conn.fetchall()
+    cam2 = cam2[-1]
+
+    data2 = [cam1, cam2]
+    print(data2)
+
+    return render_template('allcams.html', data2=data2)
 
 
 @app.route('/submitcam', methods=['POST', 'GET'])
