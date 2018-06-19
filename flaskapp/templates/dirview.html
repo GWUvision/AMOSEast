@@ -14,7 +14,7 @@
 	<link href="/static/assets3/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link href="/static/assets3/css/modern-business.css" rel="stylesheet">
+	<link href="/static/assets3/css/modern-business.css" rel="stylesheet"> {{ moment.include_jquery() }} {{ moment.include_moment() }}
 
 </head>
 
@@ -51,7 +51,7 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="about.html">About</a>
+						<a class="nav-link" href="/map">Map</a>
 					</li>
 				</ul>
 			</div>
@@ -62,27 +62,68 @@
 	<div class="container">
 
 		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3">Portfolio Item
-        <small>Subheading</small>
+		<h1 class="mt-4 mb-3">Current Camera
       </h1>
 
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">
 				<a href="/">Home</a>
 			</li>
-			<li class="breadcrumb-item active">Current Camera</li>
+			<li class="breadcrumb-item">
+				Current Camera
+			</li>
+			<li class="breadcrumb-item">
+			</li>
+			<li><a href="/cameras/{{pager.prev}}">&larrhk; Previous Camera </a> </li>
+			<li class="breadcrumb-item">
+				&nbsp;&nbsp;&nbsp;
+			</li>
+			<li><a href="/cameras/{{pager.next}}">Next Camera &rarrhk;</a> </li>
+			
 		</ol>
-
+		<form class="navbar-form navbar-left" role="search" name="goto" action="/goto" method="POST">
+			<div class="form-group">
+				<input type="text" name="index" class="form-control" placeholder="Go to camera">
+				<button type="Go" class="btn btn-default">Go</button>
+			</div>
+		</form>
 		<!-- Portfolio Item Row -->
 		<div class="row">
 
 			<div class="col-md-8">
-				<img class="img-fluid" src="http://placehold.it/750x500" alt="">
+				<img class="img-fluid" src="{{ url_for('static', filename='images/'+data2[0]) }}" alt="">
 			</div>
 
 			<div class="col-md-4">
-				<h3 class="my-3">Project Description</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+				<h3 class="my-3">Name: {{data[1]}}</h3>
+				<table class="table table-striped">
+					<tbody>
+						<tr>
+							<td><b>URL:</b></td>
+							<td>{{ data[2] }}</td>
+						</tr>
+						<tr>
+							<td><b>Latitude:</b></td>
+							<td>{{ data[3]|round(3) }}</td>
+						</tr>
+						<tr>
+							<td><b>Longitude:</b></td>
+							<td>{{ data[4]|round(4) }}</td>
+						</tr>
+						<tr>
+							<td><b>Last Captured:</b></td>
+							<td>{{ moment(timestamp=data2[1], local=True).format('MMMM Do YYYY, h:mm:ss a') }}</td>
+						</tr>
+						<tr>
+							<td><b>Current Weather:</b></td>
+							<td>{{ weather[0] }}</td>
+						</tr>
+						<tr>
+							<td><b>View All Images:</b></td>
+							<td><a href="/cameras/{{pager.current}}/0/">All Camera Images</a></td>
+						</tr>
+					</tbody>
+				</table>
 				<h3 class="my-3">Project Details</h3>
 				<ul>
 					<li>Lorem Ipsum</li>
@@ -96,7 +137,7 @@
 		<!-- /.row -->
 
 		<!-- Related Projects Row -->
-		<h3 class="my-4">Related Projects</h3>
+		<h3 class="my-4">Related Images</h3>
 
 		<div class="row">
 
@@ -133,7 +174,7 @@
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+			<p class="m-0 text-center text-white">Copyright &copy; GWU 2018</p>
 		</div>
 		<!-- /.container -->
 	</footer>
