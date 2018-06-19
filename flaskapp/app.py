@@ -135,6 +135,11 @@ def historypage():
 def mappage():
     # implement google map api functionality here
     return render_template('map.html')
+    
+@app.route('/allcams')
+def allcamspage():
+    # implement google map api functionality here
+    return render_template('allcams.html')
 
 
 @app.route('/submitcam', methods=['POST', 'GET'])
