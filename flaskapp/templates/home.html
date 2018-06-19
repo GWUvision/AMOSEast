@@ -1,42 +1,131 @@
-{% extends "layout.html" %} {% block title %}Home {% endblock %} {% block content %}
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 
+<head>
+	<title>AMOS</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../static/assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="../static/assets/css/noscript.css" /></noscript>
+</head>
 
-<div class="container" style="width:100%;">
-	<nav class="navbar">
-		<div class="navbar-header">
-			<span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
+<body class="homepage is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<div id="header">
+
+			<!-- Inner -->
+			<div class="inner">
+				<header>
+					<h1><a href="/" id="logo">AMOS</a></h1>
+					<hr />
+					<p>The Archive of Many Outdoor Scenes</p>
+				</header>
+				<footer>
+					<a href="#banner" class="button circled scrolly">Continue</a>
+				</footer>
+			</div>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li>
+						<a href="#">Info</a>
+						<ul>
+							<li><a href="/history">History</a></li>
+							<li><a href="/moreinfo">Dataset Info</a></li>
+							<li><a href="/about">About Us</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Cameras</a>
+						<ul>
+							<li><a href="/cameras/0">View All Cameras</a></li>
+							<li><a href="/">Submit Cameras</a></li>
+							<li><a href="/">Random Camera</a></li>
+						</ul>
+					</li>
+					<li><a href="/">Map</a></li>
+				</ul>
+			</nav>
+
 		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="/cameras/0/">Cameras</a></li>
-			{% include 'links.html' %}
-		</ul>
-	</nav>
-</div>
 
-<!-- Intro Content -->
-<div class="row-center">
-	<div class="col-lg-6">
-		<h2>Put some image here or example of images</h2>
+		<!-- Banner -->
+		<section id="banner">
+			<header>
+				<h2>Welcome to <strong>AMOS</strong> at GW.</h2>
+				<p>
+					A collection of long-term timelapse imagery from publicly accessible outdoor webcams.
+				</p>
+				<p>
+					{{camera_count}} Cameras and {{image_count}} Images and Counting!
+				</p>
+			</header>
+		</section>
 
+		<!-- Main -->
+		<div class="wrapper style2">
 
+			<article id="main" class="container special">
+				<a href="#" class="image featured"><img src="" alt="" /></a>
+				<header>
+					<h2>Imagery</h2>
+					<p>
+						We explore how to use these images to learn about the world around us, with a focus on understanding changes in natural environments and understanding how people use public spaces.
+					</p>
+				</header>
+				<p>
+					To support these applications, we work on fundamental research in camera geolocation, camera calibration, camera registration to GIS data, and the automatic annotation of events and objects in a scene.
+				</p>
+				<p>
+					The AMOS project began in March 2006 and is currently maintained at The George Washington University by Robert Pless. We encourage you to learn more about the AMOS dataset, project participants, and publications. 
+				</p>
+				<footer>
+					<a href="/history" class="button">Learn More</a>
+				</footer>
+			</article>
+
+		</div>
+
+		<!-- Footer -->
+		<div id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<!-- Copyright -->
+						<div class="copyright">
+							<ul class="menu">
+								<li>&copy; GW. All rights reserved.</li>
+								<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
 
 	</div>
-	<div class="col-lg-6">
-		<img src="/static/logo.png" alt="AMOS" width="400" height="100">
-		<h2>Welcome to AMOS, the Archive of Many Outdoor Scenes!</h2>
-		<h3>{{camera_count}} Cameras & {{image_count}} Images and Counting!</h3>
-		<h4>AMOS is a collection of long-term timelapse imagery from publicly accessible outdoor webcams around the world. We explore how to use these images to learn about the world around us, with a focus on understanding changes in natural environments and understanding
-			how people use public spaces. 
-		</h4>
-		<h4>
-			To support these applications, we work on fundamental research in camera geolocation, camera calibration, camera registration to GIS data, and the automatic annotation of events and objects in a scene. The AMOS project
-			began in March 2006 and is currently maintained at The George Washington University by Robert Pless. We encourage you to learn more about the AMOS dataset, project participants, and publications.
-		</h4>
-		<h4>
-			Please visit the <b><a href="http://amostest.seas.gwu.edu/cameras/0/">cameras</a></b> link in the navbar to visit all the cameras we have!
-		</h4>
-	</div>
-</div>
 
+	<!-- Scripts -->
+	<script src="/static/assets/js/jquery.min.js"></script>
+	<script src="/static/assets/js/jquery.dropotron.min.js"></script>
+	<script src="/static/assets/js/jquery.scrolly.min.js"></script>
+	<script src="/static/assets/js/jquery.scrollex.min.js"></script>
+	<script src="/static/assets/js/browser.min.js"></script>
+	<script src="/static/assets/js/breakpoints.min.js"></script>
+	<script src="/static/assets/js/util.js"></script>
+	<script src="/static/assets/js/main.js"></script>
 
-{% endblock %}
+</body>
+
+</html>

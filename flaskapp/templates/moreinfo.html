@@ -1,29 +1,165 @@
-{% extends "layout.html" %} {% block title %}Dataset Info {% endblock %} {% block content %}
-<div class="container" style="width:100%;">
-	<nav class="navbar">
-		<div class="navbar-header">
-			<span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>More Info</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="/static/assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="right-sidebar is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<div id="header">
+
+			<!-- Inner -->
+			<div class="inner">
+				<header>
+					<h1><a href="/" id="logo">AMOS</a></h1>
+				</header>
+			</div>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li>
+						<a href="#">Info</a>
+						<ul>
+							<li><a href="/history">History</a></li>
+							<li><a href="/moreinfo">Dataset Info</a></li>
+							<li><a href="/about">About Us</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Cameras</a>
+						<ul>
+							<li><a href="/cameras/0">View All Cameras</a></li>
+							<li><a href="/">Submit Cameras</a></li>
+							<li><a href="/">Random Camera</a></li>
+						</ul>
+					</li>
+					<li><a href="/">Map</a></li>
+				</ul>
+			</nav>
+
 		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="/cameras/0/">Cameras</a></li>
-			{% include 'links.html' %}
-		</ul>
-	</nav>
-</div>
-<h1><center>Information about AMOS</center></h1>
-<h3>Background</h3>
-<h4>The Archive of Many Outdoor Scenes (AMOS) dataset contains images taken from webcams located around the world, the vast majority in the United States. Construction of AMOS began in March, 2006 and continues to this day. This dataset is unique in that it contains images from significantly more scenes than in previous work.</h4>
-<br/>
-<h4>
-	The cameras in the dataset were selected by a group of graduate and undergraduate students using a standard web search engine. Images from each camera are captured several times per hour using a custom web crawler that ignores duplicate images and records
-	the capture time. The images from all cameras are 24-bit JPEG files that vary in size. Most are 640 x 480 pixels, but some are at a much higher resolution.
-</h4>
-<br/>
-<h4>
-	Each image's capture time is recorded in the image's file name. We use the format yyyymmdd_hhmmss.jpg (4 digits for year, and 2 digits each for month, day, hour minute, and second), and the timestamp is in GMT.
-</h4>
-<br/>
-<h4>
-	Why collect so many images? One impetus for collecting these images was to provide a dataset to enable empirical assessment of our ideas regarding the statistics of natural scenes captured from static cameras. These statistics have not been well studied
-	and are of great importance to surveillance algorithm and application development.
-</h4> {% endblock %}
+
+	</div>
+
+	<!-- Main -->
+	<div class="wrapper style1">
+
+		<div class="container">
+			<div class="row gtr-200">
+				<div class="col-8 col-12-mobile" id="content">
+					<article id="main">
+						<header>
+							<h2>Dataset Information</h2>
+							<p>
+								How we collect data and what we do with it!
+							</p>
+						</header>
+						<a href="#" class="image featured"><img src="" alt="" /></a>
+						<p>
+							Commodo id natoque malesuada sollicitudin elit suscipit. Curae suspendisse mauris posuere accumsan massa posuere lacus convallis tellus interdum. Amet nullam fringilla nibh nulla convallis ut venenatis purus lobortis. Auctor etiam porttitor phasellus
+							tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer interdum integer purus sapien. Nibh eleifend nulla nascetur pharetra commodo mi augue interdum tellus. Ornare cursus augue feugiat sodales velit lorem. Semper elementum ullamcorper
+							lacinia natoque aenean scelerisque vel lacinia mollis quam sodales congue.
+						</p>
+						<section>
+							<header>
+								<h3>Ultrices tempor sagittis nisl</h3>
+							</header>
+							<p>
+								Nascetur volutpat nibh ullamcorper vivamus at purus. Cursus ultrices porttitor sollicitudin imperdiet at pretium tellus in euismod a integer sodales neque. Nibh quis dui quis mattis eget imperdiet venenatis feugiat. Neque primis ligula cum erat aenean
+								tristique luctus risus ipsum praesent iaculis. Fermentum elit fringilla consequat dis arcu. Pellentesque mus tempor vitae pretium sodales porttitor lacus. Phasellus egestas odio nisl duis sociis purus faucibus morbi. Eget massa mus etiam sociis
+								pharetra magna.
+							</p>
+							<p>
+								Eleifend auctor turpis magnis sed porta nisl pretium. Aenean suspendisse nulla eget sed etiam parturient orci cursus nibh. Quisque eu nec neque felis laoreet diam morbi egestas. Dignissim cras rutrum consectetur ut penatibus fermentum nibh erat malesuada
+								varius.
+							</p>
+						</section>
+						<section>
+							<header>
+								<h3>Augue euismod feugiat tempus</h3>
+							</header>
+							<p>
+								Pretium tellus in euismod a integer sodales neque. Nibh quis dui quis mattis eget imperdiet venenatis feugiat. Neque primis ligula cum erat aenean tristique luctus risus ipsum praesent iaculis. Fermentum elit ut nunc urna volutpat donec cubilia commodo
+								risus morbi. Lobortis vestibulum velit malesuada ante egestas odio nisl duis sociis purus faucibus morbi. Eget massa mus etiam sociis pharetra magna.
+							</p>
+						</section>
+					</article>
+				</div>
+				<div class="col-4 col-12-mobile" id="sidebar">
+					<hr class="first" />
+					<section>
+						<header>
+							<h3>Github</h3>
+						</header>
+						<p>
+							All of the code is hosted on github! If you have any comments or ideas you would like to see for AMOS, submit a pull request and we'll be happy to take a look!
+						</p>
+						<footer>
+							<a href="https://github.com/gwcvl/AMOSEast" class="button">Check it out</a>
+						</footer>
+					</section>
+					<hr />
+					<section>
+						<header>
+							<h3>Support</h3>
+						</header>
+						<p>
+							The creation of this website could not have been done without the support of the <a href="https://www.cs.seas.gwu.edu/">GW Computer Science Department</a> as well as the old <a href="http://amos.cse.wustl.edu">AMOS website at Washington University of St. Louis</a>
+						</p>
+
+					</section>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- Footer -->
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Copyright -->
+					<div class="copyright">
+						<ul class="menu">
+							<li>&copy; GW. All rights reserved.</li>
+							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="/static/assets/js/jquery.min.js"></script>
+	<script src="/static/assets/js/jquery.dropotron.min.js"></script>
+	<script src="/static/assets/js/jquery.scrolly.min.js"></script>
+	<script src="/static/assets/js/jquery.scrollex.min.js"></script>
+	<script src="/static/assets/js/browser.min.js"></script>
+	<script src="/static/assets/js/breakpoints.min.js"></script>
+	<script src="/static/assets/js/util.js"></script>
+	<script src="/static/assets/js/main.js"></script>
+
+</body>
+
+</html>

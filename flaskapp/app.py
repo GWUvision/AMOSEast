@@ -126,6 +126,11 @@ def aboutpage():
     return render_template('about.html')
 
 
+@app.route('/history')
+def historypage():
+    return render_template('history.html')
+
+
 @app.route('/map')
 def mappage():
     # implement google map api functionality here
