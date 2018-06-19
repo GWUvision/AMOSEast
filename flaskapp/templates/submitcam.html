@@ -1,28 +1,133 @@
-<div class="container" style="width:100%;">
+<!DOCTYPE html>
+<html lang="en">
 
-	<nav class="navbar">
-		<div class="navbar-header">
+<head>
+	<title>Contact V18</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/static/assets4/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/assets4/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/assets4/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/assets4/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="/static/assets4/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/assets4/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/assets4/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/assets4/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="/static/assets4/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/assets4/css/main.css">
+</head>
 
-			<span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" method="post" action="/submitcam">
+				<span class="contact100-form-title">
+					Submit a camera
+				</span>
+
+
+				<div class="wrap-input100 validate-input" data-validate="Camera Name is required">
+					<label class="label-input100" for="name">Camera Title</label>
+					<input id="name" class="input100" type="text" name="name" placeholder="London Tower...">
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 validate-input" data-validate="Valid link is required: http://example.jpg">
+					<label class="label-input100" for="email">Camera URL</label>
+					<input id="url" class="input100" type="text" name="url" placeholder="http://...">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100">
+					<label class="label-input100" for="latitude">Latitude</label>
+					<input id="latitude" class="input100" type="text" name="latitude" placeholder="72.36">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100">
+					<label class="label-input100" for="longitude">Longitude</label>
+					<input id="longitude" class="input100" type="text" name="longitude" placeholder="-127.43">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100">
+					<label class="label-input100" for="message">Extra Information</label>
+					<textarea id="message" class="input100" name="message" placeholder="Enter extra information here..."></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						Send
+					</button>
+				</div>
+
+				<div class="contact100-form-social flex-c-m">
+					<a href="/">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="/history">Info</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="/cameras/0">Cameras</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="/map">Map</a>
+				</div>
+
+			</form>
+
+
+			<div class="contact100-more flex-col-c-m">
+				put google maps api so that person can pinpoint or put zipcode for where the camera is
+			</div>
 		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="/cameras/0/">Cameras</a></li>
+	</div>
 
-		</ul>
-	</nav>
-</div>
+	<!--===============================================================================================-->
+	<script src="/static/assets4/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/static/assets4/vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/static/assets4/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/assets4/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/static/assets4/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function() {
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+		$(".js-select2").each(function() {
+			$(this).on('select2:open', function(e) {
+				$(this).parent().next().addClass('eff-focus-selection');
+			});
+		});
+		$(".js-select2").each(function() {
+			$(this).on('select2:close', function(e) {
+				$(this).parent().next().removeClass('eff-focus-selection');
+			});
+		});
+	</script>
+	<!--===============================================================================================-->
+	<script src="/static/assets4/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/static/assets4/vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="/static/assets4/vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="/static/assets4/js/main.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
 
-<h4>Add a camera</h4>
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
 
-<p>
-	Type in the url and your description below for evaluation!
-</p>
+		gtag('config', 'UA-23581568-13');
+	</script>
+</body>
 
-<div class="large-8 columns">
-	<form action="/submitcam" method="post">
-		<input type="text" placeholder="url" name="url">
-		<br><br>
-		<input type="text" placeholder="Enter your description here" name="description" cols="50" rows="4"></textarea>
-		<input type="submit" value="Submit">
-	</form>
-</div>
+</html>
