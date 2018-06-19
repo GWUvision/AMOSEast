@@ -1,12 +1,12 @@
-#!/pless_nfs/home/suraj98/AMOSEast/env/bin/python
 
-# import cv2
-# import imageio
+import cv2
+import imageio
+import os
 
 def video_dir():
 
     list_of_images = []
-    rootDir = 'static/images/'
+    rootDir = '6/'
     for dirpath, dirnames, files in os.walk(rootDir, topdown=True):
         dirnames.sort(key=int)
         list_of_images.append(files)
@@ -17,9 +17,11 @@ def video_dir():
 
         for j in range(len(list_of_images[i])):
             print(list_of_images[i][j])
-            file_path = os.path.join('static/images/%d' %
+            file_path = os.path.join('6/%d' %
                                      (i), list_of_images[i][j])
 
             images_in_folder.append(imageio.imread(file_path))
         imageio.mimsave('videos/%d/movie%d.mp4' %
                         (i, i), images_in_folder)
+
+video_dir()
