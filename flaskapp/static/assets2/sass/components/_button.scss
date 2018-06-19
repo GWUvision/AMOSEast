@@ -1,5 +1,5 @@
 ///
-/// Lens by HTML5 UP
+/// Multiverse by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -14,27 +14,34 @@
 		@include vendor('appearance', 'none');
 		@include vendor('transition', (
 			'background-color #{_duration(transition)} ease-in-out',
-			'border-color #{_duration(transition)} ease-in-out',
+			'box-shadow #{_duration(transition)} ease-in-out',
 			'color #{_duration(transition)} ease-in-out'
 		));
 		background-color: transparent;
-		border-radius: _size(border-radius);
-		border: solid 1px _palette(border);
-		color: _palette(fg-bold);
+		border: 0;
+		border-radius: 0;
+		box-shadow: inset 0 0 0 2px _palette(border);
+		color: _palette(fg-bold) !important;
 		cursor: pointer;
 		display: inline-block;
-		line-height: 1;
-		padding: 0.75em 1.5em;
+		font-size: 0.9em;
+		font-weight: _font(weight-bold);
+		height: _size(element-height) * (1 / 0.9);
+		letter-spacing: _font(kerning-alt);
+		line-height: _size(element-height) * (1 / 0.9);
+		padding: 0 2.5em;
 		text-align: center;
 		text-decoration: none;
+		text-transform: uppercase;
 		white-space: nowrap;
 
 		&:hover {
-			border-color: _palette(accent);
-			color: _palette(accent);
+			box-shadow: inset 0 0 0 2px _palette(accent1);
+			color: _palette(accent1) !important;
 
 			&:active {
-				background-color: transparentize(_palette(accent), 0.85);
+				background-color: transparentize(_palette(accent1), 0.85);
+				color: _palette(accent1) !important;
 			}
 		}
 
@@ -58,9 +65,23 @@
 			font-size: 1.35em;
 		}
 
+		&.primary {
+			background-color: _palette(accent1);
+			box-shadow: none;
+
+			&:hover {
+				background-color: lighten(_palette(accent1), 10);
+				color: _palette(fg-bold) !important;
+
+				&:active {
+					background-color: darken(_palette(accent1), 10);
+				}
+			}
+		}
+
 		&.disabled,
 		&:disabled {
 			@include vendor('pointer-events', 'none');
-			opacity: 0.25;
+			opacity: 0.35;
 		}
 	}

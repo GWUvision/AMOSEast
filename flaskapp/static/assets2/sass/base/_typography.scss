@@ -1,51 +1,42 @@
 ///
-/// Lens by HTML5 UP
+/// Multiverse by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
 /* Type */
 
-	html {
-		font-size: 16pt;
+	body, input, select, textarea {
+		color: _palette(fg);
+		font-family: _font(family);
+		font-size: 15pt;
+		font-weight: _font(weight);
+		letter-spacing: _font(kerning);
+		line-height: 1.65;
 
 		@include breakpoint('<=xlarge') {
-			font-size: 12pt;
-		}
-
-		@include breakpoint('<=large') {
 			font-size: 11pt;
 		}
 	}
 
-	body {
-		background-color: _palette(bg);
-		color: _palette(fg);
-	}
-
-	body, input, select, textarea {
-		font-family: _font(family);
-		font-weight: _font(weight);
-		line-height: 1.65;
-		font-size: 1em;
-		color: _palette(fg);
-	}
-
 	a {
-		@include vendor('transition', ('color #{_duration(transition)} ease', 'border-bottom-color #{_duration(transition)} ease'));
+		@include vendor('transition', (
+			'color #{_duration(transition)} ease-in-out',
+			'border-bottom-color #{_duration(transition)} ease-in-out'
+		));
 		border-bottom: dotted 1px;
-		color: inherit;
+		color: _palette(accent1);
 		text-decoration: none;
 
 		&:hover {
 			border-bottom-color: transparent;
-			color: _palette(accent);
+			color: _palette(accent1) !important;
 		}
 	}
 
 	strong, b {
-		font-weight: _font(weight);
 		color: _palette(fg-bold);
+		font-weight: _font(weight-bold);
 	}
 
 	em, i {
@@ -57,10 +48,12 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		font-weight: _font(weight);
-		line-height: 1.25;
-		margin: 0 0 (_size(element-margin) * 0.4) 0;
 		color: _palette(fg-bold);
+		font-weight: _font(weight-bold);
+		letter-spacing: _font(kerning-alt);
+		line-height: 1.5;
+		margin: 0 0 (_size(element-margin) * 0.5) 0;
+		text-transform: uppercase;
 
 		a {
 			color: inherit;
@@ -68,24 +61,50 @@
 		}
 	}
 
+	h1 {
+		font-size: 2em;
+	}
+
 	h2 {
 		font-size: 1.25em;
 	}
 
 	h3 {
-		font-size: 1em;
+		font-size: 1.1em;
 	}
 
 	h4 {
-		font-size: 0.9em;
+		font-size: 1em;
 	}
 
 	h5 {
-		font-size: 0.8em;
+		font-size: 0.9em;
 	}
 
 	h6 {
 		font-size: 0.7em;
+	}
+
+	@include breakpoint('<=small') {
+		h2 {
+			font-size: 1em;
+		}
+
+		h3 {
+			font-size: 0.9em;
+		}
+
+		h4 {
+			font-size: 0.8em;
+		}
+
+		h5 {
+			font-size: 0.7em;
+		}
+
+		h6 {
+			font-size: 0.7em;
+		}
 	}
 
 	sub {
@@ -101,20 +120,19 @@
 	}
 
 	blockquote {
-		border-left: solid (_size(border-width) * 4) _palette(border);
+		border-left: 4px _palette(border);
 		font-style: italic;
 		margin: 0 0 _size(element-margin) 0;
 		padding: (_size(element-margin) / 4) 0 (_size(element-margin) / 4) _size(element-margin);
 	}
 
 	code {
-		border-radius: _size(border-radius);
-		border: solid _size(border-width);
+		background: _palette(border-bg);
+		border: solid 1px _palette(border);
 		font-family: _font(family-fixed);
 		font-size: 0.9em;
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
-		border-color: _palette(border);
 	}
 
 	pre {
@@ -125,6 +143,7 @@
 
 		code {
 			display: block;
+			line-height: 1.75;
 			padding: 1em 1.5em;
 			overflow-x: auto;
 		}
@@ -132,7 +151,7 @@
 
 	hr {
 		border: 0;
-		border-bottom: solid _size(border-width) _palette(border);
+		border-bottom: solid 1px _palette(border);
 		margin: _size(element-margin) 0;
 
 		&.major {

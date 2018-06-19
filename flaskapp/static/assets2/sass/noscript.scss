@@ -5,43 +5,36 @@
 @import 'libs/breakpoints';
 
 /*
-	Lens by HTML5 UP
+	Multiverse by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Main */
+/* Wrapper */
 
-	#main {
-		opacity: 1 !important;
-
-		@if _misc(main-side) == 'left' {
-			left: 0 !important;
-		}
-		@else {
-			right: 0 !important;
+	#wrapper {
+		body.is-preload & {
+			&:before {
+				display: none;
+			}
 		}
 	}
 
-	body:before {
-		content: 'Javascript is disabled :(';
-		display: block;
-		position: absolute;
-		top: 50%;
-		width: calc(100% - #{_size(main)} * 0.333333333);
-		height: 4em;
-		margin-top: -2em;
-		color: mix(_palette(page-bg), #fff, 90%);
-		cursor: default;
-		font-size: 3em;
-		line-height: 4em;
-		text-align: center;
-		white-space: nowrap;
+/* Main */
 
-		@if _misc(main-side) == 'left' {
-			right: 0;
+	#main {
+		body.is-preload & {
+			.thumb {
+				@include vendor('pointer-events', 'auto');
+				opacity: 1;
+			}
 		}
-		@else {
-			left: 0;
+	}
+
+/* Header */
+
+	#header {
+		body.is-preload & {
+			@include vendor('transform', 'none');
 		}
 	}

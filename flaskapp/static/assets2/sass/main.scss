@@ -4,10 +4,10 @@
 @import 'libs/vendor';
 @import 'libs/breakpoints';
 @import 'font-awesome.min.css';
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic');
 
 /*
-	Lens by HTML5 UP
+	Multiverse by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -21,6 +21,18 @@
 		small:   ( 481px,   736px  ),
 		xsmall:  ( null,    480px  )
 	));
+
+// Spinner.
+
+	@include keyframes(spinner) {
+		0% {
+			@include vendor('transform', 'rotate(0deg)');
+		}
+
+		100% {
+			@include vendor('transform', 'rotate(359deg)');
+		}
+	}
 
 // Base.
 
@@ -36,11 +48,13 @@
 	@import 'components/list';
 	@import 'components/actions';
 	@import 'components/icons';
+	@import 'components/table';
+	@import 'components/panel';
+	@import 'components/poptrox-popup';
 
 // Layout.
 
-	@import 'layout/main';
+	@import 'layout/wrapper';
 	@import 'layout/header';
+	@import 'layout/main';
 	@import 'layout/footer';
-	@import 'layout/thumbnails';
-	@import 'layout/viewer';

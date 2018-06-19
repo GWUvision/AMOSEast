@@ -1,5 +1,5 @@
 ///
-/// Lens by HTML5 UP
+/// Multiverse by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -7,112 +7,171 @@
 /* Main */
 
 	#main {
-		@include vendor('transition', ('opacity #{_duration(layout)} ease', 'right #{_duration(layout)} ease', 'left #{_duration(layout)} ease', 'visibility #{_duration(layout)}'));
-		-webkit-overflow-scrolling: touch;
-		position: fixed;
-		top: 0;
-		width: _size(main);
-		height: 100%;
-		background: _palette(bg);
-		outline: 0;
-		overflow-x: hidden;
-		overflow-y: auto;
-		text-align: _misc(main-align);
-		visibility: visible;
-		z-index: _misc(z-index-base);
+		@include vendor('transition', (
+			'-moz-filter #{_duration(panel)} ease',
+			'-webkit-filter #{_duration(panel)} ease',
+			'-ms-filter #{_duration(panel)} ease',
+			'filter #{_duration(panel)} ease'
+		));
+		@include vendor('display', 'flex');
+		@include vendor('flex-wrap', 'wrap');
+		-webkit-tap-highlight-color: rgba(255,255,255,0);
 
-		@if _misc(main-side) == 'left' {
-			left: 0;
-		}
-		@else {
-			right: 0;
-		}
+		.thumb {
+			@include vendor('transition', (
+				'opacity 1.25s ease-in-out'
+			));
+			@include vendor('pointer-events', 'auto');
+			-webkit-tap-highlight-color: rgba(255,255,255,0);
+			opacity: 1;
+			overflow: hidden;
+			position: relative;
 
-		.toggle {
-			-webkit-tap-highlight-color: rgba(0,0,0,0);
-			position: absolute;
-			top: 0;
-			width: 4em;
-			height: 4em;
-			background-image: url('images/close-small-alt.svg');
-			background-repeat: no-repeat;
-			background-size: 32px 32px;
-			cursor: pointer;
-			display: none;
-			z-index: 1;
-
-			@if _misc(main-side) == 'left' {
-				background-position: calc(100% - 0.5em) 0.5em;
-				right: 0;
-			}
-			@else {
-				background-position: 0.5em 0.5em;
-				left: 0;
-			}
-		}
-
-		body.fullscreen & {
-			visibility: hidden;
-
-			@if _misc(main-side) == 'left' {
-				left: (_size(main) * -1);
-			}
-			@else {
-				right: (_size(main) * -1);
-			}
-		}
-
-		body.is-preload-1 & {
-			opacity: 0;
-
-			@if _misc(main-side) == 'left' {
-				left: -2em;
-			}
-			@else {
-				right: -2em;
-			}
-		}
-
-		@include breakpoint('<=large') {
-			width: _size(main-alt);
-
-			body.fullscreen & {
-				@if _misc(main-side) == 'left' {
-					left: (_size(main-alt) * -1);
-				}
-				@else {
-					right: (_size(main-alt) * -1);
-				}
-			}
-		}
-
-		@include breakpoint('<=medium') {
-			background: transparentize(_palette(bg), 0.075);
-
-			.toggle {
+			&:after {
+				@include vendor('background-image', 'linear-gradient(to top, rgba(10,17,25,0.35) 5%, rgba(10,17,25,0) 35%)');
+				@include vendor('pointer-events', 'none');
+				background-size: cover;
+				content: '';
 				display: block;
-			}
-		}
-
-		@include breakpoint('<=xsmall') {
-			@include vendor('transition', ('opacity #{_duration(layout-alt)} ease', 'visibility #{_duration(layout-alt)}'));
-			width: 100%;
-			background: _palette(bg);
-			text-align: center;
-
-			body.is-preload-1 & {
-				left: auto !important;
-				right: auto !important;
+				height: 100%;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
 			}
 
-			body.fullscreen & {
-				left: auto !important;
-				right: auto !important;
-				opacity: 0;
+			> .image {
+				-webkit-tap-highlight-color: rgba(255,255,255,0);
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				border: 0;
+				height: 100%;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
 			}
 
-			.toggle {
+			> h2 {
+				@include vendor('pointer-events', 'none');
+				bottom: (1.5em / 0.8);
+				font-size: 0.8em;
+				left: (1.75em / 0.8);
+				margin: 0;
+				position: absolute;
+				z-index: 1;
+			}
+
+			> p {
 				display: none;
 			}
 		}
+
+		&:after {
+			@include vendor('pointer-events', 'none');
+			@include vendor('transition', (
+				'opacity #{_duration(panel)} ease',
+				'visibility #{_duration(panel)}',
+			));
+			background: _palette(bg-overlay);
+			content: '';
+			display: block;
+			height: 100%;
+			left: 0;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			visibility: hidden;
+			width: 100%;
+			z-index: 1;
+
+			body.ie & {
+				background: _palette(bg-ie-overlay);
+			}
+		}
+
+		body.content-active & {
+			@include vendor('filter', 'blur(6px)');
+
+			&:after {
+				@include vendor('pointer-events', 'auto');
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		body.is-preload & {
+			.thumb {
+				@include vendor('pointer-events', 'none');
+				opacity: 0;
+			}
+		}
+
+		@mixin thumb($rows, $columns, $pad, $minHeight) {
+			$baseDelay: _duration(header) - 0.5;
+			$defaultDelay: $baseDelay + (((($rows * $columns) + 1) * 1.5) * _duration(thumb));
+
+			.thumb {
+				@include vendor('transition-delay', '#{$defaultDelay}');
+				height: calc(#{100vh / ($rows + $pad)} - #{_size(header) / $rows});
+				min-height: $minHeight;
+				width: (100% / $columns);
+
+				@for $i from 1 through (($rows * $columns) * 1.5) {
+					&:nth-child(#{$i}) {
+						@include vendor('transition-delay', '#{$baseDelay + ($i * _duration(thumb))}');
+					}
+				}
+			}
+		}
+
+		// Default.
+			@include thumb(
+				_misc(main-layout, default, rows),
+				_misc(main-layout, default, columns),
+				_misc(main-layout, default, pad),
+				_misc(main-layout, default, minHeight)
+			);
+
+		// XLarge.
+			@include breakpoint('<=xlarge') {
+				@include thumb(
+					_misc(main-layout, xlarge, rows),
+					_misc(main-layout, xlarge, columns),
+					_misc(main-layout, xlarge, pad),
+					_misc(main-layout, xlarge, minHeight)
+				);
+			}
+
+		// Large.
+			@include breakpoint('<=large') {
+				@include thumb(
+					_misc(main-layout, large, rows),
+					_misc(main-layout, large, columns),
+					_misc(main-layout, large, pad),
+					_misc(main-layout, large, minHeight)
+				);
+			}
+
+		// Medium.
+			@include breakpoint('<=medium') {
+				@include thumb(
+					_misc(main-layout, medium, rows),
+					_misc(main-layout, medium, columns),
+					_misc(main-layout, medium, pad),
+					_misc(main-layout, medium, minHeight)
+				);
+			}
+
+		// XSmall.
+			@include breakpoint('<=xsmall') {
+				@include thumb(
+					_misc(main-layout, xsmall, rows),
+					_misc(main-layout, xsmall, columns),
+					_misc(main-layout, xsmall, pad),
+					_misc(main-layout, xsmall, minHeight)
+				);
+			}
+
 	}
