@@ -27,12 +27,9 @@ image_count = conn.fetchall()
 
 #disk space available
 #cpu load--> processing
+#getting disk inforamtion
 stats = os.statvfs('../../../../../pless_nfs')
-print(stats.f_blocks)
-print(stats.f_bfree)
-
 free = str(float(stats.f_bfree)/float(stats.f_blocks))
-print("Percent free = " + free)
 
 
 # Stuff for actually emailing
@@ -48,7 +45,7 @@ print("Percent free = " + free)
 # subj = "LOG FOR " + str(datetime.now())
 # msg['Subject'] = subj
 #
-# body = "LOG FILE FOR " + str(datetime.now()) + "\nNumber of Cams: " + str(camera_count[0][0]) + "\nNumber of Images total: " + str(total_image_count[0][0]) + "\nNumber of Images Captured Today: " + str(image_count[0][0])
+# body = "LOG FILE FOR " + str(datetime.now()) + "\nNumber of Cams: " + str(camera_count[0][0]) + "\nNumber of Images total: " + str(total_image_count[0][0]) + "\nNumber of Images Captured Today: " + str(image_count[0][0]) + "\nPercent of disk free: " + free
 # msg.attach(MIMEText(body, 'plain'))
 #
 # server = smtplib.SMTP('smtp.gmail.com', 587)
