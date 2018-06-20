@@ -10,7 +10,7 @@ from pager import Pager
 from weather import Weather, Unit
 
 STATIC_FOLDER = 'static'
-APPNAME = 'AMOS East'
+APPNAME = 'AMOS'
 
 app = Flask(__name__, static_folder=STATIC_FOLDER)
 app.config.update(APPNAME=APPNAME,)
@@ -137,7 +137,7 @@ def mappage():
     return render_template('map.html')
 
 
-@app.route('/allcams')
+@app.route('/coolcams')
 def allcamspage():
     conn = get_db().cursor()
 
@@ -154,7 +154,7 @@ def allcamspage():
     data2 = [cam1, cam2]
     print(data2)
 
-    return render_template('allcams.html', data2=data2)
+    return render_template('coolcams.html', data2=data2)
 
 
 @app.route('/submitcam', methods=['POST', 'GET'])
