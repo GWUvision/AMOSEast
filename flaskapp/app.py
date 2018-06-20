@@ -82,7 +82,7 @@ def directory_view(ind=1):
                 condition = lookup.condition
                 w_info = [condition.temp +
                           '\N{DEGREE SIGN}F and ' + condition.text]
-            
+
             except AttributeError as e:
                 w_info = ['No weather information available']
                 return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
@@ -90,13 +90,13 @@ def directory_view(ind=1):
             except KeyError as e:
                 w_info = ['No weather information available']
                 return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
-        
+
             except UnboundLocalError as e:
                 w_info = ['No weather information available']
                 return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
 
             return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
-    
+
     except IndexError as e:
         return render_template('404.html'), 404
 
@@ -110,7 +110,7 @@ def image_view(ind=None, ind2=None):
     conn.execute(camera_images_query)
     data2 = conn.fetchall()
     pager2 = Pager(len(data2))
-    
+
     try:
 
         if ind2 >= pager2.count or ind >= pager.count:
@@ -118,9 +118,9 @@ def image_view(ind=None, ind2=None):
         else:
             pager.current = ind
             pager2.current = ind2
-        
+
             return render_template('imageview.html', index=ind2, pager=pager, pager2=pager2, data2=data2[ind2], data=all_cameras[ind])
-    
+
     except IndexError as e:
         return render_template('404.html'), 404
 
@@ -146,8 +146,10 @@ def historypage():
 
 @app.route('/map')
 def mappage():
-    # implement google map api functionality here
-    return render_template('map.html')
+    lng = np.array(all_cameras)[:, 4]
+    lat = np.array(all_cameras)[:, 3]
+
+    return render_template('map.html', lg=lng, lt=lat)
 
 
 @app.route('/coolcams')
@@ -204,14 +206,6 @@ def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
-
-
-@app.route('/cluster_test')
-def cluster_test():
-    lng = np.array(all_cameras)[:, 4]
-    lat = np.array(all_cameras)[:, 3]
-
-    return render_template('cluster_test.html', lg=lng, lt=lat)
 
 
 if __name__ == '__main__':
