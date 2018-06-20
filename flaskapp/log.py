@@ -28,11 +28,12 @@ image_count = conn.fetchall()
 
 # Stuff for actually emailing
 fromaddr = "kylerood16@gmail.com"
-toaddr = "kyzle@me.com"
+toaddr = "krood20@gwmail.gwu.edu"
 
 msg = MIMEMultipart()
 msg['From'] = fromaddr
 msg['To'] = toaddr
+msg['Cc'] = "pless@gwu.edu"
 subj = "LOG FOR " + str(datetime.now())
 msg['Subject'] = subj
 
