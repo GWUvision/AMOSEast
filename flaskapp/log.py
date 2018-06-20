@@ -27,7 +27,7 @@ image_count = conn.fetchall()
 
 #disk space available
 #cpu load--> processing
-stats = os.statvfs('../../pless_nfs')
+stats = os.statvfs('../../../../../pless_nfs')
 print(stats.f_blocks)
 print(stats.f_bfree)
 
