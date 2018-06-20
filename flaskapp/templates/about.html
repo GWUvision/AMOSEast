@@ -7,10 +7,11 @@
 <html>
 
 <head>
-	<title>About Us</title>
+	<title>AMOS | About</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="/static/assets/css/main.css" />
+	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
 	<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
 </head>
 
@@ -43,9 +44,9 @@
 						<a href="#">Cameras</a>
 						<ul>
 							<li><a href="/cameras/0">View All Cameras</a></li>
-							<li><a href="/allcams">View Cool Cameras</a></li>
+							<li><a href="/coolcams">View Cool Cameras</a></li>
 							<li><a href="/submitcam">Submit Cameras</a></li>
-							<li><a href="/">Random Camera</a></li>
+							<li><a href="/cameras/{{ range(1, 201) | random | safe }}">Random Camera</a></li>
 						</ul>
 					</li>
 					<li><a href="/">Map</a></li>
@@ -81,7 +82,7 @@
 						</header>
 						<p>
 							<center><a href="http://surajshah.me">Website</a></center>
-							Suraj is currently a sophomore at the George Washington University majoring in Computer Science with a minor in Business Administration. He loves exploring datasets, creating small projects, and learning new technical skills. He has experience using Pandas
+							Suraj is currently a junior at the George Washington University majoring in Computer Science with a minor in Business Administration. He loves exploring datasets, creating small projects, and learning new technical skills. He has experience using Pandas
 							and Numpy with Python for advanced data analysis, including predicting certain data or extrapolating information.
 						</p>
 					</article>

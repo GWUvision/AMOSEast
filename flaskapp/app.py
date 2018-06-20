@@ -10,7 +10,7 @@ from pager import Pager
 from weather import Weather, Unit
 
 STATIC_FOLDER = 'static'
-APPNAME = 'AMOS East'
+APPNAME = 'AMOS'
 
 app = Flask(__name__, static_folder=STATIC_FOLDER)
 app.config.update(APPNAME=APPNAME,)
@@ -72,6 +72,7 @@ def directory_view(ind=1):
             return render_template("404.html"), 404
         else:
             pager.current = ind
+
             try:
 
                 weather = Weather(unit=Unit.FAHRENHEIT)
@@ -81,12 +82,21 @@ def directory_view(ind=1):
                 condition = lookup.condition
                 w_info = [condition.temp +
                           '\N{DEGREE SIGN}F and ' + condition.text]
+            
             except AttributeError as e:
                 w_info = ['No weather information available']
                 return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
+
             except KeyError as e:
+                w_info = ['No weather information available']
                 return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
+        
+            except UnboundLocalError as e:
+                w_info = ['No weather information available']
+                return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
+
             return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
+    
     except IndexError as e:
         return render_template('404.html'), 404
 
@@ -100,6 +110,7 @@ def image_view(ind=None, ind2=None):
     conn.execute(camera_images_query)
     data2 = conn.fetchall()
     pager2 = Pager(len(data2))
+    
     try:
 
         if ind2 >= pager2.count or ind >= pager.count:
@@ -107,7 +118,9 @@ def image_view(ind=None, ind2=None):
         else:
             pager.current = ind
             pager2.current = ind2
+        
             return render_template('imageview.html', index=ind2, pager=pager, pager2=pager2, data2=data2[ind2], data=all_cameras[ind])
+    
     except IndexError as e:
         return render_template('404.html'), 404
 
@@ -137,7 +150,7 @@ def mappage():
     return render_template('map.html')
 
 
-@app.route('/allcams')
+@app.route('/coolcams')
 def allcamspage():
     conn = get_db().cursor()
 
@@ -154,7 +167,7 @@ def allcamspage():
     data2 = [cam1, cam2]
     print(data2)
 
-    return render_template('allcams.html', data2=data2)
+    return render_template('coolcams.html', data2=data2)
 
 
 @app.route('/submitcam', methods=['POST', 'GET'])

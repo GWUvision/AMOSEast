@@ -7,10 +7,11 @@
 <html>
 
 <head>
-	<title>More Info</title>
+	<title>AMOS | More Info</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="/static/assets/css/main.css" />
+	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
 	<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
 </head>
 
@@ -43,11 +44,12 @@
 						<a href="#">Cameras</a>
 						<ul>
 							<li><a href="/cameras/0">View All Cameras</a></li>
-							<li><a href="/">Submit Cameras</a></li>
-							<li><a href="/">Random Camera</a></li>
+							<li><a href="/coolcams">View Cool Cameras</a></li>
+							<li><a href="/submitcam">Submit Cameras</a></li>
+							<li><a href="/cameras/{{ range(1, 201) | random | safe }}">Random Camera</a></li>
 						</ul>
 					</li>
-					<li><a href="/">Map</a></li>
+					<li><a href="/map">Map</a></li>
 				</ul>
 			</nav>
 

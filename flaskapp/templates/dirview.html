@@ -1,81 +1,190 @@
-{% extends "layout.html" %} {% block title %}Cameras {{ data.name}} {% endblock %} {% block content %}
-<div class="container" style="width:100%;">
-	<nav class="navbar">
-		<div class="navbar-header">
-			<span class="navbar-brand"><a href="/" style="text-decoration:none">{{ config.APPNAME }}</a></span>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>{% block title %}Cameras | {{ config.APPNAME }} {% endblock %}</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="/static/assets3/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
+
+
+	<!-- Custom styles for this template -->
+	<link href="/static/assets3/css/modern-business.css" rel="stylesheet"> {{ moment.include_jquery() }} {{ moment.include_moment() }}
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="/">AMOS</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Info
+              </a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+							<a class="dropdown-item" href="/history">History</a>
+							<a class="dropdown-item" href="/moreinfo">Dataset Info</a>
+							<a class="dropdown-item" href="/about">About Us</a>
+						</div>
+					</li>
+					<li class="nav-item active dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Cameras
+              </a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+							<a class="dropdown-item" href="/cameras/0">View All Cameras</a>
+							<a class="dropdown-item" href="/coolcams">View Cool Cameras</a>
+							<a class="dropdown-item" href="/submitcam">Submit Cameras</a>
+							<a class="dropdown-item" href="/cameras/{{ range(1, 201) | random | safe }}">Random Camera</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/map">Map</a>
+					</li>
+				</ul>
+			</div>
 		</div>
+	</nav>
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<!-- Page Heading/Breadcrumbs -->
+		<h1 class="mt-4 mb-3">Current Camera
+      </h1>
+
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="/">Home</a>
+			</li>
+			<li class="breadcrumb-item">
+				Current Camera
+			</li>
+			<li class="breadcrumb-item">
+			</li>
+			<li><a href="/cameras/{{pager.prev}}">&larrhk; Previous Camera </a> </li>
+			<li class="breadcrumb-item">
+				&nbsp;&nbsp;&nbsp;
+			</li>
+			<li><a href="/cameras/{{pager.next}}">Next Camera &rarrhk;</a> </li>
+
+		</ol>
 		<form class="navbar-form navbar-left" role="search" name="goto" action="/goto" method="POST">
 			<div class="form-group">
-				<input type="text" name="index" class="form-control" placeholder="Go to index">
+				<input type="text" name="index" class="form-control" placeholder="Go to camera">
+				<button type="Go" class="btn btn-default">Go</button>
 			</div>
-			<button type="Go" class="btn btn-default">Go</button>
 		</form>
-		<ul class="nav navbar-nav">
-			<li><a href="/cameras/{{pager.prev}}">Previous Camera &larrhk;</a> </li>
-			<li><a href="/cameras/{{pager.next}}">Next Camera &rarrhk;</a> </li>
-		</ul>
-	</nav>
-	<div class="row">
-		<div class="col-md-6">
-			<h2>Name: {{data[1]}}</h2> {% include 'camera_table.html' %}
-		</div>
-		<div class="col-md-6">
-			<h4>Latest Captured Image</h4>
-			<div class="col-md-10">
-				<img src="{{ url_for('static', filename='images/'+data2[0]) }}" class="img-responsive center">
+		<!-- Portfolio Item Row -->
+		<div class="row">
+
+			<div class="col-md-8">
+				<img class="img-fluid" src="{{ url_for('static', filename='images/'+data2[0]) }}" alt="">
 			</div>
+
+			<div class="col-md-4">
+				<h3 class="my-3">Name: {{data[1]}}</h3>
+				<table class="table table-striped">
+					<tbody>
+						<tr>
+							<td><b>URL:</b></td>
+							<td><a href="{{ data[2] | safe }}">Camera Link</a></td>
+						</tr>
+						<tr>
+							<td><b>Latitude:</b></td>
+							<td>{{ data[3]|round(3) }}</td>
+						</tr>
+						<tr>
+							<td><b>Longitude:</b></td>
+							<td>{{ data[4]|round(4) }}</td>
+						</tr>
+						<tr>
+							<td><b>Last Captured:</b></td>
+							<td>{{ moment(timestamp=data2[1], local=True).format('MMMM Do YYYY, h:mm:ss a') }}</td>
+						</tr>
+						<tr>
+							<td><b>Current Weather:</b></td>
+							<td>{{ weather[0] }}</td>
+						</tr>
+						<tr>
+							<td><b>View All Images:</b></td>
+							<td><a href="/cameras/{{pager.current}}/0/">All Camera Images</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<h3 class="my-3">Project Details</h3>
+				<ul>
+					<li>Lorem Ipsum</li>
+					<li>Dolor Sit Amet</li>
+					<li>Consectetur</li>
+					<li>Adipiscing Elit</li>
+				</ul>
+			</div>
+
 		</div>
+		<!-- /.row -->
+
+		<!-- Related Projects Row -->
+		<h3 class="my-4">Related Images</h3>
+
+		<div class="row">
+
+			<div class="col-md-3 col-sm-6 mb-4">
+				<a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          </a>
+			</div>
+
+			<div class="col-md-3 col-sm-6 mb-4">
+				<a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          </a>
+			</div>
+
+			<div class="col-md-3 col-sm-6 mb-4">
+				<a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          </a>
+			</div>
+
+			<div class="col-md-3 col-sm-6 mb-4">
+				<a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          </a>
+			</div>
+
+		</div>
+		<!-- /.row -->
+
 	</div>
-	<hr>
-	<div class="row-center">
-		<center>
+	<!-- /.container -->
 
-			<style>
-				/* Set the size of the div element that contains the map */
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; GWU 2018</p>
+		</div>
+		<!-- /.container -->
+	</footer>
 
-				#map {
-					height: 400px;
-					/* The height is 400 pixels */
-					width: 50%;
-					/* The width is the width of the web page */
-				}
-			</style>
+	<!-- Bootstrap core JavaScript -->
+	<script src="/static/assets3/vendor/jquery/jquery.min.js"></script>
+	<script src="/static/assets3/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-			<h3>Location of Camera</h3>
-			<!--The div element for the map -->
-			<div id="map"></div>
-			<script>
-				var long = {{ data[4]|round(4) }};
-				var latit = {{ data[3]|round(3) }};
-				// Initialize and add the map
-				function initMap() {
-					// The location of Uluru
-					var loc = {
-						lat:  latit,  //44.478739,
-						lng: long //-73.19164
-					};
-					// The map, centered at Uluru
-					var map = new google.maps.Map(
-						document.getElementById('map'), {
-							zoom: 4,
-							center: loc
-						});
-					// The marker, positioned at Uluru
-					var marker = new google.maps.Marker({
-						position: loc,
-						map: map
-					});
-				}
-			</script>
-			<!--Load the API from the specified URL
-				      * The async attribute allows the browser to render the page while the API loads
-				      * The key parameter will contain your own API key (which is not needed for this tutorial)
-				      * The callback parameter executes the initMap() function
-				      -->
-			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdLYBRezN15XghhsB7fiy6jROT4uPsda8&callback=initMap">
-			</script>
+</body>
 
-			<h2><a href="/cameras/{{pager.current}}/0/">View All Images for This Cam</a></h2></center>
-	</div>
-</div>
-{% endblock %}
+</html>

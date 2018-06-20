@@ -10,8 +10,9 @@
 	<title>AMOS</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="../static/assets/css/main.css" />
-	<noscript><link rel="stylesheet" href="../static/assets/css/noscript.css" /></noscript>
+	<link rel="stylesheet" href="/static/assets/css/main.css" />
+	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
+	<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
 </head>
 
 <body class="homepage is-preload">
@@ -23,7 +24,7 @@
 			<!-- Inner -->
 			<div class="inner">
 				<header>
-					<h1><a href="/" id="logo">AMOS</a></h1>
+					<center><a href="/"><img src="/static/logo.png" width=350px height=100px></img></a></center>
 					<hr />
 					<p>The Archive of Many Outdoor Scenes</p>
 				</header>
@@ -48,9 +49,9 @@
 						<a href="#">Cameras</a>
 						<ul>
 							<li><a href="/cameras/0">View All Cameras</a></li>
-							<li><a href="/allcams">View Cool Cameras</a></li>
+							<li><a href="/coolcams">View Cool Cameras</a></li>
 							<li><a href="/submitcam">Submit Cameras</a></li>
-							<li><a href="/">Random Camera</a></li>
+							<li><a href="/cameras/{{ range(1, 201) | random | safe }}">Random Camera</a></li>
 						</ul>
 					</li>
 					<li><a href="/map">Map</a></li>
@@ -67,7 +68,7 @@
 					A collection of long-term timelapse imagery from publicly accessible outdoor webcams.
 				</p>
 				<p>
-					{{camera_count}} Cameras and {{image_count}} Images and Counting!
+					<strong>{{camera_count}}</strong> Cameras and <strong>{{image_count}}</strong> Images and Counting!
 				</p>
 			</header>
 		</section>
