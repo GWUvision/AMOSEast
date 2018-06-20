@@ -27,16 +27,20 @@ image_count = conn.fetchall()
 
 #disk space available
 #cpu load--> processing
+#stats = os.statvfs('~/')
+#stats.
 
 
 # Stuff for actually emailing
 fromaddr = "kylerood16@gmail.com"
 toaddr = "krood20@gwmail.gwu.edu"
+cc = "robert.pless@gmail.com"
+c1 = "shahsuraj261@gmail.com"
 
 msg = MIMEMultipart()
 msg['From'] = fromaddr
 msg['To'] = toaddr
-msg['Cc'] = 'kyzle@me.com'
+msg['Cc'] = cc
 subj = "LOG FOR " + str(datetime.now())
 msg['Subject'] = subj
 
@@ -47,6 +51,6 @@ server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
 server.login(fromaddr, "Andreschurrle9")
 text = msg.as_string()
-server.sendmail(fromaddr, toaddr, text)
+server.sendmail(fromaddr, [toaddr, cc, c1], text)
 server.quit()
 exit()
