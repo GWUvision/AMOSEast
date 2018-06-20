@@ -176,9 +176,6 @@ venv.bak/
 *.tiff
 *.tif
 
-# Scalable Vector Graphics
-*.svg
-*.svgz
 
 # Portable Document Format
 *.pdf
@@ -190,8 +187,6 @@ venv.bak/
 *.bmp
 *.dib
 
-# ICO
-*.ico
 
 # 3D Images
 *.3dm
