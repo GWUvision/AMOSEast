@@ -177,22 +177,27 @@ def submitcam():
     if request.method == 'POST':
         # get the url and description from the html
         url = request.form['url']
-        description = request.form['description']
+        # description = request.form['description']
         curr_time = datetime.datetime.now()
 
-        # connect to the database
-        conn = get_db().cursor()
+        name = request.form['name']
+        
+        print(url, name, curr_time)
 
-        # error checking the url
-        code = urlopen(url).code
-        if (code / 100 >= 4):
-            print('Nothing here')
-        else:
-            # query the database --> usually in the else
-            query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
-                url, description, curr_time)
-            conn.execute(query)
-            connection.commit()
+
+        # connect to the database
+        # conn = get_db().cursor()
+        # 
+        # # error checking the url
+        # code = urlopen(url).code
+        # if (code / 100 >= 4):
+        #     print('Nothing here')
+        # else:
+        #     # query the database --> usually in the else
+        #     query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
+        #         url, description, curr_time)
+        #     conn.execute(query)
+        #     connection.commit()
     return render_template('submitcam.html')
 
 
