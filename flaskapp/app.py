@@ -5,7 +5,7 @@ import numpy as np
 import urllib.request
 from urllib.error import URLError, HTTPError
 
-from flask import Flask, render_template, request, redirect, url_for, g
+from flask import Flask, render_template, request, redirect, url_for, g, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from pager import Pager
@@ -204,12 +204,12 @@ def submitcam():
             #     connection.commit()
         except HTTPError as e:
             print('Error code: ', e.code)
-            #flash('Error code: ', e.code)
+            flash('Error code: ', e.code)
             error = 'Error code: ', e.code
         except URLError as e:
             # do something (set req to blank)
             print('Reason: ', e.reason)
-            #flash('Reason: ', e.reason)
+            flash('Reason: ', e.reason)
             error = 'Reason: ', e.reason
     return render_template('submitcam.html', error=error)
 
