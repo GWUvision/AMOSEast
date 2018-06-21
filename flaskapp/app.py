@@ -3,6 +3,7 @@ import datetime
 import os
 import numpy as np
 import urllib.request
+from urllib.error import URLError, HTTPError
 
 from flask import Flask, render_template, request, redirect, url_for, g
 from flask_sqlalchemy import SQLAlchemy
