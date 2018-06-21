@@ -55,3 +55,12 @@ Command for running amostest.seas.gwu.edu
 ================================================================================================
 To start the server: nohup php gunicorn app:app </dev/null &>/dev/null &
 To kill the server: pkill -KILL -u username
+
+================================================================================================
+Watch command for running any command daily, hourly, etc.
+================================================================================================
+
+watch -n (time in seconds) (command you want to run)
+
+For log file: watch -n 86400 python log.py
+For image downloader: watch -n 3600 python imagedownload.py

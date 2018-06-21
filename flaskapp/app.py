@@ -198,10 +198,10 @@ def submitcam():
                 code = urllib.request.urlopen(url).code
 
                 # query the database --> usually in the else
-                query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
-                        url, description, curr_time)
-                conn.execute(query)
-                connection.commit()
+                # query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
+                #         url, description, curr_time)
+                # conn.execute(query)
+                # connection.commit()
             except HTTPError as e:
                 print('Error code: ', e.code)
                 error = 'Error code: ', e.code
