@@ -44,17 +44,17 @@ If you would like to contribute to the repository or use the repository for your
 -   Go back to home directory `cd ..`
 
 -   Add cameras to the database: `cd csv_data` THEN `python csvtopostgres.py`
-
--   If that does not work, use setup.txt and copy the command to directly add cameras: `psql -c "\copy cameras FROM '/your/full/path/to/data.csv' delimiter ',' csv header"`
+		(If that does not work, use setup.txt and copy the command to directly add cameras: `psql -c "\copy cameras FROM '/your/full/path/to/data.csv' delimiter ',' csv header"`)
 
 -   Go back to home directory `cd ..`
 
--   Run imagedownloader to capture images: `cd flaskapp` THEN `python imagedownload.py`
+-   Run imagedownloader to capture images `cd flaskapp` THEN `python imagedownload.py`
 
--   Run the flask app and visit the url: `python manage.py runserver` THEN visit the [url](http://localhost:5000/)
+-   Run the flask app and visit the url `python manage.py runserver` THEN visit the [url](http://localhost:5000/)
 
 ### Future Goals:
 
 -   Integrate with [Google Vision API](https://cloud.google.com/vision/)
 -   Able to rate images on _wow factor_
 -   Take webcams with already stored data and link to them
+- 	Able to map and cluster all the stored webcams
