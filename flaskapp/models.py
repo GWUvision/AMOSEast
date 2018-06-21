@@ -60,26 +60,3 @@ class Image(db.Model):
 # 
 #     def __repr__(self):
 #         return '<image id={}>'.format(self.rowid)
-
-# def get_image(the_id):
-#     # return Image.query.filter(Image.id == the_id).first()
-#     return Image.query.get_or_404(the_id)
-#
-#
-# def get_images(params=None):
-#     if not params:
-#         return Image.query.all()
-#     else:
-#         raise Exception('Filtering not implemented yet.')
-#
-#
-# def add_image(camera_dict):
-#     new_image = Camera(name=camera_dict['name'],
-#                         url=camera_dict['url'],
-#                         latitude=camera_dict['latitude'],
-#                         longitude=camera_dict['longitude'],
-#                         last_width=camera_dict['last_width'],
-#                         last_height=camera_dict['last_height'])
-#
-#     db.session.add(new_image)
-#     db.session.commit()
