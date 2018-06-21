@@ -28,6 +28,23 @@
 					Submit a camera
 				</span>
 
+				{% with messages = get_flashed_messages() %}
+			  {% if messages %}
+			    <ul class=flashes>
+			    {% for message in messages %}
+			      <li>{{ message }}</li>
+			    {% endfor %}
+			    </ul>
+			  {% endif %}
+				{% endwith %}
+
+				{% block body %}
+			  	{% if error %}
+			    	<p class=error><strong>Error:</strong> {{ error }}
+							Enter your camera information again, this time with a valid url.
+			  	{% endif %}
+				{% endblock %}
+
 
 				<div class="wrap-input100 validate-input" data-validate="Camera Name is required">
 					<label class="label-input100" for="name">Camera Title</label>
@@ -65,24 +82,6 @@
 						Send
 					</button>
 				</div>
-
-				{% with messages = get_flashed_messages() %}
-			  {% if messages %}
-			    <ul class=flashes>
-			    {% for message in messages %}
-			      <li>{{ message }}</li>
-			    {% endfor %}
-			    </ul>
-			  {% endif %}
-				{% endwith %}
-
-				{% block body %}
-
-					<h1>Login</h1>
-			  	{% if error %}
-			    	<p class=error><strong>Error:</strong> {{ error }}
-			  	{% endif %}
-				{% endblock %}
 
 				<div class="contact100-form-social flex-c-m">
 					<a href="/">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
