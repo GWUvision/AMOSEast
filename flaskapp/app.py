@@ -193,7 +193,7 @@ def submitcam():
         conn = get_db().cursor()
 
         #check if it is a url first using validators
-        if(domain(url)){
+        if(domain(url)):
             # error checking the url
             try:
                 code = urllib.request.urlopen(url).code
@@ -210,10 +210,9 @@ def submitcam():
                 # do something (set req to blank)
                 print('Reason: ', e.reason)
                 error = 'Reason: ', e.reason
-        }
-        else{
+        else:
             flash('Not a valid url.')
-        }
+            
     return render_template('submitcam.html', error=error)
 
 
