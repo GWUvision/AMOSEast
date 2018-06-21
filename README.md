@@ -19,29 +19,41 @@
 
 ### Comments and Updates
 
-If you would like to contribute to the repository:
+If you would like to contribute to the repository or use the repository for your own scientific reasons:
 
--   Fork the repository
--   Install virtualenv `pip install virtualenv`
--   Create a virtualenv `virtualenv -p python3 env`
--   Activate the virtualenv `source env/bin/activate`
+-   Fork the repository & clone the repository to your local computer
+
+-   (OPTIONAL) Install virtual environment `pip install virtualenv`
+
+-   (OPTIONAL) Create a virtualenv `virtualenv -p python3 env`
+
+-   (OPTIONAL) Activate the virtualenv `source env/bin/activate`
+
 -   Install the necessary python libraries `pip install -r requirements.txt`
+
 -   Export the database url: `export DATABASE_URL="postgresql://user:password@localhost/database"`
+
 -   Change directory to flaskapp `cd flaskapp`
--   Initalize the database `python manage.py db init`
+
+-   Initialize the database `python manage.py db init`
+
 -   Migrate the database `python manage.py db migrate`
+
 -   Upgrade the database `python manage.py db upgrade`
 
 -   Go back to home directory `cd ..`
--   Add cameras to the database: `cd csv_data` & `python csvtopostgres.py`
+
+-   Add cameras to the database: `cd csv_data` THEN `python csvtopostgres.py`
+
 -   If that does not work, use setup.txt and copy the command to directly add cameras: `psql -c "\copy cameras FROM '/your/full/path/to/data.csv' delimiter ',' csv header"`
 
 -   Go back to home directory `cd ..`
--   Run imagedownloader to capture images: `cd flaskapp` & `python imagedownload.py`
 
--   Run the flask app and visit the url: `python manage.py runserver` & visit the [url](localhost:5000)
+-   Run imagedownloader to capture images: `cd flaskapp` THEN `python imagedownload.py`
 
-    ### Future Goals:
+-   Run the flask app and visit the url: `python manage.py runserver` THEN visit the [url](http://localhost:5000/)
+
+### Future Goals:
 
 -   Integrate with [Google Vision API](https://cloud.google.com/vision/)
 -   Able to rate images on _wow factor_
