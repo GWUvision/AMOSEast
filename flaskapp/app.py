@@ -18,6 +18,7 @@ app = Flask(__name__, static_folder=STATIC_FOLDER)
 app.config.update(APPNAME=APPNAME,)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 moment = Moment(app)
 db = SQLAlchemy(app)
