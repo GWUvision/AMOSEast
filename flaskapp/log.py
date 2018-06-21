@@ -31,7 +31,7 @@ image_count = conn.fetchall()
 
 
 #getting disk and cpu inforamtion
-stats = os.statvfs('../../Documents')#'../../../../../pless_nfs')
+stats = os.statvfs('../../../../../pless_nfs')
 free = str(float(stats.f_bfree)/float(stats.f_blocks))
 cpu = str(psutil.cpu_percent(interval=1))
 
