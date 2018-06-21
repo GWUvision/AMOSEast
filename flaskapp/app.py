@@ -4,6 +4,7 @@ import os
 import numpy as np
 import urllib.request
 from urllib.error import URLError, HTTPError
+import validators
 
 from flask import Flask, render_template, request, redirect, url_for, g, flash
 from flask_sqlalchemy import SQLAlchemy
@@ -191,22 +192,28 @@ def submitcam():
         # connect to the database
         conn = get_db().cursor()
 
-        # error checking the url
-        try:
-            code = urllib.request.urlopen(url).code
+        #check if it is a url first using validators
+        if(domain(url)){
+            # error checking the url
+            try:
+                code = urllib.request.urlopen(url).code
 
-            # query the database --> usually in the else
-            query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
-                    url, description, curr_time)
-            conn.execute(query)
-            connection.commit()
-        except HTTPError as e:
-            print('Error code: ', e.code)
-            error = 'Error code: ', e.code
-        except URLError as e:
-            # do something (set req to blank)
-            print('Reason: ', e.reason)
-            error = 'Reason: ', e.reason
+                # query the database --> usually in the else
+                query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
+                        url, description, curr_time)
+                conn.execute(query)
+                connection.commit()
+            except HTTPError as e:
+                print('Error code: ', e.code)
+                error = 'Error code: ', e.code
+            except URLError as e:
+                # do something (set req to blank)
+                print('Reason: ', e.reason)
+                error = 'Reason: ', e.reason
+        }
+        else{
+            flash('Not a valid url.')
+        }
     return render_template('submitcam.html', error=error)
 
 
