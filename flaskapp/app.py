@@ -195,6 +195,7 @@ def submitcam():
         if(validators.url(url)):
             # error checking the url
             try:
+                print('here')
                 #code = urllib.request.urlopen(url).code
 
                 # query the database --> usually in the else
