@@ -2,6 +2,7 @@ import psycopg2
 import datetime
 import os
 import numpy as np
+import urllib.request
 
 from flask import Flask, render_template, request, redirect, url_for, g
 from flask_sqlalchemy import SQLAlchemy
@@ -188,12 +189,12 @@ def submitcam():
         print(url, name, curr_time)
 
         # connect to the database
-        # conn = get_db().cursor()
-        #
-        # # error checking the url
-        # code = urlopen(url).code
-        # if (code / 100 >= 4):
-        #     print('Nothing here')
+        conn = get_db().cursor()
+
+        # error checking the url
+        code = urllib.request.urlopen(url).code
+        if (code / 100 >= 4):
+            print('Nothing here')
         # else:
         #     # query the database --> usually in the else
         #     query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
