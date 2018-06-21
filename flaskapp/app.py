@@ -192,15 +192,20 @@ def submitcam():
         conn = get_db().cursor()
 
         # error checking the url
-        code = urllib.request.urlopen(url).code
-        if (code / 100 >= 4):
+        try:
+            code = urllib.request.urlopen(url).code
+
+            # query the database --> usually in the else
+            #     query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
+            #         url, description, curr_time)
+            #     conn.execute(query)
+            #     connection.commit()
+        except HTTPError as e:
+            print('Error code: ', e.code)
             print('Nothing here')
-        # else:
-        #     # query the database --> usually in the else
-        #     query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
-        #         url, description, curr_time)
-        #     conn.execute(query)
-        #     connection.commit()
+        except URLError as e:
+            # do something (set req to blank)
+            print('Reason: ', e.reason)
     return render_template('submitcam.html')
 
 
