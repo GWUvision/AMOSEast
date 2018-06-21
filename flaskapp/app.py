@@ -163,7 +163,7 @@ def allcamspage():
     list_for_webpage = []
 
     for cameraid in cool_cams_list:
-        current_image_query = "SELECT filepath from images where cameraid=%d ORDER BY cameraid DESC" % (
+        current_image_query = "SELECT filepath from images where cameraid=%d ORDER BY curr_time DESC" % (
             cameraid)
         conn.execute(current_image_query)
         current_image = conn.fetchone()[0]
@@ -172,8 +172,6 @@ def allcamspage():
         camera_name = all_cameras[cameraid - 1][1]
         cameraid_website = cameraid - 1
         list_for_webpage.append([current_image, camera_name, cameraid_website])
-
-    print(list_for_webpage)
 
     return render_template('coolcams.html', data=list_for_webpage)
 
