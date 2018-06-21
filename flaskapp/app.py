@@ -195,7 +195,7 @@ def submitcam():
         if(validators.url(url)):
             # error checking the url
             try:
-                code = urllib.request.urlopen(url).code
+                #code = urllib.request.urlopen(url).code
 
                 # query the database --> usually in the else
                 # query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
