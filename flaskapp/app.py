@@ -202,12 +202,12 @@ def submitcam():
             #     connection.commit()
         except HTTPError as e:
             print('Error code: ', e.code)
-            flash('Error code: ', e.code)
+            #flash('Error code: ', e.code)
             error = 'Error code: ', e.code
         except URLError as e:
             # do something (set req to blank)
             print('Reason: ', e.reason)
-            flash('Reason: ', e.reason)
+            #flash('Reason: ', e.reason)
             error = 'Reason: ', e.reason
     return render_template('submitcam.html', error=error)
 
