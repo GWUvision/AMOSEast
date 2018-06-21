@@ -179,6 +179,7 @@ def allcamspage():
 
 @app.route('/submitcam', methods=['POST', 'GET'])
 def submitcam():
+    error = None
     if request.method == 'POST':
         # get the url and description from the html
         url = request.form['url']
@@ -203,11 +204,14 @@ def submitcam():
             #     connection.commit()
         except HTTPError as e:
             print('Error code: ', e.code)
-            print('Nothing here')
+            flash('Error code: ', e.code)
+            error = 'Error code: ', e.code
         except URLError as e:
             # do something (set req to blank)
             print('Reason: ', e.reason)
-    return render_template('submitcam.html')
+            flash('Reason: ', e.reason)
+            error = 'Reason: ', e.reason
+    return render_template('submitcam.html', error=error)
 
 
 @app.route('/moreinfo')
