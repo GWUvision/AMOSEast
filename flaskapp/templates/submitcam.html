@@ -66,6 +66,24 @@
 					</button>
 				</div>
 
+				{% with messages = get_flashed_messages() %}
+			  {% if messages %}
+			    <ul class=flashes>
+			    {% for message in messages %}
+			      <li>{{ message }}</li>
+			    {% endfor %}
+			    </ul>
+			  {% endif %}
+				{% endwith %}
+
+				{% block body %}
+
+					<h1>Login</h1>
+			  	{% if error %}
+			    	<p class=error><strong>Error:</strong> {{ error }}
+			  	{% endif %}
+				{% endblock %}
+
 				<div class="contact100-form-social flex-c-m">
 					<a href="/">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 					<a href="/history">Info</a>&nbsp;&nbsp;|&nbsp;&nbsp;
