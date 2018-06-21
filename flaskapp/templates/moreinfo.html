@@ -72,26 +72,34 @@
 						</header>
 						<a href="#" class="image featured"><img src="" alt="" /></a>
 						<p>
-							AMOS focuses on natural environments from webcams located around the world. The idea is to look at changes in these environment and analyze what could have brought up those changes. If a bike lane is implemented, we want to be able to quantify <i>how many</i> people use the bike lane versus the sidewalk.  
+							AMOS focuses on natural environments from webcams located around the world. The idea is to look at changes in these environment and analyze what could have brought up those changes. If a bike lane is implemented, we want to be able to quantify <i>how many</i>							people use the bike lane versus the sidewalk.
 						</p>
 						<section>
 							<header>
 								<h3>Website</h3>
 							</header>
 							<p>
-								AMOS was designed using present and rising technologies. Flask and Python are the foundation of the frontend and backend, from capturing the data to hosting the website. 
+								AMOS was designed using present and rising technologies. Flask and Python are the foundation of the frontend and backend, from capturing the data to hosting the website.
 							</p>
 							<p>
-								AMOS is designed using a relational database called postgresql. Future upgrades will be tied to a nosql database using MongoDB.  
+								AMOS is designed using a relational database called postgresql. Future upgrades will be tied to a nosql database using MongoDB.
 							</p>
 						</section>
 						<section>
 							<header>
-								<h3>Augue euismod feugiat tempus</h3>
+								<h3>Images</h3>
 							</header>
 							<p>
-								Pretium tellus in euismod a integer sodales neque. Nibh quis dui quis mattis eget imperdiet venenatis feugiat. Neque primis ligula cum erat aenean tristique luctus risus ipsum praesent iaculis. Fermentum elit ut nunc urna volutpat donec cubilia commodo
-								risus morbi. Lobortis vestibulum velit malesuada ante egestas odio nisl duis sociis purus faucibus morbi. Eget massa mus etiam sociis pharetra magna.
+								Each webcam's image is captured every hour and the capture time is stored as the filename. The format is <b>yyyymmdd_hhmmss.jpg (4 digits for year, and 2 digits each for month, day, hour minute, and second)</b>. We use a hash on each webcam that
+								compares to the currently captured image to detect if the camera has been updated.
+							</p>
+						</section>
+						<section>
+							<header>
+								<h3>Dataset Access</h3>
+							</header>
+							<p>
+								All of the code is stored on <a href="https://github.com/gwcvl/AMOSEast">Github</a>. To access the images, visit the link to view all cameras <a href="http://amostest.seas.gwu.edu/cameras/0/">here</a>.
 							</p>
 						</section>
 					</article>
