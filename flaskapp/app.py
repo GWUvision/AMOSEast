@@ -3,8 +3,9 @@ import datetime
 import os
 import numpy as np
 import urllib.request
+from urllib.error import URLError, HTTPError
 
-from flask import Flask, render_template, request, redirect, url_for, g
+from flask import Flask, render_template, request, redirect, url_for, g, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from pager import Pager
@@ -17,6 +18,7 @@ app = Flask(__name__, static_folder=STATIC_FOLDER)
 app.config.update(APPNAME=APPNAME,)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 moment = Moment(app)
 db = SQLAlchemy(app)
@@ -178,6 +180,7 @@ def allcamspage():
 
 @app.route('/submitcam', methods=['POST', 'GET'])
 def submitcam():
+    error = None
     if request.method == 'POST':
         # get the url and description from the html
         url = request.form['url']
@@ -192,16 +195,24 @@ def submitcam():
         conn = get_db().cursor()
 
         # error checking the url
-        code = urllib.request.urlopen(url).code
-        if (code / 100 >= 4):
-            print('Nothing here')
-        # else:
-        #     # query the database --> usually in the else
-        #     query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
-        #         url, description, curr_time)
-        #     conn.execute(query)
-        #     connection.commit()
-    return render_template('submitcam.html')
+        try:
+            code = urllib.request.urlopen(url).code
+
+            # query the database --> usually in the else
+            #     query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
+            #         url, description, curr_time)
+            #     conn.execute(query)
+            #     connection.commit()
+        except HTTPError as e:
+            print('Error code: ', e.code)
+            flash('Error code: ', e.code)
+            error = 'Error code: ', e.code
+        except URLError as e:
+            # do something (set req to blank)
+            print('Reason: ', e.reason)
+            flash('Reason: ', e.reason)
+            error = 'Reason: ', e.reason
+    return render_template('submitcam.html', error=error)
 
 
 @app.route('/moreinfo')
