@@ -193,7 +193,7 @@ def submitcam():
         conn = get_db().cursor()
 
         #check if it is a url first using validators
-        if(validators.domain(url)):
+        if(validators.url(url)):
             # error checking the url
             try:
                 code = urllib.request.urlopen(url).code
