@@ -154,22 +154,27 @@ def mappage():
 
 @app.route('/coolcams')
 def allcamspage():
+
     conn = get_db().cursor()
 
-    sql1 = "SELECT filepath, curr_time from images WHERE cameraid=1 ORDER BY cameraid"
-    conn.execute(sql1)
-    cam1 = conn.fetchall()
-    cam1 = cam1[-1]
+    # change ONLY this list to get the coolest cameras
+    cool_cams_list = [1, 2, 81, 42, 15, 16, 17, 18, 19, 20, 21, 22]
+    list_for_webpage = []
 
-    sql2 = "SELECT filepath, curr_time from images WHERE cameraid=2 ORDER BY cameraid"
-    conn.execute(sql2)
-    cam2 = conn.fetchall()
-    cam2 = cam2[-1]
+    for cameraid in cool_cams_list:
+        current_image_query = "SELECT filepath from images where cameraid=%d ORDER BY cameraid DESC" % (
+            cameraid)
+        conn.execute(current_image_query)
+        current_image = conn.fetchone()[0]
 
-    data2 = [cam1, cam2]
-    print(data2)
+        # index subtract by 1 because all_cams starts at 0 while the camera list starts at 1; getting the name for each camera
+        camera_name = all_cameras[cameraid - 1][1]
+        cameraid_website = cameraid - 1
+        list_for_webpage.append([current_image, camera_name, cameraid_website])
 
-    return render_template('coolcams.html', data2=data2)
+    print(list_for_webpage)
+
+    return render_template('coolcams.html', data=list_for_webpage)
 
 
 @app.route('/submitcam', methods=['POST', 'GET'])
@@ -181,13 +186,12 @@ def submitcam():
         curr_time = datetime.datetime.now()
 
         name = request.form['name']
-        
-        print(url, name, curr_time)
 
+        print(url, name, curr_time)
 
         # connect to the database
         # conn = get_db().cursor()
-        # 
+        #
         # # error checking the url
         # code = urlopen(url).code
         # if (code / 100 >= 4):
