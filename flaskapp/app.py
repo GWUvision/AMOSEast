@@ -182,9 +182,8 @@ def submitcam():
     if request.method == 'POST':
         # get the url and description from the html
         url = request.form['url']
-        # description = request.form['description']
+        description = request.form['description']
         curr_time = datetime.datetime.now()
-
         name = request.form['name']
 
         print(url, name, curr_time)
