@@ -54,10 +54,7 @@ def homepage():
     image_count = conn.fetchone()[0]
     image_count = '{:,}'.format(image_count)
 
-    lng = np.array(all_cameras)[:, 4]
-    lat = np.array(all_cameras)[:, 3]
-
-    return render_template('home.html', lg=lng, lt=lat, camera_count=camera_count, image_count=image_count)
+    return render_template('home.html', camera_count=camera_count, image_count=image_count)
 
 
 @app.route('/cameras/<int:ind>/')
