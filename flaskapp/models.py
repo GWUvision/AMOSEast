@@ -45,18 +45,18 @@ class Image(db.Model):
 
 # new class specifically for reviewing submitted cameras
 # make sure this is right
-# class SubmitCam(db.Model):
-#     __tablename__ = 'submit_cams'
-# 
-#     submitid = db.Column(db.Integer, primary_key=True)
-#     url = db.Column(db.String())
-#     description = db.Column(db.String())
-#     curr_time = db.Column(db.DateTime)
-# 
-#     def __init__(self, url, description, curr_time):
-#         self.url = url
-#         self.description = description
-#         self.curr_time = curr_time
-# 
-#     def __repr__(self):
-#         return '<image id={}>'.format(self.rowid)
+class SubmitCam(db.Model):
+    __tablename__ = 'submit_cams'
+
+    submitid = db.Column(db.Integer, primary_key=True)
+    url = db.Column(db.String())
+    description = db.Column(db.String())
+    curr_time = db.Column(db.DateTime)
+
+    def __init__(self, url, description, curr_time):
+        self.url = url
+        self.description = description
+        self.curr_time = curr_time
+
+    def __repr__(self):
+        return '<image id={}>'.format(self.rowid)
