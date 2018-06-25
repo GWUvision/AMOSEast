@@ -186,6 +186,8 @@ def submitcam():
         description = request.form['message']
         curr_time = datetime.datetime.now()
         name = request.form['name']
+        lat = request.form['latitude']
+        long = request.form['longitude']
 
         print(url, name, curr_time)
 
@@ -201,7 +203,7 @@ def submitcam():
                 code = urllib.request.urlopen(url).code
 
                 # query the database --> usually in the else
-                query = "INSERT INTO submit_cams(url, description, curr_time) VALUES('%s','%s','%s')" % (url, description, curr_time)
+                query = "INSERT INTO submit_cams(url, description, curr_time, latitude, longitude) VALUES('%s','%s','%s','%s','%s')" % (url, description, curr_time, lat, long)
                 cur.execute(query)
                 conn.commit()
             except HTTPError as e:
