@@ -160,7 +160,7 @@ def allcamspage():
     conn = get_db().cursor()
 
     # change ONLY this list to get the coolest cameras
-    cool_cams_list = [1, 2, 81, 42, 15, 16, 17, 18, 19, 20, 21, 22]
+    cool_cams_list = [1, 2, 5, 2501, 2503, 2512, 2514, 4038, 4053, 4077, 4078, 4084]
     list_for_webpage = []
 
     for cameraid in cool_cams_list:
