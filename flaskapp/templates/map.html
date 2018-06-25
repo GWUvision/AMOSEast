@@ -80,8 +80,11 @@
 
 				var locations = []
 				for(i = 0; i < 5; i++){
-					var loc = {lat: {{lt[i]}}, lng: {{lg[i]}}};
-					locations.push(loc);
+					var latLng = new google.maps.LatLng({{lt[i]}},{{lg[i]}});
+    			var marker = new google.maps.Marker({
+      			position: latLng,
+      			map: map
+    			});
 				}
 
 				var markers = locations.map(function(location, i) {
