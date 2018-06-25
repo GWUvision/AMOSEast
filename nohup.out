@@ -1,0 +1,18 @@
+[2018-06-11 13:02:48 -0400] [11498] [INFO] Starting gunicorn 19.8.1
+[2018-06-11 13:02:48 -0400] [11498] [INFO] Listening at: http://127.0.0.1:8000 (11498)
+[2018-06-11 13:02:48 -0400] [11498] [INFO] Using worker: sync
+[2018-06-11 13:02:48 -0400] [11501] [INFO] Booting worker with pid: 11501
+[2018-06-11 13:03:11 -0400] [11498] [INFO] Handling signal: int
+[2018-06-11 13:03:11 -0400] [11501] [INFO] Worker exiting (pid: 11501)
+[2018-06-11 13:03:11 -0400] [11498] [INFO] Shutting down: Master
+[2018-06-11 13:03:18 -0400] [11508] [INFO] Starting gunicorn 19.8.1
+[2018-06-11 13:03:18 -0400] [11508] [INFO] Listening at: http://127.0.0.1:8000 (11508)
+[2018-06-11 13:03:18 -0400] [11508] [INFO] Using worker: sync
+[2018-06-11 13:03:18 -0400] [11511] [INFO] Booting worker with pid: 11511
+[2018-06-11 13:05:04 -0400] [11508] [INFO] Handling signal: int
+[2018-06-11 13:05:04 -0400] [11511] [INFO] Worker exiting (pid: 11511)
+[2018-06-11 13:05:04 -0400] [11508] [INFO] Shutting down: Master
+Could not open input file: gunicorn
+Could not open input file: gunicorn
+Could not open input file: gunicorn
+Could not open input file: gunicorn
