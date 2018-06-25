@@ -190,7 +190,8 @@ def submitcam():
         print(url, name, curr_time)
 
         # connect to the database
-        conn = get_db().cursor()
+        conn = get_db()
+        cur = conn.cursor()
 
         #check if it is a url first using validators
         if(validators.url(url)):
@@ -201,7 +202,7 @@ def submitcam():
 
                 # query the database --> usually in the else
                 query = "INSERT INTO submit_cams(url, description, curr_time) VALUES('%s','%s','%s')" % (url, description, curr_time)
-                conn.execute(query)
+                cur.execute(query)
                 conn.commit()
             except HTTPError as e:
                 print('Error code: ', e.code)
