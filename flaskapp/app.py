@@ -183,7 +183,7 @@ def submitcam():
         # get the url and description from the html
         url = request.form['url']
         print(url)
-        message = request.form['message']
+        description = request.form['message']
         curr_time = datetime.datetime.now()
         name = request.form['name']
 
@@ -193,26 +193,26 @@ def submitcam():
         conn = get_db().cursor()
 
         #check if it is a url first using validators
-        # if(validators.url(url)):
-        #     # error checking the url
-        #     try:
-        #         print('here')
-        #         #code = urllib.request.urlopen(url).code
-        #
-        #         # query the database --> usually in the else
-        #         # query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
-        #         #         url, description, curr_time)
-        #         # conn.execute(query)
-        #         # connection.commit()
-        #     except HTTPError as e:
-        #         print('Error code: ', e.code)
-        #         error = 'Error code: ', e.code
-        #     except URLError as e:
-        #         # do something (set req to blank)
-        #         print('Reason: ', e.reason)
-        #         error = 'Reason: ', e.reason
-        # else:
-        #     flash('Not a valid url.')
+        if(validators.url(url)):
+            # error checking the url
+            try:
+                print('here')
+                code = urllib.request.urlopen(url).code
+
+                # query the database --> usually in the else
+                query = "INSERT INTO submit_cams(url, description, curr_time) VALUES(%s,%s,%s)" % (
+                        url, description, curr_time)
+                conn.execute(query)
+                connection.commit()
+            except HTTPError as e:
+                print('Error code: ', e.code)
+                error = 'Error code: ', e.code
+            except URLError as e:
+                # do something (set req to blank)
+                print('Reason: ', e.reason)
+                error = 'Reason: ', e.reason
+        else:
+            flash('Not a valid url.')
 
     return render_template('submitcam.html', error=error)
 
