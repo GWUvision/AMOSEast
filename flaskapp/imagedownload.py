@@ -16,7 +16,7 @@ from socket import error as SocketError
 from urllib.parse import urlparse
 
 monkey.patch_socket()
-pool = Pool(20)
+pool = Pool(30)
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='allow')
 cur = conn.cursor()
