@@ -28,6 +28,10 @@
 					<h1><a href="{{ data[2] | safe }}" id="logo">Name: {{data[1]}}</a></h1>
 					<br/>
 					<img src="{{ url_for('static', filename='images/'+data2[0]) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
+					<a href="/cameras/{{pager.current}}/{{pager2.prev}}" class="button">Prev Img </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="/cameras/{{pager.current}}/{{pager2.next}}" class="button">Next Img</a>
+					<br/></br/>
+					<a href="/cameras/{{pager.current}}/">Back</a>
 				</header>
 			</div>
 
