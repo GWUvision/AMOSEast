@@ -65,7 +65,7 @@
 				var map = new google.maps.Map(document.getElementById('map'), {
 					zoom: 3,
 					center: {
-						lat: -69,
+						lat: 69,
 						lng: 69
 					}
 				});
@@ -78,16 +78,10 @@
 				// create an array of markers based on a given "locations" array.
 				// The map() method here has nothing to do with the Google Maps API.
 
-
-
-				/*for(i = 0; i < 5; i++){
-					var loc = {lat: {{lt[i]}}, lng: {{lg[i]}}};
-					var latlng = new google.maps.LatLng({{lt[i]}}, {{lg[i]}});
-					var marker = new google.maps.Marker({position: latlng});
-
+				for(var i = 0; i < 50; i += 1) {
+					var marker = new GMarker(new GLatLng({{lt[i]}}, {{lg[i]}}));
 					locations.push(marker);
-				}*/
-
+				}
 
 				var markers = locations.map(function(location, i) {
           return new google.maps.Marker({
@@ -101,7 +95,17 @@
             {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
       }
 
-			var locations = [
+			/*for(i = 0; i < 5; i++){
+				var loc = {lat: {{lt[i]}}, lng: {{lg[i]}}};
+				var latlng = new google.maps.LatLng({{lt[i]}}, {{lg[i]}});
+				var marker = new google.maps.Marker({position: latlng});
+
+				locations.push(marker);
+			}*/
+
+			var locations = [];
+
+			/*var locations = [
         {lat: -31.563910, lng: 147.154312},
         {lat: -33.718234, lng: 150.363181},
         {lat: -33.727111, lng: 150.371124},
@@ -125,7 +129,7 @@
         {lat: -42.734358, lng: 147.501315},
         {lat: -42.735258, lng: 147.438000},
         {lat: -43.999792, lng: 170.463352}
-      ]
+      ]*/
 
 
 		</script>
