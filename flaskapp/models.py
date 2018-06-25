@@ -52,11 +52,15 @@ class SubmitCam(db.Model):
     url = db.Column(db.String())
     description = db.Column(db.String())
     curr_time = db.Column(db.DateTime)
+    latitude = db.Column(db.Float)
+    longitude = db.Column(db.Float)
 
-    def __init__(self, url, description, curr_time):
+    def __init__(self, url, description, curr_time, latitude, longitude):
         self.url = url
         self.description = description
         self.curr_time = curr_time
+        self.latitude = latitude
+        self.longitude = longitude
 
     def __repr__(self):
         return '<image id={}>'.format(self.submitid)
