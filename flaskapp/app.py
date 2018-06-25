@@ -129,10 +129,11 @@ def image_view(ind=None, ind2=None):
 @app.route('/goto', methods=['POST', 'GET'])
 def goto():
 
-    if not request.form['index']:
-        return redirect('/cameras/0')
-    else:
-        return redirect('/cameras/' + request.form['index'])
+    if request.method == 'POST':
+        if not request.form['index']:
+            return redirect('/cameras/0')
+        else:
+            return redirect('/cameras/' + request.form['index'])
 
 
 @app.route('/about')
