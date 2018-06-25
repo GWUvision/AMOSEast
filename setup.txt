@@ -28,7 +28,7 @@ export DATABASE_URL= postgres://kylerood:@localhost/kylerood
 
 
 ================================================================================================
-Crontab set up to run python program for image downloading
+Crontab set up to run python program for image downloading && log file
 ================================================================================================
 sudo nano .bashrc
 add to bashrc:

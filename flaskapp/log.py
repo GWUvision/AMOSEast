@@ -1,3 +1,4 @@
+#!/pless_nfs/home/krood20/AMOSEast/env/bin/python
 import os
 import psutil
 import psycopg2
@@ -43,7 +44,7 @@ cpu = str(psutil.cpu_percent(interval=1))
 # Stuff for actually emailing
 fromaddr = "kylerood16@gmail.com"
 toaddr = "krood20@gwmail.gwu.edu"
-cc0 = "robert.pless@gmail.com"
+# cc0 = "robert.pless@gmail.com"
 cc1 = "shahsuraj261@gmail.com"
 
 time.ctime()
@@ -63,6 +64,6 @@ server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
 server.login(fromaddr, "Andreschurrle9")
 text = msg.as_string()
-server.sendmail(fromaddr, [toaddr, cc0, cc1], text)
+server.sendmail(fromaddr, [toaddr, cc1], text)
 server.quit()
 exit()
