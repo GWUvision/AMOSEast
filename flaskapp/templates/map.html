@@ -58,15 +58,15 @@
 </div>
 
 <body class="no-sidebar is-preload">
-	<div id="map">
+	<div id="map"></div>
 		<script>
 			function initMap() {
 
 				var map = new google.maps.Map(document.getElementById('map'), {
 					zoom: 3,
 					center: {
-						lat: -28.024,
-						lng: 140.887
+						lat: -69,
+						lng: 69
 					}
 				});
 
@@ -90,18 +90,16 @@
 
 
 				var markers = locations.map(function(location, i) {
-					return new google.maps.Marker({
-						position: location,
-						label: labels[i % labels.length]
-					});
-				});
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+          });
+        });
 
-				// Add a marker clusterer to manage the markers.
-				var markerCluster = new MarkerClusterer(map, locations, {
-					imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
-				});
-
-			}
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
 
 			var locations = [
         {lat: -31.563910, lng: 147.154312},
