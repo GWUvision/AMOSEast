@@ -59,4 +59,4 @@ class SubmitCam(db.Model):
         self.curr_time = curr_time
 
     def __repr__(self):
-        return '<image id={}>'.format(self.rowid)
+        return '<image id={}>'.format(self.submitid)
