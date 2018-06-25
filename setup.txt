@@ -37,7 +37,6 @@ DATABASE_URL=postgresql://suraj98:password@localhost/suraj98
 source ~/.bashrc and exit out of terminal
 
 chmod a+x imagedownload.py
-
 chmod a+x log.py
 
 0 * * * * cd /pless_nfs/home/krood20/AMOSEast/flaskapp && /pless_nfs/home/krood20/AMOSEast/env/bin/python /pless_nfs/home/krood20/AMOSEast/flaskapp/imagedownload.py >> out.txt
