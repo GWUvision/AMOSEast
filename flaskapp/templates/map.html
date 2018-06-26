@@ -53,6 +53,7 @@
 			</li>
 			<li><a href="/map">Map</a></li>
 		</ul>
+		{{ }}
 	</nav>
 
 </div>
@@ -60,6 +61,7 @@
 <body class="no-sidebar is-preload">
 	<div id="map"></div>
 		<script>
+			//printing the html with python: use this to render the page
 			var marker_data=[['A',-31.563910,147.154312],['B',-33.718234,150.363181],];
 
 			function initMap(){
@@ -67,7 +69,7 @@
 
 				markers=[]
 				for(var i=0;i<marker_data.length;i++){
-					markers.push(new google.maps.Marker({'position':new google.maps.LatLng(marker_data[i][1],marker_data[i][2]),'label':marker_data[i][0]}))
+					markers.push(new google.maps.Marker({'position':new google.maps.LatLng(marker_data[i][1],marker_data[i][2]),'label':marker_data[i][0]}));
 				}
 
 					var markerCluster=new MarkerClusterer(map,markers,{imagePath:'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
