@@ -1,5 +1,6 @@
 from app import db
 
+# database structure
 
 class Camera(db.Model):
     __tablename__ = 'cameras'
