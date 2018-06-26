@@ -27,7 +27,9 @@
 				<header>
 					<h1><a href="{{ data[2] | safe }}" id="logo">Name: {{data[1]}}</a></h1>
 					<br/>
-					<img src="{{ url_for('static', filename='images/'+data2[0]) }}" style='height: 100%; width: 100%;' class="img-responsive center" object-fit: contain'>
+					<img src="{{ url_for('static', filename='images/'+data2[0]) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
+					<a href="/cameras/{{pager.prev}}" class="button">Prev Cam </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="/cameras/{{pager.next}}" class="button">Next Cam</a>
 				</header>
 			</div>
 
@@ -51,7 +53,7 @@
 							<li><a href="/cameras/0">View All Cameras</a></li>
 							<li><a href="/coolcams">View Cool Cameras</a></li>
 							<li><a href="/submitcam">Submit Cameras</a></li>
-							<li><a href="/cameras/{{ range(1, 201) | random | safe }}">Random Camera</a></li>
+							<li><a href="/cameras/{{ range(1, 7800) | random | safe }}">Random Camera</a></li>
 						</ul>
 					</li>
 					<li><a href="/map">Map</a></li>
