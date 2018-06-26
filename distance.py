@@ -13,10 +13,7 @@ conn.execute(all_cameras_query)
 all_cameras = conn.fetchall()
 
 
-locations = []
-for camera in all_cameras:
-    locations.append((camera[3], camera[4]))
-    
+
 
     
 tree = KDTree(locations, distance_metric='Arc', radius=pysal.cg.RADIUS_EARTH_MILES)
