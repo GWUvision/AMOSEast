@@ -24,7 +24,7 @@ for cameras in all_cameras:
 #list of good camera indexes
 good_cams = []
 
-for i in range(0, 4):
+for i in range(0, len(all_cameras)):
     current_point = (all_cameras[i][3], all_cameras[i][4])
     print("Checking cam " + str(i))
     indices = None
@@ -42,12 +42,8 @@ for i in range(0, 4):
         good_cams.append(i)
         print(str(i) + " is a good cam!")
 
-    # print(current_point)
 
-    #for i in indices:
-        #print(all_cameras[i])
-
-#wrtie to the csv
+#write to the csv
 with open(csvfile, "w") as output:
     writer = csv.writer(output, lineterminator='\n')
     for val in good_cams:
