@@ -127,14 +127,6 @@
 			</div>
 		</div>
 
-    <script>
-    	//passing in the longitude and latitude
-    	var long = {{ lg }};
-    	var latit = {{ lt }};
-    	long_size = len(long)
-    	latit_size = len(latit)
-    </script>
-
     	<h3>Location of Camera</h3>
     	<!--The div element for the map -->
     	<div id="map"></div>
@@ -143,8 +135,8 @@
     		function initMap() {
     			// The location of Uluru
     			var loc = {
-    				lat:  latit[1],
-    				lng: long[1]
+            lat:  {{lt[0]}},
+ +				  lng: {{lg[0]}}
     			};
     			// The map, centered at Uluru
     			var map = new google.maps.Map(
