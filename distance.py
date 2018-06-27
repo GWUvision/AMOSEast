@@ -27,6 +27,8 @@ for camera in all_cameras:
 def get_cams(latitude, longitude):
     #list of good camera indexes
     good_cams = []
+    locations = []
+    locations.append((latitude, longitude))
 
     for i in range(0, len(all_cameras)):
         current_point = (all_cameras[i][3], all_cameras[i][4])
@@ -37,7 +39,7 @@ def get_cams(latitude, longitude):
             if(i == j):
                 break
             else:
-                tree = KDTree([latitude, longitude], distance_metric='Arc', radius=pysal.cg.RADIUS_EARTH_MILES)
+                tree = KDTree(locations, distance_metric='Arc', radius=pysal.cg.RADIUS_EARTH_MILES)
                 # # get all points within 1 mile of 'current_point'
                 indices = tree.query_ball_point(current_point, 20)
 
@@ -53,5 +55,6 @@ def get_cams(latitude, longitude):
         for val in good_cams:
             writer.writerow([val])
 
-jobs = [pool.spawn(get_cams, latitude, longitude) for latitude, longitude in locations]
+jobs = [pool.spawn(get_cams, latitude, longitude)
+            for latitude, longitude in locations]
 print("Acquired cams")
