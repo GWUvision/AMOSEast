@@ -27,7 +27,7 @@ for i in range(0, len(all_cameras)):
         # # get all points within 1 mile of 'current_point'
         indices = tree.query_ball_point(current_point, 20)
     #if there are no indices, then add it to the list, because this means there are no cams in 20 mile radius
-    if(!indices):
+    if not indices:
         good_cams.append(i)
         print(str(i) + " is a good cam!")
     # print(current_point)
