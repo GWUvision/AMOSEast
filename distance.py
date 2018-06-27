@@ -23,15 +23,12 @@ locations = []
 for camera in all_cameras:
     locations.append((camera[3], camera[4]))
 
+good_cams = []
 
 def get_cams(latitude, longitude):
-    #list of good camera indexes
-    good_cams = []
-    location = []
-    location.append((latitude, longitude))
-
     for i in range(0, len(all_cameras)):
-        current_point = (all_cameras[i][3], all_cameras[i][4])
+        #current_point = (all_cameras[i][3], all_cameras[i][4])
+        current_point = (latitude, longitude)
         print("Checking cam " + str(i))
         indices = None
 
@@ -39,7 +36,7 @@ def get_cams(latitude, longitude):
             if(i == j):
                 break
             else:
-                tree = KDTree(location, distance_metric='Arc', radius=pysal.cg.RADIUS_EARTH_MILES)
+                tree = KDTree(locations, distance_metric='Arc', radius=pysal.cg.RADIUS_EARTH_MILES)
                 # # get all points within 1 mile of 'current_point'
                 indices = tree.query_ball_point(current_point, 20)
 
@@ -50,7 +47,7 @@ def get_cams(latitude, longitude):
 
 
     #write to the csv
-    with open(csvfile, "w") as output:
+    with open(csvfile, "a") as output:
         writer = csv.writer(output, lineterminator='\n')
         for val in good_cams:
             writer.writerow([val])
