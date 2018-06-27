@@ -32,7 +32,7 @@ db = SQLAlchemy(app)
 from models import *
 
 
-# ---- connected to database initially 
+# ---- connected to database initially
 
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
@@ -75,6 +75,10 @@ def directory_view(ind=1):
 
     conn.execute(camera_images_query)
     camera_images = conn.fetchall()
+    
+    lng = np.array(all_cameras)[:, 4]
+    lat = np.array(all_cameras)[:, 3]
+
     try:
 
         if ind >= pager.count:
@@ -94,17 +98,17 @@ def directory_view(ind=1):
 
             except AttributeError as e:
                 w_info = ['No weather information available']
-                return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
+                return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
 
             except KeyError as e:
                 w_info = ['No weather information available']
-                return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
+                return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
 
             except UnboundLocalError as e:
                 w_info = ['No weather information available']
-                return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
+                return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
 
-            return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info)
+            return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
 
     except IndexError as e:
         return render_template('404.html'), 404
