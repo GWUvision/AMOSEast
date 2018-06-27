@@ -3,9 +3,11 @@ import psycopg2
 import os
 import pysal
 import sys
+import csv
 from pysal.cg.kdtree import KDTree
 
 sys.setrecursionlimit(10000)
+csvfile = "good_cams.csv"
 
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
@@ -19,6 +21,7 @@ locations = []
 for cameras in all_cameras:
     locations.append((cameras[3], cameras[4]))
 
+#list of good camera indexes
 good_cams = []
 
 for i in range(0, 4):
@@ -34,15 +37,18 @@ for i in range(0, 4):
             # # get all points within 1 mile of 'current_point'
             indices = tree.query_ball_point(current_point, 20)
 
-            print(current_point)
-            print(indices)
-
     #if there are no indices, then add it to the list, because this means there are no cams in 20 mile radius
-
     if not indices:
         good_cams.append(i)
         print(str(i) + " is a good cam!")
+
     # print(current_point)
 
     #for i in indices:
         #print(all_cameras[i])
+
+#wrtie to the csv
+with open(csvfile, "w") as output:
+    writer = csv.writer(output, lineterminator='\n')
+    for val in good_cams:
+        writer.writerow([val])
