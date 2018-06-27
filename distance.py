@@ -2,7 +2,10 @@ import math
 import psycopg2
 import os
 import pysal
+import sys
 from pysal.cg.kdtree import KDTree
+
+sys.setrecursionlimit(10000)
 
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
