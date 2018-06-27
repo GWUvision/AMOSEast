@@ -1,3 +1,5 @@
+# ---- importing libraries to connect with database and flask and other necessary packages -----
+
 import psycopg2
 import datetime
 import os
@@ -12,6 +14,9 @@ from flask_moment import Moment
 from pager import Pager
 from weather import Weather, Unit
 
+
+# --- initial app configuation and initialization such as where images are located and setting database url
+
 STATIC_FOLDER = 'static'
 APPNAME = 'AMOS'
 
@@ -25,6 +30,9 @@ moment = Moment(app)
 db = SQLAlchemy(app)
 
 from models import *
+
+
+# ---- connected to database initially 
 
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
