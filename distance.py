@@ -21,7 +21,7 @@ for cameras in all_cameras:
 
 good_cams = []
 
-for i in range(0, 2):
+for i in range(0, 4):
     current_point = (all_cameras[i][3], all_cameras[i][4])
     print("Checking cam " + str(i))
     indices = None
