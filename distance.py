@@ -54,3 +54,4 @@ def get_cams():
             writer.writerow([val])
 
 jobs = [pool.spawn(get_cams)]
+print("Acquired cams")
