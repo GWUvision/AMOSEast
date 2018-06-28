@@ -40,7 +40,7 @@ def haversine(lon1, lat1, lon2, lat2):
     return c * r
 
 #some globals we need
-radius = 20.0 # in kilometer
+radius = 10.0 # in kilometer
 good_cams = []
 
 for i in range(0, len(all_cameras)):
