@@ -11,7 +11,7 @@ from gevent.pool import Pool
 # monkey.patch_socket()
 # pool = Pool(30)
 # sys.setrecursionlimit(10000)
-# csvfile = "good_cams.csv"
+csvfile = "good_cams.csv"
 
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
@@ -22,9 +22,6 @@ all_cameras = conn.fetchall()
 locations = []
 for camera in all_cameras:
     locations.append((camera[3], camera[4]))
-
-good_cams = []
-
 
 def haversine(lon1, lat1, lon2, lat2):
     """
@@ -44,27 +41,36 @@ def haversine(lon1, lat1, lon2, lat2):
 
 #some globals we need
 radius = 30.0 # in kilometer
-good = True #0 means it is a good camera
+good_cams = []
 
 for i in range(0, len(all_cameras)):
-    lat1 = locations[0][0]
-    lon1 = locations[0][1]
+    print("Checking cam " + str(i))
 
-    lat2 = locations[i][0]
-    lon2 = locations[i][1]
+    lat1 = locations[i][0]
+    lon1 = locations[i][1]
+    good = True #0 means it is a good camera
 
-    a = haversine(lon1, lat1, lon2, lat2)
+    for j in range(1, len(all_cameras))
+        lat2 = locations[j][0]
+        lon2 = locations[j][1]
+
+        a = haversine(lon1, lat1, lon2, lat2)
+
+        #print('Distance (km) : ', a)
+        if a <= radius:
+            good = False #1 means it is no longer a default good cam
+
+    if(good):
+        print(str(i) + " is a good cam!")
+        good_cams.append(i)
+        #write to the csv
+        with open(csvfile, "a") as output:
+            writer = csv.writer(output, lineterminator='\n')
+            writer.writerow(i)
+
+print(good_cams)
 
 
-    print('Distance (km) : ', a)
-    if a <= radius:
-        good = False #1 means it is no longer a default good cam
-
-if(good):
-    print("Good cam!")
-
-
-a = haversine(lon1, lat1, lon2, lat2)
 
 
 
