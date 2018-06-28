@@ -32,8 +32,7 @@ new_list = [it for it in list2 if it[0][1].date() != today]
 print("creating dataframe")
 df = pd.DataFrame(new_list, columns=['tuple'])
 
-df.index.names = ['index']
-
+print("changing from one column to two")
 df[['cameraid', 'last_captured']] = df['tuple'].apply(pd.Series)
 df.drop('tuple', axis=1, inplace=True)
 print(df.head())
