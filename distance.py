@@ -63,10 +63,11 @@ for i in range(0, len(locations)):
     if(good):
         print(str(i) + " is a good cam!")
         good_cams.append(i)
-        #write to the csv
-        with open(csvfile, "w") as output:
-            writer = csv.writer(output, lineterminator='\n')
-            writer.writerow(str(i))
+
+with open(csvfile, "a") as output:
+    writer = csv.writer(output, lineterminator='\n')
+    for val in good_cams:
+        writer.writerow([val])
 
 print(good_cams)
 
