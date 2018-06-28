@@ -16,17 +16,20 @@ today = datetime.date.today()
 
 last_updated_list = []
 
+print("getting all cameras...")
 for camera in all_cameras:
-    last_updated_query = "SELECT cameraid, curr_time FROM images WHERE cameraid=%d ORDER BY curr_time DESC" % (
-        camera[0])
+    last_updated_query = "SELECT cameraid, curr_time FROM images WHERE cameraid=%d ORDER BY curr_time DESC" % (camera[0])
     conn.execute(last_updated_query)
     last_updated_list.append(conn.fetchall())
 
 
+print("removing all empty lists from list...")
 list2 = [x for x in last_updated_list if x != []]
 
+print("checking which cameras have not been captured today")
 new_list = [it for it in list2 if it[0][1].date() != today]
 
+print("creating dataframe")
 df = pd.DataFrame(new_list, columns=['tuple'])
 
 df.index.names = ['index']
@@ -35,6 +38,7 @@ df[['cameraid', 'last_captured']] = df['tuple'].apply(pd.Series)
 df.drop('tuple', axis=1, inplace=True)
 print(df.head())
 
+print("copying to csv")
 df.to_csv('bad_cams.csv')
 
 
