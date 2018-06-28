@@ -1,4 +1,4 @@
-import math
+from math import radians, cos, sin, asin, sqrt
 import psycopg2
 import os
 import pysal
