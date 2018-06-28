@@ -50,7 +50,7 @@ for i in range(0, len(all_cameras)):
     lon1 = locations[i][1]
     good = True #0 means it is a good camera
 
-    for j in range(1, len(all_cameras))
+    for j in range(1, len(all_cameras)):
         lat2 = locations[j][0]
         lon2 = locations[j][1]
 
