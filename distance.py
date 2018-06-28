@@ -40,23 +40,23 @@ def haversine(lon1, lat1, lon2, lat2):
     return c * r
 
 #some globals we need
-radius = 10.0 # in kilometer
+radius = 5.0 # in kilometer
 good_cams = []
 
-for i in range(0, len(all_cameras)):
+for i in range(0, 10):
     print("Checking cam " + str(i))
 
     lat1 = locations[i][0]
     lon1 = locations[i][1]
     good = True #0 means it is a good camera
 
-    for j in range(1, len(all_cameras)):
+    for j in range(1, 10):
         lat2 = locations[j][0]
         lon2 = locations[j][1]
 
         a = haversine(lon1, lat1, lon2, lat2)
 
-        #print('Distance (km) : ', a)
+        print('Distance (km) : ', a)
         if a <= radius:
             good = False #1 means it is no longer a default good cam
 
