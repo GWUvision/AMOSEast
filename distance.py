@@ -66,7 +66,7 @@ for i in range(0, 10):
         #write to the csv
         with open(csvfile, "a") as output:
             writer = csv.writer(output, lineterminator='\n')
-            writer.writerow(i)
+            writer.writerow(str(i))
 
 print(good_cams)
 
