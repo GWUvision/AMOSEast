@@ -57,7 +57,7 @@ for i in range(0, 10):
         a = haversine(lon1, lat1, lon2, lat2)
 
         print('Distance (km) : ', a)
-        if(a <= radius && a != 0):
+        if(a <= radius and a != 0):
             good = False #1 means it is no longer a default good cam
 
     if(good):
