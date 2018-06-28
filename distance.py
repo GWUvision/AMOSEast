@@ -40,7 +40,7 @@ def haversine(lon1, lat1, lon2, lat2):
     return c * r
 
 #some globals we need
-radius = 20.0 # in kilometer
+radius = 30.0 # in kilometer
 good_cams = []
 
 for i in range(0, len(locations)):
@@ -64,7 +64,7 @@ for i in range(0, len(locations)):
         print(str(i) + " is a good cam!")
         good_cams.append(i)
         #write to the csv
-        with open(csvfile, "a") as output:
+        with open(csvfile, "w") as output:
             writer = csv.writer(output, lineterminator='\n')
             writer.writerow(str(i))
 
