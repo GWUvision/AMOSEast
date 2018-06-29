@@ -29,16 +29,20 @@ list2 = [x for x in last_updated_list if x != []]
 print("checking which cameras have not been captured today")
 new_list = [it for it in list2 if it[0][1].date() != today]
 
-print("creating dataframe")
-df = pd.DataFrame(new_list, columns=['tuple'])
 
-df.index.names = ['index']
+with open("out.csv","w") as f:
+    wr = csv.writer(f,delimiter="\n")
+    wr.writerow(new_list)
 
-df[['cameraid', 'last_captured']] = df['tuple'].apply(pd.Series)
-df.drop('tuple', axis=1, inplace=True)
-print(df.head())
+# print("creating dataframe")
+# df = pd.DataFrame(new_list, columns=['tuple'])
 
-print("copying to csv")
-df.to_csv('bad_cams.csv')
+# print("changing from one column to two")
+# df[['cameraid', 'last_captured']] = df['tuple'].apply(pd.Series)
+# df.drop('tuple', axis=1, inplace=True)
+# print(df.head())
+
+# print("copying to csv")
+# df.to_csv('bad_cams.csv')
 
 
