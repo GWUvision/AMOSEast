@@ -11,7 +11,7 @@ from gevent.pool import Pool
 # monkey.patch_socket()
 # pool = Pool(30)
 # sys.setrecursionlimit(10000)
-csvfile = "good_cams.csv"
+csvfile = "good_cam.csv"
 
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
@@ -41,18 +41,19 @@ def haversine(lon1, lat1, lon2, lat2):
 
 #some globals we need
 radius = 30.0 # in kilometer
-good_cams = []
+good_cams = [(locations[0][0], locations[0][1])]
+index = []
 
-for i in range(0, len(locations)):
+for i in range(1, len(locations)):
     print("Checking cam " + str(i))
 
     lat1 = locations[i][0]
     lon1 = locations[i][1]
     good = True #0 means it is a good camera
 
-    for j in range(1, len(locations)):
-        lat2 = locations[j][0]
-        lon2 = locations[j][1]
+    for j in range(1, len(good_cams)):
+        lat2 = good_cams[j][0]
+        lon2 = good_cams[j][1]
 
         a = haversine(lon1, lat1, lon2, lat2)
 
@@ -62,7 +63,8 @@ for i in range(0, len(locations)):
 
     if(good):
         print(str(i) + " is a good cam!")
-        good_cams.append(i)
+        good_cams.append((locations[i][0], locations[i][1]))
+        index.append(str(i))
 
 with open(csvfile, "a") as output:
     writer = csv.writer(output, lineterminator='\n')
