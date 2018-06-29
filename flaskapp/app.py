@@ -75,6 +75,8 @@ def directory_view(ind=1):
 
     conn.execute(camera_images_query)
     camera_images = conn.fetchall()
+
+    print(camera_images)
     
     lng = np.array(all_cameras)[:, 4]
     lat = np.array(all_cameras)[:, 3]
