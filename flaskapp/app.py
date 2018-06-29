@@ -70,7 +70,7 @@ def homepage():
 def directory_view(ind=1):
     conn = get_db().cursor()
 
-    camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY curr_time DESC" % (
+    camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY curr_time ASC" % (
         all_cameras[ind][0])
 
     conn.execute(camera_images_query)
@@ -120,7 +120,7 @@ def directory_view(ind=1):
 def image_view(ind=None, ind2=None):
 
     conn = get_db().cursor()
-    camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY cameraid" % (
+    camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY curr_time ASC" % (
         all_cameras[ind][0])
     conn.execute(camera_images_query)
     data2 = conn.fetchall()
