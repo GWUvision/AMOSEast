@@ -70,7 +70,7 @@ def homepage():
 def directory_view(ind=1):
     conn = get_db().cursor()
 
-    camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY cameraid" % (
+    camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY curr_time DESC" % (
         all_cameras[ind][0])
 
     conn.execute(camera_images_query)
