@@ -68,7 +68,7 @@ for i in range(1, len(locations)):
 
 with open(csvfile, "a") as output:
     writer = csv.writer(output, lineterminator='\n')
-    for val in good_cams:
+    for val in index:
         writer.writerow([val])
 
 print(good_cams)
