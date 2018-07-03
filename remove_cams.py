@@ -1,23 +1,27 @@
 import psycopg2
 import os
-import Pandas
+import pandas as pd
 import csv
 
 DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
+conn = psycopg2.connect(DATABASE_URL, sslmode='allow')
+cur = conn.cursor()
 
-csvfile = "good_cam.csv"
+df = pd.read_csv('cameras_to_remove.csv')
+df.columns = ['index', 'cameraid']
+bad_cams_list = df['cameraid'].values.tolist()
 
-cameras = []
+for camera in bad_cams_list:
+	print(camera)
+	print("Deleting ", camera)
 
-#get the second column
-with open(filename, 'rb') as f:
-    reader = csv.reader(f, delimiter=',')
-    cameras = [float(row[1]) for row in reader]
+	query = "DELETE FROM images WHERE cameraid=%d" %(camera)
+	cur.execute(query)
 
-for i in range(0, len(cameras)):
-    print("Deleting ", cameras[i])
-    query = "DELETE FROM cameras WHERE cameraid = " % (cameras[i])
-    conn.execute(query)
+	query2 = "DELETE FROM cameras WHERE cameraid=%d" %(camera)
+	cur.execute(query2)
+
+
+conn.commit()
 
 print("Cameras Deleted.")
