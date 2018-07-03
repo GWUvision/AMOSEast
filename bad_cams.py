@@ -18,7 +18,7 @@ last_updated_list = []
 
 print("getting all cameras...")
 for camera in all_cameras:
-    last_updated_query = "SELECT cameraid, curr_time FROM images WHERE cameraid=%d ORDER BY curr_time DESC LIMIT 40" % (camera[0])
+    last_updated_query = "SELECT cameraid, curr_time FROM images WHERE cameraid=%d ORDER BY curr_time DESC LIMIT 1" % (camera[0])
     conn.execute(last_updated_query)
     last_updated_list.append(conn.fetchall())
 
