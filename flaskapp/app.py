@@ -14,6 +14,8 @@ from flask_moment import Moment
 from pager import Pager
 from weather import Weather, Unit
 
+import time
+
 
 # --- initial app configuation and initialization such as where images are located and setting database url
 
@@ -34,6 +36,8 @@ from models import *
 
 # ---- connected to database initially
 
+begin1 = time.time()
+
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
 all_cameras_query = "SELECT cameraid, name, url, latitude, longitude FROM cameras ORDER BY cameraid"
@@ -41,13 +45,22 @@ conn.execute(all_cameras_query)
 all_cameras = conn.fetchall()
 pager = Pager(len(all_cameras))
 
+end1 = time.time()
+
+print('First Time: ', end1-begin1)
+
+begin2 = time.time()
 
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
         db = g._database = psycopg2.connect(DATABASE_URL, sslmode='allow')
         return db
+end2 = time.time()
 
+print("Second time: ", end2-begin2)
+
+begin3 = time.time()
 
 @app.route('/')
 def homepage():
@@ -64,7 +77,13 @@ def homepage():
     image_count = '{:,}'.format(image_count)
 
     return render_template('home.html', camera_count=camera_count, image_count=image_count)
+end3 = time.time()
 
+print("Third time: ", end3-begin3)
+
+
+
+begin4 = time.time()
 
 @app.route('/cameras/<int:ind>/')
 def directory_view(ind=1):
@@ -113,6 +132,13 @@ def directory_view(ind=1):
     except IndexError as e:
         return render_template('404.html'), 404
 
+end4 = time.time()
+
+print("Fourth time: ", end4-begin4)
+
+
+begin5 = time.time()
+
 
 @app.route('/cameras/<int:ind>/<int:ind2>/')
 def image_view(ind=None, ind2=None):
@@ -136,6 +162,10 @@ def image_view(ind=None, ind2=None):
 
     except IndexError as e:
         return render_template('404.html'), 404
+
+end5 = time.time()
+
+print("Five time: ", end5-begin5)
 
 
 @app.route('/goto', methods=['POST', 'GET'])
@@ -246,4 +276,4 @@ def close_connection(exception):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, threaded=True)
