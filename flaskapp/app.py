@@ -94,7 +94,7 @@ def directory_view(ind=1):
 
     conn.execute(camera_images_query)
     camera_images = conn.fetchall()
-    
+
     lng = np.array(all_cameras)[:, 4]
     lat = np.array(all_cameras)[:, 3]
 
@@ -210,6 +210,7 @@ def allcamspage():
         current_image_query = "SELECT filepath from images where cameraid=%d ORDER BY curr_time DESC" % (
             cameraid)
         conn.execute(current_image_query)
+        print(conn.fetchone()[0])
         current_image = conn.fetchone()[0]
 
         # index subtract by 1 because all_cams starts at 0 while the camera list starts at 1; getting the name for each camera
