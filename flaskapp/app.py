@@ -94,7 +94,7 @@ def directory_view(ind=1):
 
     conn.execute(camera_images_query)
     camera_images = conn.fetchall()
-    
+
     lng = np.array(all_cameras)[:, 4]
     lat = np.array(all_cameras)[:, 3]
 
@@ -203,7 +203,7 @@ def allcamspage():
 
     # change ONLY this list to get the coolest cameras
     # cool_cams_list = [1, 2, 5, 2501, 2503, 2512, 2514, 4038, 4053, 4077, 9, 3]
-    cool_cams_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    cool_cams_list = [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
     list_for_webpage = []
 
     for cameraid in cool_cams_list:
