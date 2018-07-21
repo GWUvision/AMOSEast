@@ -68,3 +68,6 @@ If you would like to contribute to the repository or use the repository for your
 -   Able to rate images on _wow factor_
 -   Take webcams with already stored data and link to them
 - 	Able to map and cluster all the stored webcams
+
+
+http://www.trinum.com/ibox/ftpcam/mega_cg74_plateau-des-glieres.jpg
