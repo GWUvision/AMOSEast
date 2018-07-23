@@ -214,7 +214,7 @@ def mappage():
     # Draw
     gmap.draw("map.html")
     #move to templates
-    os.rename("/Users/kylerood/AMOSEast/flaskapp/map.html", "/Users/kylerood/AMOSEast/flaskapp/templates/map.html")
+    os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html", "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
 
     return render_template('map.html', lg=lng, lt=lat)
 
