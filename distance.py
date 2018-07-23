@@ -87,12 +87,6 @@ for i in range(1, len(locations)):
         #add marker to map
         gmap.marker(lat, lon, 'red')
 
-for cam in good_cams:
-    # Marker
-    hidden_gem_lat, hidden_gem_lon = 37.770776, -122.461689
-    gmap.marker(hidden_gem_lat, hidden_gem_lon, 'cornflowerblue')
-
-
 with open(csvfile, "a") as output:
     writer = csv.writer(output, lineterminator='\n')
     for val in index:

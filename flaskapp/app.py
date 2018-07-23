@@ -13,6 +13,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from pager import Pager
 from weather import Weather, Unit
+from gmplot import gmplot
 
 import time
 
@@ -180,7 +181,7 @@ def goto():
             # conn.execute(search_query)
             # data2 = conn.fetchall()
             # print(data2)
-            
+
             return redirect('/cameras/0')
 
 
@@ -198,6 +199,20 @@ def historypage():
 def mappage():
     lng = np.array(all_cameras)[:, 4]
     lat = np.array(all_cameras)[:, 3]
+
+    # Place map
+    gmap = gmplot.GoogleMapPlotter(0, 0, 13)
+
+    for i in range(0, len(lng)):
+        lt, ln = lat[i], lng[i]
+
+        #add marker to map
+        gmap.marker(lt, ln, 'red')
+
+    # Draw
+    gmap.draw("map.html")
+    #move to templates
+    os.rename("/Users/kylerood/AMOSEast/flaskapp/map.html", "/Users/kylerood/AMOSEast/flaskapp/templates/map.html")
 
     return render_template('map.html', lg=lng, lt=lat)
 
