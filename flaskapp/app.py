@@ -172,10 +172,16 @@ print("Five time: ", end5-begin5)
 def goto():
 
     if request.method == 'POST':
-        if not request.form['index']:
+        if not request.form['search']:
             return redirect('/cameras/0')
         else:
-            return redirect('/cameras/' + request.form['index'])
+            print(Camera.query.filter(Camera.name.ilike('%{0}%'.format(request.form['search']))))
+            # search_query = "SELECT cameraid FROM cameras WHERE name LIKE {0}".format("%" + str(request.form['search']) + "%")
+            # conn.execute(search_query)
+            # data2 = conn.fetchall()
+            # print(data2)
+            
+            return redirect('/cameras/0')
 
 
 @app.route('/about')
