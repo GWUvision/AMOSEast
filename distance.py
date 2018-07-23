@@ -11,7 +11,7 @@ from gevent.pool import Pool
 # monkey.patch_socket()
 # pool = Pool(30)
 # sys.setrecursionlimit(10000)
-csvfile = "good_cam.csv"
+csvfile = "distance.csv"
 
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
