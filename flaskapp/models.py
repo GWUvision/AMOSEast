@@ -2,6 +2,7 @@ from app import db
 
 # database structure
 
+
 class Camera(db.Model):
     __tablename__ = 'cameras'
 
@@ -24,7 +25,7 @@ class Camera(db.Model):
         self.mhash = mhash
 
     def __repr__(self):
-        return '<image id={},name={}>'.format(self.cameraid, self.name)
+        return '{0}, {1}'.format(self.cameraid, self.name)
 
 
 class Image(db.Model):
@@ -41,7 +42,7 @@ class Image(db.Model):
         self.cameraid = cameraid
 
     def __repr__(self):
-        return '<image id={}>'.format(self.rowid)
+        return 'image id={}'.format(self.rowid)
 
 
 # new class specifically for reviewing submitted cameras
@@ -64,4 +65,4 @@ class SubmitCam(db.Model):
         self.longitude = longitude
 
     def __repr__(self):
-        return '<image id={}>'.format(self.submitid)
+        return 'image id={}'.format(self.submitid)
