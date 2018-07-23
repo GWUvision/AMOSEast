@@ -46,6 +46,27 @@ conn.execute(all_cameras_query)
 all_cameras = conn.fetchall()
 pager = Pager(len(all_cameras))
 
+#make the map page
+lng = np.array(all_cameras)[:, 4]
+lat = np.array(all_cameras)[:, 3]
+print(lng[0])
+
+
+# Place map
+gmap = gmplot.GoogleMapPlotter(0, 0, 13)
+
+for i in range(0, len(lng)):
+    lt, ln = lat[i], lng[i]
+
+    #add marker to map
+    gmap.marker(lt, ln, 'red')
+
+# Draw
+gmap.draw("map.html")
+#move to templates
+os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html", "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
+
+
 end1 = time.time()
 
 print('First Time: ', end1-begin1)
@@ -197,26 +218,7 @@ def historypage():
 
 @app.route('/map')
 def mappage():
-    lng = np.array(all_cameras)[:, 4]
-    lat = np.array(all_cameras)[:, 3]
-    print(lng[0])
-
-
-    # Place map
-    gmap = gmplot.GoogleMapPlotter(0, 0, 13)
-
-    for i in range(0, len(lng)):
-        lt, ln = lat[i], lng[i]
-
-        #add marker to map
-        gmap.marker(lt, ln, 'red')
-
-    # Draw
-    gmap.draw("map.html")
-    #move to templates
-    os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html", "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
-
-    return render_template('map.html', lg=lng, lt=lat)
+    return render_template('map.html')
 
 
 @app.route('/coolcams')
