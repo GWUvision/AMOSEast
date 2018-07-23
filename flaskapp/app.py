@@ -199,7 +199,7 @@ def historypage():
 def mappage():
     lng = np.array(all_cameras)[:, 4]
     lat = np.array(all_cameras)[:, 3]
-    print(lng)
+    print(lng[0])
 
 
     # Place map
