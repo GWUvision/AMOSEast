@@ -212,7 +212,7 @@ def mappage():
         gmap.marker(lt, ln, 'red')
 
     # Draw
-    gmap.draw("map.html")
+    gmap.draw("/templates/map.html")
     #move to templates
     #os.rename("/Users/kylerood/AMOSEast/flaskapp/map.html", "/Users/kylerood/AMOSEast/flaskapp/templates/map.html")
 
