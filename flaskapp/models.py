@@ -42,7 +42,7 @@ class Image(db.Model):
         self.cameraid = cameraid
 
     def __repr__(self):
-        return 'image id={}'.format(self.rowid)
+        return '{0}, {1}'.format(self.filepath, self.cameraid)
 
 
 # new class specifically for reviewing submitted cameras
