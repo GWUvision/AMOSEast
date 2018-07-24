@@ -65,8 +65,8 @@ for i in range(0, len(lng)):
 # Draw
 gmap.draw("map.html")
 # move to templates
-os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html",
-          "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
+# os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html",
+#           "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
 
 
 end1 = time.time()
@@ -113,6 +113,8 @@ begin4 = time.time()
 @app.route('/cameras/<int:ind>/')
 def directory_view(ind=1):
     conn = get_db().cursor()
+    
+    
 
     camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY curr_time ASC" % (
         all_cameras[ind][0])
@@ -236,19 +238,24 @@ def allcamspage():
     # cool_cams_list = [1, 2, 5, 2501, 2503, 2512, 2514, 4038, 4053, 4077, 9, 3]
     cool_cams_list = [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
     list_for_webpage = []
+    
+    cams = [Image.query.filter_by(cameraid=id).first() for id in cool_cams_list]
+    print(cams)
+    
+    # 
+    # 
+    # for cameraid in cool_cams_list:
+    #     current_image_query = "SELECT filepath from images where cameraid=%d ORDER BY curr_time DESC" % (
+    #         cameraid)
+    #     conn.execute(current_image_query)
+    #     current_image = conn.fetchone()[0]
+    # 
+    #     # index subtract by 1 because all_cams starts at 0 while the camera list starts at 1; getting the name for each camera
+    #     camera_name = all_cameras[cameraid - 1][1]
+    #     cameraid_website = cameraid - 1
+    #     list_for_webpage.append([current_image, camera_name, cameraid_website])
 
-    for cameraid in cool_cams_list:
-        current_image_query = "SELECT filepath from images where cameraid=%d ORDER BY curr_time DESC" % (
-            cameraid)
-        conn.execute(current_image_query)
-        current_image = conn.fetchone()[0]
-
-        # index subtract by 1 because all_cams starts at 0 while the camera list starts at 1; getting the name for each camera
-        camera_name = all_cameras[cameraid - 1][1]
-        cameraid_website = cameraid - 1
-        list_for_webpage.append([current_image, camera_name, cameraid_website])
-
-    return render_template('coolcams.html', data=list_for_webpage)
+    return render_template('coolcams.html', data=[(str(0), str(0), str(0))])
 
 
 @app.route('/submitcam', methods=['POST', 'GET'])
