@@ -65,9 +65,9 @@ for i in range(0, len(lng)):
         gmap.marker(lt, ln, 'red')
 
 # Draw
-#gmap.draw("map.html")
+gmap.draw("map.html")
 #move to templates
-#os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html", "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
+os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html", "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
 
 end1 = time.time()
 
