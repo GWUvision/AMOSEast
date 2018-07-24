@@ -1,2 +1,2 @@
 flaskapp/static/* linguist-vendored=true
-
+*.py linguist-language=Python
