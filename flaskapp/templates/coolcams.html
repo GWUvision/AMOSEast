@@ -8,14 +8,17 @@
 
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121420165-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121420165-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-121420165-1');
-</script>
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-121420165-1');
+	</script>
 
 	<title>AMOS | Cool Cams</title>
 	<meta charset="utf-8" />
@@ -40,15 +43,20 @@
 			</nav>
 		</header>
 
-    
+
 		<!-- Main -->
+		{% if cameras %}
 		<div id="main">
+			{% for camera in cameras %}
 			<article class="thumb">
-				<a href="{{ url_for('static', filename='images/'+data[0][0]) }}" class="image"><img src="{{ url_for('static', filename='images/'+data[0][0]) }}" alt="" /></a>
-				<h2><a href="/cameras/{{ data[0][2] | safe }}">{{data[0][1]}}</h2>
+				<a href="{{ url_for('static', filename='images/'+camera[0].__dict__['filepath']) }}" class="image"><img src="{{ url_for('static', filename='images/'+camera[0].__dict__['filepath']) }}" alt="" /></a>
+				<h2><a href="/cameras/{{ camera[0].__dict__['cameraid'] | safe }}">{{camera[1].__dict__['name']}}</h2>
 			</article>
 
+			{% endfor %}
 		</div>
+
+		{% endif %}
 
 		<!-- Footer -->
 		<footer id="footer" class="panel">

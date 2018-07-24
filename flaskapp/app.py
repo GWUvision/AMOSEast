@@ -113,8 +113,6 @@ begin4 = time.time()
 @app.route('/cameras/<int:ind>/')
 def directory_view(ind=1):
     conn = get_db().cursor()
-    
-    
 
     camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY curr_time ASC" % (
         all_cameras[ind][0])
@@ -204,8 +202,10 @@ def goto():
         if not request.form['search']:
             return redirect('/cameras/0')
         else:
-            print(Camera.query.filter(Camera.name.ilike(
-                '%{0}%'.format(request.form['search']))))
+            results = Camera.query.filter(Camera.name.ilike(
+                '%{0}%'.format(request.form['search']))).all()
+            print(results)
+
             # search_query = "SELECT cameraid FROM cameras WHERE name LIKE {0}".format("%" + str(request.form['search']) + "%")
             # conn.execute(search_query)
             # data2 = conn.fetchall()
@@ -232,30 +232,25 @@ def mappage():
 @app.route('/coolcams')
 def allcamspage():
 
-    conn = get_db().cursor()
-
-    # change ONLY this list to get the coolest cameras
+    # querying for all camera ids
+    # mlist = db.session.query(Camera.cameraid).all()
+    
     # cool_cams_list = [1, 2, 5, 2501, 2503, 2512, 2514, 4038, 4053, 4077, 9, 3]
-    cool_cams_list = [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-    list_for_webpage = []
-    
-    cams = [Image.query.filter_by(cameraid=id).first() for id in cool_cams_list]
-    print(cams)
-    
-    # 
-    # 
-    # for cameraid in cool_cams_list:
-    #     current_image_query = "SELECT filepath from images where cameraid=%d ORDER BY curr_time DESC" % (
-    #         cameraid)
-    #     conn.execute(current_image_query)
-    #     current_image = conn.fetchone()[0]
-    # 
-    #     # index subtract by 1 because all_cams starts at 0 while the camera list starts at 1; getting the name for each camera
-    #     camera_name = all_cameras[cameraid - 1][1]
-    #     cameraid_website = cameraid - 1
-    #     list_for_webpage.append([current_image, camera_name, cameraid_website])
+    cool_cams_list = [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 
-    return render_template('coolcams.html', data=[(str(0), str(0), str(0))])
+    # sqlalchemy queries
+    cams = [Image.query.filter_by(cameraid=id).order_by(
+        Image.curr_time.desc()).first() for id in cool_cams_list]
+    camera_name = [Camera.query.filter_by(
+        cameraid=id).first() for id in cool_cams_list]
+
+    cameras = list(zip(cams, camera_name))
+
+    # index off by one error subtraction
+    for camera in cameras:
+        camera[0].__dict__['cameraid'] = camera[0].__dict__['cameraid'] - 1
+
+    return render_template('coolcams.html', cameras=cameras)
 
 
 @app.route('/submitcam', methods=['POST', 'GET'])
