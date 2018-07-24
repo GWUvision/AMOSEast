@@ -7,6 +7,7 @@ import numpy as np
 import urllib.request
 from urllib.error import URLError, HTTPError
 import validators
+from sqlalchemy import engine
 
 from flask import Flask, render_template, request, redirect, url_for, g, flash
 from flask_sqlalchemy import SQLAlchemy
@@ -46,7 +47,7 @@ conn.execute(all_cameras_query)
 all_cameras = conn.fetchall()
 pager = Pager(len(all_cameras))
 
-#make the map page
+# make the map page
 lng = np.array(all_cameras)[:, 4]
 lat = np.array(all_cameras)[:, 3]
 print(lng[0])
@@ -70,43 +71,44 @@ for i in range(0, len(lng)):
 
 end1 = time.time()
 
-print('First Time: ', end1-begin1)
+print('First Time: ', end1 - begin1)
 
 begin2 = time.time()
+
 
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
         db = g._database = psycopg2.connect(DATABASE_URL, sslmode='allow')
         return db
+
+
 end2 = time.time()
 
-print("Second time: ", end2-begin2)
+print("Second time: ", end2 - begin2)
 
 begin3 = time.time()
+
 
 @app.route('/')
 def homepage():
 
-    conn = get_db().cursor()
-    sql1 = "SELECT count(*) FROM cameras"
-    conn.execute(sql1)
-    camera_count = conn.fetchone()[0]
-    camera_count = '{:,}'.format(camera_count)
+    camera_count = db.engine.execute(
+        'select count(cameraid) from cameras').scalar()
 
-    sql2 = "SELECT count(*) FROM images"
-    conn.execute(sql2)
-    image_count = conn.fetchone()[0]
-    image_count = '{:,}'.format(image_count)
+    image_count = db.engine.execute(
+        'select count(cameraid) from images').scalar()
 
     return render_template('home.html', camera_count=camera_count, image_count=image_count)
+
+
 end3 = time.time()
 
-print("Third time: ", end3-begin3)
-
+print("Third time: ", end3 - begin3)
 
 
 begin4 = time.time()
+
 
 @app.route('/cameras/<int:ind>/')
 def directory_view(ind=1):
@@ -155,9 +157,10 @@ def directory_view(ind=1):
     except IndexError as e:
         return render_template('404.html'), 404
 
+
 end4 = time.time()
 
-print("Fourth time: ", end4-begin4)
+print("Fourth time: ", end4 - begin4)
 
 
 begin5 = time.time()
@@ -186,9 +189,10 @@ def image_view(ind=None, ind2=None):
     except IndexError as e:
         return render_template('404.html'), 404
 
+
 end5 = time.time()
 
-print("Five time: ", end5-begin5)
+print("Five time: ", end5 - begin5)
 
 
 @app.route('/goto', methods=['POST', 'GET'])
@@ -198,7 +202,8 @@ def goto():
         if not request.form['search']:
             return redirect('/cameras/0')
         else:
-            print(Camera.query.filter(Camera.name.ilike('%{0}%'.format(request.form['search']))))
+            print(Camera.query.filter(Camera.name.ilike(
+                '%{0}%'.format(request.form['search']))))
             # search_query = "SELECT cameraid FROM cameras WHERE name LIKE {0}".format("%" + str(request.form['search']) + "%")
             # conn.execute(search_query)
             # data2 = conn.fetchall()
@@ -266,7 +271,7 @@ def submitcam():
         conn = get_db()
         cur = conn.cursor()
 
-        #check if it is a url first using validators
+        # check if it is a url first using validators
         if(validators.url(url)):
             # error checking the url
             try:
@@ -274,7 +279,8 @@ def submitcam():
                 code = urllib.request.urlopen(url).code
 
                 # query the database --> usually in the else
-                query = "INSERT INTO submit_cams(url, description, curr_time, latitude, longitude) VALUES('%s','%s','%s','%s','%s')" % (url, description, curr_time, lat, long)
+                query = "INSERT INTO submit_cams(url, description, curr_time, latitude, longitude) VALUES('%s','%s','%s','%s','%s')" % (
+                    url, description, curr_time, lat, long)
                 cur.execute(query)
                 conn.commit()
             except HTTPError as e:
