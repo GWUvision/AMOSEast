@@ -75,11 +75,11 @@
 
 			<!-- Inner -->
 			<div class="inner">
-
+				{% if results %}
 				<header>
-					<h1><a href="{{ data[2] | safe }}" id="logo">Name: {{data[1]}}</a></h1>
+					<h1><a href="{{ results.__dict__['url'] | safe }}" id="logo">Name: {{ results.__dict__['name'] }}</a></h1>
 					<br/>
-					<img src="{{ url_for('static', filename='images/'+data2[0]) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
+					<img src="{{ url_for('static', filename='images/'+images.__dict__['filepath']) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
 					<a href="/cameras/{{pager.prev}}" class="button">Prev Cam </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/cameras/{{pager.next}}" class="button">Next Cam</a>
 				</header>
@@ -135,23 +135,23 @@
 						<tbody>
 							<tr>
 								<td><b>URL:</b></td>
-								<td><a href="{{ data[2] | safe }}">Camera Link</a></td>
+								<td><a href="{{ results.__dict__['url'] | safe }}">Camera Link</a></td>
 							</tr>
 							<tr>
 								<td><b>Latitude:</b></td>
-								<td>{{ data[3]|round(3) }}</td>
+								<td>{{ results.__dict__['latitude'] |round(3) }}</td>
 							</tr>
 							<tr>
 								<td><b>Longitude:</b></td>
-								<td>{{ data[4]|round(3) }}</td>
+								<td>{{ results.__dict__['longitude'] |round(3) }}</td>
 							</tr>
 							<tr>
 								<td><b>Last Captured:</b></td>
-								<td>{{ moment(timestamp=data2[1], local=True).format('MMMM Do YYYY, h:mm:ss a') }}</td>
+								<td>{{ moment(timestamp=images.__dict__['curr_time'], local=True).format('MMMM Do YYYY, h:mm:ss a') }}</td>
 							</tr>
 							<tr>
 								<td><b>Current Weather:</b></td>
-								<td>{{ weather[0] }}</td>
+								<td>{{ weather }}</td>
 							</tr>
 							<tr>
 								<td><b>View All Images:</b></td>
@@ -201,7 +201,7 @@
 			</div>
 		</div>
 
-
+		{% endif %}
 
 		<!-- Footer -->
 		<div id="footer">

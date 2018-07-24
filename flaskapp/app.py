@@ -50,7 +50,6 @@ pager = Pager(len(all_cameras))
 # make the map page
 lng = np.array(all_cameras)[:, 4]
 lat = np.array(all_cameras)[:, 3]
-print(lng[0])
 
 
 # Place map
@@ -67,7 +66,7 @@ for i in range(0, len(lng)):
 # Draw
 gmap.draw("map.html")
 # move to templates
-os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html", "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
+# os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html", "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
 
 end1 = time.time()
 
@@ -112,50 +111,68 @@ begin4 = time.time()
 
 @app.route('/cameras/<int:ind>/')
 def directory_view(ind=1):
-    conn = get_db().cursor()
-
-    camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY curr_time ASC" % (
-        all_cameras[ind][0])
-
-    conn.execute(camera_images_query)
-    camera_images = conn.fetchall()
+    
+    images = Image.query.filter_by(cameraid=ind+1).order_by(Image.curr_time.desc()).first()
+    results = Camera.query.filter_by(cameraid=ind+1).first()
 
     lng = np.array(all_cameras)[:, 4]
     lat = np.array(all_cameras)[:, 3]
-
     try:
-
+            
         if ind >= pager.count:
-            return render_template("404.html"), 404
+            return redirect(url_for(homepage))
         else:
             pager.current = ind
-
             try:
-
+                    
                 weather = Weather(unit=Unit.FAHRENHEIT)
 
-                lookup = weather.lookup_by_latlng(
-                    all_cameras[ind][3], all_cameras[ind][4])
+                lookup = weather.lookup_by_latlng(results.__dict__['latitude'], results.__dict__['longitude'])
                 condition = lookup.condition
-                w_info = [condition.temp +
-                          '\N{DEGREE SIGN}F and ' + condition.text]
-
-            except AttributeError as e:
-                w_info = ['No weather information available']
-                return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
-
-            except KeyError as e:
-                w_info = ['No weather information available']
-                return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
-
-            except UnboundLocalError as e:
-                w_info = ['No weather information available']
-                return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
-
-            return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
-
-    except IndexError as e:
-        return render_template('404.html'), 404
+                temp = condition.temp + '\N{DEGREE SIGN}F and ' + condition.text
+            
+            except:
+                temp = 'No weather available'
+                
+            return render_template('dirview.html', index=ind, pager=pager, results=results, images=images, weather=temp, lg=lng, lt=lat)
+            
+    except AttributeError as e:
+        # flash('')
+        print(e)
+        return render_template('404.html')
+    # try:
+    # 
+    #     if ind >= pager.count:
+    #         return render_template("404.html"), 404
+    #     else:
+    #         pager.current = ind
+    # 
+    #         try:
+    # 
+    #             weather = Weather(unit=Unit.FAHRENHEIT)
+    # 
+    #             lookup = weather.lookup_by_latlng(
+    #                 all_cameras[ind][3], all_cameras[ind][4])
+    #             condition = lookup.condition
+    #             w_info = [condition.temp +
+    #                       '\N{DEGREE SIGN}F and ' + condition.text]
+    # 
+    #         except AttributeError as e:
+    #             w_info = ['No weather information available']
+    #             return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
+    # 
+    #         except KeyError as e:
+    #             w_info = ['No weather information available']
+    #             return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
+    # 
+    #         except UnboundLocalError as e:
+    #             w_info = ['No weather information available']
+    #             return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
+    # 
+    #         return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
+    # 
+    # except IndexError as e:
+    #     return render_template('404.html'), 404
 
 
 end4 = time.time()
