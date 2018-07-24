@@ -57,15 +57,16 @@ gmap = gmplot.GoogleMapPlotter(0, 0, 13)
 
 for i in range(0, len(lng)):
     lt, ln = lat[i], lng[i]
-
-    #add marker to map
-    gmap.marker(lt, ln, 'red')
+    if(lt == 0 and ln == 0):
+        continue
+    else:
+        #add marker to map
+        gmap.marker(lt, ln, 'red')
 
 # Draw
-gmap.draw("map.html")
+#gmap.draw("map.html")
 #move to templates
-os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html", "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
-
+#os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html", "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
 
 end1 = time.time()
 
@@ -218,6 +219,7 @@ def historypage():
 
 @app.route('/map')
 def mappage():
+    #need to make sure the api key is on the bottom of the file
     return render_template('map.html')
 
 
