@@ -61,12 +61,12 @@ for i in range(0, len(lng)):
     if(lt == 0 and ln == 0):
         continue
     else:
-        #add marker to map
+        # add marker to map
         gmap.marker(lt, ln, 'red')
 
 # Draw
 gmap.draw("map.html")
-#move to templates
+# move to templates
 os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html", "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
 
 end1 = time.time()
@@ -226,7 +226,7 @@ def historypage():
 
 @app.route('/map')
 def mappage():
-    #need to make sure the api key is on the bottom of the file
+    # need to make sure the api key is on the bottom of the file
     return render_template('map.html')
 
 
@@ -235,7 +235,7 @@ def allcamspage():
 
     # querying for all camera ids
     # mlist = db.session.query(Camera.cameraid).all()
-    
+
     # cool_cams_list = [1, 2, 5, 2501, 2503, 2512, 2514, 4038, 4053, 4077, 9, 3]
     cool_cams_list = [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 
