@@ -1,3 +1,4 @@
+{% if results %}
 <!DOCTYPE HTML>
 <!--
 	Helios by HTML5 UP
@@ -75,11 +76,10 @@
 
 			<!-- Inner -->
 			<div class="inner">
-
 				<header>
-					<h1><a href="{{ data[2] | safe }}" id="logo">Name: {{data[1]}}</a></h1>
+					<h1><a href="{{ results.__dict__['url'] | safe }}" id="logo">Name: {{ results.__dict__['name'] }}</a></h1>
 					<br/>
-					<img src="{{ url_for('static', filename='images/'+data2[0]) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
+					<img src="{{ url_for('static', filename='images/'+images.__dict__['filepath']) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
 					<a href="/cameras/{{pager.prev}}" class="button">Prev Cam </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/cameras/{{pager.next}}" class="button">Next Cam</a>
 				</header>
@@ -135,23 +135,23 @@
 						<tbody>
 							<tr>
 								<td><b>URL:</b></td>
-								<td><a href="{{ data[2] | safe }}">Camera Link</a></td>
+								<td><a href="{{ results.__dict__['url'] | safe }}">Camera Link</a></td>
 							</tr>
 							<tr>
 								<td><b>Latitude:</b></td>
-								<td>{{ data[3]|round(3) }}</td>
+								<td>{{ results.__dict__['latitude'] |round(3) }}</td>
 							</tr>
 							<tr>
 								<td><b>Longitude:</b></td>
-								<td>{{ data[4]|round(3) }}</td>
+								<td>{{ results.__dict__['longitude'] |round(3) }}</td>
 							</tr>
 							<tr>
 								<td><b>Last Captured:</b></td>
-								<td>{{ moment(timestamp=data2[1], local=True).format('MMMM Do YYYY, h:mm:ss a') }}</td>
+								<td>{{ moment(timestamp=images.__dict__['curr_time'], local=True).format('MMMM Do YYYY, h:mm:ss a') }}</td>
 							</tr>
 							<tr>
 								<td><b>Current Weather:</b></td>
-								<td>{{ weather[0] }}</td>
+								<td>{{ weather }}</td>
 							</tr>
 							<tr>
 								<td><b>View All Images:</b></td>
@@ -167,16 +167,8 @@
 						function initMap() {
 							// The location of Uluru
 							var loc = {
-								lat: {
-									{
-										lt[0]
-									}
-								},
-								lng: {
-									{
-										lg[0]
-									}
-								}
+								lat: {{lt[0]}},
+								lng: {{lg[0]}}
 							};
 							// The map, centered at Uluru
 							var map = new google.maps.Map(
@@ -200,7 +192,6 @@
 					</script>
 			</div>
 		</div>
-
 
 
 		<!-- Footer -->
@@ -237,3 +228,123 @@
 </body>
 
 </html>
+
+{% else %}
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121420165-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-121420165-1');
+	</script>
+
+	<title>AMOS | Cameras</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="/static/assets/css/main.css" />
+	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
+	<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript> {{ moment.include_jquery() }} {{ moment.include_moment() }}
+</head>
+
+<body class="no-sidebar is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<div id="header">
+
+			<!-- Inner -->
+			<div class="inner">
+				<header>
+					<h1>No Image</h1>
+					<br/>
+					<img src="http://www.ultramotorhn.com/image/catalog/noimage.jpg" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
+					<a href="/cameras/{{pager.prev}}" class="button">Prev Cam </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="/cameras/{{pager.next}}" class="button">Next Cam</a>
+				</header>
+			</div>
+
+
+			<!-- Nav -->
+			<nav id="nav">
+
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li>
+						<a href="#">Info</a>
+						<ul>
+							<li><a href="/history">History</a></li>
+							<li><a href="/moreinfo">Dataset Info</a></li>
+							<li><a href="/about">About Us</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Cameras</a>
+						<ul>
+							<li><a href="/cameras/0">View All Cameras</a></li>
+							<li><a href="/coolcams">View Cool Cameras</a></li>
+							<li><a href="/submitcam">Submit Cameras</a></li>
+							<li><a href="/cameras/{{ range(1, 7800) | random | safe }}">Random Camera</a></li>
+						</ul>
+					</li>
+					<li><a href="/map">Map</a></li>
+					<li><a href="/cameras/{{pager.prev}}">&larrhk; Previous Camera </a> </li>
+					<li><a href="/cameras/{{pager.next}}">Next Camera &rarrhk;</a> </li>
+					<div class="topnav">
+						<form action="/goto" method="POST">
+							<input type="text" name="search" placeholder="Search..">
+							<button type="Go">Go</button>
+
+						</form>
+					</div>
+
+				</ul>
+
+
+			</nav>
+
+		</div>
+		<!-- Footer -->
+		<div id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<!-- Copyright -->
+						<div class="copyright">
+							<ul class="menu">
+								<li>&copy; GW. All rights reserved.</li>
+								<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="/static/assets/js/jquery.min.js"></script>
+	<script src="/static/assets/js/jquery.dropotron.min.js"></script>
+	<script src="/static/assets/js/jquery.scrolly.min.js"></script>
+	<script src="/static/assets/js/jquery.scrollex.min.js"></script>
+	<script src="/static/assets/js/browser.min.js"></script>
+	<script src="/static/assets/js/breakpoints.min.js"></script>
+	<script src="/static/assets/js/util.js"></script>
+	<script src="/static/assets/js/main.js"></script>
+
+</body>
+
+</html>
+{% endif %}
