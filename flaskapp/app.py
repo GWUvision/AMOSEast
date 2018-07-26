@@ -35,58 +35,34 @@ db = SQLAlchemy(app)
 
 from models import *
 
-
 # ---- connected to database initially
 
-begin1 = time.time()
+# DATABASE_URL = os.environ['DATABASE_URL']
+# conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
+# all_cameras_query = "SELECT cameraid, name, url, latitude, longitude FROM cameras ORDER BY cameraid"
+# conn.execute(all_cameras_query)
+# all_cameras = conn.fetchall()
 
-DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
-all_cameras_query = "SELECT cameraid, name, url, latitude, longitude FROM cameras ORDER BY cameraid"
-conn.execute(all_cameras_query)
-all_cameras = conn.fetchall()
-pager = Pager(len(all_cameras))
-
-# make the map page
-lng = np.array(all_cameras)[:, 4]
-lat = np.array(all_cameras)[:, 3]
-
-
-# Place map
-gmap = gmplot.GoogleMapPlotter(0, 0, 13)
-
-for i in range(0, len(lng)):
-    lt, ln = lat[i], lng[i]
-    if(lt == 0 and ln == 0):
-        continue
-    else:
-        # add marker to map
-        gmap.marker(lt, ln, 'red')
+# # make the map page
+# lng = np.array(all_cameras)[:, 4]
+# lat = np.array(all_cameras)[:, 3]
+#
+#
+# # Place map
+# gmap = gmplot.GoogleMapPlotter(0, 0, 13)
+#
+# for i in range(0, len(lng)):
+#     lt, ln = lat[i], lng[i]
+#     if(lt == 0 and ln == 0):
+#         continue
+#     else:
+#         # add marker to map
+#         gmap.marker(lt, ln, 'red')
 
 # Draw
-gmap.draw("map.html")
+# gmap.draw("map.html")
 # move to templates
 # os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html", "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
-
-end1 = time.time()
-
-print('First Time: ', end1 - begin1)
-
-begin2 = time.time()
-
-
-def get_db():
-    db = getattr(g, '_database', None)
-    if db is None:
-        db = g._database = psycopg2.connect(DATABASE_URL, sslmode='allow')
-        return db
-
-
-end2 = time.time()
-
-print("Second time: ", end2 - begin2)
-
-begin3 = time.time()
 
 
 @app.route('/')
@@ -101,115 +77,73 @@ def homepage():
     return render_template('home.html', camera_count=camera_count, image_count=image_count)
 
 
-end3 = time.time()
-
-print("Third time: ", end3 - begin3)
-
-
-begin4 = time.time()
-
-
 @app.route('/cameras/<int:ind>/')
 def directory_view(ind=1):
-    
-    images = Image.query.filter_by(cameraid=ind+1).order_by(Image.curr_time.desc()).first()
-    results = Camera.query.filter_by(cameraid=ind+1).first()
 
-    lng = np.array(all_cameras)[:, 4]
-    lat = np.array(all_cameras)[:, 3]
+    images = Image.query.filter_by(
+        cameraid=ind + 1).order_by(Image.curr_time.desc()).first()
+    results = Camera.query.filter_by(cameraid=ind + 1).first()
+    pager = Pager(db.engine.execute(
+        'select count(cameraid) from cameras').scalar())
+
     try:
-            
+
         if ind >= pager.count:
             return redirect(url_for(homepage))
         else:
             pager.current = ind
             try:
-                    
+
+                lng = results.longitude
+                lat = results.latitude
+
                 weather = Weather(unit=Unit.FAHRENHEIT)
 
-                lookup = weather.lookup_by_latlng(results.__dict__['latitude'], results.__dict__['longitude'])
+                lookup = weather.lookup_by_latlng(
+                    results.__dict__['latitude'], results.__dict__['longitude'])
                 condition = lookup.condition
-                temp = condition.temp + '\N{DEGREE SIGN}F and ' + condition.text
-            
+                temp = condition.temp + \
+                    '\N{DEGREE SIGN}F and ' + condition.text
+
             except:
                 temp = 'No weather available'
-                
-            return render_template('dirview.html', index=ind, pager=pager, results=results, images=images, weather=temp, lg=lng, lt=lat)
-            
+                lng = 0
+                lat = 0
+
+            return render_template('dirview.html', index=ind, pager=pager, results=results, images=images, weather=temp, lng=lng, lat=lat)
+
     except AttributeError as e:
         # flash('')
         print(e)
-        return render_template('404.html')
-    # try:
-    # 
-    #     if ind >= pager.count:
-    #         return render_template("404.html"), 404
-    #     else:
-    #         pager.current = ind
-    # 
-    #         try:
-    # 
-    #             weather = Weather(unit=Unit.FAHRENHEIT)
-    # 
-    #             lookup = weather.lookup_by_latlng(
-    #                 all_cameras[ind][3], all_cameras[ind][4])
-    #             condition = lookup.condition
-    #             w_info = [condition.temp +
-    #                       '\N{DEGREE SIGN}F and ' + condition.text]
-    # 
-    #         except AttributeError as e:
-    #             w_info = ['No weather information available']
-    #             return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
-    # 
-    #         except KeyError as e:
-    #             w_info = ['No weather information available']
-    #             return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
-    # 
-    #         except UnboundLocalError as e:
-    #             w_info = ['No weather information available']
-    #             return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
-    # 
-    #         return render_template('dirview.html', index=ind, pager=pager, data=all_cameras[ind], data2=camera_images[-1], weather=w_info, lg=lng, lt=lat)
-    # 
-    # except IndexError as e:
-    #     return render_template('404.html'), 404
-
-
-end4 = time.time()
-
-print("Fourth time: ", end4 - begin4)
-
-
-begin5 = time.time()
+        return redirect(url_for('homepage'))
 
 
 @app.route('/cameras/<int:ind>/<int:ind2>/')
 def image_view(ind=None, ind2=None):
 
-    conn = get_db().cursor()
-    camera_images_query = "SELECT filepath, curr_time from images WHERE cameraid=%d ORDER BY curr_time ASC" % (
-        all_cameras[ind][0])
-    conn.execute(camera_images_query)
-    data2 = conn.fetchall()
-    pager2 = Pager(len(data2))
+    pager = Pager(db.engine.execute(
+        'select count(cameraid) from cameras').scalar())
+
+    data = Camera.query.filter_by(cameraid=ind + 1).first()
+
+    images = Image.query.filter_by(
+        cameraid=ind + 1).order_by(Image.curr_time.asc()).all()
+
+    pager2 = Pager(len(images))
 
     try:
 
         if ind2 >= pager2.count or ind >= pager.count:
-            return render_template("404.html"), 404
+            flash('Image did not exist')
+            return render_template('dirview.html', index=ind, pager=pager)
         else:
             pager.current = ind
             pager2.current = ind2
 
-            return render_template('imageview.html', index=ind2, pager=pager, pager2=pager2, data2=data2[ind2], data=all_cameras[ind])
+            return render_template('imageview.html', index=ind2, pager=pager, pager2=pager2, data2=images[ind2], data=data)
 
     except IndexError as e:
-        return render_template('404.html'), 404
-
-
-end5 = time.time()
-
-print("Five time: ", end5 - begin5)
+        return render_template('404.html')
 
 
 @app.route('/goto', methods=['POST', 'GET'])
@@ -277,17 +211,15 @@ def submitcam():
     if request.method == 'POST':
         # get the url and description from the html
         url = request.form['url']
-        print(url)
+
         description = request.form['message']
         curr_time = datetime.datetime.now()
         name = request.form['name']
         lat = request.form['latitude']
-        long = request.form['longitude']
-
-        print(url, name, curr_time)
+        lng = request.form['longitude']
 
         # connect to the database
-        conn = get_db()
+        conn = psycopg2.connect(DATABASE_URL, sslmode='allow')
         cur = conn.cursor()
 
         # check if it is a url first using validators
@@ -299,14 +231,13 @@ def submitcam():
 
                 # query the database --> usually in the else
                 query = "INSERT INTO submit_cams(url, description, curr_time, latitude, longitude) VALUES('%s','%s','%s','%s','%s')" % (
-                    url, description, curr_time, lat, long)
+                    url, description, curr_time, lat, lng)
                 cur.execute(query)
                 conn.commit()
             except HTTPError as e:
                 print('Error code: ', e.code)
                 error = 'Error code: ', e.code
             except URLError as e:
-                # do something (set req to blank)
                 print('Reason: ', e.reason)
                 error = 'Reason: ', e.reason
         else:
