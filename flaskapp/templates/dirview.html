@@ -77,9 +77,17 @@
 			<!-- Inner -->
 			<div class="inner">
 				<header>
+					{% with messages = get_flashed_messages() %} {% if messages %}
+					<ul class=flashes>
+						{% for message in messages %}
+						<li>{{ message }}</li>
+						{% endfor %}
+					</ul>
+					{% endif %} {% endwith %}
 					<h1><a href="{{ results.__dict__['url'] | safe }}" id="logo">Name: {{ results.__dict__['name'] }}</a></h1>
 					<br/>
 					<img src="{{ url_for('static', filename='images/'+images.__dict__['filepath']) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
+					<br/>
 					<a href="/cameras/{{pager.prev}}" class="button">Prev Cam </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/cameras/{{pager.next}}" class="button">Next Cam</a>
 				</header>
@@ -167,8 +175,8 @@
 						function initMap() {
 							// The location of Uluru
 							var loc = {
-								lat: {{lt[0]}},
-								lng: {{lg[0]}}
+								lat: {{lat}},
+								lng: {{lng}}
 							};
 							// The map, centered at Uluru
 							var map = new google.maps.Map(
@@ -267,7 +275,8 @@
 				<header>
 					<h1>No Image</h1>
 					<br/>
-					<img src="http://www.ultramotorhn.com/image/catalog/noimage.jpg" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
+					<img src="http://www.ultramotorhn.com/image/catalog/noimage.jpg" style='height: 50%; width: 50%; object-fit: contain' class="img-responsive center">
+					<br/>
 					<a href="/cameras/{{pager.prev}}" class="button">Prev Cam </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/cameras/{{pager.next}}" class="button">Next Cam</a>
 				</header>
