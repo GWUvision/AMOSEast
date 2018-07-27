@@ -74,7 +74,7 @@ def homepage():
     image_count = db.engine.execute(
         'select count(cameraid) from images').scalar()
 
-    return render_template('home.html', camera_count=camera_count, image_count=image_count)
+    return render_template('home.html', camera_count="{:,}".format(camera_count), image_count="{:,}".format(image_count))
 
 
 @app.route('/cameras/<int:ind>/')
