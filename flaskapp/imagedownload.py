@@ -65,7 +65,7 @@ def download_file(index, url, mhash):
             print("Image from Camera %s is different. Saving image..." % (index))
             hash_update = "UPDATE cameras SET mhash=%s WHERE cameraid = %s"
             cur.execute(
-                hash_update, (md5('static/images/%s' % filepath), index,))
+                hash_update, (md5('static/images/%s' % filepath), index))
 
             conn.commit()
 
@@ -93,7 +93,9 @@ def download_file(index, url, mhash):
         print(err)
 
 
-jobs = [pool.spawn(download_file, index, url, mhash)
-        for index, url, mhash in camera_urls]
+#jobs = [pool.spawn(download_file, index, url, mhash)
+        #for index, url, mhash in camera_urls]
+
+[download_file(index, url, mhash) for index, url, mhash in camera_urls]
 
 print('Downloaded images')
