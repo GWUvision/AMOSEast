@@ -69,13 +69,8 @@ def download_file(index, url, mhash):
 
             conn.commit()
 
-            print(filepath)
-            print(dt)
-            print(index)
-
             insert_image_table = "INSERT INTO images(filepath, curr_time, cameraid) VALUES(%s, %s, %s)"
             cur.execute(insert_image_table, (filepath, dt, index))
-            print("here")
             conn.commit()
 
     except urllib.error.HTTPError as err:
@@ -98,9 +93,6 @@ def download_file(index, url, mhash):
         print(err)
 
 
-#jobs = [pool.spawn(download_file, index, url, mhash)
-        #for index, url, mhash in camera_urls]
-
-[download_file(index, url, mhash) for index, url, mhash in camera_urls]
+jobs = [pool.spawn(download_file, index, url, mhash) for index, url, mhash in camera_urls]
 
 print('Downloaded images')
