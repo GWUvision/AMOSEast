@@ -49,7 +49,7 @@ chmod a+x log.py
 Command for copying cameras into the database
 ================================================================================================
 
-psql -c "\copy cameras FROM '/pless_nfs/home/krood20/AMOSEast/csv_data/images.csv' delimiter ',' csv header"
+psql -c "\copy images FROM '/pless_nfs/home/krood20/AMOSEast/csv_data/test.csv' delimiter ',' csv header"
 
 psql -c "\copy cameras FROM '/Users/kylerood/AMOSEast/csv_data/data2.csv' delimiter ',' csv header"
 

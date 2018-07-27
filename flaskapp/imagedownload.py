@@ -69,6 +69,10 @@ def download_file(index, url, mhash):
 
             conn.commit()
 
+            print(filepath)
+            print(dt)
+            print(index)
+
             insert_image_table = "INSERT INTO images(filepath, curr_time, cameraid) VALUES(%s, %s, %s)"
             cur.execute(insert_image_table, (filepath, dt, index))
             conn.commit()
