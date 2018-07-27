@@ -75,6 +75,7 @@ def download_file(index, url, mhash):
 
             insert_image_table = "INSERT INTO images(filepath, curr_time, cameraid) VALUES(%s, %s, %s)"
             cur.execute(insert_image_table, (filepath, dt, index))
+            print("here")
             conn.commit()
 
     except urllib.error.HTTPError as err:
