@@ -188,7 +188,7 @@ def allcamspage():
     # mlist = db.session.query(Camera.cameraid).all()
 
     # cool_cams_list = [1, 2, 5, 2501, 2503, 2512, 2514, 4038, 4053, 4077, 9, 3]
-    cool_cams_list = [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+    cool_cams_list = [2, 4, 5, 8, 10, 11, 13, 15, 16]
 
     # sqlalchemy queries
     cams = [Image.query.filter_by(cameraid=id).order_by(
