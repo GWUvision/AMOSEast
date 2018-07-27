@@ -31,7 +31,7 @@ class Camera(db.Model):
 class Image(db.Model):
     __tablename__ = 'images'
 
-    rowid = db.Column(db.Integer, primary_key=True)
+    rowid = db.Column(db.Integer)
     filepath = db.Column(db.String())
     curr_time = db.Column(db.DateTime)
     cameraid = db.Column(db.Integer, db.ForeignKey('cameras.cameraid'))

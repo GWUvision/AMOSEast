@@ -85,7 +85,7 @@ def directory_view(ind=1):
     results = Camera.query.filter_by(cameraid=ind + 1).first()
     pager = Pager(db.engine.execute(
         'select count(cameraid) from cameras').scalar())
-
+        
     try:
 
         if ind >= pager.count:
