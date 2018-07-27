@@ -93,7 +93,9 @@ def download_file(index, url, mhash):
         print(err)
 
 
-jobs = [pool.spawn(download_file, index, url, mhash)
-        for index, url, mhash in camera_urls]
+#jobs = [pool.spawn(download_file, index, url, mhash)
+        #for index, url, mhash in camera_urls]
+
+[download_file(index, url, mhash) for index, url, mhash in camera_urls]
 
 print('Downloaded images')
