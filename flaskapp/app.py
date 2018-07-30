@@ -86,8 +86,8 @@ def directory_view(ind=1):
     pager = Pager(db.engine.execute(
         'select count(cameraid) from cameras').scalar())
 
-    if(!results):
-        print("No results")
+    if(results):
+        print("results")
 
     try:
 
