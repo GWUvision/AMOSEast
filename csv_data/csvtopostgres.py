@@ -12,13 +12,13 @@ print("Connected to database...")
 # psql -c "\copy cameras FROM 'root' delimiter ',' csv header"
 
 try:
-    # sql = "COPY cameras FROM '%s' DELIMITER ',' CSV HEADER" % (root)
-    # cur.execute(sql)
-    # print("Copied data from csv to postgres database...")
-
-    sql = "COPY images FROM '%s' DELIMITER ',' CSV HEADER" % (path)
+    sql = "COPY cameras FROM '%s' DELIMITER ',' CSV HEADER" % (root)
     cur.execute(sql)
-    print("Copied image data...")
+    print("Copied data from csv to postgres database...")
+
+    # sql = "COPY images FROM '%s' DELIMITER ',' CSV HEADER" % (path)
+    # cur.execute(sql)
+    # print("Copied image data...")
 
 except Exception as e:
     print ("Unable to copy data. ", e)
