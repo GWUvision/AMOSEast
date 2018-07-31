@@ -1,4 +1,5 @@
 cameraid,name,url,latitude,longitude,last_width,last_height,mhash
+1,VT,http://www.hazecam.net/images/main/burlington_right.jpg,44.478739,-73.19164,500,250,1
 2,Anthem school,http://wwc.instacam.com/instacamimg/PHNAS/PHNAS_l.jpg,33.2765,-112.1872,1280,720,2
 4,College of the Canyons,http://wwc.instacam.com/instacamimg/CLLCN/CLLCN_l.jpg,34.4044820734014,-118.569055939865,1280,1024,4
 5,Borrego Springs HS,http://wwc.instacam.com/instacamimg/BORYO/BORYO_l.jpg,33.2648176,-116.3834183,1280,720,5
@@ -301,6 +302,8 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 1157,hallwilersee nord 2,http://www.webcam-hallwilersee.ch/uploadpics/pos2-nordzoom.jpg,46.6483979217357,7.51553442648628,704,576,1157
 1158,,http://www.webcam-hallwilersee.ch/uploadpics/pos4-sued.jpg,47.2771667,8.21729400000004,704,576,1158
 1160,Eternal Sunset,http://antarctica.martingrund.de/ohig-pingi-z.jpg,-63.5167,-58.5,640,480,1160
+1161,,http://www.pocruises.com/webcams/aurora.jpg,0,0,352,288,1161
+1162,,http://www.pocruises.com/webcams/oceana.jpg,0,0,704,480,1162
 1163,,http://www.pocruises.com/webcams/oriana.jpg,0,0,289,216,1163
 1164,,http://www.lotuslodge.de/webcam/garten/pllgarten.jpg,0,0,800,450,1164
 1165,"Tsim Sha Tsui (looking towards the east), Hong Kong",http://www.hko.gov.hk/wxinfo/aws/hko_mica/hko/latest_HKO.jpg,0,0,720,405,1165
@@ -537,7 +540,9 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 2466,"La Push, Washington, James Island",http://webcam.forkswa.com/webcam2/netcam.jpg,48.1465478436,-124.580868723,800,600,2466
 2467,Yosemite Webcams,http://pixelcaster.com/yosemite/webcams/turtleback.jpg,37.7439957,-119.5315418,1024,768,2467
 2468,"Deer Lake Webcam, Deer Lake Road, Cuba, NM",http://www.deer-lake.net/pictures/camera.jpg,12.8195869818637,-85.33727835,640,480,2468
+2469,Baltimore Haze Cam 2,http://www.hazecam.net/images/main/baltimore_left.jpg,0,0,500,250,2469
 2470,Baltimore Haze Cam 1,http://www.hazecam.net/images/main/baltimore_right.jpg,0,0,500,250,2470
+2471,Blue Hill Haze Cam 2,http://www.hazecam.net/images/main/bluehill_left.jpg,42.2073259523,-71.0986874759,500,250,2471
 2472,Boston Haze Cam 1,http://www.hazecam.net/images/main/boston_right.jpg,0,0,500,250,2472
 2473,Brigantine Haze Cam 2,http://www.hazecam.net/images/main/brigantine_left.jpg,0,0,500,250,2473
 2474,Brigantine Haze Cam 1,http://www.hazecam.net/images/main/brigantine_right.jpg,0,0,500,250,2474
@@ -545,6 +550,7 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 2476,MidWest Hazecam at Seney National Wildlife Refuge,http://www.mwhazecam.net/images/photos-main/SENEY.jpg,46.2885357,-85.9464292,640,480,2476
 2477,"Phoenix, Estrella Mountains",http://www.phoenixvis.net/images/photos-large/esmo1large.jpg,33.4870873386,-112.361981331,5177,1941,2477
 2478,White Tank Mountains (W),http://www.phoenixvis.net/images/photos-main/whtm1.jpg,33.468541,-112.297867,800,300,2478
+2479,Superstition Mountains (E),http://www.phoenixvis.net/images/photos-main/supm1.jpg,33.415056,-111.822971,800,300,2479
 2481,"San Jacinto, CA",http://www.fsvisimages.com/images/photos-main/saja1_main.jpg,33.633677074,-117.21459375,648,486,2481
 2482,"Agua Tibia East, CA",http://www.fsvisimages.com/images/photos-main/AGTE1_main.jpg,34.1254584432,-116.951189665,648,486,2482
 2483,"Cucamonga South, CA",http://www.fsvisimages.com/images/photos-main/cucs1_main.jpg,34.0830905189,-117.542199893,648,486,2483
@@ -572,10 +578,16 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 2514,MoDNR Visual Air Pollution Camera,http://www.dnr.mo.gov/env/esp/aqm/images/KCCamera.jpg,39.0443227876291,-94.4393083915405,1280,720,2514
 2515,Mesa Grande South view,http://hpwren.ucsd.edu/cameras/L/hpwren-iqeye18.jpg,33.1927456,-116.7665369,1600,1200,2515
 2516,Palomar Observatory,http://hpwren.ucsd.edu/cameras/L/mpo-p200iqeye.jpg,0,0,2048,1536,2516
+2517,Augustine - Homer webcam,http://avo.alaska.edu/webcam/aug_night.jpg,0,0,704,480,2517
 2518,Veniaminof webcam,http://avo.alaska.edu/webcam/augtst.jpg,56.1983333,-159.3911111,1296,960,2518
 2520,Peulik webcam,http://avo.alaska.edu/webcam/a-spurr.jpg,0,0,512,384,2520
+2521,Shishaldin webcam,http://avo.alaska.edu/webcam/peulik.jpg,0,0,640,480,2521
+2522,Redoubt - Hut webcam,http://avo.alaska.edu/webcam/shishaldin.jpg,0,0,1024,768,2522
 2523,Katmai webcam,http://avo.alaska.edu/webcam/redoubt.jpg,0,0,1024,768,2523
+2524,Fourpeaked webcam,http://avo.alaska.edu/webcam/aug_lagoon.jpg,0,0,320,240,2524
+2525,Redoubt - DFR webcam,http://avo.alaska.edu/webcam/redoubt-2.jpg,0,0,1024,768,2525
 2526,Makushin webcam,http://avo.alaska.edu/webcam/redoubt-3.jpg,0,0,640,480,2526
+2527,Akutan AKSD webcam,http://avo.alaska.edu/webcam/okif.jpg,0,0,640,480,2527
 2528,Albuquerque NM City Cam KOB-TV,http://wwc.instacam.com/instacamimg/KOBTV/KOBTV_l.jpg,0,0,640,480,2528
 2529,Mount Kenya,http://kenyawebcam.com/mountkenyacam/pic/stream.jpg,0.117674,37.15559,640,480,2529
 2530,Mountain Lodge,http://kenyawebcam.com/mtlodgecam/pic/upload.jpg,-0.316757,37.152458,640,480,2530
@@ -1164,6 +1176,7 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 3981,I-74 at Elmore St,http://cmhimg01.dot.state.oh.us/images/artimis/CCTV140.jpg,39.15605,-84.54531,704,480,3981
 3982,I-271 at White Rd,http://cmhimg01.dot.state.oh.us/images/CLE/CLE207-L.jpg,41.57477,-81.44803,704,480,3982
 3989,South Mountain (S),http://www.phoenixvis.net/images/photos-main/somt1.jpg,33.451691,-112.102991,800,480,3989
+3990,Estrella Mountains (S),http://www.phoenixvis.net/images/photos-main/esmo1.jpg,33.478501,-112.409971,800,300,3990
 3991,I-90 at Clague Rd,http://cmhimg01.dot.state.oh.us/images/CLE/CLE106-L.jpg,41.47556,-81.88182,704,480,3991
 3992,I-71 at Gemini Place,http://cmhimg01.dot.state.oh.us/images/CMH/CMH093-L.jpg,40.148229,-82.972119,704,480,3992
 3995,I-76 at US-224 / I-71. (PTZ),http://cmhimg01.dot.state.oh.us/images/CLE/CLE072-L.jpg,41.030378,-81.899351,704,480,3995
@@ -1240,19 +1253,26 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 4112,Univ. of Illinois Energy Farm - Switchgrass camera,http://phenocam.sr.unh.edu/data/latest/uiefswitchgrass.jpg,40.063694,-88.197289,1280,1024,4112
 4113,Upper Buffalo Wilderness  AR,http://phenocam.sr.unh.edu/data/latest/upperbuffalo.jpg,35.863732,-93.493222,1600,1067,4113
 4114,"APEX Telescope, chajnantor",http://www.apex-telescope.org/camera/images/10.0.6.77/image1.jpg,-23.0058259875,-67.7591848373,640,480,4114
+4115,"Turkey Point Carbon Cycle Research Project, Ontario Canada - IR",https://phenocam.sr.unh.edu/data/latest/turkeypointenf74_IR.jpg,42.7059146,-80.3504819,1296,960,4115
+4116,"Turkey Point Carbon Cycle Research Project, Ontario Canada - IR (2)",https://phenocam.sr.unh.edu/data/latest/turkeypointenf39_IR.jpg,42.7074369,-80.3540521,1296,960,4116
 4117,"Turkey Point Carbon Cycle Research Project, Ontario Canada - IR (3)",https://phenocam.sr.unh.edu/data/latest/turkeypointdbf_IR.jpg,42.6309739,-80.567413,1296,960,4117
 4118,"Amador County, California - IR (2)",https://phenocam.sr.unh.edu/data/latest/tonzi_IR.jpg,38.430418,-120.966881,1296,960,4118
 4120,Susquehanna Shale Hills Critical Zone Observatory (CZO) - IR,https://phenocam.sr.unh.edu/data/latest/shalehillsczo_IR.jpg,40.6546946,-77.905013,1296,960,4120
 4121,"Reading, MA - IR",https://phenocam.sr.unh.edu/data/latest/readingma_IR.jpg,42.52997,-71.127114,1296,960,4121
 4122,"Central Oregon, Metolius New Young Pine/US-Me6 - IR",https://phenocam.sr.unh.edu/data/latest/oregonYP_IR.jpg,44.3224509,-121.6053575,1296,960,4122
 4123,"Central Oregon, Metolius intermediate pine/US-Me2 - IR",https://phenocam.sr.unh.edu/data/latest/oregonMP_IR.jpg,44.4464067,-121.5600996,1296,960,4123
+4124,"North Attleboro, MA - IR",https://phenocam.sr.unh.edu/data/latest/northattleboroma_IR.jpg,41.9829831,-71.3104284,1296,960,4124
 4125,"University of Missouri, Ashland Wildlife Research Area - IR",https://phenocam.sr.unh.edu/data/latest/missouriozarks_IR.jpg,38.7483155,-92.199419,1296,960,4125
 4126,"Lethbridge, Alberta - IR",https://phenocam.sr.unh.edu/data/latest/lethbridge_IR.jpg,49.7058005,-112.9368863,1296,960,4126
 4127,Kendall Grassland - IR,https://phenocam.sr.unh.edu/data/latest/kendall_IR.jpg,0,0,1296,960,4127
 4128,Konza Prairie Natural Area - Kansas - IR,https://phenocam.sr.unh.edu/data/latest/konza_IR.jpg,39.0837277,-96.5604354,1296,960,4128
+4129,"Jasper Ridge - near Westridge, CA - IR",https://phenocam.sr.unh.edu/data/latest/jasperridge_IR.jpg,37.397196,-122.219461,1296,960,4129
 4130,"Harvard Forest, Petersham, MA - IR",https://phenocam.sr.unh.edu/data/latest/harvardbarn2_IR.jpg,42.5343982,-72.1889227,1296,960,4130
+4132,"Saskatchewan, Canada - IR",https://phenocam.sr.unh.edu/data/latest/canadaOBS_IR.jpg,53.999084,-105.123203,1296,960,4132
 4133,Burns Sagebrush Site - IR,https://phenocam.sr.unh.edu/data/latest/burnssagebrush_IR.jpg,43.4664362,-119.6875859,1296,960,4133
+4134,Boston University - IR,https://phenocam.sr.unh.edu/data/latest/bostonu_IR.jpg,42.3501866,-71.1044661,1296,960,4134
 4135,"Bartlett Forest, NH - IR",https://phenocam.sr.unh.edu/data/latest/bartlettir_IR.jpg,44.0651744,-71.2844751,1296,960,4135
+4136,Alligator River National Wildlife Refuge - IR,https://phenocam.sr.unh.edu/data/latest/alligatorriver_IR.jpg,35.7849682,-75.9075422,1296,960,4136
 4143,207 ST @ 9 Ave,http://207.251.86.238/cctv203.jpg,40.8628358166596,-73.9170026779175,352,240,4143
 4152,7 Ave and 43 St,http://207.251.86.238/cctv422.jpg,40.756707,-73.986489,352,240,4152
 4154,8 Ave @ 42 St,http://207.251.86.238/cctv20.jpg,40.7562948244548,-73.9895725250244,352,240,4154
@@ -2080,6 +2100,8 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 6682,"Streetlight Observatory, Bryan, Texas, USA",http://www.allskycam.com/u/404/latest_full.jpg,30.65,-96.35,640,480,6682
 6683,winter haven florida,http://www.allskycam.com/u/409/latest_full.jpg,28,-81.07,640,480,6683
 6684,"Lela Christman Observatory, Sullivan, IL",http://www.allskycam.com/u/418/latest_full.jpg,39.01,-88.01,640,480,6684
+6685,"BRIXIIS Observatory, Kruibeke, Belgium, Europe",http://www.allskycam.com/u/419/latest_full.jpg,51.12,4.08,768,576,6685
+6686,"Hong Kong Space Museum, HONG KONG",http://www.allskycam.com/u/432/latest_full.jpg,22.29,114.17,768,576,6686
 6687,"Grasslands Observatory, Sonoita, AZ USA",http://www.allskycam.com/u/434/latest_full.jpg,31.67,-110.87,640,480,6687
 6688,"KWOS Scandriglia, ITALY",http://www.allskycam.com/u/443/latest_full.jpg,42.17,12.79,768,576,6688
 6689,"Firetail Observatory, Central Texas",http://www.allskycam.com/u/446/latest_full.jpg,40,-95,640,480,6689
@@ -2089,6 +2111,7 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 6693,AAVSO HQ,http://www.allskycam.com/u/467/latest_full.jpg,40,-95,640,480,6693
 6694,"Observatorio UC, Sta. Martina, Santiago, Chile",http://www.allskycam.com/u/468/latest_full.jpg,0,-70,640,480,6694
 6695,Aquarius Observatory - Bad Zurzach - SWITZERLAND,http://www.allskycam.com/u/471/latest_full.jpg,47.5810197065673,8.23957519531244,768,576,6695
+6696,"Stellar Skies, Pontotoc Texas",http://www.allskycam.com/u/478/latest_full.jpg,30.02,-98.02,640,480,6696
 6697,"Overgaard Outreach Observatory, Overgaard AZ, USA",http://www.allskycam.com/u/489/latest_full.jpg,34.01,-110.01,640,480,6697
 6698,"SONEAR Observatory, Oliveira, MG, Brazil",http://www.allskycam.com/u/493/latest_full.jpg,-21,-44,640,480,6698
 6699,"Gorge Creek Orchards, Mareeba, QLD, Australia",http://www.allskycam.com/u/503/latest_full.jpg,-17,145.33,768,576,6699
@@ -2096,8 +2119,11 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 6701,France,http://www.allskycam.com/u/511/latest_full.jpg,48.69,3.87,768,576,6701
 6702,"Naples, Italy",http://www.allskycam.com/u/518/latest_full.jpg,40.95,14.53,768,576,6702
 6703,"Ghezz Observatory, Leontica, Switzerland",http://www.allskycam.com/u/519/latest_full.jpg,46.46,8.92,768,576,6703
+6704,"NOAA/ESRL, Boulder, CO, USA",http://www.allskycam.com/u/520/latest_full.jpg,39.98,-105.25,640,480,6704
+6705,"Tuen Mun, HONG KONG",http://www.allskycam.com/u/537/latest_full.jpg,22.37,113.94,768,576,6705
 6706,"Cades Observatory, Kingston, TAS, Australia",http://www.allskycam.com/u/539/latest_full.jpg,-42.96,147.27,768,576,6706
 6707,"Sola Virtus Observatory White Hall, MD USA",http://www.allskycam.com/u/550/latest_full.jpg,39.7,-76.53,640,480,6707
+6708,Cal Poly Observatory,http://www.allskycam.com/u/561/latest_full.jpg,35.3,-120.66,640,480,6708
 6709,LVAS OBSERVATORY Mt. Potosi Nevada,http://www.allskycam.com/u/571/latest_full.jpg,36.98,115.17,640,480,6709
 6710,"Rabbit Hole Observatory; Jonesborough, TN USA",http://www.allskycam.com/u/574/latest_full.jpg,36.29,-82.45,640,480,6710
 6711,"TAF Observatory, Trondheim, Norway",http://www.allskycam.com/u/578/latest_full.jpg,63.36,10.48,768,576,6711
@@ -2395,7 +2421,9 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 7746,Belmont,http://api.nysmesonet.org/cam/index.php/image/nysm/BELM,42.24249,-78.03958,1280,720,7746
 7747,Berkshire,http://api.nysmesonet.org/cam/index.php/image/nysm/BERK,42.3203,-76.20319,1280,720,7747
 7748,Brant,http://api.nysmesonet.org/cam/index.php/image/nysm/BRAN,42.59494,-79.02154,1280,720,7748
+7749,Brockport,http://api.nysmesonet.org/cam/index.php/image/nysm/BROC,43.20835,-77.96592,1280,720,7749
 7750,Brookfield,http://api.nysmesonet.org/cam/index.php/image/nysm/BROO,42.79591,-75.29929,1280,720,7750
+7751,Ballston Spa,http://api.nysmesonet.org/cam/index.php/image/nysm/BSPA,43.0228,-73.87498,1280,720,7751
 7752,Burdett,http://api.nysmesonet.org/cam/index.php/image/nysm/BURD,42.41042,-76.77176,1280,720,7752
 7753,Burt,http://api.nysmesonet.org/cam/index.php/image/nysm/BURT,43.31699,-78.74903,1280,720,7753
 7754,Camden,http://api.nysmesonet.org/cam/index.php/image/nysm/CAMD,43.33985,-75.74299,1280,720,7754
@@ -2417,12 +2445,16 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 7770,Edinburg,http://api.nysmesonet.org/cam/index.php/image/nysm/EDIN,43.22819,-74.11293,1280,720,7770
 7771,Edwards,http://api.nysmesonet.org/cam/index.php/image/nysm/EDWA,44.3215,-75.24379,1280,720,7771
 7772,Elmira,http://api.nysmesonet.org/cam/index.php/image/nysm/ELMI,42.11332,-76.83664,1280,720,7772
+7773,Essex,http://api.nysmesonet.org/cam/index.php/image/nysm/ESSX,44.313604,-73.371896,1280,720,7773
+7774,Fayetteville,http://api.nysmesonet.org/cam/index.php/image/nysm/FAYE,43.054226,-75.990041,1280,720,7774
 7775,Fredonia,http://api.nysmesonet.org/cam/index.php/image/nysm/FRED,42.41817,-79.3666,1280,720,7775
 7776,Gabriels,http://api.nysmesonet.org/cam/index.php/image/nysm/GABR,44.41742,-74.17867,1280,720,7776
 7777,Grove,http://api.nysmesonet.org/cam/index.php/image/nysm/GROV,42.48951,-77.94946,1280,720,7777
 7778,Hammond,http://api.nysmesonet.org/cam/index.php/image/nysm/HAMM,44.51302,-75.61729,1280,720,7778
+7779,Harpersfield,http://api.nysmesonet.org/cam/index.php/image/nysm/HARP,42.4728,-74.69849,1280,720,7779
 7780,Harrisburg,http://api.nysmesonet.org/cam/index.php/image/nysm/HARR,43.80352,-75.68853,1280,720,7780
 7781,Hartsville,http://api.nysmesonet.org/cam/index.php/image/nysm/HART,42.211221,-77.689733,1280,720,7781
+7782,Herkimer,http://api.nysmesonet.org/cam/index.php/image/nysm/HERK,43.03662,-75.00957,1280,720,7782
 7783,Indian Lake,http://api.nysmesonet.org/cam/index.php/image/nysm/ILAK,43.79067,-74.23933,1280,720,7783
 7784,Johnstown,http://api.nysmesonet.org/cam/index.php/image/nysm/JOHN,42.984283,-74.301767,1280,720,7784
 7785,Jordan,http://api.nysmesonet.org/cam/index.php/image/nysm/JORD,43.0698,-76.47006,1280,720,7785
@@ -2434,16 +2466,22 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 7791,North Branch,http://api.nysmesonet.org/cam/index.php/image/nysm/NBRA,41.82792,-74.99689,1280,720,7791
 7792,Olean,http://api.nysmesonet.org/cam/index.php/image/nysm/OLEA,42.09141,-78.40743,1280,720,7792
 7793,Oppenheim,http://api.nysmesonet.org/cam/index.php/image/nysm/OPPE,43.0626,-74.665437,1280,720,7793
+7794,Osceola,http://api.nysmesonet.org/cam/index.php/image/nysm/OSCE,43.49915,-75.71175,1280,720,7794
 7795,Oswego,http://api.nysmesonet.org/cam/index.php/image/nysm/OSWE,43.443183,-76.553233,1280,720,7795
 7796,Otisville,http://api.nysmesonet.org/cam/index.php/image/nysm/OTIS,41.48249,-74.50368,1280,720,7796
 7797,Owego,http://api.nysmesonet.org/cam/index.php/image/nysm/OWEG,42.02571,-76.25543,1280,720,7797
 7798,Penn Yan,http://api.nysmesonet.org/cam/index.php/image/nysm/PENN,42.65578,-76.98746,1280,720,7798
 7799,Philadelphia,http://api.nysmesonet.org/cam/index.php/image/nysm/PHIL,44.19354,-75.71591,1280,720,7799
 7800,Potsdam,http://api.nysmesonet.org/cam/index.php/image/nysm/POTS,44.656867,-74.974433,1280,720,7800
+7801,Randolph,http://api.nysmesonet.org/cam/index.php/image/nysm/RAND,42.14928,-78.90096,1280,720,7801
+7802,Redfield,http://api.nysmesonet.org/cam/index.php/image/nysm/REDF,43.62218,-75.87769,1280,720,7802
+7803,Red Hook,http://api.nysmesonet.org/cam/index.php/image/nysm/REDH,42.00168,-73.88391,1280,720,7803
+7804,Rush,http://api.nysmesonet.org/cam/index.php/image/nysm/RUSH,43.00099,-77.63739,1280,720,7804
 7805,Saranac,http://api.nysmesonet.org/cam/index.php/image/nysm/SARA,44.707585,-73.67115,1280,720,7805
 7806,South Bristol,http://api.nysmesonet.org/cam/index.php/image/nysm/SBRI,42.75217,-77.35931,1280,720,7806
 7807,Schaghticoke,http://api.nysmesonet.org/cam/index.php/image/nysm/SCHA,42.89697,-73.61405,1280,720,7807
 7808,Schuylerville,http://api.nysmesonet.org/cam/index.php/image/nysm/SCHU,43.116996,-73.578284,1280,720,7808
+7809,Sherburne,http://api.nysmesonet.org/cam/index.php/image/nysm/SHER,42.64025,-75.483445,1280,720,7809
 7810,Sprakers,http://api.nysmesonet.org/cam/index.php/image/nysm/SPRA,42.869763,-74.509978,1280,720,7810
 7811,Stephentown,http://api.nysmesonet.org/cam/index.php/image/nysm/STEP,42.5262,-73.35906,1280,720,7811
 7812,Suffern,http://api.nysmesonet.org/cam/index.php/image/nysm/SUFF,41.13038,-74.08987,1280,720,7812
@@ -2451,12 +2489,15 @@ cameraid,name,url,latitude,longitude,last_width,last_height,mhash
 7814,Tully,http://api.nysmesonet.org/cam/index.php/image/nysm/TULL,42.79463,-76.11555,1280,720,7814
 7815,Tupper Lake,http://api.nysmesonet.org/cam/index.php/image/nysm/TUPP,44.22128,-74.43826,1280,720,7815
 7816,Tyrone,http://api.nysmesonet.org/cam/index.php/image/nysm/TYRO,42.40611,-77.0539,1280,720,7816
+7817,Voorheesville,http://api.nysmesonet.org/cam/index.php/image/nysm/VOOR,42.65242,-73.97562,1280,720,7817
 7818,Wallkill,http://api.nysmesonet.org/cam/index.php/image/nysm/WALL,41.63409,-74.1537,1280,720,7818
 7819,Walton,http://api.nysmesonet.org/cam/index.php/image/nysm/WALT,42.2395,-75.17879,1280,720,7819
 7820,Warsaw,http://api.nysmesonet.org/cam/index.php/image/nysm/WARS,42.77993,-78.20889,1280,720,7820
 7821,Warwick,http://api.nysmesonet.org/cam/index.php/image/nysm/WARW,41.24036,-74.39056,1280,720,7821
 7822,Waterloo,http://api.nysmesonet.org/cam/index.php/image/nysm/WATE,42.87966,-76.81255,1280,720,7822
+7823,Wellesley Island,http://api.nysmesonet.org/cam/index.php/image/nysm/WELL,44.30782,-76.00858,1280,720,7823
 7824,Westmoreland,http://api.nysmesonet.org/cam/index.php/image/nysm/WEST,43.10647,-75.46146,1280,720,7824
+7825,Whiteface Mountain Base,http://api.nysmesonet.org/cam/index.php/image/nysm/WFMB,44.393236,-73.858829,1280,720,7825
 7826,Whitehall,http://api.nysmesonet.org/cam/index.php/image/nysm/WHIT,43.485073,-73.423071,1280,720,7826
 7827,Wolcott,http://api.nysmesonet.org/cam/index.php/image/nysm/WOLC,43.22868,-76.84261,1280,720,7827
 7828,York,http://api.nysmesonet.org/cam/index.php/image/nysm/YORK,42.85504,-77.84776,1280,720,7828

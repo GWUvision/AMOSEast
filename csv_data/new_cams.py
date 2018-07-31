@@ -32,6 +32,6 @@ df = df[['filepath', 'curr_time', 'cameraid']]
 
 print(df.head())
 
-df.to_csv('test.csv')
+df.to_csv('interesting_images.csv')
 
 
