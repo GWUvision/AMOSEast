@@ -115,8 +115,6 @@ def directory_view(ind=1):
     next = next_cam(ind)
     prev = prev_cam(ind)
 
-    print(prev)
-
     #error checking for next and prev
     if(prev):
         previd = prev.cameraid
@@ -167,10 +165,10 @@ def image_view(ind=None, ind2=None):
     pager = Pager(db.engine.execute(
         'select count(cameraid) from cameras').scalar())
 
-    data = Camera.query.filter_by(cameraid=ind + 1).first()
+    data = Camera.query.filter_by(cameraid=ind).first()
 
     images = Image.query.filter_by(
-        cameraid=ind + 1).order_by(Image.curr_time.asc()).all()
+        cameraid=ind).order_by(Image.curr_time.asc()).all()
 
     pager2 = Pager(len(images))
 
