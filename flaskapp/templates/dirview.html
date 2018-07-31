@@ -88,8 +88,8 @@
 					<br/>
 					<img src="{{ url_for('static', filename='images/'+images.__dict__['filepath']) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
 					<br/>
-					<a href="/cameras/{{pager.prev}}" class="button">Prev Cam </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="/cameras/{{pager.next}}" class="button">Next Cam</a>
+					<a href="/cameras/{{prev}}" class="button">Prev Cam </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="/cameras/{{next}}" class="button">Next Cam</a>
 				</header>
 			</div>
 
@@ -110,15 +110,15 @@
 					<li>
 						<a href="#">Cameras</a>
 						<ul>
-							<li><a href="/cameras/0">View All Cameras</a></li>
+							<li><a href="/cameras/1">View All Cameras</a></li>
 							<li><a href="/coolcams">View Cool Cameras</a></li>
 							<li><a href="/submitcam">Submit Cameras</a></li>
 							<li><a href="/cameras/{{ range(1, 7800) | random | safe }}">Random Camera</a></li>
 						</ul>
 					</li>
 					<li><a href="/map">Map</a></li>
-					<li><a href="/cameras/{{pager.prev}}">&larrhk; Previous Camera </a> </li>
-					<li><a href="/cameras/{{pager.next}}">Next Camera &rarrhk;</a> </li>
+					<li><a href="/cameras/{{prev}}">&larrhk; Previous Camera </a> </li>
+					<li><a href="/cameras/{{next}}">Next Camera &rarrhk;</a> </li>
 					<div class="topnav">
 						<form action="/goto" method="POST">
 							<input type="text" name="search" placeholder="Search..">
@@ -162,7 +162,7 @@
 							</tr>
 							<tr>
 								<td><b>View All Images:</b></td>
-								<td><a href="/cameras/{{pager.current}}/0/">All Camera Images</a></td>
+								<td><a href="/cameras/{{current}}/0/">All Camera Images</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -276,8 +276,8 @@
 					<br/>
 					<img src="http://www.ultramotorhn.com/image/catalog/noimage.jpg" style='height: 50%; width: 50%; object-fit: contain' class="img-responsive center">
 					<br/>
-					<a href="/cameras/{{pager.prev}}" class="button">Prev Cam </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="/cameras/{{pager.next}}" class="button">Next Cam</a>
+					<a href="/cameras/{{prev}}" class="button">Prev Cam </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="/cameras/{{next}}" class="button">Next Cam</a>
 				</header>
 			</div>
 
@@ -298,15 +298,15 @@
 					<li>
 						<a href="#">Cameras</a>
 						<ul>
-							<li><a href="/cameras/0">View All Cameras</a></li>
+							<li><a href="/cameras/1">View All Cameras</a></li>
 							<li><a href="/coolcams">View Cool Cameras</a></li>
 							<li><a href="/submitcam">Submit Cameras</a></li>
 							<li><a href="/cameras/{{ range(1, 7800) | random | safe }}">Random Camera</a></li>
 						</ul>
 					</li>
 					<li><a href="/map">Map</a></li>
-					<li><a href="/cameras/{{pager.prev}}">&larrhk; Previous Camera </a> </li>
-					<li><a href="/cameras/{{pager.next}}">Next Camera &rarrhk;</a> </li>
+					<li><a href="/cameras/{{prev}}">&larrhk; Previous Camera </a> </li>
+					<li><a href="/cameras/{{next}}">Next Camera &rarrhk;</a> </li>
 					<div class="topnav">
 						<form action="/goto" method="POST">
 							<input type="text" name="search" placeholder="Search..">

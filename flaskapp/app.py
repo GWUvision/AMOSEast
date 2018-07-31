@@ -64,6 +64,33 @@ from models import *
 # move to templates
 # os.rename("/pless_nfs/home/krood20/AMOSEast/flaskapp/map.html", "/pless_nfs/home/krood20/AMOSEast/flaskapp/templates/map.html")
 
+#functions to get the prev and next cams
+def prev_cam(cid):
+    count = db.engine.execute(
+        'select count(cameraid) from cameras').scalar()
+    while (count > 0):
+        prev_cam = None
+        cid = cid - 1
+        if db.session.query(Camera).get(cid) is not None:
+            prev_cam = db.session.query(Camera).get(cid)
+            break
+        else:
+            count = count - 1
+    return prev_cam
+
+def next_cam(cid):
+    count = db.engine.execute(
+        'select count(cameraid) from cameras').scalar()
+    while (count > 0):
+        next_cam = None
+        cid = cid + 1
+        if db.session.query(Camera).get(cid) is not None:
+            next_cam = db.session.query(Camera).get(cid)
+            break
+        else:
+            count = count - 1
+    return next_cam
+
 
 @app.route('/')
 def homepage():
@@ -81,20 +108,33 @@ def homepage():
 def directory_view(ind=1):
 
     images = Image.query.filter_by(
-        cameraid=ind + 1).order_by(Image.curr_time.desc()).first()
-    results = Camera.query.filter_by(cameraid=ind + 1).first()
-    pager = Pager(db.engine.execute(
-        'select count(cameraid) from cameras').scalar())
+        cameraid=ind).order_by(Image.curr_time.desc()).first()
+    results = Camera.query.filter_by(cameraid=ind).first()
+    count = db.engine.execute('select count(cameraid) from cameras').scalar()
 
-    if(results):
-        print("results")
+    next = next_cam(ind)
+    prev = prev_cam(ind)
+
+    print(prev)
+
+    #error checking for next and prev
+    if(prev):
+        previd = prev.cameraid
+    else:
+        previd = 1
+
+    if(next == 'None'):
+        next = db.engine.execute('SELECT * FROM cameras ORDER BY cameraid DESC LIMIT 1').first()
+        nextid = next.cameraid
+    else:
+        nextid = next.cameraid
 
     try:
 
-        if ind >= pager.count:
+        if ind >= count:
             return redirect(url_for(homepage))
         else:
-            pager.current = ind
+            current = ind
             try:
 
                 lng = results.longitude
@@ -113,7 +153,7 @@ def directory_view(ind=1):
                 lng = 0
                 lat = 0
 
-            return render_template('dirview.html', index=ind, pager=pager, results=results, images=images, weather=temp, lng=lng, lat=lat)
+            return render_template('dirview.html', index=ind, results=results, images=images, weather=temp, lng=lng, lat=lat, next=nextid, prev=previd, current=current)
 
     except AttributeError as e:
         # flash('')
@@ -154,7 +194,7 @@ def goto():
 
     if request.method == 'POST':
         if not request.form['search']:
-            return redirect('/cameras/0')
+            return redirect('/cameras/1')
         else:
             results = Camera.query.filter(Camera.name.ilike(
                 '%{0}%'.format(request.form['search']))).all()
@@ -165,7 +205,7 @@ def goto():
             # data2 = conn.fetchall()
             # print(data2)
 
-            return redirect('/cameras/0')
+            return redirect('/cameras/1')
 
 
 @app.route('/about')
@@ -187,23 +227,23 @@ def mappage():
 @app.route('/coolcams')
 def allcamspage():
 
-    
+
     # camera_count = db.engine.execute('select count(cameraid) from cameras').scalar()
     # cool_cams_list = [i for i in range(camera_count)]
-    
+
 
     cool_cams_list = [2, 4, 5, 8, 10, 11, 13, 15, 16]
     # sqlalchemy queries
     cams = [Image.query.filter_by(cameraid=id).order_by(
         Image.curr_time.desc()).first() for id in cool_cams_list]
-        
+
     camera_name = [Camera.query.filter_by(
         cameraid=id).first() for id in cool_cams_list]
-        
+
     cameras = list(zip(cams, camera_name))
-    
+
     # index off by one error subtraction
-    for camera in cameras:           
+    for camera in cameras:
         camera[0].__dict__['cameraid'] = camera[0].__dict__['cameraid'] - 1
 
     return render_template('coolcams.html', cameras=cameras)
