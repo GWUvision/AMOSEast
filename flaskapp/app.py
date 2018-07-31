@@ -198,7 +198,9 @@ def allcamspage():
     # cam_list = db.session.query(Camera.cameraid).all()
     # print(cam_list)
     
-    cool_cams_list = [2, 4, 5, 8, 10, 11, 13, 15, 16]
+    camera_count = db.engine.execute('select count(cameraid) from cameras').scalar()
+    
+    cool_cams_list = [i for i in range(camera_count)]
 
     # sqlalchemy queries
     cams = [Image.query.filter_by(cameraid=id).order_by(
@@ -207,11 +209,10 @@ def allcamspage():
     camera_name = [Camera.query.filter_by(
         cameraid=id).first() for id in cool_cams_list]
         
-    cameras = list(zip(cams, camera_name))
-    # print(cameras)
-
+    cameras = list(set(zip(cams, camera_name)))
+    
     # index off by one error subtraction
-    for camera in cameras:
+    for camera in cameras:           
         camera[0].__dict__['cameraid'] = camera[0].__dict__['cameraid'] - 1
 
     return render_template('coolcams.html', cameras=cameras)
