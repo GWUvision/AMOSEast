@@ -187,21 +187,12 @@ def mappage():
 @app.route('/coolcams')
 def allcamspage():
 
-    # querying for all camera ids
-    # mlist = db.session.query(Camera.cameraid).all()
-
-    # cool_cams_list = [1, 2, 5, 2501, 2503, 2512, 2514, 4038, 4053, 4077, 9, 3]
-    # cool_cams_list = []
-    # for value in db.session.query(Camera.cameraid).distinct():
-    #     cool_cams_list.append(value[0])
-
-    # cam_list = db.session.query(Camera.cameraid).all()
-    # print(cam_list)
     
-    camera_count = db.engine.execute('select count(cameraid) from cameras').scalar()
+    # camera_count = db.engine.execute('select count(cameraid) from cameras').scalar()
+    # cool_cams_list = [i for i in range(camera_count)]
     
-    cool_cams_list = [i for i in range(camera_count)]
 
+    cool_cams_list = [2, 4, 5, 8, 10, 11, 13, 15, 16]
     # sqlalchemy queries
     cams = [Image.query.filter_by(cameraid=id).order_by(
         Image.curr_time.desc()).first() for id in cool_cams_list]
@@ -209,7 +200,7 @@ def allcamspage():
     camera_name = [Camera.query.filter_by(
         cameraid=id).first() for id in cool_cams_list]
         
-    cameras = list(set(zip(cams, camera_name)))
+    cameras = list(zip(cams, camera_name))
     
     # index off by one error subtraction
     for camera in cameras:           
