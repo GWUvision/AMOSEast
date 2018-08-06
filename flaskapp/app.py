@@ -351,10 +351,10 @@ def index_post():
         user_word = request.form['name']
         user_word = user_word.replace(" ", "-")
         print("Creating Directory")
-        directory = '256_ObjectCategories/258.{0}/'.format(user_word)
+        directory = '../classifier_files/256_ObjectCategories/258.{0}/'.format(user_word)
 
         os.makedirs(
-            '256_ObjectCategories/258.{0}/'.format(user_word), exist_ok=True)
+            '../classifier_files/256_ObjectCategories/258.{0}/'.format(user_word), exist_ok=True)
 
         # grab urls
         #chromedriver is for mac, chromedriver2 is for linux
