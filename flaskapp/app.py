@@ -360,7 +360,7 @@ def index_post():
         #chromedriver is for mac, chromedriver2 is for linux
         cwd = os.getcwd()
         command = "python ../classifier_files/google_images_download.py --keywords " + user_word + \
-            " --limit 200 --chromedriver '{0}/../classifier_files/chromedriver'".format(cwd)
+            " --limit 200 --chromedriver '{0}/../classifier_files/chromedriver2'".format(cwd)
 
         os.system(command)
 
