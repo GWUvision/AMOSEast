@@ -39,11 +39,9 @@ from pprint import pprint
 # =============================================================
 
 df = pd.read_csv('new_image_data.csv')
-
 # df.apply(lambda x: x['filepath'].replace(,x['b']), axis=1)
 
 df['filepath'] = df['old_cameraid'].astype(str) + '/' + df['filepath'].astype(str).map(lambda x: x.split('/')[-1])
-
 
 df.to_csv('new_interesting_images.csv')
 
