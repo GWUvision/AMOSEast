@@ -53,12 +53,12 @@ def download_file(index, url):
         data = urllib.request.urlopen(url, timeout=3).read()
         filepath = '258.{0}.jpg'.format((str(index+1)).zfill(4))
 
-        f = open('256_ObjectCategories/258.{0}/{1}'.format(user_word, filepath), 'wb')
+        f = open('static/256_ObjectCategories/258.{0}/{1}'.format(user_word, filepath), 'wb')
         f.write(data)
         f.close()
 
         cwd = os.getcwd()
-        full_path = cwd + "/256_ObjectCategories/258." + user_word + "/" + filepath
+        full_path = cwd + "/static/256_ObjectCategories/258." + user_word + "/" + filepath
 
         if magic.from_file(full_path, mime=True) == 'image/jpeg':
             #print("[INFO] Image from {0} is different. Saving image...".format(index+1))

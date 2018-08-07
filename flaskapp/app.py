@@ -317,7 +317,7 @@ def upload():
 @app.route('/classifier/result', methods=['GET', 'POST'])
 def result():
 
-    path = '256_ObjectCategories'
+    path = 'static/256_ObjectCategories'
     categories = {}
     for root, dirs, files in os.walk(path, topdown=False):
         for name in dirs:
@@ -351,21 +351,21 @@ def index_post():
         user_word = request.form['name']
         user_word = user_word.replace(" ", "-")
         print("Creating Directory")
-        directory = '../classifier_files/256_ObjectCategories/258.{0}/'.format(user_word)
+        directory = 'static/256_ObjectCategories/258.{0}/'.format(user_word)
 
         os.makedirs(
-            '../classifier_files/256_ObjectCategories/258.{0}/'.format(user_word), exist_ok=True)
+            'static/256_ObjectCategories/258.{0}/'.format(user_word), exist_ok=True)
 
         # grab urls
         #chromedriver is for mac, chromedriver2 is for linux
         cwd = os.getcwd()
-        command = "python ../classifier_files/google_images_download.py --keywords " + user_word + \
-            " --limit 200 --chromedriver '{0}/../classifier_files/chromedriver2'".format(cwd)
+        command = "python google_images_download.py --keywords " + user_word + \
+            " --limit 200 --chromedriver '{0}/chromedriver'".format(cwd)
 
         os.system(command)
 
         # download images
-        command = "python ../classifier_files/imagedownload.py " + user_word
+        command = "python classifierimagedownload.py " + user_word
         os.system(command)
 
         #check that the images are good
@@ -383,7 +383,7 @@ def index_post():
             print(filetype)
 
         # train network
-        command = "python ../classifier_files/train_network.py"
+        command = "python train_network.py"
         os.system(command)
 
         # reset the stuff

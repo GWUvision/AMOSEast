@@ -40,7 +40,7 @@ from PIL import Image
 EPOCHS = 5
 INIT_LR = 1e-3
 BS = 32
-path = '256_ObjectCategories'
+path = 'static/256_ObjectCategories'
 
 
 master_data = []
@@ -62,7 +62,7 @@ for c in categories:
     # initialize the data and labels
     print("[INFO] loading images from " + str(c[1]))
 
-    path = '256_ObjectCategories/' + str(c[0]) + '.' + str(c[1])
+    path = 'static/256_ObjectCategories/' + str(c[0]) + '.' + str(c[1])
 
     if(c[0] == 258):
         user_word = c[1]
