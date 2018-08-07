@@ -37,7 +37,7 @@ from PIL import Image
 
 # initialize the number of epochs to train for, initia learning rate,
 # and batch size
-EPOCHS = 5
+EPOCHS = 10
 INIT_LR = 1e-3
 BS = 32
 path = 'static/256_ObjectCategories'
@@ -76,6 +76,7 @@ for c in categories:
     for index, imagePath in enumerate(imagePaths):
         # print(imagePath)
         try:
+            print(imagePath)
             im = Image.open(imagePath)
 
             image = cv2.imread(imagePath)
