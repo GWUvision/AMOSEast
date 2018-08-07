@@ -48,6 +48,8 @@ df.to_csv('new_interesting_images.csv')
 # print(df.head())
 
 
+# TODO: add leading 0's, 999000, all cameras should have six digit
+
 
 
 
