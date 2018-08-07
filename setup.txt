@@ -53,6 +53,11 @@ psql -c "\copy images FROM '/pless_nfs/home/krood20/AMOSEast/csv_data/test.csv' 
 
 psql -c "\copy cameras FROM '/Users/kylerood/AMOSEast/csv_data/data2.csv' delimiter ',' csv header"
 
+================================================================================================
+Command for exporting a table of the database to a csv
+================================================================================================
+
+COPY images TO '/pless_nfs/home/krood20/AMOSEast/csv_data/all_images.csv' DELIMITER ',' CSV HEADER;
 
 ================================================================================================
 Command for running amostest.seas.gwu.edu
