@@ -6,7 +6,6 @@ import pandas as pd
 import numpy as np
 from pprint import pprint
 
-
 # for i in range(1, 71, 1):
 #
 #     url = 'http://amos.cse.wustl.edu/REST/webcams/?page={0}&format=json'.format(i)
@@ -15,14 +14,14 @@ from pprint import pprint
 #
 #     df = pd.DataFrame.from_dict(data['results'])
 #     print(df.head())
-#     df.to_csv('output.csv', mode='a', header=False)
+#     df.to_csv('old_data.csv', mode='a', header=False)
 #     print('Page {0} done...'.format(i))
 
 # df1 = pd.read_csv('interesting_cams.csv')
 # df2 = pd.read_csv('old_data.csv')
 # df = pd.merge(df1, df2, on=['url'], how='left', indicator='old_cameraid')
 # # print(df.head(200).to_string())
-# df.to_csv('output.csv')
+# df.to_csv('cameraid_data.csv')
 
 
 # =========================================================
@@ -47,23 +46,22 @@ from pprint import pprint
 
 # print(df.head())
 
+df1 = pd.read_csv('/home/suraj/Desktop/new_interesting_cams.csv')
 
-# TODO: add leading 0's, 999000, all cameras should have six digit
+df1['old_cameraid'] = df1['old_cameraid'].astype(str).str.zfill(6)
 
-import os
+print(df1.head())
+df1.to_csv('new_interesting_cams.csv')
 
-# for root, dirs, files in os.walk('flaskapp/static/images'):
-#     path = root.split(os.sep)
-    # print((len(path) - 1) * '---', os.path.basename(root))
+# import datetime as dt
 
-    # print(path)
-    # os.rename(os.path.basename(root), 'a' + os.path.basename(root))
-    # print(os.path.basename(root))
-        
-basedir = 'flaskapp/static/images'
-for fn in os.listdir(basedir):
-    # print(fn)
-    os.rename(os.path.join(basedir, fn), os.path.join(basedir, 'a' + fn))
-        
+# df2 = pd.read_csv('/home/suraj/Desktop/new_interesting_images.csv')
+# df2['curr_time'] = pd.to_datetime(df2['curr_time'])
+# 
+# # df2['curr_time'] = df2['curr_time'].dt.strftime('%Y-%m-%d')
+# df2['filepath'] = df2['old_cameraid'].astype(str).str.zfill(6) + '/' + df2['old_cameraid'].astype(str).str.zfill(6) + '_' + df2['curr_time'].dt.strftime('%Y%m%d_%H%M%S')
+# 
+# print(df2.head())
+
 
 
