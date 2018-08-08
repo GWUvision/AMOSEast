@@ -9,7 +9,7 @@ from urllib.error import URLError, HTTPError
 import validators
 from sqlalchemy import engine
 
-from flask import Flask, render_template, request, redirect, url_for, g, flash
+from flask import Flask, render_template, request, redirect, url_for, g, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from pager import Pager
@@ -36,6 +36,10 @@ app.config.update(APPNAME=APPNAME,)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
+photos = UploadSet('photos', IMAGES)
+app.config['UPLOADED_PHOTOS_DEST'] = 'static/'
+configure_uploads(app, photos)
 
 moment = Moment(app)
 db = SQLAlchemy(app)
@@ -324,6 +328,7 @@ def result():
             categories[name.split('.')[0]] = name.split('.')[-1]
 
     print(categories)
+    print(session['filepath'])
     output = test_network.test_network_classifier(str(session['filepath']), 'example_model')
 
     # print(str(output).zfill(3))
@@ -360,7 +365,7 @@ def index_post():
         #chromedriver is for mac, chromedriver2 is for linux
         cwd = os.getcwd()
         command = "python google_images_download.py --keywords " + user_word + \
-            " --limit 200 --chromedriver '{0}/chromedriver'".format(cwd)
+            " --limit 250 --chromedriver '{0}/chromedriver'".format(cwd)
 
         os.system(command)
 
@@ -369,18 +374,18 @@ def index_post():
         os.system(command)
 
         #check that the images are good
-        for file in os.listdir(directory):
-            filename = os.fsdecode(file)
-            filetype = str(imghdr.what(directory + filename))
-            if(filetype != 'png' or filetype != 'jpeg'):
-                print(filetype)
-                os.remove(directory + filename)
+        # for file in os.listdir(directory):
+        #     filename = os.fsdecode(file)
+        #     filetype = str(imghdr.what(directory + filename))
+        #     if filetype != 'png' or filetype != 'jpeg':
+        #         print("Bad File: ", filetype)
+        #         os.remove(directory + filename)
 
 
-        for file in os.listdir(directory):
-            filename = os.fsdecode(file)
-            filetype = imghdr.what(directory + filename)
-            print(filetype)
+        # for file in os.listdir(directory):
+        #     filename = os.fsdecode(file)
+        #     filetype = imghdr.what(directory + filename)
+        #     print(filetype)
 
         # train network
         command = "python train_network.py"
@@ -388,7 +393,7 @@ def index_post():
 
         # reset the stuff
         # print("Deleting Directory...")
-        # shutil.rmtree('256_ObjectCategories/258.{0}/'.format(user_word))
+        # shutil.rmtree('static/256_ObjectCategories/258.{0}/'.format(user_word))
         # os.remove("output.csv")
 
         # timing

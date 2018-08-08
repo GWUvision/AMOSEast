@@ -60,12 +60,12 @@ def download_file(index, url):
         cwd = os.getcwd()
         full_path = cwd + "/static/256_ObjectCategories/258." + user_word + "/" + filepath
 
-        if magic.from_file(full_path, mime=True) == 'image/jpeg':
-            #print("[INFO] Image from {0} is different. Saving image...".format(index+1))
-            print(full_path)
-        else:
-            os.remove(filepath)
-            print("{0} is a wrong file type.".format(index+1))
+        # if magic.from_file(full_path, mime=True) == 'image/jpeg':
+        #     #print("[INFO] Image from {0} is different. Saving image...".format(index+1))
+        #     print(full_path)
+        # else:
+        #     os.remove(filepath)
+        #     print("{0} is a wrong file type.".format(index+1))
 
     except urllib.error.HTTPError as err:
         print(err)
