@@ -58,6 +58,7 @@ Command for exporting a table of the database to a csv
 ================================================================================================
 
 COPY images TO '/pless_nfs/home/krood20/AMOSEast/csv_data/all_images.csv' DELIMITER ',' CSV HEADER;
+\copy (SELECT * FROM images) to '/pless_nfs/home/krood20/AMOSEast/all_images.csv' with csv
 
 ================================================================================================
 Command for running amostest.seas.gwu.edu
