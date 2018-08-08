@@ -52,10 +52,21 @@ from pprint import pprint
 
 import os
 
-for root, dirs, files in os.walk('flaskapp/static/images'):
+data = pd.read_csv("new_interesting_cams.csv")
+
+print(data['cameraid'][0])
+
+
+for root, dirs, files in os.walk('../test_images'):
     path = root.split(os.sep)
-    print((len(path) - 1) * '---', os.path.basename(root))
-    for file in files:
-        print(len(path) * '---', file)
+    print('Subdir: ', (len(path) - 1) * '---', os.path.basename(root))
 
-
+    for i in range(0, len(data['cameraid'])):
+        #print(str(data['old_cameraid'][i]))
+        if(os.path.basename(root) == str(data['cameraid'][i])):
+            for f in files:
+                old_file = list(f)
+                index = f.index('_')
+                new_num = str(data['old_cameraid'][i])
+                new_file = new_num.zfill(6) + f[index:]
+                os.rename(os.path.join(root, f), os.path.join(root, new_file))
