@@ -54,9 +54,7 @@ import os
 
 data = pd.read_csv("new_interesting_cams.csv")
 
-print(data['cameraid'][0])
-
-
+#first change the name of the files
 for root, dirs, files in os.walk('../test_images'):
     path = root.split(os.sep)
     print('Subdir: ', (len(path) - 1) * '---', os.path.basename(root))
@@ -70,3 +68,36 @@ for root, dirs, files in os.walk('../test_images'):
                 new_num = str(data['old_cameraid'][i])
                 new_file = new_num.zfill(6) + f[index:]
                 os.rename(os.path.join(root, f), os.path.join(root, new_file))
+
+#then give the folders a temporary name to avoid collisions
+for root, dirs, files in os.walk('../test_images'):
+    path = root.split(os.sep)
+    cwd = os.getcwd()
+    size = len(path) - 1
+
+    if(path[size] == 'test_images'):
+        continue
+    else:
+        #print(path[size])
+        os.rename(cwd + '/../test_images/' + path[size], cwd + '/../test_images/a' + path[size])
+
+#lastly put the actual filename in
+for root, dirs, files in os.walk('../test_images'):
+    path = root.split(os.sep)
+    cwd = os.getcwd()
+    size = len(path) - 1
+
+    if(path[size] == 'test_images'):
+        continue
+    else:
+        print(path[size])
+        d = str(path[size])
+        d = d[1:]
+        print(d)
+        final = ''
+
+        for i in range(0, len(data['cameraid'])):
+            if(d == str(data['cameraid'][i])):
+                final_dir = str(data['old_cameraid'][i])
+                final = final_dir.zfill(6)
+                os.rename(cwd + '/../test_images/' + path[size], cwd + '/../test_images/' + final)
