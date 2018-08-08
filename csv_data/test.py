@@ -5,6 +5,7 @@ import urllib.request
 import pandas as pd
 import numpy as np
 from pprint import pprint
+import datetime as dt
 
 # for i in range(1, 71, 1):
 #
@@ -46,14 +47,13 @@ from pprint import pprint
 
 # print(df.head())
 
-df1 = pd.read_csv('/home/suraj/Desktop/new_interesting_cams.csv')
+# df1 = pd.read_csv('/home/suraj/Desktop/new_interesting_cams.csv')
+# 
+# df1['old_cameraid'] = df1['old_cameraid'].astype(str).str.zfill(6)
+# 
+# print(df1.head())
+# df1.to_csv('new_interesting_cams.csv')
 
-df1['old_cameraid'] = df1['old_cameraid'].astype(str).str.zfill(6)
-
-print(df1.head())
-df1.to_csv('new_interesting_cams.csv')
-
-# import datetime as dt
 
 # df2 = pd.read_csv('/home/suraj/Desktop/new_interesting_images.csv')
 # df2['curr_time'] = pd.to_datetime(df2['curr_time'])
@@ -62,6 +62,7 @@ df1.to_csv('new_interesting_cams.csv')
 # df2['filepath'] = df2['old_cameraid'].astype(str).str.zfill(6) + '/' + df2['old_cameraid'].astype(str).str.zfill(6) + '_' + df2['curr_time'].dt.strftime('%Y%m%d_%H%M%S')
 # 
 # print(df2.head())
+
 
 
 
