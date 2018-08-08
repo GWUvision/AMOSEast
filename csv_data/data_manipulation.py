@@ -52,7 +52,7 @@ from pprint import pprint
 
 import os
 
-data = pd.read_csv("new_interesting_cams.csv")
+data = pd.read_csv("../new_interesting_cams.csv")
 
 #first change the name of the files
 for root, dirs, files in os.walk('../test_images'):
@@ -66,7 +66,7 @@ for root, dirs, files in os.walk('../test_images'):
                 old_file = list(f)
                 index = f.index('_')
                 new_num = str(data['old_cameraid'][i])
-                new_file = new_num.zfill(6) + f[index:]
+                new_file = new_num.zfill(6) + f[index:] #used to have zfill here, suraj changed it in database
                 os.rename(os.path.join(root, f), os.path.join(root, new_file))
 
 #then give the folders a temporary name to avoid collisions
@@ -81,7 +81,7 @@ for root, dirs, files in os.walk('../test_images'):
         #print(path[size])
         os.rename(cwd + '/../test_images/' + path[size], cwd + '/../test_images/a' + path[size])
 
-#lastly put the actual filename in
+#lastly put the actual directory name in
 for root, dirs, files in os.walk('../test_images'):
     path = root.split(os.sep)
     cwd = os.getcwd()
