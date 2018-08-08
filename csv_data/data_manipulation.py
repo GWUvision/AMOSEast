@@ -52,18 +52,52 @@ from pprint import pprint
 
 import os
 
-# for root, dirs, files in os.walk('flaskapp/static/images'):
-#     path = root.split(os.sep)
-    # print((len(path) - 1) * '---', os.path.basename(root))
+data = pd.read_csv("new_interesting_cams.csv")
 
-    # print(path)
-    # os.rename(os.path.basename(root), 'a' + os.path.basename(root))
-    # print(os.path.basename(root))
-        
-basedir = 'flaskapp/static/images'
-for fn in os.listdir(basedir):
-    # print(fn)
-    os.rename(os.path.join(basedir, fn), os.path.join(basedir, 'a' + fn))
-        
+#first change the name of the files
+for root, dirs, files in os.walk('../test_images'):
+    path = root.split(os.sep)
+    print('Subdir: ', (len(path) - 1) * '---', os.path.basename(root))
 
+    for i in range(0, len(data['cameraid'])):
+        #print(str(data['old_cameraid'][i]))
+        if(os.path.basename(root) == str(data['cameraid'][i])):
+            for f in files:
+                old_file = list(f)
+                index = f.index('_')
+                new_num = str(data['old_cameraid'][i])
+                new_file = new_num.zfill(6) + f[index:]
+                os.rename(os.path.join(root, f), os.path.join(root, new_file))
 
+#then give the folders a temporary name to avoid collisions
+for root, dirs, files in os.walk('../test_images'):
+    path = root.split(os.sep)
+    cwd = os.getcwd()
+    size = len(path) - 1
+
+    if(path[size] == 'test_images'):
+        continue
+    else:
+        #print(path[size])
+        os.rename(cwd + '/../test_images/' + path[size], cwd + '/../test_images/a' + path[size])
+
+#lastly put the actual filename in
+for root, dirs, files in os.walk('../test_images'):
+    path = root.split(os.sep)
+    cwd = os.getcwd()
+    size = len(path) - 1
+
+    if(path[size] == 'test_images'):
+        continue
+    else:
+        print(path[size])
+        d = str(path[size])
+        d = d[1:]
+        print(d)
+        final = ''
+
+        for i in range(0, len(data['cameraid'])):
+            if(d == str(data['cameraid'][i])):
+                final_dir = str(data['old_cameraid'][i])
+                final = final_dir.zfill(6)
+                os.rename(cwd + '/../test_images/' + path[size], cwd + '/../test_images/' + final)
