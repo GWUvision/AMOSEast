@@ -81,8 +81,7 @@ for root, dirs, files in os.walk('../test_images'):
     cwd = os.getcwd()
     size = len(path) - 1
 
-    if(path[size] is not 'test_images'):
-        print(path[size])
+    if(str(path[size]) != 'test_images'):
         os.rename(cwd + '/../test_images/' + path[size], cwd + '/../test_images/a' + path[size])
 
 #lastly put the actual directory name in
@@ -92,10 +91,8 @@ for root, dirs, files in os.walk('../test_images'):
     size = len(path) - 1
 
     if(str(path[size]) != 'test_images'):
-        print(path[size])
         d = str(path[size])
         d = d[1:]
-        print(d)
         final = ''
 
         for i in range(0, len(data['cameraid'])):
