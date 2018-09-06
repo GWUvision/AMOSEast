@@ -74,3 +74,9 @@ watch -n (time in seconds) (command you want to run)
 
 For log file: watch -n 86400 python log.py
 For image downloader: watch -n 3600 python imagedownload.py
+
+================================================================================================
+Command to copy over the images
+================================================================================================
+
+rsync -a ~/AMOSEast/flaskapp/static/images ~/AMOSEast/flaskapp/static/images5 --progress
