@@ -52,7 +52,7 @@ from pprint import pprint
 
 import os
 
-data = pd.read_csv('../new_interesting_cams.csv')
+data = pd.read_csv('../new_interesting_cams1.csv')
 
 #first change the name of the files
 for root, dirs, files in os.walk('../flaskapp/static/images5/images'):
