@@ -227,7 +227,7 @@ def historypage():
     return render_template('history.html')
 
 
-@app.route('/map')
+@app.route('/camera_map')
 def mappage():
     # need to make sure the api key is on the bottom of the file
     return render_template('camera_map.html')
