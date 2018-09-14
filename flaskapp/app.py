@@ -141,7 +141,7 @@ def directory_view(ind=1):
     try:
 
         if ind >= count:
-            return redirect(url_for(homepage))
+            return redirect(url_for('homepage'))
         else:
             current = ind
             try:
