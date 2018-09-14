@@ -55,25 +55,25 @@ import os
 data = pd.read_csv('../new_interesting_cams_1.csv')
 
 #first change the name of the files
-for root, dirs, files in os.walk('../flaskapp/static/images6/images'):
-    path = root.split(os.sep)
-    print('Subdir: ', (len(path) - 1) * '---', os.path.basename(root))
-
-    for i in range(0, len(data['cameraid'])):
-
-        # print(str(data['cameraid'][i]))
-        # print(os.path.basename(root))
-
-        if(os.path.basename(root) == str(int(data['cameraid'][i]))):
-            # print('here')
-            for f in files:
-                old_file = list(f)
-                index = f.index('_')
-                new_num = str(data['old_cameraid'][i])
-                # print(new_num)
-                new_file = new_num.zfill(6) + f[index:]
-                # print(new_file)
-                os.rename(os.path.join(root, f), os.path.join(root, new_file))
+# for root, dirs, files in os.walk('../flaskapp/static/images6/images'):
+#     path = root.split(os.sep)
+#     print('Subdir: ', (len(path) - 1) * '---', os.path.basename(root))
+#
+#     for i in range(0, len(data['cameraid'])):
+#
+#         # print(str(data['cameraid'][i]))
+#         # print(os.path.basename(root))
+#
+#         if(os.path.basename(root) == str(int(data['cameraid'][i]))):
+#             # print('here')
+#             for f in files:
+#                 old_file = list(f)
+#                 index = f.index('_')
+#                 new_num = str(data['old_cameraid'][i])
+#                 # print(new_num)
+#                 new_file = new_num.zfill(6) + f[index:]
+#                 # print(new_file)
+#                 os.rename(os.path.join(root, f), os.path.join(root, new_file))
 
 ##then give the folders a temporary name to avoid collisions
 #for root, dirs, files in os.walk('../flaskapp/static/images5/images'):
@@ -92,6 +92,7 @@ for root, dirs, files in os.walk('../flaskapp/static/images6/images'):
 
     if(str(path[size]) != 'images'):
         d = str(path[size])
+        print(d)
         #d = d[1:]
         final = ''
 
