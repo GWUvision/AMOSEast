@@ -163,7 +163,7 @@ def directory_view(ind=19):
                 lat = 0
 
             print(current)
-            if(current = 1):
+            if(current == 1):
                 current = 19
 
             return render_template('dirview.html', index=ind, results=results, images=images, weather=temp, lng=lng, lat=lat, next=nextid, prev=previd, current=current)
