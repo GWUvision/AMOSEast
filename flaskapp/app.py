@@ -116,7 +116,7 @@ def homepage():
 
 
 @app.route('/cameras/<int:ind>/')
-def directory_view(ind=1):
+def directory_view(ind=19):
 
     images = Image.query.filter_by(
         cameraid=ind).order_by(Image.curr_time.desc()).first()
@@ -130,7 +130,7 @@ def directory_view(ind=1):
     if(prev):
         previd = prev.cameraid
     else:
-        previd = 1
+        previd = 19
 
     if(next == 'None'):
         next = db.engine.execute('SELECT * FROM cameras ORDER BY cameraid DESC LIMIT 1').first()
