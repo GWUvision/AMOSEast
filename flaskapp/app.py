@@ -241,7 +241,7 @@ def allcamspage():
     # cool_cams_list = [i for i in range(camera_count)]
 
 
-    cool_cams_list = [2, 4, 5, 8, 10, 11, 13, 15, 16]
+    cool_cams_list = [19, 64, 73, 75, 108, 120, 124, 161, 165]
     # sqlalchemy queries
     cams = [Image.query.filter_by(cameraid=id).order_by(
         Image.curr_time.desc()).first() for id in cool_cams_list]
@@ -279,7 +279,6 @@ def submitcam():
         if(validators.url(url)):
             # error checking the url
             try:
-                print('here')
                 code = urllib.request.urlopen(url).code
 
                 # query the database --> usually in the else
