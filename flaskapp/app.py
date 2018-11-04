@@ -162,6 +162,10 @@ def directory_view(ind=19):
                 lng = 0
                 lat = 0
 
+            print(current)
+            if(current == 1):
+                current = 19
+
             return render_template('dirview.html', index=ind, results=results, images=images, weather=temp, lng=lng, lat=lat, next=nextid, prev=previd, current=current)
 
     except AttributeError as e:
@@ -203,7 +207,7 @@ def goto():
 
     if request.method == 'POST':
         if not request.form['search']:
-            return redirect('/cameras/1')
+            return redirect('/cameras/19')
         else:
             results = Camera.query.filter(Camera.name.ilike(
                 '%{0}%'.format(request.form['search']))).all()
@@ -214,7 +218,7 @@ def goto():
             # data2 = conn.fetchall()
             # print(data2)
 
-            return redirect('/cameras/1')
+            return redirect('/cameras/19')
 
 
 @app.route('/about')
@@ -241,7 +245,7 @@ def allcamspage():
     # cool_cams_list = [i for i in range(camera_count)]
 
 
-    cool_cams_list = [2, 4, 5, 8, 10, 11, 13, 15, 16]
+    cool_cams_list = [19, 64, 73, 75, 108, 120, 124, 161, 165]
     # sqlalchemy queries
     cams = [Image.query.filter_by(cameraid=id).order_by(
         Image.curr_time.desc()).first() for id in cool_cams_list]
@@ -279,7 +283,6 @@ def submitcam():
         if(validators.url(url)):
             # error checking the url
             try:
-                print('here')
                 code = urllib.request.urlopen(url).code
 
                 # query the database --> usually in the else
