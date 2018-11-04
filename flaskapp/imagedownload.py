@@ -94,6 +94,8 @@ def download_file(index, url, mhash):
         print(err)
     except SocketError as err:
         print(err)
+    except:
+        conn.rollback()
 
 
 jobs = [pool.spawn(download_file, index, url, mhash) for index, url, mhash in camera_urls]
