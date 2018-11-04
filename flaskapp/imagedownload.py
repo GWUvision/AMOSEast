@@ -18,6 +18,8 @@ from urllib.parse import urlparse
 monkey.patch_socket()
 pool = Pool(30)
 DATABASE_URL = os.environ['DATABASE_URL']
+# DATABASE_URL = "postgres:///amoseast"
+
 conn = psycopg2.connect(DATABASE_URL, sslmode='allow')
 cur = conn.cursor()
 
@@ -51,24 +53,25 @@ def download_file(index, url, mhash):
         dt = str(datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
         data = data.read()
         filename = os.path.basename(dt)
-        filepath = '%s/%s_%s.jpg' % (index, index, filename)
-
-        os.makedirs('static/images/%s' % index, exist_ok=True)
-        f = open('static/images/%s/%s_%s.jpg' % (index, index, filename), 'wb')
+        filepath = '%s/%s_%s.jpg' % (str(index).zfill(8), index, filename)
+        print(filepath)
+        print(index)
+        os.makedirs('static/images/%s' % str(index).zfill(8), exist_ok=True)
+        f = open('static/images/%s/%s_%s.jpg' % (str(index).zfill(8), index, filename), 'wb')
         f.write(data)
         f.close()
         if(mhash == md5('static/images/%s' % filepath)):
             print(
-                "Camera %s has not updated. Image was removed from path..." % (index))
+                "Camera %s has not updated. Image was removed from path..." % (str(index).zfill(8)))
             os.remove('static/images/%s' % (filepath))
         else:
-            print("Image from Camera %s is different. Saving image..." % (index))
+            print("Image from Camera %s is different. Saving image..." % (str(index).zfill(8)))
             hash_update = "UPDATE cameras SET mhash=%s WHERE cameraid = %s"
             cur.execute(
                 hash_update, (md5('static/images/%s' % filepath), index))
-
+        
             conn.commit()
-
+        
             insert_image_table = "INSERT INTO images(filepath, curr_time, cameraid) VALUES(%s, %s, %s)"
             cur.execute(insert_image_table, (filepath, dt, index))
             conn.commit()

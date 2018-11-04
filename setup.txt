@@ -24,6 +24,9 @@ export DATABASE_URL="postgresql://suraj98:password@localhost/suraj98"
 SURAJ
 export DATABASE_URL=postgresql://suraj:password@localhost/amoseast
 
+export DATABASE_URL=postgres:///amoseast
+
+
 KYLE
 export DATABASE_URL=postgres://kylerood:@localhost/kylerood
 
@@ -48,6 +51,7 @@ chmod a+x log.py
 ================================================================================================
 Command for copying cameras into the database
 ================================================================================================
+psql -c "\copy images FROM '/home/suraj/Documents/GWU/AMOSEast/csv_data/cams_update.csv' delimiter ',' csv header"
 
 psql -c "\copy images FROM '/pless_nfs/home/krood20/AMOSEast/csv_data/test.csv' delimiter ',' csv header"
 
