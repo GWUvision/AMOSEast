@@ -18,7 +18,7 @@ from gmplot import gmplot
 
 import time
 
-#for classifier
+# for classifier
 # import requests
 # import shutil
 # from flask_uploads import UploadSet, configure_uploads, IMAGES
@@ -37,9 +37,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-photos = UploadSet('photos', IMAGES)
-app.config['UPLOADED_PHOTOS_DEST'] = 'static/'
-configure_uploads(app, photos)
+# photos = UploadSet('photos', IMAGES)
+# app.config['UPLOADED_PHOTOS_DEST'] = 'static/'
+# configure_uploads(app, photos)
 
 moment = Moment(app)
 db = SQLAlchemy(app)
