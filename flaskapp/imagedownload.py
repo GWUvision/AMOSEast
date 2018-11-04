@@ -67,8 +67,7 @@ def download_file(index, url, mhash):
         else:
             print("Image from Camera %s is different. Saving image..." % (str(index).zfill(8)))
             hash_update = "UPDATE cameras SET mhash=%s WHERE cameraid = %s"
-            cur.execute(
-                hash_update, (md5('static/images/%s' % filepath), index))
+            cur.execute(hash_update, (md5('static/images/%s' % filepath), index))
         
             conn.commit()
         
@@ -94,8 +93,8 @@ def download_file(index, url, mhash):
         print(err)
     except SocketError as err:
         print(err)
-    except:
-        conn.rollback()
+    # except:
+    #     conn.rollback()
 
 
 jobs = [pool.spawn(download_file, index, url, mhash) for index, url, mhash in camera_urls]
