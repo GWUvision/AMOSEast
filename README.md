@@ -4,7 +4,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Python 3.5.2](https://camo.githubusercontent.com/8f3c02646ed6704899bbf4d9e2fd7c2da8534d3e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f707974686f6e2d76332e362d626c75652e737667)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
-[![GitHub Issues](https://img.shields.io/github/issues/anfederico/flaskex.svg)](https://github.com/gwcvl/AMOSEast/issues)
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -24,50 +23,10 @@
 
 ### AMOS Beginnings
 
--   Began in March 2006 and is maintained by [Robert Pless](http://research.engineering.wustl.edu/~pless) at Washington University and now at the George Washington University
--   For more information visit the [old website](http://amos.cse.wustl.edu/) while the new one gets built!
-
-### Comments and Updates
-
-If you would like to contribute to the repository or use the repository for your own scientific reasons:
-
--   Fork the repository & clone the repository to your local computer
-
--   (OPTIONAL) Install virtual environment `pip install virtualenv`
-
--   (OPTIONAL) Create a virtualenv `virtualenv -p python3 env`
-
--   (OPTIONAL) Activate the virtualenv `source env/bin/activate`
-
--   Install the necessary python libraries `pip install -r requirements.txt`
-
--   Export the database url: `export DATABASE_URL="postgresql://user:password@localhost/database"`
-
--   Change directory to flaskapp `cd flaskapp`
-
--   Initialize the database `python manage.py db init`
-
--   Migrate the database `python manage.py db migrate`
-
--   Upgrade the database `python manage.py db upgrade`
-
--   Go back to home directory `cd ..`
-
--   Add cameras to the database: `cd csv_data` THEN `python csvtopostgres.py`
-		(If that does not work, use setup.txt and copy the command to directly add cameras: `psql -c "\copy cameras FROM '/your/full/path/to/data.csv' delimiter ',' csv header"`)
-
--   Go back to home directory `cd ..`
-
--   Run imagedownloader to capture images `cd flaskapp` THEN `python imagedownload.py`
-
--   Run the flask app and visit the url `python manage.py runserver` THEN visit the [url](http://localhost:5000/)
+-   Began in March 2006 and is maintained by [Robert Pless](pless@gwu.edu) at Washington University and now at the George Washington University
 
 ### Future Goals:
 
 -   Integrate with [Google Vision API](https://cloud.google.com/vision/)
 -   Able to rate images on _wow factor_
--   Take webcams with already stored data and link to them
-- 	Able to map and cluster all the stored webcams
-
-
-http://www.trinum.com/ibox/ftpcam/mega_cg74_plateau-des-glieres.jpg
+-   Take web-cams with already stored data and link to them
