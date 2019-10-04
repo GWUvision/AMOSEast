@@ -3,7 +3,6 @@
 import psycopg2
 import datetime
 import os
-import numpy as np
 import urllib.request
 from urllib.error import URLError, HTTPError
 import validators
@@ -46,7 +45,7 @@ all_cameras_query = "SELECT cameraid, name, url, latitude, longitude FROM camera
 conn.execute(all_cameras_query)
 all_cameras = conn.fetchall()
 
-#functions to get the prev and next cams
+# functions to get the prev and next cams
 def prev_cam(cid):
     count = db.engine.execute(
         'select count(cameraid) from cameras').scalar()

@@ -84,3 +84,10 @@ Command to copy over the images
 ================================================================================================
 
 rsync -a ~/AMOSEast/flaskapp/static/images ~/AMOSEast/flaskapp/static/images5 --progress
+
+
+
+
+python manage.py db init
+python manage.py db migrate
+python manage.py db upgrade
