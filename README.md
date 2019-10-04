@@ -15,14 +15,14 @@
 
 ## Setup
 
-Python version python3.6.6
+-   Python version **python3.6.6**
 
 -   pip install -r requirements.txt
--   Download Postgres (here)["https://www.postgresql.org/download/"]
-    +   Installer - all default settings
+-   Download Postgres [here][https://www.postgresql.org/download/]
+    +   Installer - choose all default settings
     +   Choose admin password
 -   Export database url on terminal
-    +   `export DATABASE_URL="postgressql://postgres:password@localhost/postgres"`
+    +   `export DATABASE_URL="postgressql://postgres:YOURADMINPASSWORD@localhost/postgres"`
 -   Create tables for database
     +   `python manage.py db init`
     +   `python manage.py db migrate`
@@ -30,4 +30,3 @@ Python version python3.6.6
 -   Run the server locally
     +   `python app.py`
     +   visit `localhost:5000`
-
