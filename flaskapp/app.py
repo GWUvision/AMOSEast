@@ -13,9 +13,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from pager import Pager
 # from weather import Weather, Unit
-from gmplot import gmplot
-
-import time
 
 # --- initial app configuation and initialization such as where images are located and setting database url
 
