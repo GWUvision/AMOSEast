@@ -3,7 +3,6 @@
 import psycopg2
 import datetime
 import os
-import numpy as np
 import urllib.request
 from urllib.error import URLError, HTTPError
 import validators
@@ -13,10 +12,7 @@ from flask import Flask, render_template, request, redirect, url_for, g, flash, 
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from pager import Pager
-from weather import Weather, Unit
-from gmplot import gmplot
-
-import time
+# from weather import Weather, Unit
 
 # --- initial app configuation and initialization such as where images are located and setting database url
 
