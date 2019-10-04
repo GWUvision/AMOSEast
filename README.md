@@ -18,8 +18,8 @@
 -   Python version **python3.6.6**
 
 -   pip install -r requirements.txt
--   Download Postgres [here](https://www.postgresql.org/download/)
-    +   Installer - choose all default settings
+-   Download most recent Postgres databse [here](https://www.postgresql.org/download/)
+    +   While installing - choose all default settings
     +   Choose admin password
 -   Export database url on terminal
     +   `export DATABASE_URL="postgressql://postgres:YOURADMINPASSWORD@localhost/postgres"`
