@@ -37,14 +37,6 @@ db = SQLAlchemy(app)
 
 from models import *
 
-# ---- connected to database initially
-
-DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
-all_cameras_query = "SELECT cameraid, name, url, latitude, longitude FROM cameras ORDER BY cameraid"
-conn.execute(all_cameras_query)
-all_cameras = conn.fetchall()
-
 # functions to get the prev and next cams
 def prev_cam(cid):
     count = db.engine.execute(
