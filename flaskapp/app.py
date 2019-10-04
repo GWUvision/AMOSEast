@@ -42,7 +42,7 @@ from models import *
 # conn.execute(all_cameras_query)
 # all_cameras = conn.fetchall()
 
-#functions to get the prev and next cams
+# functions to get the prev and next cams
 def prev_cam(cid):
     count = db.engine.execute(
         'select count(cameraid) from cameras').scalar()
