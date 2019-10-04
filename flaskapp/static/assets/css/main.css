@@ -2267,8 +2267,8 @@ input, select, textarea {
 /* Nav */
 
 	#nav {
-		position: absolute;
-		top: 0;
+		position: fixed;
+		top: 0px;
 		left: 0;
 		width: 100%;
 		text-align: center;

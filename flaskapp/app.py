@@ -13,7 +13,7 @@ from flask import Flask, render_template, request, redirect, url_for, g, flash, 
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from pager import Pager
-from weather import Weather, Unit
+# from weather import Weather, Unit
 from gmplot import gmplot
 
 import time
@@ -40,11 +40,11 @@ from models import *
 
 # ---- connected to database initially
 
-# DATABASE_URL = os.environ['DATABASE_URL']
-# conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
-# all_cameras_query = "SELECT cameraid, name, url, latitude, longitude FROM cameras ORDER BY cameraid"
-# conn.execute(all_cameras_query)
-# all_cameras = conn.fetchall()
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL, sslmode='allow').cursor()
+all_cameras_query = "SELECT cameraid, name, url, latitude, longitude FROM cameras ORDER BY cameraid"
+conn.execute(all_cameras_query)
+all_cameras = conn.fetchall()
 
 #functions to get the prev and next cams
 def prev_cam(cid):
@@ -184,10 +184,10 @@ def goto():
                 '%{0}%'.format(request.form['search']))).all()
             print(results)
 
-            # search_query = "SELECT cameraid FROM cameras WHERE name LIKE {0}".format("%" + str(request.form['search']) + "%")
-            # conn.execute(search_query)
-            # data2 = conn.fetchall()
-            # print(data2)
+            search_query = "SELECT cameraid FROM cameras WHERE name LIKE {0}".format("%" + str(request.form['search']) + "%")
+            conn.execute(search_query)
+            data2 = conn.fetchall()
+            print(data2)
 
             return redirect('/cameras/19')
 
