@@ -13,7 +13,8 @@
 	#map {
 		height: 400px;
 		/* The height is 400 pixels */
-		width: 50%;
+		width: 20%;
+		/*width: 50%;*/
 		/* The width is the width of the web page */
 	}
 
@@ -30,7 +31,7 @@
 
 	/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 
-	@media screen and (max-width: 600px) {
+	/*@media screen and (max-width: 600px) {
 		.topnav a,
 		.topnav input[type=text] {
 			float: none;
@@ -43,7 +44,7 @@
 		.topnav input[type=text] {
 			border: 1px solid #ccc;
 		}
-	}
+	}*/
 </style>
 
 <head>
@@ -74,6 +75,7 @@
 		<!-- Header -->
 		<div id="header">
 
+			<h2>View All Cameras</h2>
 			<!-- Inner -->
 			<div class="inner">
 				<header>
@@ -84,12 +86,12 @@
 						{% endfor %}
 					</ul>
 					{% endif %} {% endwith %}
-					<h1><a href="{{ results.__dict__['url'] | safe }}" id="logo">Name: {{ results.__dict__['name'] }}</a></h1>
+					<h1><a href="{{ results.__dict__['url'] | safe }}" id="logo">Camera Name: {{ results.__dict__['name'] }}</a></h1>
 					<br/>
 					<img src="{{ url_for('static', filename='images/'+images.__dict__['filepath']) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
 					<br/>
-					<a href="/cameras/{{prev}}" class="button">Prev Cam </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="/cameras/{{next}}" class="button">Next Cam</a>
+					<a href="/cameras/{{prev}}" class="button">Previous Camera </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="/cameras/{{next}}" class="button">Next Camera</a>
 				</header>
 			</div>
 
@@ -117,12 +119,11 @@
 						</ul>
 					</li>
 					<li><a href="/camera_map">Map</a></li>
-					<li><a href="/cameras/{{prev}}">&larrhk; Previous Camera </a> </li>
-					<li><a href="/cameras/{{next}}">Next Camera &rarrhk;</a> </li>
+					
 					<div class="topnav">
 						<form action="/goto" method="POST">
-							<input type="text" name="search" placeholder="Search..">
-							<button type="Go">Go</button>
+							<input type="text" name="search" placeholder="Type Camera Name Here">
+							<button type="Go">Search</button>
 						</form>
 					</div>
 
@@ -138,34 +139,24 @@
 
 			<div class="container">
 				<article id="main" class="special">
-					<table>
-						<tbody>
-							<tr>
-								<td><b>URL:</b></td>
-								<td><a href="{{ results.__dict__['url'] | safe }}">Camera Link</a></td>
-							</tr>
-							<tr>
-								<td><b>Latitude:</b></td>
-								<td>{{ results.__dict__['latitude'] |round(3) }}</td>
-							</tr>
-							<tr>
-								<td><b>Longitude:</b></td>
-								<td>{{ results.__dict__['longitude'] |round(3) }}</td>
-							</tr>
-							<tr>
-								<td><b>Last Captured:</b></td>
-								<td>{{ moment(timestamp=images.__dict__['curr_time'], local=True).format('MMMM Do YYYY, h:mm:ss a') }}</td>
-							</tr>
-							<tr>
-								<td><b>Current Weather:</b></td>
-								<td>{{ weather }}</td>
-							</tr>
-							<tr>
-								<td><b>View All Images:</b></td>
-								<td><a href="/cameras/{{current}}/0/">All Camera Images</a></td>
-							</tr>
-						</tbody>
-					</table>
+					
+							        <h3>Camera Information</h3>
+								<b>Latitude:</b> &emsp&emsp&emsp
+								{{ results.__dict__['latitude'] |round(3) }} <br>
+							
+								<b>Longitude:</b> &emsp&emsp&emsp
+								{{ results.__dict__['longitude'] |round(3) }} <br>
+							
+								<b>Last Image Captured:</b> &emsp&emsp&emsp
+								{{ moment(timestamp=images.__dict__['curr_time'], local=True).format('MMMM Do YYYY, h:mm:ss a') }} <br>
+							
+								<b>Current Weather:</b> &emsp&emsp&emsp
+								{{ weather }} <br>
+					
+					                        <a href="{{ results.__dict__['url'] | safe }}" class="button">Camera Live Feed</a>
+					                        <a href="/cameras/{{current}}/0/" class="button">All Camera's Images</a>
+						
+				
 					<h3>Location of Camera</h3>
 					<!--The div element for the map -->
 					<div id="map"></div>
