@@ -27,22 +27,84 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
     <link rel="stylesheet" href="/static/assets/css/main.css" />
+	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
+    <noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
+    
+    
+
+    <style>
+        .textoutline3 {
+            color:rgb(255, 255, 255);
+            -webkit-text-stroke-width: 0.3px;
+            -webkit-text-stroke-color:rgb(60, 47, 71);
+            padding: 14px;
+            border-width: 2px;
+            border-style:outset;
+            border-color:rgb(60, 47, 71);
+        }
+    </style>
+    
 
 </head>
-<body>
+<body class="no-sidebar is-preload">
+
+    
+    <div id="page-wrapper">
       <!-- Header -->
       <div id="header">
 
         <!-- Inner -->
         <div class="inner">
-          <header>
-            <h1><a href="/" id="logo">AMOS</a></h1>
-          </header>
+            <!--Displays within the lines of the menu<header>
+                <h1><a href="/" id="logo">AMOS</a></h1>
+            </header>-->
+            <header>
+                <center><a href="/"><img src="/static/logo.png" width=192.5px height=55px></img></a></center>
+            
+            </header>
         </div>
 
-      </div>
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><p class="textoutline3"><font size = "+3"><a href="/">Home</a></font></p></li>
+                <li>
+                    <p class="textoutline3"><font size = "+3"><a href="#">Info</a></font></p>
+                    <ul>
+                        
+                        <li ><font size = "+2"><a href="/history">About AMOS</a></font></li>
+                        <li><font size = "+2"><a href="/moreinfo">Dataset Info</a></font></li>
+                        <li><font size = "+2"><a href="/about">About Us</a></font></li>
+                    </ul>
+                </li>
+                <li>
+                    <p class="textoutline3"><font size = "+3"><a href="#">Cameras</a></font></p>
+                    <ul>
+                        <li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+                        <li><font size = "+2"><a href="/coolcams">View Cool Cameras</a></font></li>
+                        <li><font size = "+2"><a href="/submitcam">Submit Cameras</a></font></li>
+                        <li><font size = "+2"><a href="/cameras/{{ range(1, 201) | random | safe }}">Random Camera</a></font></li>
+                    </ul>
+                </li>
+                <li><p class="textoutline3"><font size = "+3"><a href="/">Map</a></font></p></li>
+            </ul>
+        </nav>
+
+    </div>
+</div>
 
     <div class="folium-map" id="map_d5ae74b4fe8e457889d54840f4cc5aa4" ></div>
+
+    <!-- Import scripts from home -->
+    <script src="/static/assets/js/jquery.min.js"></script>
+	<script src="/static/assets/js/jquery.dropotron.min.js"></script>
+	<script src="/static/assets/js/jquery.scrolly.min.js"></script>
+	<script src="/static/assets/js/jquery.scrollex.min.js"></script>
+	<script src="/static/assets/js/browser.min.js"></script>
+	<script src="/static/assets/js/breakpoints.min.js"></script>
+	<script src="/static/assets/js/util.js"></script>
+    <script src="/static/assets/js/main.js"></script>
+    
 </body>
 <script>
 
