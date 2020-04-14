@@ -21,11 +21,61 @@
 
 <style type="text/css">
 	.emphasis2 {
-		color: #FF69B4;
+		color: #8A2BE2;
 		font-weight: bold;
 	}
 </style>
 	
+<style type="text/css">
+    .welcometitle {
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+    }
+</style>
+
+<style>
+    .textoutline {
+        color:rgb(255, 255, 255);
+        -webkit-text-stroke-width: 0.3px;
+        -webkit-text-stroke-color:rgb(60, 47, 71);
+        padding: 14px;
+        border-width: 2px;
+        border-style:outset;
+        border-color:rgb(60, 47, 71);
+    }
+
+    .buttonbackground{
+        width:160px;
+        height:160px;
+        padding: 14px;
+        background-color:coral;
+    }
+
+    .buttontext{
+        color:white;
+       
+    }
+
+    .buttontext2{
+        color:whitesmoke;
+       
+        color:rgb(255, 255, 255);
+        -webkit-text-stroke-width: 4px;
+        -webkit-text-stroke-color:rgb(60, 47, 71);
+    }
+
+  /* This is a fix for the buttons to have a space between them */
+    .buttonbackgroundDummy{
+        width:145px;
+        height:72px;
+        padding: 14px;
+        background-color:white;
+    }
+
+    
+</style>
+
+
 <body class="homepage is-preload">
 	<div id="page-wrapper">
 
@@ -35,52 +85,62 @@
 			<!-- Inner -->
 			<div class="inner">
 				<header>
-					<center><a href="/"><img src="/static/logo.png" width=175px height=50px></img></a></center>
-					<hr />
+					<center><a href="/"><img src="/static/logo.png" width=192.5px height=55px></img></a></center>
+					
 					<p>The Archive of Many Outdoor Scenes</p>
 				</header>
-			        
-			<h2><b><font color = "white">Welcome to <strong>AMOS</strong> at GWU</font></b></h2>
-			        <p>
-					<font color = "white">AMOS is a collection of long-term timelapse imagery from publicly accessible outdoor webcams.</font>
-				</p>
-				<p>
-					<font color = "white">The AMOS dataset is unique in providing time-stamped images from many cameras around the world.</font>
-				</p>
-				<p>
-					<font color = "white">No other dataset provides the broad range of geographic locations and the long temporal duration.</font>
-				</p>
-				<p>
-					<span class = "emphasis2">{{camera_count}}</span><font color = "white"> Cameras and </font><span class = "emphasis2">{{image_count}}</span><font color = "white"> Images and Counting!</font>
-				</p>
+				
+				<h3 align = "center"><span class = "welcometitle" style = "font-weight: normal"><font size = "+3">AMOS is a dataset of time-stamped timelapse imagery from<br>thousands of publicly accessible geo-located outdoor webcams.<br></font></span></h3>
+				
+				<br><h3><img src = "/static/AMOSPictures/2771_20180629_163725.jpg" alt = "Image1" style = "width:152.4096px;height:113.4px;" hspace = "20">&emsp;&emsp;&emsp;&emsp;<img src = "/static/AMOSPictures/3807_20180629_160132.jpg" alt = "Image2" style = "width:152.4096px;height:113.4px;" hspace = "20">&emsp;&emsp;&emsp;&emsp;<img src = "/static/AMOSPictures/4731_20181213_075724.jpg" alt = "Image3" style = "width:152.4096px;height:113.4px;" hspace = "20"></h3>
+
+				<h3 align = "center"><span style = "font-weight:normal"><font color = "white"><font size = "+2"><br>The dataset provides up to a decade of images from locations around the world.</font></font></span></h3>
+				
+		
+			       
 				
 			</div>
 
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
-					<li><a href="/">Home</a></li>
+					<!-- <p>AMOS</p>-->
+					<li><p class="textoutline"><font size = "+3"><a href="/">Home</a></font></p></li>
 					<li>
-						<a href="#">Info</a>
+						<p class="textoutline"><font size = "+3"><a href="#">Info</a></font></p>
 						<ul>
-							<li><a href="/history">History</a></li>
-							<li><a href="/moreinfo">Dataset Info</a></li>
-							<li><a href="/about">About Us</a></li>
+							<li><font size = "+2"><a href="/history">About AMOS</a></font></li>
+							<li><font size = "+2"><a href="/moreinfo">Publications</a></font></li>
+							<li><font size = "+2"><a href="/about">Project Participants</a></font></li>
 						</ul>
 					</li>
 					<li>
-						<a href="#">Cameras</a>
+						<p class="textoutline"><font size = "+3"><a href="#">Cameras</a></font></p>
 						<ul>
-							<li><a href="/cameras/19">View All Cameras</a></li>
-							<li><a href="/coolcams">View Cool Cameras</a></li>
-							<li><a href="/submitcam">Submit Cameras</a></li>
-							<li><a href="/cameras/{{ range(1, 7800) | random | safe }}">Random Camera</a></li>
+							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+							<li><font size = "+2"><a href="/coolcams">View Cool Cameras</a></font></li>
+							<li><font size = "+2"><a href="/submitcam">Submit Cameras</a></font></li>
+							<li><font size = "+2"><a href="/cameras/{{ range(1, 7800) | random | safe }}">Random Camera</a></font></li>
 						</ul>
 					</li>
-					<li><a href="/camera_map">Map</a></li>
+					<li><p class="textoutline"><font size = "+3"><a href="/camera_map">Map</a></font></p></li>
 				</ul>
+
+				<!--continue down page button "V"-->
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				<span class = "buttontext2"><font size = "+7">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="#banner" onclick="this.style.visibility='hidden';">V</a></font></span>
+
+				<!--maybe for buttons at bottom of page-->
+				<!--<br><br><br>
+				<center><span class = "buttonbackground"><span class = "buttontext"><font size = "+3.2">Observe All Images</font></span></span><span class = "buttonbackgroundDummy"><span class = "buttontext"><font size = "+3.2">123</font></span></span><span class = "buttonbackground"><span class = "buttontext"><font size = "+3.2"><a href="/camera_map">Explore The Globe</a></font></span></span><span class = "buttonbackgroundDummy"><span class = "buttontext"><font size = "+3.2">123</font></span></span><span class = "buttonbackground"><span class = "buttontext"><font size = "+3.2"><a href="/history">Discover AMOS More</a></font></span></span></center>
+			-->
 			</nav>
 
+			<!--for orange buttons after purple-->
+			<br><br><br>
+			<center><span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/cameras/19">Observe All Images</a></font></span></span><span class = "buttonbackgroundDummy"><span class = "buttontext"><font size = "+3">123</font></span></span><span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/camera_map">Explore The Globe</a></font></span></span></center>
+			
+			
 		</div>
 
 		<!-- Banner -->
@@ -88,47 +148,61 @@
 			<header>
 				
 				
-				here
+				
 			</header>
 		</section>
 
 		<!-- Main -->
 		<div class="wrapper style2">
 
-				<center><img src = "/AMOSPictures/4731_20181213_075724.jpg" alt = "Image1" style = "width:320px;height:214px;"> &emsp;&emsp;&emsp;&emsp;&emsp;  <img src = "/AMOSPictures/6767_20181229_141646.jpg" alt = "Image2" style = "width:320px;height:214px;"> &emsp;&emsp;&emsp;&emsp;&emsp; <img src = "/AMOSPictures/2191_20180701_234514.jpg" alt = "Image3" style = "width:320px;height:214px;"> &emsp;&emsp;&emsp;&emsp;&emsp;</center>
-			        <br>
-			        <br>
-			<article id="main" class="container special">
-				<a href="#" class="image featured"><img src="" alt="" /></a>
-				<header>
-					<p>
-						We explore how to use images to learn about the world around us, with a focus on understanding changes in natural environments and understanding how people use public spaces.
-					</p>
-				</header>
-				<br>
-				<br>
-				<br>
-				<header>
-					<p>
-						To support these applications, we work on fundamental research in camera geolocation, <br>
-						camera calibration, camera registration to GIS data, and the automatic <br>
-						annotation of events and objects in a scene.
+
 				
-						The AMOS project began in March 2006 and is currently maintained at <br>
-						The George Washington University by Robert Pless.
+					<center><span class = "emphasis2"><font size=7>Thousands</font></span><font size= "+3"> of Cameras</font>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class = "emphasis2"><font size=7>1 Billion</font></span><font size= "+3"> Images</font></center>
+					<br><center><font size="+3">... and Counting!</font></center>
+				    <br>
+				
+				<center><img src = "static/AMOSPictures/5716_20181012_111421.jpg" alt = "Image1" style = "width:320px;height:214px;"> &emsp;&emsp;&emsp;<img src = "static/AMOSPictures/6767_20181229_141646.jpg" alt = "Image2" style = "width:320px;height:214px;"> &emsp;&emsp;&emsp;<img src = "static/AMOSPictures/4297_20180629_110521.jpg" alt = "Image3" style = "width:320px;height:214px;"></center>
+				
+			        
+			<!--<article id="main" class="container special">
+				<a href="#" class="image featured"><img src="" alt="" /></a> -->
+				
+					<p>
+						<center><font size = "+3">We explore how to use images to learn about the world around us. In particular we focus on<br>understanding changes in natural environments and how people use public spaces.</font></center>
+					</p>
+				
+				<br>
+				<br>
+				<br>
+				<header>
+					<p>
+						<center><font size = "+3">We work on fundamental research in camera geolocation,
+						camera calibration,<br>camera registration to GIS data, and the automatic
+						annotation of events and objects in a scene.</font></center>
+					</p>
+					
+					<center><img src = "static/AMOSPictures/2779_20190219_203130.jpg" alt = "Image1" style = "width:320px;height:214px;"> &emsp;&emsp;&emsp;<img src = "static/AMOSPictures/5644_20180721_011115.jpg" alt = "Image2" style = "width:320px;height:214px;"> &emsp;&emsp;&emsp;<img src = "static/AMOSPictures/5301_20180628_135604.jpg" alt = "Image3" style = "width:320px;height:214px;"></center>
+				
+				    <p>
+						<center><font size = "+3">The dataset enables empirical assessment of statistics for natural scenes captured from static cameras.<br>
+						These statistics provide importance to surveillance algorithm and application development.</font></center>
 					</p>
 				</header>
 				<header>
 					<p>
-						We encourage you to learn more about the AMOS dataset, </br>
-						project participants, publications, and view images from the cameras.
+						<center><font size = "+2">We encourage you to use AMOS, and want<br>the dataset to be a resource for researchers, students, and scientists. Please<br>view images from the cameras, and learn more about the dataset,
+						project participants, and publications.</font></center>
 					</p>
 				</header>
 				<footer>
 
-					<a href="https://amostest.seas.gwu.edu/history">Learn More</a>
+					<br>
+					<center><span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/cameras/19">Observe All Images</a></font></span></span><span class = "buttonbackgroundDummy"><span class = "buttontext"><font size = "+3">123</font></span></span><span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/camera_map">Explore The Globe</a></font></span></span><span class = "buttonbackgroundDummy"><span class = "buttontext"><font size = "+3">123</font></span></span><span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/history">Discover AMOS More</a></font></span></span></center>
+			
+
+					<!--<a href="https://amostest.seas.gwu.edu/history">Learn More</a>
 					&emsp;&emsp;&emsp;&emsp;&emsp;
-					<a href="https://amostest.seas.gwu.edu/camera_map">View Map</a>
+					<a href="https://amostest.seas.gwu.edu/camera_map">View Map</a>-->
 				</footer>
 			</article>
 
