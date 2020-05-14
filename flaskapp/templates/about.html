@@ -34,39 +34,52 @@
 			<!-- Inner -->
 			<div class="inner">
 				<header>
-					<h1><a href="/" id="logo">AMOS</a></h1>
+					<center><a href="/"><img src="/static/logo.png" width=192.5px height=55px></img></a></center>
 				</header>
 			</div>
 			
+			<!--
 			<style type="text/css">
 				.emphasis3 {
-					color: #FF69B4;
+					color: #8A2BE2;
 					font-weight: bold;
 				}
-			</style>
+			</style> -->
+
+<style>
+	.textoutline4 {
+		color:rgb(255, 255, 255);
+		-webkit-text-stroke-width: 0.3px;
+		-webkit-text-stroke-color:rgb(60, 47, 71);
+		padding: 14px;
+		border-width: 2px;
+		border-style:outset;
+		border-color:rgb(60, 47, 71);
+	}
+</style>
 
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
-					<li><a href="/">Home</a></li>
+					<li><p class="textoutline4"><font size = "+3"><a href="/">Home</a></font></p></li>
 					<li>
-						<a href="#">Info</a>
+						<p class="textoutline4"><font size = "+3"><a href="#">Info</a></font></p>
 						<ul>
-							<li><a href="/history">History</a></li>
-							<li><a href="/moreinfo">Dataset Info</a></li>
-							<li><a href="/about">About Us</a></li>
+							<li><font size = "+2"><a href="/history">About AMOS</a></font></li>
+							<li><font size = "+2"><a href="/moreinfo">Publications</a></font></li>
+							<li><font size = "+2"><a href="/about">Project Participants</a></font></li>
 						</ul>
 					</li>
 					<li>
-						<a href="#">Cameras</a>
+						<p class="textoutline4"><font size = "+3"><a href="#">Cameras</a></font></p>
 						<ul>
-							<li><a href="/cameras/19">View All Cameras</a></li>
-							<li><a href="/coolcams">View Cool Cameras</a></li>
-							<li><a href="/submitcam">Submit Cameras</a></li>
-							<li><a href="/cameras/{{ range(1, 7800) | random | safe }}">Random Camera</a></li>
+							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+							<li><font size = "+2"><a href="/coolcams">View Cool Cameras</a></font></li>
+							<li><font size = "+2"><a href="/submitcam">Submit Cameras</a></font></li>
+							<li><font size = "+2"><a href="/cameras/{{ range(1, 7800) | random | safe }}">Random Camera</a></font></li>
 						</ul>
 					</li>
-					<li><a href="/">Map</a></li>
+					<li><p class="textoutline4"><font size = "+3"><a href="/camera_map">Map</a></font></p></li>
 				</ul>
 			</nav>
 
@@ -76,57 +89,71 @@
 		<div class="wrapper style1">
 
 			<div class="container">
-				<h2><center>The Team</h2>
-				<br/>
-				</br/>
+				<h3 align = center>
+					People
+				</h3>
+				
 				<div class="row">
-						<header>
-							<center><h3><div class = "emphasis3"><a href="http://robertpless.com">Robert Pless, PhD</a></div></h3></center>
-						</header>
-						<p>
-							<center>Dr. Robert Pless conducts research in the area of computer vision with applications to environmental science, medical imaging, robotics and virtual reality. At a high level, the current themes of research in his lab are: understanding visual change at
-							scales from the sidewalk to the planet, studying next generation imaging systems for virtual reality and robotics, and democratizing visual analytics with applications to social justice.</center>
-						</p>
 					
-						<header>
-							<center><h3><div class = "emphasis3"><a href="http://surajshah.me">Suraj Shah</a></div></h3></center>
-						</header>
-						<p>
-							<center>Suraj is currently a junior at the George Washington University majoring in Computer Science with a minor in Business Administration. He loves exploring datasets, creating small projects, and learning new technical skills. He has experience using Pandas
-							and Numpy with Python for advanced data analysis, including predicting certain data or extrapolating information.</center>
-						</p>
-					
-						<header>
-							<center><h3><div class = "emphasis3"><a href="https://krood20.github.io/website/">Kyle Rood</a></div></h3></center>
-						</header>
-						<p>
-							<center>Kyle is currently a junior Computer Science student with a Sustainability minor at the George Washignton University. He loves exploring the city, and is constantly looking for new challenges and adventures. His work with AMOS speaks to his love for big
-								projects and application development.</center>
-						</p>
-					
-						<header>
-							<center><h3><div class = "emphasis3"><a href="https://benfernandez.github.io/">Ben Fernandez</a></div></h3></center>
-						</header>
-						<p>
-							<center>Ben is currently an undergraduate junior at GW majoring in Computer Science. Through computer science, Ben seeks to find cross-discipline applications and innovative solutions for multiple fields such as Healthcare and Pharma. His enjoyment for the outdoors
-                                                        helps inspire the work around AMOS and the rapid changing field of Computer Vision.</center>
-						</p>
-				<br>
-				<br>
-				<header>
-					<h2><center>Acknowledgements</center></h2>
-				</header>
+				<article class="col-4 col-12-mobile special" id="main">
 					<p>
-						<center>This project gratefully acknowledges a wide variety of funding sources, including initially funded through NSF <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=0546383">(RI-IIS 0546383)</a>, "CAREER: Passive Vision, What Can Be Learned by a Stationary Observer".
-						Follow on support is through: NSF <span class = "emphasis3"><a href="https://nsf.gov/awardsearch/showAward?AWD_ID=1111398">(CGV-1111398)</a></span>, "Analyzing Images Through Time", NSF <span class = "emphasis3"><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1065734">(EF-1065734)</a></span>, "Continental-scale Monitoring, Modeling and Forecasting of Phenological Responses to Climate Change", DARPA grant (D11AP00255) "ContextualEyes: A Context-Aware Surveillance System", and Washington University <span class = "emphasis3"><a href="https://incees.wustl.edu/">I-CARES</a></span> program, "Re-Purposing the Global Webcam Network as an Atmospheric/ Environmental Observation. Sensor".
-						Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation, Washington University, or DARPA.
+						<center>
+							&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Nathan Jacobs<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Joshua Little<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Richard Speyer<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Nick Fridrich<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Agata Kargol<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Kyle Rood<br>
+						</center>
+					</p>
+				</article>
+
+				<article class="col-4 col-12-mobile special" id="main">
+					<p>
+						<center>
+							Robert Pless<br>Scott Satkin<br>Kylia Miskell<br>Abby Stylianou<br>Ian Schillebeeckx<br>Ben Fernandez<br>
+						</center>
+					</p>
+				</article>
+
+				<article class="col-4 col-12-mobile special" id="main">
+					<p>
+						<center>
+							Austin Abrams&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<br>Nathaniel Roman&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<br>Walker Burgin&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<br>Adina Stoica&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<br>Suraj Shah&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<br>Elyse Nicolas&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<br>
+						</center>
+					</p>
+				</article>
+				<p>
+					<center>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;These people listed above contributed to the AMOS dataset in the form of compilation, analysis, and presentation.</center>
+				</p>
+
+				</div>
+
+				<br>
+				<br>
+				<section>
+					<center><img src = "/static/AMOSPictures/4936_20190330_060442.jpg" alt = "Image1" style = "width:201.6px;height:135px;"> &emsp;&emsp;  <img src = "/static/AMOSPictures/9099_20190325_104100.jpg" alt = "Image2" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/5636_20180806_115104.jpg" alt = "Image3" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/25657_20180806_062442.jpg" alt = "Image4" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/5607_20190422_100252.jpg" alt = "Image5" style = "width:201.6px;height:135px;"></center>						
+				</section>
+				
+
+					<h3><center>Funding Sources</center></h3>
+				    
+					<p><center>
+						This project was initially funded through:<br> 
+							NSF <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=0546383">(RI-IIS 0546383)</a>, "CAREER: Passive Vision, What Can Be Learned by a Stationary Observer"<br>
+							<br>Previous work was supported through:<br>
+							Washington University <a href="https://incees.wustl.edu/">I-CARES</a></span> program, "Re-Purposing the Global Webcam Network as an Atmospheric/Environmental Observation. Sensor"<br>						
+							<br>
+						Follow on support is through:<br>
+						 NSF <a href="https://nsf.gov/awardsearch/showAward?AWD_ID=1111398">(CGV-1111398)</a></span>, "Analyzing Images Through Time"<br>
+						 NSF <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1065734">(EF-1065734)</a></span>, "Continental-scale Monitoring, Modeling and Forecasting of Phenological Responses to Climate Change"<br>
+						DARPA grant (D11AP00255) "ContextualEyes: A Context-Aware Surveillance System"<br> 
+						<!--Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation, Washington University, or DARPA.-->
+						</center>
+						<br><br>
+						<h3><center>Additional Acknowledgements</center></h3>
 						<br>
-						This project also gratefully acknowledges AWS Convergence Technologies Inc. for allowing us to archive a collection of images from the weatherbug camera network.
+						<center>We are grateful to AWS Convergence Technologies Inc. for permitting us to archive a collection of images from the weatherbug camera network.
 						<br>
-						Special thanks also goes to The George Washington University Computer Science Department.</center>
+						Special thanks goes to The George Washington University Computer Science Department.</center>
 					</p>
 				
-				</div>
+				
 			</div>
 
 		</div>
