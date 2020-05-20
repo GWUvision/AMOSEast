@@ -82,22 +82,8 @@
 
 			<h2>View All Cameras</h2>
 			<!-- Inner -->
-			<div class="inner">
-				<header>
-					{% with messages = get_flashed_messages() %} {% if messages %}
-					<ul class=flashes>
-						{% for message in messages %}
-						<li>{{ message }}</li>
-						{% endfor %}
-					</ul>
-					{% endif %} {% endwith %}
-					<h1><a href="{{ results.__dict__['url'] | safe }}" id="logo">Camera Name: {{ results.__dict__['name'] }}</a></h1>
-					<br/>
-					<img src="{{ url_for('static', filename='images/'+images.__dict__['filepath']) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
-					<br/>
-					<a href="/cameras/{{prev}}" class="button">Previous Camera </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="/cameras/{{next}}" class="button">Next Camera</a>
-				</header>
+			<!--<div class="inner">-->
+				
 			</div>
 
 
@@ -141,6 +127,22 @@
 
 		<!-- Main -->
 		<div class="wrapper style1">
+
+			<header>
+				{% with messages = get_flashed_messages() %} {% if messages %}
+				<ul class=flashes>
+					{% for message in messages %}
+					<li>{{ message }}</li>
+					{% endfor %}
+				</ul>
+				{% endif %} {% endwith %}
+				<h1><a href="{{ results.__dict__['url'] | safe }}" id="logo">Camera Name: {{ results.__dict__['name'] }}</a></h1>
+				<br/>
+				<img src="{{ url_for('static', filename='images/'+images.__dict__['filepath']) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
+				<br/>
+				<a href="/cameras/{{prev}}" class="button">Previous Camera </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/cameras/{{next}}" class="button">Next Camera</a>
+			</header>
 
 			<div class="container">
 				<article id="main" class="special">
