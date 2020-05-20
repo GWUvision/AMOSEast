@@ -29,14 +29,14 @@
 		font-size: 17px;
 	}
 
-	.topnav {
+	/*.topnav {
                 display: block;
                 float: right;
                 margin-top: 40px;
-                }
+                }*/
 	/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 
-	/*@media screen and (max-width: 600px) {
+	@media screen and (max-width: 600px) {
 		.topnav a,
 		.topnav input[type=text] {
 			float: none;
@@ -49,7 +49,7 @@
 		.topnav input[type=text] {
 			border: 1px solid #ccc;
 		}
-	}*/
+	}
 </style>
 
 <head>
@@ -146,16 +146,16 @@
 				<article id="main" class="special">
 					
 							        <h3>Camera Information</h3>
-								<b>Latitude:</b> &emsp&emsp&emsp
+								<b>Latitude:</b> &emsp;&emsp;&emsp;
 								{{ results.__dict__['latitude'] |round(3) }} <br>
 							
-								<b>Longitude:</b> &emsp&emsp&emsp
+								<b>Longitude:</b> &emsp;&emsp;&emsp;
 								{{ results.__dict__['longitude'] |round(3) }} <br>
 							
-								<b>Last Image Captured:</b> &emsp&emsp&emsp
+								<b>Last Image Captured:</b> &emsp;&emsp;&emsp;
 								{{ moment(timestamp=images.__dict__['curr_time'], local=True).format('MMMM Do YYYY, h:mm:ss a') }} <br>
 							
-								<b>Current Weather:</b> &emsp&emsp&emsp
+								<b>Current Weather:</b> &emsp;&emsp;&emsp;
 								{{ weather }} <br>
 					
 					                        <a href="{{ results.__dict__['url'] | safe }}" class="button">Camera Live Feed</a>
