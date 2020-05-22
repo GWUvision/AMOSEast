@@ -216,7 +216,7 @@ def allcamspage():
     return render_template('coolcams.html', cameras=cameras)
 
 
-@app.route('/submitcam', methods=['POST', 'GET'])
+@app.route('/datasetaccess', methods=['POST', 'GET'])
 def submitcam():
     error = None
     if request.method == 'POST':
