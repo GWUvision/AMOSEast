@@ -255,7 +255,7 @@ def submitcam():
    return render_template('submitcam.html', error=error)
 
 
-@app.route('/moreinfo')
+@app.route('/publications')
 def moreinfo():
     return render_template('publications.html')
 
