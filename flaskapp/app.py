@@ -218,6 +218,40 @@ def allcamspage():
 
 @app.route('/submitcam', methods=['POST', 'GET'])
 def submitcam():
+       error = None
+    if request.method == 'POST':
+        # get the url and description from the html
+        url = request.form['url']
+
+        description = request.form['message']
+        curr_time = datetime.datetime.now()
+        name = request.form['name']
+        lat = request.form['latitude']
+        lng = request.form['longitude']
+
+        # connect to the database
+        conn = psycopg2.connect(DATABASE_URL, sslmode='allow')
+        cur = conn.cursor()
+
+        # check if it is a url first using validators
+        if(validators.url(url)):
+            # error checking the url
+            try:
+                code = urllib.request.urlopen(url).code
+
+                # query the database --> usually in the else
+                query = "INSERT INTO submit_cams(url, description, curr_time, latitude, longitude) VALUES('%s','%s','%s','%s','%s')" % (
+                    url, description, curr_time, lat, lng)
+                cur.execute(query)
+                conn.commit()
+            except HTTPError as e:
+                print('Error code: ', e.code)
+                error = 'Error code: ', e.code
+            except URLError as e:
+                print('Reason: ', e.reason)
+                error = 'Reason: ', e.reason
+        else:
+            flash('Not a valid url.')
    return render_template('submitcam.html', error=error)
 
 
