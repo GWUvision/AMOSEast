@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+
+<html>
 
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -12,164 +13,81 @@
   gtag('config', 'UA-121420165-1');
 </script>
 
-	<title>AMOS | Submit</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AMOS | Dataset Access</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="/static/assets/css/main.css" />
 	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="/static/assets4/vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/assets4/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/assets4/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/assets4/vendor/animate/animate.css">
-	<link rel="stylesheet" type="text/css" href="/static/assets4/vendor/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/assets4/vendor/animsition/css/animsition.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/assets4/vendor/select2/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/assets4/vendor/daterangepicker/daterangepicker.css">
-	<link rel="stylesheet" type="text/css" href="/static/assets4/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/static/assets4/css/main.css">
+	<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
+
+<style type="text/css">
+	.emphasis {
+		color: #8A2BE2;
+		font-weight: bold;
+	}
+</style>
+
+<style>
+	.textoutline2 {
+		color:rgb(255, 255, 255);
+		-webkit-text-stroke-width: 0.3px;
+		-webkit-text-stroke-color:rgb(60, 47, 71);
+		padding: 14px;
+		border-width: 2px;
+		border-style:outset;
+		border-color:rgb(60, 47, 71);
+	}
+</style>
+
 </head>
 
-<body>
+<body class="no-sidebar is-preload">
+	<div id="page-wrapper">
 
+		<!-- Header -->
+		<div id="header">
 
-	<div class="container-contact100">
-		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" method="post" action="/submitcam">
-				<span class="contact100-form-title">
-					Submit a camera
-				</span>
-
-				{% with messages = get_flashed_messages() %}
-			  {% if messages %}
-			    <ul class=flashes>
-			    {% for message in messages %}
-			      <li>{{ message }}</li>
-			    {% endfor %}
-			    </ul>
-			  {% endif %}
-				{% endwith %}
-
-				{% block body %}
-			  	{% if error %}
-			    	<p class=error><strong>Error:</strong> {{ error }}
-						<p>Enter your camera information again, this time with a valid url.</p>
-			  	{% endif %}
-				{% endblock %}
-
-
-				<div class="wrap-input100 validate-input" data-validate="Camera Name is required">
-					<label class="label-input100" for="name">Camera Title</label>
-					<input id="name" class="input100" type="text" name="name" placeholder="London Tower...">
-					<span class="focus-input100"></span>
-				</div>
-
-
-				<div class="wrap-input100 validate-input" data-validate="Valid link is required: http://example.jpg">
-					<label class="label-input100" for="email">Camera URL</label>
-					<input id="url" class="input100" type="url" name="url" placeholder="http://...">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100">
-					<label class="label-input100" for="latitude">Latitude</label>
-					<input id="latitude" class="input100" type="text" name="latitude" placeholder="72.36">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100">
-					<label class="label-input100" for="longitude">Longitude</label>
-					<input id="longitude" class="input100" type="text" name="longitude" placeholder="-127.43">
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100">
-					<label class="label-input100" for="message">Extra Information</label>
-					<textarea id="message" class="input100" name="message" placeholder="Enter extra information here..."></textarea>
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
-						Send
-					</button>
-				</div>
-
-				<div class="contact100-form-social flex-c-m">
-					<a href="/">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="/history">Info</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="/cameras/19">Cameras</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-					<a href="/camera_map">Map</a>
-				</div>
-
-			</form>
-
-
-			<div class="contact100-more flex-col-c-m">
+			<!-- Inner -->
+			<div class="inner">
+				
+				<header>
+					<center><a href="/"><img src="/static/logo.png" width=192.5px height=55px></img></a></center>
+				
+				</header>
 			</div>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><p class="textoutline2"><font size = "+3"><a href="/">Home</a></font></p></li>
+					<li>
+						<p class="textoutline2"><font size = "+3"><a href="#">Info</a></font></p>
+						<ul>
+							<li><font size = "+2"><a href="/history">About AMOS</a></font></li>
+							<li><font size = "+2"><a href="/moreinfo">Publications</a></font></li>
+							<li><font size = "+2"><a href="/about">Project Participants</a></font></li>
+						</ul>
+					</li>
+					<li>
+						<p class="textoutline2"><font size = "+3"><a href="#">Cameras</a></font></p>
+						<ul>
+							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+							<li><font size = "+2"><a href="/coolcams">(new image page)</a></font></li>
+							<li><font size = "+2"><a href="/submitcam">Dataset Access</a></font></li>
+						</ul>
+					</li>
+					<li><p class="textoutline2"><font size = "+3"><a href="/camera_map">Map</a></font></p></li>
+				</ul>
+			</nav>
+
 		</div>
-	</div>
 
-	<!--===============================================================================================-->
-	<script src="/static/assets4/vendor/jquery/jquery-3.2.1.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="/static/assets4/vendor/animsition/js/animsition.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="/static/assets4/vendor/bootstrap/js/popper.js"></script>
-	<script src="/static/assets4/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="/static/assets4/vendor/select2/select2.min.js"></script>
-	<script>
-		$(".js-select2").each(function() {
-			$(this).select2({
-				minimumResultsForSearch: 20,
-				dropdownParent: $(this).next('.dropDownSelect2')
-			});
-		})
-		$(".js-select2").each(function() {
-			$(this).on('select2:open', function(e) {
-				$(this).parent().next().addClass('eff-focus-selection');
-			});
-		});
-		$(".js-select2").each(function() {
-			$(this).on('select2:close', function(e) {
-				$(this).parent().next().removeClass('eff-focus-selection');
-			});
-		});
-	</script>
-	<!--===============================================================================================-->
-	<script src="/static/assets4/vendor/daterangepicker/moment.min.js"></script>
-	<script src="/static/assets4/vendor/daterangepicker/daterangepicker.js"></script>
-	<!--===============================================================================================-->
-	<script src="/static/assets4/vendor/countdowntime/countdowntime.js"></script>
-	<!--===============================================================================================-->
-	<script src="/static/assets4/js/main.js"></script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-23581568-13');
-	</script>
-
-	<script>
-		var request;
-		if (window.XMLHttpRequest)
-			request = new XMLHttpRequest();
-		else
-			request = new ActiveXObject("Microsoft.XMLHTTP");
-		request.open('GET', 'http://www.mozilla.org', false);
-		request.send(); // there will be a 'pause' here until the response to come.
-		// the object request will be actually modified
-		if (request.status === 404) {
-			alert("The page you are trying to reach is not available.");
-		}
-	</script>
-
-
-</body>
-
-</html>
+	<!-- Scripts -->
+	<script src="/static/assets/js/jquery.min.js"></script>
+	<script src="/static/assets/js/jquery.dropotron.min.js"></script>
+	<script src="/static/assets/js/jquery.scrolly.min.js"></script>
+	<script src="/static/assets/js/jquery.scrollex.min.js"></script>
+	<script src="/static/assets/js/browser.min.js"></script>
+	<script src="/static/assets/js/breakpoints.min.js"></script>
+	<script src="/static/assets/js/util.js"></script>
+	<script src="/static/assets/js/main.js"></script>
