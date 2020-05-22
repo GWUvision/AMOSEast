@@ -257,7 +257,7 @@ def submitcam():
 
 @app.route('/moreinfo')
 def moreinfo():
-    return render_template('moreinfo.html')
+    return render_template('publications.html')
 
 @app.teardown_appcontext
 def close_connection(exception):
