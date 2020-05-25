@@ -254,6 +254,9 @@ def submitcam():
             flash('Not a valid url.')
    return render_template('submitcam.html', error=error)
 
+@app.route('/datasetaccess')
+def datasetaccess():
+     return render_template('datasetaccess.html')
 
 @app.route('/publications')
 def moreinfo():
