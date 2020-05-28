@@ -218,7 +218,7 @@ def allcamspage():
 
 @app.route('/submitcam', methods=['POST', 'GET'])
 def submitcam():
-       error = None
+    error = None
     if request.method == 'POST':
         # get the url and description from the html
         url = request.form['url']
@@ -252,7 +252,7 @@ def submitcam():
                 error = 'Reason: ', e.reason
         else:
             flash('Not a valid url.')
-   return render_template('submitcam.html', error=error)
+    return render_template('submitcam.html', error=error)
 
 @app.route('/datasetaccess')
 def datasetaccess():
