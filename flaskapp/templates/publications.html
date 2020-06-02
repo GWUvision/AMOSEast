@@ -26,8 +26,18 @@
 	
 <style type="text/css">
 	.emphasis3 {
-		color: #FF69B4;
+		color: #8A2BE2;
 		font-weight: bold;
+	}
+
+	.textoutline5 {
+		color:rgb(255, 255, 255);
+		-webkit-text-stroke-width: 0.3px;
+		-webkit-text-stroke-color:rgb(60, 47, 71);
+		padding: 14px;
+		border-width: 2px;
+		border-style:outset;
+		border-color:rgb(60, 47, 71);
 	}
 
 	a:link {
@@ -35,11 +45,17 @@
 	}
 
 
-    a:hover{
-        color: rgb(191, 221, 247);
+	a:hover{
+        color: rgb(124, 190, 248);
+		-webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color:rgb(124, 190, 248);
 		font-size: 103%;
 		text-decoration: none;
     }
+
+	img {
+		border: 1px solid #8A2BE2;
+	}
 </style>
 </head>
 
@@ -52,31 +68,31 @@
 			<!-- Inner -->
 			<div class="inner">
 				<header>
-					<h1><a href="/" id="logo">AMOS</a></h1>
+					<center><a href="/"><img src="/static/logo.png" width=192.5px height=55px style = border:hidden></img></a></center>				
 				</header>
 			</div>
 
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
-					<li><a href="/">Home</a></li>
+					<li><p class="textoutline5"><font size = "+3"><a href="/">Home</a></font></p></li>
 					<li>
-						<a href="#">Info</a>
+						<p class="textoutline5"><font size = "+3"><a href="#">Info</a></font></p>
 						<ul>
-							<li><a href="/history">History</a></li>
-							<li><a href="/moreinfo">Dataset Info</a></li>
-							<li><a href="/about">About Us</a></li>
+							<li><font size = "+2"><a href="/history">About AMOS</a></font></li>
+							<li><font size = "+2"><a href="/moreinfo">Publications</a></font></li>
+							<li><font size = "+2"><a href="/about">Project Participants</a></font></li>
 						</ul>
 					</li>
 					<li>
-						<a href="#">Dataset</a>
+						<p class="textoutline5"><font size = "+3"><a href="#">Dataset</a></font></p>
 						<ul>
-							<li><a href="/cameras/19">View All Cameras</a></li>
-							<li><a href="/coolcams">(new image page)</a></li>
-							<li><a href="/datasetaccess">Dataset Access</a></li>
+							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+							<li><font size = "+2"><a href="/coolcams">(new image page)</a></font></li>
+							<li><font size = "+2"><a href="/datasetaccess">Dataset Access</a></font></li>
 						</ul>
 					</li>
-					<li><a href="/camera_map">Map</a></li>
+					<li><p class="textoutline5"><font size = "+3"><a href="/camera_map">Map</a></font></p></li>
 				</ul>
 			</nav>
 
@@ -88,89 +104,248 @@
 	<div class="wrapper style1">
 
 		<div class="container">
-			<div class="row gtr-200">
+			<!--<div class="row gtr-200">
 				<div class="col-8 col-12-mobile" id="content">
-					<article id="main">
-						<header>
-							<h2>Publications</h2>
-						</header>
-						<a href="#" class="image featured"><img src="" alt="" /></a>
+					<article id="main">-->
+						
+							<h3 align = "center">Publications</h3>
+
+						<p>
+							<div class="emphasis3">2018</div><br>
+							<img src = "/static/AMOSPictures/AnomalyExplanationUsingMetadata.jpg" alt = "ImagePaper32" style = width:320px;height:214px; align = "right">
+							32)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/anomalyMetadata.pdf"> Anomaly Explanation Using Metadata</a> </span>
+							<br><i>(Di Qi, Joshua Arfin, Mengxue Zhang, Tushar Mathew, Brendan Juba and Robert Pless),
+							<br>In Proc. IEEE Workshop on Applications of Computer Vision, 2018</i>
+
+						</p>
+						<br><br>
+
+						<p>
+							<div class="emphasis3">2017</div><br>
+							<img src = "/static/AMOSPictures/Learning from Outdoor Webcams Surveillance of Physical Activity Across Environments.png" alt = "ImagePaper31" style = width:320px;height:214px; align = "right">
+							31)<span class="emphasis3"><a href = "https://www.researchgate.net/publication/268147824_Learning_from_Outdoor_Webcams_Surveillance_of_Physical_Activity_Across_Environments"> [Chapter] Learning from Outdoor Webcams: Surveillance of Physical Activity Across Environments</a> </span>
+							<br><i>(Hipp, J. Aaron and Adlakha, Deepti and Eyler, Amy A. and Gernes, Rebecca and Kargol, Agata and Stylianou, Abigail H. and Pless, Robert),
+							<br>Chapter in , Springer International Publishing, 2017</i>
+
+						</p>
+						<br><br>
+
+						<p>
+							<div class="emphasis3">2016</div><br>
+							<img src = "/static/AMOSPictures/Webcams, Crowdsourcing, and Enhanced Crosswalks Developing a Novel Method to Analyze Active Transportation.jpg" alt = "ImagePaper30" style = width:320px;height:214px; align = "right">
+							30)<span class="emphasis3"><a href = "https://www.frontiersin.org/articles/10.3389/fpubh.2016.00097/full"> Webcams, Crowdsourcing, and Enhanced Crosswalks: Developing a Novel Method to Analyze Active Transportation</a> </span>
+							<br><i>(J. Aaron Hipp, Alicia Manteiga, Amanda Burgess, Abby Stylianou and Robert Pless),
+							<br>In Frontiers in Public Health, volume published online, 2016</i>
+
+						</p>
+						<br><br>
+
+						<p>
+							<div class="emphasis3">2015</div><br>
+							<img src = "/static/AMOSPictures/Cameras and Crowds in Transportation Tracking.jpg" alt = "ImagePaper29" style = width:320px;height:214px; align = "right">
+							29)<span class="emphasis3"><a href = "https://dl.acm.org/doi/pdf/10.1145/2811780.2811941"> Cameras and Crowds in Transportation Tracking</a> </span>
+							<br><i>(J. Aaron Hipp, Alicia Manteiga, Amanda Burgess, Abby Stylianou and Robert Pless),
+							<br>In International Conference on Wireless, Connected and Mobile Health Research, 2015</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Characterizing Feature Matching Performance Over Long Time Periods.jpg" alt = "ImagePaper28" style = width:320px;height:214px; align = "right">
+							28)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/wacvFeaturesOverTime.pdf"> Characterizing Feature Matching Performance Over Long Time Periods</a> </span>
+							<br><i>(Stylianou, Abby, Abrams, Austin and Pless, Robert),
+							<br>In IEEE Winter Conference on Computer Vision (WACV), 2015</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Building Dynamic Cloud Maps from the Ground Up.jpg" alt = "ImagePaper27" style = width:320px;height:214px; align = "right">
+							27)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/iccv2015clouds_final.pdf"> Building Dynamic Cloud Maps From The Ground Up</a> </span>
+							<br><i>(Calvin Murdock, Nathan Jacobs and Robert Pless),
+							<br>In Proc. International Conference on Computer Vision (ICCV), 2015</i>
+						</p>
+						<br><br>
 						
 						<p>
-						<div class="emphasis3"> 2016 </div> <br> <br>
-						<div class="emphasis3"> 3) </div> <a href = "https://www.frontiersin.org/articles/10.3389/fpubh.2016.00097/full"> Webcams, Crowdsourcing, and Enhanced Crosswalks: Developing a Novel Method to Analyze Active Transportation </a>
-						<br> <i> (Alicia Manteiga Amanda Burgess Abby Stylianou J. Aaron Hipp, Robert Pless), In Frontiers in Public Health, volume published online, 2016 </i>
-						<img src = "/static/AMOSPictures/Webcams, Crowdsourcing, and Enhanced Crosswalks Developing a Novel Method to Analyze Active Transportation.jpg" alt = "Image3" style = "width:224px;height:150px;" align = "right">
-						</p>
-					        <p>
-					        <div class="emphasis3"> 2015 </div> <br> <br>
-					        <div class="emphasis3"> 6) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/iccv2015clouds_final.pdf"> Building Dynamic Cloud Maps from the Ground Up </a>
-					        <br> <i> (Calvin Murdock, Nathan Jacobs, Robert Pless), In Proc. International Conference on Computer Vision (ICCV), 2015 </i>
-	                                        <img src = "/static/AMOSPictures/Building Dynamic Cloud Maps from the Ground Up.jpg" alt = "Image6" style = "width:224px;height:150px;" align = "right">				
-					        </p>
-				                <p>
-				                <div class="emphasis3"> 2014 </div> <br> <br>
-				                <div class="emphasis3"> 8) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/ImagesDontForget.pdf"> Images Don’t Forget: Online Photogrammetry to Find Lost Graves </a>
-				                <br> <i> (Abby Stylianou, Joseph O'Sullivan, Robert Pless), In Applied Imagery Pattern Recognition Workshop (AIPR), 2014 </i>
-				                </p>
-			                        <p>
-			                        <div class="emphasis3"> 9) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/AIPR_democratizingFinal.pdf"> Democratizing the visualization of 500 million webcam images </a>
-			                        <br> <i> (Joseph O'Sullivan, Abby Stylianou, Robert Pless), In Applied Imagery Pattern Recognition Workshop (AIPR), 2014 </i>
-			                        </p>
-		                                <p>
-		                                <div class="emphasis3"> 10) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/iccp2014shadowtracking.pdf"> Structure from Shadow Motion </a>
-		                                <br> <i> (Austin Abrams, Ian Schillebeeckx, Robert Pless), In Proc. International Conference on Computational Photography (ICCP), 2014 </i>
-		                                </p>
-	                                        <p>
-	                                       <div class="emphasis3"> 2013 </div> <br> <br>
-	                                       <div class="emphasis3"> 12) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/wacv2013Clouds.pdf"> Webcam2Satellite: Estimating Cloud Maps from Webcam Imagery </a>
-	                                       <br> <i> (Calvin Murdock, Nathan Jacobs, Robert Pless), In Proc. IEEE Workshop on Applications of Computer Vision, 2013 </i>
-	                                       </p>
-	                                        <p>
-	                                       <div class="emphasis3"> 13) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/twoCloudsPAMI.pdf"> Two Cloud-Based Cues for Estimating Scene Structure and Camera Calibration </a>
-	                                       <br> <i> (Nathan Jacobs, Austin Abrams, Robert Pless), In IEEE Transactions on Pattern Analysis and Machine Intelligence, IEEE, 2013 </i>
-	                                       </p>
-                                               <p>
-                                               <div class="emphasis3"> 14) </div> <a href = "http://openscholarship.wustl.edu/cgi/viewcontent.cgi?article=1002&context=brown_facpubs"> Emerging Technologies: Webcams and CrowdSourcing to Identify Active Transportation </a>
-                                               <br> <i> (J Aaron Hipp, Deepti Adlakha, Amy A Eyler, Bill Chang, Robert Pless), In American Journal of Preventitive Medicine, volume 44, 2013 </i>
-                                               </p>
-                                               <p>
-                                               <div class="emphasis3"> 16) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/cvpr2013episolar.pdf"> The Episolar Constraint: Monocular Shape from Shadow Correspondence </a>
-                                               <br> <i> (Austin Abrams, Kylia Miskell, Robert Pless), In Proc. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2013 </i>
-                                               </p>
-                                               <p>
-                                               <div class="emphasis3"> 17) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/tomccap2012.pdf"> Web-Accessible Geographic Integration and Calibration of Webcams </a>
-                                               <br> <i> (Austin Abrams, Robert Pless), In ACM Trans. Multimedia Comput. Commun. Appl., ACM, volume 9, 2013 </i>
-                                               </p>
-                                               <p>
-                                               <div class="emphasis3"> 2012 </div> <br> <br>
-                                               <div class="emphasis3"> 19) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/wacv2012lost.pdf"> LOST: Longterm Observation of Scenes (with Tracks) </a>
-                                               <br> <i> (Austin Abrams, Jim Tucek, Nathan Jacobs, Robert Pless), In Proc. IEEE Workshop on Applications of Computer Vision, 2012 ((oral presentation)) </i>
-                                              </p>
-                                               <p>
-                                              <div class="emphasis3"> 20) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/AbramsHeliometricEccv2012.pdf"> Heliometric Stereo: Shape from Sun Position </a>
-                                              <br> <i> (Austin Abrams, Christopher Hawley, Robert Pless), In Proc. European Conference on Computer Vision (ECCV), 2012 </i>
-                                              </p>
-                                              <p>
-                                              <div class="emphasis3"> 2011 </div> <br> <br>
-                                              <div class="emphasis3"> 21) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/webcamLightLevels.pdf"> Webcam Geo-localization using Aggregate Light Levels </a>
-                                              <br> <i> (Nathan Jacobs, Kylia Miskell, Robert Pless), In Proc. IEEE Workshop on Applications of Computer Vision, 2011 </i>
-                                              </p>
-                                              <p>
-                                              <div class="emphasis3"> 22) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/plessCVPR2011smallMotions.pdf"> On analyzing video with very small motions </a>
-                                              <br> <i> (Michael Dixon, Austin Abrams, Nathan Jacobs, Robert Pless), In Proc. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2011 </i>
-                                              </p>
-                                              <p>
-                                              <div class="emphasis3"> 23) </div> <a href = "https://www2.seas.gwu.edu/~pless/papers/fspca.pdf"> Exploratory Analysis of Time-Lapse Imagery with Fast Subset PCA </a>
-                                              <br> <i> (Austin Abrams, Emily Feder, Robert Pless), In Proc. IEEE Workshop on Applications of Computer Vision, 2011 </i>
-                                              </p>
-                                              <p>
-                                              <div class="emphasis3"> 2010 </div> <br> <br>
-                                              <div class="emphasis3"> 24) </div> <a href = "http://cs.uky.edu/~jacobs/papers/jacobs2010depthfromclouds.pdf"> Using Cloud Shadows to Infer Scene Structure and Camera Calibration </a>
-                                              <br> <i> (Nathan Jacobs, Brian Bies, Robert Pless), In Proc. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2010 </i>
-                                              </p>
+							<div class="emphasis3">2014</div><br>
+							<img src = "/static/AMOSPictures/Learning from Outdoor WebcamsSurveillance of Physical Activity Across Environments2.jpg" alt = "ImagePaper26" style = width:320px;height:214px; align = "right">
+							26)<span class="emphasis3"><a href = "https://www.researchgate.net/publication/268147824_Learning_from_Outdoor_Webcams_Surveillance_of_Physical_Activity_Across_Environments"> Learning From Outdoor Webcams: Surveillance of Physical Activity Across Environments</a> </span>
+							<br><i>(J. Aaron Hipp, Deepti Adlakha, Amy A. Eyler, Rebecca Gernes, Agata Kargol, Abigail H. Stylianou and Robert Pless),
+							<br>In NSF Workshop on Big Data and Urban Informatics, 2014</i>
 
-		
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Images Don’t Forget.jpg" alt = "ImagePaper25" style = width:320px;height:214px; align = "right">
+							25)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/ImagesDontForget.pdf"> Images Don't Forget: Online Photogrammetry to Find Lost Graves</a> </span>
+							<br><i>(Abby Stylianou, Joseph O'Sullivan and Robert Pless),
+							<br>In Applied Imagery Pattern Recognition Workshop (AIPR), 2014</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Democratizing the visualization of 500 million.jpg" alt = "ImagePaper24" style = width:320px;height:214px; align = "right">
+							24)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/AIPR_democratizingFinal.pdf"> Democratizing the Visualization of 500 Million Webcam Images</a> </span>
+							<br><i>(Joseph O'Sullivan, Abby Stylianou and Robert Pless),
+							<br>In Applied Imagery Pattern Recognition Workshop (AIPR), 2014</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Structure from Shadow Motion.jpg" alt = "ImagePaper23" style = width:320px;height:214px; align = "right">
+							23)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/iccp2014shadowtracking.pdf"> Structure from Shadow Motion</a> </span>
+							<br><i>(Austin Abrams, Ian Schillebeeckx and Robert Pless),
+							<br>In Proc. International Conference on Computational Photography (ICCP), 2014</i>
+						</p>
+						<br><br>
+
+						<p>
+							<div class="emphasis3">2013</div><br>
+							<img src = "/static/AMOSPictures/Web-Accessible Geographic Integration and Calibrationof Webcams.jpg" alt = "ImagePaper22" style = width:320px;height:214px; align = "right">
+							22)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/tomccap2012.pdf"> Web-Accessible Geographic Integration and Calibration of Webcams</a> </span>
+							<br><i>(Abrams, Austin and Pless, Robert),
+							<br>In ACM Trans. Multimedia Comput. Commun. Appl., ACM, volume 9, 2013</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Emerging Technologies Webcams and CrowdSourcing to Identify Active Transportation.jpg" alt = "ImagePaper21" style = width:320px;height:214px; align = "right">
+							21)<span class="emphasis3"><a href = "https://openscholarship.wustl.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=1002&context=brown_facpubs"> Emerging Technologies: Webcams and Crowd-Sourcing to Identify Active Transportation</a> </span>
+							<br><i>(J Aaron Hipp, Deepti Adlakha, Amy A Eyler, Bill Chang and Robert Pless),
+							<br>In American Journal of Preventitive Medicine, volume 44, 2013</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Collaborative Rephotography.jpg" alt = "ImagePaper20" style = width:320px;height:214px; align = "right">
+							20)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/collaborative_rephotography.pdf"> Collaborative Rephotography</a> </span>
+							<br><i>(West, Ruth, Halley, Abby, Gordon, Daniel, O'Neil-Dunne, Jarlath and Pless, Robert),
+							<br>In ACM SIGGRAPH 2013 Studio Talks, 2013</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Webcam2Satellite Estimating Cloud Maps from Webcam Imagery.jpg" alt = "ImagePaper19" style = width:320px;height:214px; align = "right">
+							19)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/wacv2013Clouds.pdf"> Webcam2Satellite: Estimating Cloud Maps from Webcam Imagery</a> </span>
+							<br><i>(Calvin Murdock, Nathan Jacobs and Robert Pless),
+							<br>In Proc. IEEE Workshop on Applications of Computer Vision, 2013</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Two Cloud-Based Cues for Estimating Scene.jpg" alt = "ImagePaper18" style = width:320px;height:214px; align = "right">
+							18)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/twoCloudsPAMI.pdf"> Two Cloud-Based Cues for Estimating Scene Structure and Camera Calibration</a> </span>
+							<br><i>(Jacobs, Nathan, Abrams, Austin and Pless, Robert),
+							<br>In IEEE Transactions on Pattern Analysis and Machine Intelligence, IEEE, 2013</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Shadow Estimation Method for“The Episolar Constraint.jpg" alt = "ImagePaper17" style = width:320px;height:214px; align = "right">
+							17)<span class="emphasis3"><a href = "https://arxiv.org/pdf/1304.4112.pdf"> Shadow Estimation Method for "The Episolar Constraint: Monocular Shape from Shadow Correspondence"</a> </span>
+							<br><i>(Abrams, Austin, Hawley, Chris, Miskell, Kylia, Stoica, Adina, Jacobs, Nathan and Pless, Robert),
+							<br>In arXiv preprint arXiv:1304.4112, 2013</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/The Episolar Constraint Monocular Shape from Shadow Correspondence.jpg" alt = "ImagePaper16" style = width:320px;height:214px; align = "right">
+							16)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/cvpr2013episolar.pdf"> The Episolar Constraint: Monocular Shape from Shadow Correspondence</a> </span>
+							<br><i>(Austin Abrams, Kylia Miskell and Robert Pless),
+							<br>In Proc. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2013</i>
+						</p>
+						<br><br>
+
+						<p>
+							<div class="emphasis3">2012</div><br>
+							<img src = "/static/AMOSPictures/ToolsforRicherCrowdSourceImageAnnotations.jpg" alt = "ImagePaper15" style = width:320px;height:214px; align = "right">
+							15)<span class="emphasis3"><a href = "https://www.researchgate.net/publication/254056802_Tools_for_Richer_Crowd_Source_Image_Annotations"> Tools for Richer Crowd Source Image Annotations</a> </span>
+							<br><i>(Joshua Little, Austin Abrams and Robert Pless),
+							<br>In Proc. IEEE Workshop on Applications of Computer Vision, 2012</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/LOST Longterm Observation of Scenes (with Tracks).jpg" alt = "ImagePaper14" style = width:320px;height:214px; align = "right">
+							14)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/wacv2012lost.pdf"> LOST: Longterm Observation of Scenes (with Tracks)</a> </span>
+							<br><i>(Austin Abrams, Jim Tucek, Nathan Jacobs and Robert Pless),
+							<br>In Proc. IEEE Workshop on Applications of Computer Vision, 2012</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Heliometric Stereo Shape from Sun Position.jpg" alt = "ImagePaper13" style = width:320px;height:214px; align = "right">
+							13)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/AbramsHeliometricEccv2012.pdf"> Heliometric Stereo: Shape from Sun Position</a> </span>
+							<br><i>(Austin Abrams, Christopher Hawley and Robert Pless),
+							<br>In Proc. European Conference on Computer Vision (ECCV), 2012</i>
+
+						</p>
+						<br><br>
+
+						<p>
+							<div class="emphasis3">2011</div><br>
+							<img src = "/static/AMOSPictures/Webcam Geo-localization using Aggregate Light Levels.jpg" alt = "ImagePaper12" style = width:320px;height:214px; align = "right">
+							12)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/webcamLightLevels.pdf"> Webcam Geo-localization Using Aggregate Light Levels</a> </span>
+							<br><i>(Nathan Jacobs, Kylia Miskell and Robert Pless),
+							<br>In Proc. IEEE Workshop on Applications of Computer Vision, 2011</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/On analyzing video with very small motions.jpg" alt = "ImagePaper11" style = width:320px;height:214px; align = "right">
+							11)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/plessCVPR2011smallMotions.pdf"> On Analyzing Video with Very Small Motions</a> </span>
+							<br><i>(Michael Dixon, Austin Abrams, Nathan Jacobs and Robert Pless),
+							<br>In Proc. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2011</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Exploratory Analysis of Time-Lapse Imagery with Fast Subset PCA.jpg" alt = "ImagePaper10" style = width:320px;height:214px; align = "right">
+							10)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/fspca.pdf"> Exploratory Analysis of Time-Lapse Imagery with Fast Subset PCA</a> </span>
+							<br><i>(Austin Abrams, Emily Feder and Robert Pless),
+							<br>In Proc. IEEE Workshop on Applications of Computer Vision, 2011</i>
+
+						</p>
+						<br><br>
+
+						<p>
+							<div class="emphasis3">2010</div><br>
+							<img src = "/static/AMOSPictures/Using Cloud Shadows to Infer Scene Structure and Camera Calibration.jpg" alt = "ImagePaper9" style = width:320px;height:214px; align = "right">
+							9)<span class="emphasis3"><a href = "http://cs.uky.edu/~jacobs/papers/jacobs2010depthfromclouds.pdf"> Using Cloud Shadows to Infer Scene Structure and Camera Calibration</a> </span>
+							<br><i>(Nathan Jacobs, Brian Bies and Robert Pless),
+							<br>In Proc. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2010</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Webcams in Context Web Interfaces to Create Live 3D.jpg" alt = "ImagePaper8" style = width:320px;height:214px; align = "right">
+							8)<span class="emphasis3"><a href = "https://www.researchgate.net/publication/221571738_Webcams_in_context_web_interfaces_to_create_live_3D_environments"> Webcams in Context: Web Interfaces to Create Live 3D Environments</a> </span>
+							<br><i>(Austin Abrams and Robert Pless),
+							<br>In Proc. ACM SIGMM International Conference on Multimedia (ACMMM), 2010</i>
+
+						</p>
+						<br><br>
+
+						<p>
+							<div class="emphasis3">2009</div><br>
+							<img src = "/static/AMOSPictures/The Global Network of Outdoor WebcamsProperties and Applications.jpg" alt = "ImagePaper7" style = width:320px;height:214px; align = "right">
+							7)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/jacobsPless09.pdf"> The Global Network of Outdoor Webcams: Properties and Applications</a> </span>
+							<br><i>(Nathan Jacobs, Walker Burgin, Nick Fridrich, Austin Abrams, Kylia Miskell, Bobby H. Braswell, Andrew D. Richardson and Robert Pless),
+							<br>In ACM International Conference on Advances in Geographic Information Systems (SIGSPATIAL GIS), 2009</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Calibrating and using the global network of outdoor webcams.jpg" alt = "ImagePaper6" style = width:320px;height:214px; align = "right">
+							6)<span class="emphasis3"><a href = "https://ieeexplore.ieee.org/document/5289404?arnumber=5289404"> Calibrating and Using the Global Network of Outdoor Webcams </a> </span>(Winner PhD Forum Prize)
+							<br><i>(Nathan Jacobs and Robert Pless),
+							<br>In ACM/IEEE International Conference on Distrubted Smart Cameras (ICDSC), 2009</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Adventures in Archiving and Using Three Years of Webcam Images.jpg" alt = "ImagePaper5" style = width:320px;height:214px; align = "right">
+							5)<span class="emphasis3"><a href = "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.155.1764&rep=rep1&type=pdf"> Adventures in Archiving and Using Three Years of Webcam Images</a> </span>
+							<br><i>(Nathan Jacobs, Walker Burgin, Richard Speyer, David Ross and Robert Pless),
+							<br>In IEEE CVPR Workshop on Internet Vision, 2009</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/The global webcam imaging network.png" alt = "ImagePaper4" style = width:320px;height:214px; align = "right">
+							4)<span class="emphasis3"><a href = "https://www.semanticscholar.org/paper/Passive-vision%3A-The-global-webcam-imaging-network-Jacobs-Souvenir/17be95132dc3dc121822703e3c8476edd199a10f"> The Global Webcam Imaging Network</a> </span>
+							<br><i>(Nathan Jacobs, Richard Souvenir and Robert Pless),
+							<br>In Applied Imagery Pattern Recognition Workshop (AIPR), 2009</i>
+
+						</p>
+						<br><br>
+
+						<p>
+							<div class="emphasis3">2008</div><br>
+							<img src = "/static/AMOSPictures/Toward Fully Automatic Geo-Location and Geo-Orientation of Static Outdoor Cameras.jpg" alt = "ImagePaper3" style = width:320px;height:214px; align = "right">
+							3)<span class="emphasis3"><a href = "https://ieeexplore.ieee.org/document/4544040"> Toward Fully Automatic Geo-Location and Geo-Orientation of Static Outdoor Cameras</a> </span>
+							<br><i>(Nathan Jacobs, Nathaniel Roman and Robert Pless),
+							<br>In Proc. IEEE Workshop on Video/Image Sensor Networks, 2008</i>
+
+						</p>
+						<br><br>
+
+						<p>
+							<div class="emphasis3">2007</div><br>
+							<img src = "/static/AMOSPictures/Geolocating Static Cameras.jpg" alt = "ImagePaper2" style = width:320px;height:214px; align = "right">
+							2)<span class="emphasis3"><a href = "https://www2.seas.gwu.edu/~pless/papers/jacobsICCV07.pdf"> Geolocating Static Cameras</a> </span>
+							<br><i>(Nathan Jacobs, Scott Satkin, Nathaniel Roman, Richard Speyer and Robert Pless),
+							<br>In Proc. International Conference on Computer Vision (ICCV), 2007</i>
+
+							<br><br><br><br><br>
+							<img src = "/static/AMOSPictures/Consistent Temporal Variations in Many Outdoor Scenes.jpg" alt = "ImagePaper1" style = width:320px;height:214px; align = "right">
+							1)<span class="emphasis3"><a href = "http://cs.uky.edu/~jacobs/papers/jacobs2007amos.pdf"> Consistent Temporal Variations in Many Outdoor Scenes</a> </span>
+							<br><i>(Nathan Jacobs, Nathaniel Roman and Robert Pless),
+							<br>In Proc. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2007</i>
+
+						</p>
+						<br><br>		
 						
 					</article>
 				</div>
