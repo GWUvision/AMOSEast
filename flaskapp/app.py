@@ -185,9 +185,9 @@ def aboutpage():
     return render_template('about.html')
 
 
-@app.route('/history')
+@app.route('/aboutAMOS')
 def historypage():
-    return render_template('history.html')
+    return render_template('aboutAMOS.html')
 
 
 @app.route('/camera_map')
