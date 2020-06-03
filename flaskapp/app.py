@@ -180,9 +180,9 @@ def goto():
             return redirect('/cameras/19')
 
 
-@app.route('/about')
+@app.route('/projectparticipants')
 def aboutpage():
-    return render_template('about.html')
+    return render_template('projectparticipants.html')
 
 
 @app.route('/aboutAMOS')
