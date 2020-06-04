@@ -258,6 +258,10 @@ def submitcam():
 def datasetaccess():
      return render_template('datasetaccess.html')
 
+@app.route('/overviewofimages')
+def overviewofimages():
+     return render_template('overviewofimages.html')
+    
 @app.route('/publications')
 def moreinfo():
     return render_template('publications.html')
