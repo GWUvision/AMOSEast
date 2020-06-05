@@ -262,6 +262,14 @@ def datasetaccess():
 def overviewofimages():
      return render_template('overviewofimages.html')
     
+@app.route('/overviewofimages2')
+def overviewofimages2():
+     return render_template('overviewofimages2.html')
+    
+@app.route('/overviewofimages3')
+def overviewofimages3():
+     return render_template('overviewofimages3.html')
+    
 @app.route('/publications')
 def moreinfo():
     return render_template('publications.html')
