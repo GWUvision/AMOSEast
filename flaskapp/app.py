@@ -270,6 +270,34 @@ def overviewofimages2():
 def overviewofimages3():
      return render_template('overviewofimages3.html')
     
+@app.route('/overviewofimages4')
+def overviewofimages4():
+     return render_template('overviewofimages4.html')
+    
+@app.route('/overviewofimages5')
+def overviewofimages5():
+     return render_template('overviewofimages5.html')
+    
+@app.route('/overviewofimages6')
+def overviewofimages6():
+     return render_template('overviewofimages6.html')
+    
+@app.route('/overviewofimages7')
+def overviewofimages7():
+     return render_template('overviewofimages7.html')
+    
+@app.route('/overviewofimages8')
+def overviewofimages8():
+     return render_template('overviewofimages8.html')
+    
+@app.route('/overviewofimages9')
+def overviewofimages9():
+     return render_template('overviewofimages9.html')
+    
+@app.route('/overviewofimages10')
+def overviewofimages10():
+     return render_template('overviewofimages10.html')
+    
 @app.route('/publications')
 def moreinfo():
     return render_template('publications.html')
