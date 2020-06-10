@@ -125,7 +125,7 @@ def directory_view(ind=19):
             if(current == 1):
                 current = 19
 
-            return render_template('dirview.html', index=ind, results=results, images=images, weather=temp, lng=lng, lat=lat, next=nextid, prev=previd, current=current)
+            return render_template('dirview.html', index=ind, results=results, images=images, weather=temp, lng=lng, lat=lat, next=nextid, prev=previd, current=str(current).zfill(8))
 
     except AttributeError as e:
         # flash('')
