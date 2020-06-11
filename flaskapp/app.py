@@ -77,10 +77,16 @@ def homepage():
 @app.route('/cameras/<int:ind>/')
 def directory_view(ind=19):
 
-    images = Image.query.filter_by(
-        cameraid=ind).order_by(Image.curr_time.desc()).first()
+    #image metadata
+    image_meta = Image.query.filter_by(cameraid=ind).order_by(Image.curr_time.desc()).first()
     results = Camera.query.filter_by(cameraid=ind).first()
     count = db.engine.execute('select count(cameraid) from cameras').scalar()
+
+    #need to get filepath --> 19/19_20180625_132516.jpg
+    main_path = "./flaskapp/static/images/" + str(ind).zfill(8)
+    all_files = [f for f in listdir(main_path) if isfile(join(main_path, f))]
+    first_file = all_files[0]
+    filepath = str(ind).zfill(8) + "/" + first
 
     next = next_cam(ind)
     prev = prev_cam(ind)
@@ -125,7 +131,9 @@ def directory_view(ind=19):
             if(current == 1):
                 current = 19
 
-            return render_template('dirview.html', index=ind, results=results, images=images, weather=temp, lng=lng, lat=lat, next=nextid, prev=previd, current=str(current).zfill(8))
+            return render_template('dirview.html', index=ind, results=results,image_meta=image_meta,
+                                    weather=temp, lng=lng,lat=lat, next=nextid, prev=previd,
+                                    current=str(current).zfill(8), filepath=filepath)
 
     except AttributeError as e:
         # flash('')
@@ -261,43 +269,43 @@ def datasetaccess():
 @app.route('/overviewofimages')
 def overviewofimages():
      return render_template('overviewofimages.html')
-    
+
 @app.route('/overviewofimages2')
 def overviewofimages2():
      return render_template('overviewofimages2.html')
-    
+
 @app.route('/overviewofimages3')
 def overviewofimages3():
      return render_template('overviewofimages3.html')
-    
+
 @app.route('/overviewofimages4')
 def overviewofimages4():
      return render_template('overviewofimages4.html')
-    
+
 @app.route('/overviewofimages5')
 def overviewofimages5():
      return render_template('overviewofimages5.html')
-    
+
 @app.route('/overviewofimages6')
 def overviewofimages6():
      return render_template('overviewofimages6.html')
-    
+
 @app.route('/overviewofimages7')
 def overviewofimages7():
      return render_template('overviewofimages7.html')
-    
+
 @app.route('/overviewofimages8')
 def overviewofimages8():
      return render_template('overviewofimages8.html')
-    
+
 @app.route('/overviewofimages9')
 def overviewofimages9():
      return render_template('overviewofimages9.html')
-    
+
 @app.route('/overviewofimages10')
 def overviewofimages10():
      return render_template('overviewofimages10.html')
-    
+
 @app.route('/publications')
 def moreinfo():
     return render_template('publications.html')

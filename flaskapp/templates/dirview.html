@@ -83,7 +83,7 @@
 			<h2>View All Cameras</h2>
 			<!-- Inner -->
 			<!--<div class="inner">-->
-				
+
 			</div>
 
 
@@ -110,7 +110,7 @@
 						</ul>
 					</li>
 					<li><a href="/camera_map">Map</a></li>
-					
+
 					<div class="topnav">
 						<form action="/goto" method="POST">
 							<input type="text" name="search" placeholder="Type Camera Name Here">
@@ -138,7 +138,7 @@
 				{% endif %} {% endwith %}
 				<h1><a href="{{ results.__dict__['url'] | safe }}" id="logo">Camera Name: {{ results.__dict__['name'] }}</a></h1>
 				<br/>
-				<img src="{{ url_for('static', filename='images/'+images.__dict__['filepath']) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
+				<img src="{{ url_for('static', filename='images/'+filepath) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
 				<br/>
 				<a href="/cameras/{{prev}}" class="button">Previous Camera </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="/cameras/{{next}}" class="button">Next Camera</a>
@@ -146,24 +146,24 @@
 
 			<div class="container">
 				<article id="main" class="special">
-					
+
 							        <h3>Camera Information</h3>
 								<b>Latitude:</b> &emsp;&emsp;&emsp;
 								{{ results.__dict__['latitude'] |round(3) }} <br>
-							
+
 								<b>Longitude:</b> &emsp;&emsp;&emsp;
 								{{ results.__dict__['longitude'] |round(3) }} <br>
-							
+
 								<b>Last Image Captured:</b> &emsp;&emsp;&emsp;
-								{{ moment(timestamp=images.__dict__['curr_time'], local=True).format('MMMM Do YYYY, h:mm:ss a') }} <br>
-							
+								{{ moment(timestamp=image_meta.__dict__['curr_time'], local=True).format('MMMM Do YYYY, h:mm:ss a') }} <br>
+
 								<b>Current Weather:</b> &emsp;&emsp;&emsp;
 								{{ weather }} <br>
-					
+
 					                        <a href="{{ results.__dict__['url'] | safe }}" class="button">Camera Live Feed</a>
 					                        <a href="/cameras/{{current}}/0/" class="button">All Camera's Images</a>
-						
-				
+
+
 					<h3>Location of Camera</h3>
 					<!--The div element for the map -->
 					<div id="map"></div>
