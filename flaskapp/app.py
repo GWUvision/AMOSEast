@@ -3,6 +3,7 @@
 import psycopg2
 import datetime
 import os
+from os.path import isfile, join
 import urllib.request
 from urllib.error import URLError, HTTPError
 import validators
@@ -84,7 +85,7 @@ def directory_view(ind=19):
 
     #need to get filepath --> 19/19_20180625_132516.jpg
     main_path = "./flaskapp/static/images/" + str(ind).zfill(8)
-    all_files = [f for f in listdir(main_path) if isfile(join(main_path, f))]
+    all_files = [f for f in os.listdir(main_path) if isfile(join(main_path, f))]
     first_file = all_files[0]
     filepath = str(ind).zfill(8) + "/" + first
 
