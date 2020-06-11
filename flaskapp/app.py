@@ -87,7 +87,7 @@ def directory_view(ind=19):
     main_path = "./flaskapp/static/images/" + str(ind).zfill(8)
     all_files = [f for f in os.listdir(main_path) if isfile(join(main_path, f))]
     first_file = all_files[0]
-    filepath = str(ind).zfill(8) + "/" + first
+    filepath = str(ind).zfill(8) + "/" + first_file
 
     next = next_cam(ind)
     prev = prev_cam(ind)
