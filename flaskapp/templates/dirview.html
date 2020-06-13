@@ -208,11 +208,11 @@ of the page. */
 					
 									<h3 align = "center">Camera Information</h3>
 							
-							<div class="row">
+							<center><div class="row">
 					
 							<div class="col">
 									
-							<p><center>
+							<p>
 								Latitude: &emsp;&emsp;
 								<br>
 								Longitude: &emsp;&emsp;
@@ -221,12 +221,12 @@ of the page. */
 								<br>
 								Current Weather: &emsp;&emsp;
 								
-							</center></p>
+							</p>
 						    </div>
 
 							<div class="col">
 									
-							<p><center>
+							<p>
 								{{ results.__dict__['latitude'] |round(3) }}
 								<br>
 								{{ results.__dict__['longitude'] |round(3) }} 
@@ -235,8 +235,9 @@ of the page. */
 								<br> 
 								{{ weather }}
 							
-							</center></p>
-						    </div>
+							</p>
+							</div>
+						</div></center>
 							<br>
 
 					<center><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="{{ results.__dict__['url'] | safe }}">Most Recently Captured Image</a></font></span></span>&emsp;&emsp;&emsp;<span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{current}}/0/">All The Camera's Images</a></font></span></span></center>
