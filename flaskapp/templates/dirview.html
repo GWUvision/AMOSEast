@@ -183,13 +183,13 @@ of the page. */
 			<div class="container">
 
 			<header>
-			{% with messages = get_flashed_messages() %} {% if messages %}
+			<!--{% with messages = get_flashed_messages() %} {% if messages %}
 				<ul class=flashes>
 					{% for message in messages %}
 					<li>{{ message }}</li>
 					{% endfor %}
 				</ul>
-				{% endif %} {% endwith %}
+				{% endif %} {% endwith %} -->
 
 
 				<p>
@@ -208,11 +208,11 @@ of the page. */
 					
 									<h3 align = "center">Camera Information</h3>
 							
-							<center><div class="row">
+							<div class="row">
 					
 							<div class="col">
 									
-							<p>
+							<p><center>
 								Latitude: &emsp;&emsp;
 								<br>
 								Longitude: &emsp;&emsp;
@@ -221,12 +221,12 @@ of the page. */
 								<br>
 								Current Weather: &emsp;&emsp;
 								
-							</p>
+							</center></p>
 						    </div>
 
 							<div class="col">
 									
-							<p>
+							<p><center>
 								{{ results.__dict__['latitude'] |round(3) }}
 								<br>
 								{{ results.__dict__['longitude'] |round(3) }} 
@@ -235,8 +235,8 @@ of the page. */
 								<br> 
 								{{ weather }}
 							
-							</p>
-						    </div></center>
+							</center></p>
+						    </div>
 							<br>
 
 					<center><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="{{ results.__dict__['url'] | safe }}">Most Recently Captured Image</a></font></span></span><span class = "buttonbackgroundDummy8"><span class = "buttontext8"><font size = "+3">123</font></span></span><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{current}}/0/">All The Camera's Images</a></font></span></span></center>
