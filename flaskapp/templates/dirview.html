@@ -106,6 +106,10 @@ of the page. */
 		font-size: 103%;
 		text-decoration: none;
     }
+
+	body {
+		background-color: white;
+	}
 </style>
 
 
@@ -187,16 +191,13 @@ of the page. */
 				</ul>
 				{% endif %} {% endwith %}
 
-		<!--DON'T DELETE THE EMPTY <p> </p> BELOW, IT IS FOR FORMATTING!!!!!-->
-		<p>
 
-		</p>
 				<p>
-					<center><span class="emphasis8"></span><a href="{{ results.__dict__['url'] | safe }}" id="logo">Camera Name: {{ results.__dict__['name'] }}</a></span></center>
+					<center>Camera Name: {{ results.__dict__['name'] }}</center>
 				</p>
 				
 				<center><img src="{{ url_for('static', filename='images/'+filepath) }}" style="width:422.4px;height:282.48px" class="img-responsive center"></center>
-				<br/>
+				<br>
 				
 				<center><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{prev}}">Previous Camera</a></font></span></span><span class = "buttonbackgroundDummy8"><span class = "buttontext8"><font size = "+3">123</font></span></span><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{next}}">Next Camera</a></font></span></span></center>
 				<br><br>
@@ -207,11 +208,11 @@ of the page. */
 					
 									<h3 align = "center">Camera Information</h3>
 							
-							<div class="row">
+							<center><div class="row">
 					
-							<article class="col-4 col-12-mobile special" id="main">
+							<div class="col">
 									
-							<p><center>
+							<p>
 								Latitude: &emsp;&emsp;
 								<br>
 								Longitude: &emsp;&emsp;
@@ -219,13 +220,13 @@ of the page. */
 								Last Image Captured: &emsp;&emsp;
 								<br>
 								Current Weather: &emsp;&emsp;
-								</center>
+								
 							</p>
-							</article>
+						    </div>
 
-							<article class="col-4 col-12-mobile special" id="main">
+							<div class="col">
 									
-							<p><center>
+							<p>
 								{{ results.__dict__['latitude'] |round(3) }}
 								<br>
 								{{ results.__dict__['longitude'] |round(3) }} 
@@ -233,12 +234,14 @@ of the page. */
 								{{ moment(timestamp=image_meta.__dict__['curr_time'], local=True).format('MMMM Do YYYY, h:mm:ss a') }}
 								<br> 
 								{{ weather }}
-							</center>
+							
 							</p>
-							</article>
+						    </div></center>
 							<br>
 
 					<center><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="{{ results.__dict__['url'] | safe }}">Most Recently Captured Image</a></font></span></span><span class = "buttonbackgroundDummy8"><span class = "buttontext8"><font size = "+3">123</font></span></span><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{current}}/0/">All The Camera's Images</a></font></span></span></center>
+
+					<br><br>
 
 			</div>
 		</div>
