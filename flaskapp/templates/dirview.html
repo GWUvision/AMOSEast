@@ -182,14 +182,15 @@ of the page. */
 		
 			
 
-			<header margin-top:-4px;>
+			
+				
 			{% with messages = get_flashed_messages() %} {% if messages %}
 				<ul class=flashes>
 					{% for message in messages %}
 					<li>{{ message }}</li>
 					{% endfor %}
 				</ul>
-				{% endif %} {% endwith %}
+				{% endif %} {% endwith %}   
 
 
 				<p>
@@ -201,7 +202,7 @@ of the page. */
 				
 				<center><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{prev}}">Previous Camera</a></font></span></span>&emsp;&emsp;&emsp;<span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{next}}">Next Camera</a></font></span></span></center>
 				<br><br>
-			</header>
+			
 
 			
 				<article id="main" class="special">
@@ -213,13 +214,13 @@ of the page. */
 							<div class="col">
 									
 							<p>
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Latitude: &emsp;&emsp;
+								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Latitude: &emsp;&emsp;
 								<br>
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Longitude: &emsp;&emsp;
+								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Longitude: &emsp;&emsp;
 								<br>
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Last Image Captured: &emsp;&emsp;
+								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Last Image Captured: &emsp;&emsp;
 								<br>
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Current Weather: &emsp;&emsp;
+								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Current Weather: &emsp;&emsp;
 								
 							</p>
 						    </div>
