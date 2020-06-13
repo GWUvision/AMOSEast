@@ -183,27 +183,29 @@ of the page. */
 
 		<!-- Main -->
 		<div class="wrapper style1">
+			<div class="container">
 
 			<header>
-				{% with messages = get_flashed_messages() %} {% if messages %}
+			<!--	{% with messages = get_flashed_messages() %} {% if messages %}
 				<ul class=flashes>
 					{% for message in messages %}
 					<li>{{ message }}</li>
 					{% endfor %}
 				</ul>
-				{% endif %} {% endwith %}
+				{% endif %} {% endwith %} -->
+
 				<p>
 					<center><span class="emphasis8"></span><a href="{{ results.__dict__['url'] | safe }}" id="logo">Camera Name: {{ results.__dict__['name'] }}</a></span></center>
 				</p>
 				<br/>
-				<img src="{{ url_for('static', filename='images/'+filepath) }}" style="width:422.4px;height:282.48px" class="img-responsive center">
+				<center><img src="{{ url_for('static', filename='images/'+filepath) }}" style="width:422.4px;height:282.48px" class="img-responsive center"></center>
 				<br/>
 				
 				<center><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{prev}}">Previous Camera</a></font></span></span><span class = "buttonbackgroundDummy8"><span class = "buttontext8"><font size = "+3">123</font></span></span><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{next}}">Next Camera</a></font></span></span></center>
 				<br><br>
 			</header>
 
-			<div class="container">
+			
 				<article id="main" class="special">
 					
 									<h3 align = "center">Camera Information</h3>
