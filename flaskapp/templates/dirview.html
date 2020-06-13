@@ -55,6 +55,67 @@ of the page. */
 	} */
 </style>
 
+<style type="text/css">
+	.emphasis8 {
+		color: #8A2BE2;
+		font-weight: bold;
+	}
+</style>
+
+<style>
+	.textoutline8 {
+		color:rgb(255, 255, 255);
+		-webkit-text-stroke-width: 0.3px;
+		-webkit-text-stroke-color:rgb(60, 47, 71);
+		padding: 14px;
+		border-width: 2px;
+		border-style:outset;
+		border-color:rgb(60, 47, 71);
+	}
+
+	.buttonbackground8{
+        width:160px;
+        height:160px;
+        padding: 14px;
+        background-color:rgb(236, 104, 56);
+    }
+
+    .buttontext8{
+        color:white;
+       
+    }
+
+    .buttontext8{
+        color:whitesmoke;
+       
+        color:rgb(255, 255, 255);
+        -webkit-text-stroke-width: 4px;
+        -webkit-text-stroke-color:rgb(60, 47, 71);
+    }
+
+  /* This is a fix for the buttons to have a space between them */
+    .buttonbackgroundDummy8{
+        width:145px;
+        height:72px;
+        padding: 14px;
+        background-color:white;
+    }
+
+	a:link {
+		text-decoration: none;
+	}
+
+
+    a:hover{
+        color: rgb(124, 190, 248);
+		-webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color:rgb(124, 190, 248);
+		font-size: 103%;
+		text-decoration: none;
+    }
+</style>
+
+
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121420165-1"></script>
@@ -97,9 +158,9 @@ of the page. */
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
-					<li><p class="textoutline2"><font size = "+3"><a href="/">Home</a></font></p></li>
+					<li><p class="textoutline8"><font size = "+3"><a href="/">Home</a></font></p></li>
 					<li>
-						<p class="textoutline2"><font size = "+3"><a href="#">Info</a></font></p>
+						<p class="textoutline8"><font size = "+3"><a href="#">Info</a></font></p>
 						<ul>
 							<li><font size = "+2"><a href="/aboutAMOS">About AMOS</a></font></li>
 							<li><font size = "+2"><a href="/publications">Publications</a></font></li>
@@ -107,14 +168,14 @@ of the page. */
 						</ul>
 					</li>
 					<li>
-						<p class="textoutline2"><font size = "+3"><a href="#">Dataset</a></font></p>
+						<p class="textoutline8"><font size = "+3"><a href="#">Dataset</a></font></p>
 						<ul>
 							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
 							<li><font size = "+2"><a href="/overviewofimages">Overview of Images</a></font></li>
 							<li><font size = "+2"><a href="/datasetaccess">Dataset Access</a></font></li>
 						</ul>
 					</li>
-					<li><p class="textoutline2"><font size = "+3"><a href="/camera_map">Map</a></font></p></li>
+					<li><p class="textoutline8"><font size = "+3"><a href="/camera_map">Map</a></font></p></li>
 				</ul>
 			</nav>
 </div>
@@ -131,65 +192,39 @@ of the page. */
 					{% endfor %}
 				</ul>
 				{% endif %} {% endwith %}
-				<h1><a href="{{ results.__dict__['url'] | safe }}" id="logo">Camera Name: {{ results.__dict__['name'] }}</a></h1>
+				<p>
+					<center><span class="emphasis8"></span><a href="{{ results.__dict__['url'] | safe }}" id="logo">Camera Name: {{ results.__dict__['name'] }}</a></span></center>
+				</p>
 				<br/>
-				<img src="{{ url_for('static', filename='images/'+filepath) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
+				<img src="{{ url_for('static', filename='images/'+filepath) }}" style="width:422.4px;height:282.48px" class="img-responsive center">
 				<br/>
-				<a href="/cameras/{{prev}}" class="button">Previous Camera </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="/cameras/{{next}}" class="button">Next Camera</a>
+				
+				<center><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{prev}}">Previous Camera</a></font></span></span><span class = "buttonbackgroundDummy8"><span class = "buttontext8"><font size = "+3">123</font></span></span><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{next}}">Next Camera</a></font></span></span></center>
+				<br><br>
 			</header>
 
 			<div class="container">
 				<article id="main" class="special">
 					
-							        <h3>Camera Information</h3>
-								<b>Latitude:</b> &emsp;&emsp;&emsp;
+									<h3 align = "center">Camera Information</h3>
+									
+							<p><center>
+								Latitude: &emsp;
 								{{ results.__dict__['latitude'] |round(3) }} <br>
 							
-								<b>Longitude:</b> &emsp;&emsp;&emsp;
+								Longitude: &emsp;
 								{{ results.__dict__['longitude'] |round(3) }} <br>
 							
-								<b>Last Image Captured:</b> &emsp;&emsp;&emsp;
+								Last Image Captured: &emsp;
 								{{ moment(timestamp=image_meta.__dict__['curr_time'], local=True).format('MMMM Do YYYY, h:mm:ss a') }} <br>
 							
-								<b>Current Weather:</b> &emsp;&emsp;&emsp;
+								Current Weather: &emsp;
 								{{ weather }} <br>
-					
-					                        <a href="{{ results.__dict__['url'] | safe }}" class="button">Camera Live Feed</a>
-					                        <a href="/cameras/{{current}}/0/" class="button">All Camera's Images</a>
-						
-				
-					<h3>Location of Camera</h3>
-					<!--The div element for the map -->
-					<div id="map"></div>
-					<script>
-						// Initialize and add the map
-						function initMap() {
-							// The location of Uluru
-							var loc = {
-								lat: {{lat}},
-								lng: {{lng}}
-							};
-							// The map, centered at Uluru
-							var map = new google.maps.Map(
-								document.getElementById('map'), {
-									zoom: 4,
-									center: loc
-								});
-							// The marker, positioned at Uluru
-							var marker = new google.maps.Marker({
-								position: loc,
-								map: map
-							});
-						}
-					</script>
-					<!--Load the API from the specified URL
-                  * The async attribute allows the browser to render the page while the API loads
-                  * The key parameter will contain your own API key (which is not needed for this tutorial)
-                  * The callback parameter executes the initMap() function
-                  -->
-					<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdLYBRezN15XghhsB7fiy6jROT4uPsda8&callback=initMap">
-					</script>
+							</p></center>
+							<br>
+
+					<center><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="{{ results.__dict__['url'] | safe }}">Most Recently Captured Image</a></font></span></span><span class = "buttonbackgroundDummy8"><span class = "buttontext8"><font size = "+3">123</font></span></span><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{current}}/0/">All The Camera's Images</a></font></span></span></center>
+
 			</div>
 		</div>
 
