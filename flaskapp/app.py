@@ -3,7 +3,7 @@
 import psycopg2
 import datetime
 import os
-from os.path import isfile, join
+from os.path import isfile, join, exists
 import urllib.request
 from urllib.error import URLError, HTTPError
 import validators
@@ -85,6 +85,11 @@ def directory_view(ind=19):
 
     #need to get filepath --> 19/19_20180625_132516.jpg
     main_path = "./static/images/" + str(ind).zfill(8)
+
+    #accounts for fact many palces dont have zfilled folder
+    if(not exists(main_path)):
+        main_path = "./static/images/" + str(ind)
+
     all_files = [f for f in os.listdir(main_path) if isfile(join(main_path, f))]
     first_file = all_files[0]
     filepath = str(ind).zfill(8) + "/" + first_file
@@ -173,7 +178,7 @@ def image_view(ind=None, ind2=None):
         else:
             pager.current = ind
             pager2.current = ind2
-            filepath = all_files[ind2] #getting the next image
+            filepath = str(ind).zfill(8) + "/" + all_files[ind2] #getting the next image
             print("Indexs: " + str(ind) + " " + str(ind2))
             print("Filepath: " + filepath)
 
