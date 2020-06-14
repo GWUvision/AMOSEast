@@ -42,7 +42,7 @@ def prev_cam(cid):
     while (count > 0):
         prev_cam = None
         cid = cid - 1
-        if db.session.query(Camera).get(cid) is not None and (exists("./static/images/" + str(ind)) or exists("./static/images/" + str(ind).zfill(8))):#adding check to make sure folder exists
+        if db.session.query(Camera).get(cid) is not None and (exists("./static/images/" + str(cid)) or exists("./static/images/" + str(cid).zfill(8))):#adding check to make sure folder exists
             prev_cam = db.session.query(Camera).get(cid)
             break
         else:
@@ -55,7 +55,7 @@ def next_cam(cid):
     while (count > 0):
         next_cam = None
         cid = cid + 1
-        if db.session.query(Camera).get(cid) is not None and (exists("./static/images/" + str(ind)) or exists("./static/images/" + str(ind).zfill(8))): #adding check to make sure folder exists
+        if db.session.query(Camera).get(cid) is not None and (exists("./static/images/" + str(cid)) or exists("./static/images/" + str(cid).zfill(8))): #adding check to make sure folder exists
             next_cam = db.session.query(Camera).get(cid)
             break
         else:
