@@ -30,6 +30,11 @@
 			padding: 14px;
 			background-color:rgb(236, 104, 56);
 		}
+
+		.buttontext9{
+        color:white;
+       
+    }
 	
 	
 		a:link {
@@ -117,21 +122,20 @@
 		</div>
 
 		<!-- Main -->
-		<div class="wrapper style1">
-
 			<div class="container">
 
 				<p>
 					<center>Camera Name: {{data.name}}</center>
 				</p>
 
-				<img src="{{ url_for('static', filename='images/'+filepath) }}" style="width:422.4px;height:282.48px" class="img-responsive center">
+				<center><img src="{{ url_for('static', filename='images/'+filepath) }}" style="width:422.4px;height:282.48px" class="img-responsive center"></center>
 				
 				<center><span class = "buttonbackground9"><span class = "buttontext9"><font size = "+3"><a href="/cameras/{{pager.current}}/{{pager2.prev}}">Previous Image</a></font></span></span>&emsp;&emsp;&emsp;<span class = "buttonbackground9"><span class = "buttontext9"><font size = "+3"><a href="/cameras/{{pager.current}}/{{pager2.next}}">Next Image</a></font></span></span></center>
+				<br>
 				<center><span class = "buttonbackground9"><span class = "buttontext9"><font size = "+3"><a href="/cameras/{{pager.current}}/">Back to View More Cameras</a></font></span></span></center>
 
 			</div>
-		</div>
+
 
 		<!-- Footer -->
 <div id="footer">
@@ -140,7 +144,7 @@
 		
 		<img src = "/static/AMOSPictures/The Global Network of Outdoor WebcamsProperties and Applications.jpg" alt = "Image1" style = "width:201.6px;height:135px;" align = "left">
 		
-		<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size = "+2"><a href="/cameras/{{current}}/0/">Back to Top</a></font></p>
+		<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size = "+2"><a href="/cameras/{{current}}">Back to Top</a></font></p>
 		<center><div class="row">
 			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 			<div class="col">
