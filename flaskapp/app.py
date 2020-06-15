@@ -3,7 +3,7 @@
 import psycopg2
 import datetime
 import os
-from os.path import isfile, join
+from os.path import isfile, join, exists
 import urllib.request
 from urllib.error import URLError, HTTPError
 import validators
@@ -42,7 +42,7 @@ def prev_cam(cid):
     while (count > 0):
         prev_cam = None
         cid = cid - 1
-        if db.session.query(Camera).get(cid) is not None:
+        if db.session.query(Camera).get(cid) is not None and (exists("./static/images/" + str(cid)) or exists("./static/images/" + str(cid).zfill(8))):#adding check to make sure folder exists
             prev_cam = db.session.query(Camera).get(cid)
             break
         else:
@@ -55,7 +55,7 @@ def next_cam(cid):
     while (count > 0):
         next_cam = None
         cid = cid + 1
-        if db.session.query(Camera).get(cid) is not None:
+        if db.session.query(Camera).get(cid) is not None and (exists("./static/images/" + str(cid)) or exists("./static/images/" + str(cid).zfill(8))): #adding check to make sure folder exists
             next_cam = db.session.query(Camera).get(cid)
             break
         else:
@@ -85,12 +85,20 @@ def directory_view(ind=19):
 
     #need to get filepath --> 19/19_20180625_132516.jpg
     main_path = "./static/images/" + str(ind).zfill(8)
+
+    #accounts for fact many palces dont have zfilled folder
+    if(not exists(main_path)):
+        main_path = "./static/images/" + str(ind)
+
     all_files = [f for f in os.listdir(main_path) if isfile(join(main_path, f))]
     first_file = all_files[0]
     filepath = str(ind).zfill(8) + "/" + first_file
 
     next = next_cam(ind)
     prev = prev_cam(ind)
+
+    print("Next cam: " + str(next))
+    print("Prev cam: " + str(prev))
 
     #error checking for next and prev
     if(prev):
@@ -155,6 +163,13 @@ def image_view(ind=None, ind2=None):
 
     pager2 = Pager(len(images))
 
+    #new way
+    #need to get filepath --> 19/19_20180625_132516.jpg
+    main_path = "./static/images/" + str(ind).zfill(8)
+    all_files = [f for f in os.listdir(main_path) if isfile(join(main_path, f))]
+    print("File list:")
+    print(all_files[:5])
+
     try:
 
         if ind2 >= pager2.count or ind >= pager.count:
@@ -163,8 +178,11 @@ def image_view(ind=None, ind2=None):
         else:
             pager.current = ind
             pager2.current = ind2
+            filepath = str(ind).zfill(8) + "/" + all_files[ind2] #getting the next image
+            print("Indexs: " + str(ind) + " " + str(ind2))
+            print("Filepath: " + filepath)
 
-            return render_template('imageview.html', index=ind2, pager=pager, pager2=pager2, data2=images[ind2], data=data)
+            return render_template('imageview.html', index=ind2, pager=pager, pager2=pager2, data2=images[ind2], data=data, filepath=filepath)
 
     except IndexError as e:
         return render_template('404.html')

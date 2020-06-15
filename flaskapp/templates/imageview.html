@@ -37,7 +37,7 @@
 				<header>
 					<h1><a href="{{ data.url | safe }}" id="logo">Name: {{data.name}}</a></h1>
 					<br/>
-					<img src="{{ url_for('static', filename='images/'+data2.filepath | string) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
+					<img src="{{ url_for('static', filename='images/'+filepath) }}" style='height: 100%; width: 100%; object-fit: contain' class="img-responsive center">
 					<a href="/cameras/{{pager.current}}/{{pager2.prev}}" class="button">Prev Img </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/cameras/{{pager.current}}/{{pager2.next}}" class="button">Next Img</a>
 					<br/></br/>
