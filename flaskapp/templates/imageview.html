@@ -50,9 +50,12 @@
 			text-decoration: none;
 		}
 	
-		body {
+
+		.backgroundColor
+		{
 			background-color: white;
 		}
+
 	</style>
 
 <head>
@@ -123,6 +126,8 @@
 
 		<!-- Main -->
 			<div class="container">
+				<div class="backgroundColor">
+				
 
 				<p>
 					<center>Camera Name: {{data.name}}</center>
@@ -133,7 +138,9 @@
 				<center><span class = "buttonbackground9"><span class = "buttontext9"><font size = "+3"><a href="/cameras/{{pager.current}}/{{pager2.prev}}">Previous Image</a></font></span></span>&emsp;&emsp;&emsp;<span class = "buttonbackground9"><span class = "buttontext9"><font size = "+3"><a href="/cameras/{{pager.current}}/{{pager2.next}}">Next Image</a></font></span></span></center>
 				<br>
 				<center><span class = "buttonbackground9"><span class = "buttontext9"><font size = "+3"><a href="/cameras/{{pager.current}}/">Back to View More Cameras</a></font></span></span></center>
+				<br><br>
 
+			</div>
 			</div>
 
 
@@ -144,7 +151,6 @@
 		
 		<img src = "/static/AMOSPictures/The Global Network of Outdoor WebcamsProperties and Applications.jpg" alt = "Image1" style = "width:201.6px;height:135px;" align = "left">
 		
-		<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size = "+2"><a href="/cameras/{{current}}">Back to Top</a></font></p>
 		<center><div class="row">
 			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 			<div class="col">
