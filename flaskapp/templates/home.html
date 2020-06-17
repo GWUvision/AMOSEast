@@ -11,10 +11,12 @@
 		gtag('config', 'UA-121420165-1');
 	</script>
 
+<!--Name to show on browser tab-->
 	<title>AMOS | Home</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="/static/assets/css/main.css" />
+	<!--Show AMOS logo as icon in browser tab-->
 	<link rel="icon" type="image/png" href="/static/logo.png" />
 	<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
 </head>
@@ -26,6 +28,7 @@
 	}
 </style>
 	
+<!--For text in purple section-->
 <style type="text/css">
     .welcometitle {
         color: rgb(255, 255, 255);
@@ -33,6 +36,7 @@
     }
 </style>
 
+<!--For Navigation Menu-->
 <style>
     .textoutline {
         color:rgb(255, 255, 255);
@@ -44,6 +48,7 @@
         border-color:rgb(60, 47, 71);
     }
 
+/*for buttons*/
     .buttonbackground{
         width:160px;
         height:160px;
@@ -64,13 +69,7 @@
         -webkit-text-stroke-color:rgb(60, 47, 71);
     }
 
-  /* This is a fix for the buttons to have a space between them */
-    .buttonbackgroundDummy{
-        width:145px;
-        height:72px;
-        padding: 14px;
-        background-color:white;
-    }
+  
 
 	a:link {
 		text-decoration: none;
@@ -94,8 +93,10 @@
 		<!-- Header -->
 		<div id="header">
 
+			<!--Everything in purple section-->
 			<!-- Inner -->
 			<div class="inner">
+				<!--Display AMOS logo-->
 				<header>
 					<center><a href="/"><img src="/static/logo.png" width=192.5px height=55px></img></a></center>
 					
@@ -114,9 +115,10 @@
 			</div>
 
 			<!-- Nav -->
+			<!--Navigation Menu-->
 			<nav id="nav">
 				<ul>
-					<!-- <p>AMOS</p>-->
+					
 					<li><p class="textoutline"><font size = "+3"><a href="/">Home</a></font></p></li>
 					<li>
 						<p class="textoutline"><font size = "+3"><a href="#">Info</a></font></p>
@@ -129,7 +131,8 @@
 					<li>
 						<p class="textoutline"><font size = "+3"><a href="#">Dataset</a></font></p>
 						<ul>
-							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+							<!--Hide this page until it is completely working, then display again
+							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li> -->
 							<li><font size = "+2"><a href="/overviewofimages">Overview of Images</a></font></li>
 							<li><font size = "+2"><a href="/datasetaccess">Dataset Access</a></font></li>
 						</ul>
@@ -139,9 +142,9 @@
 
 			</nav>
 
-			<!--for orange buttons after purple-->
+			<!--for orange buttons-->
 			<br><br><br>
-			<center><span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/overviewofimages">Observe AMOS Images</a></font></span></span><span class = "buttonbackgroundDummy"><span class = "buttontext"><font size = "+3">123</font></span></span><span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/camera_map">Explore The Globe</a></font></span></span></center>
+			<center><span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/overviewofimages">Observe AMOS Images</a></font></span></span>&emsp;&emsp;&emsp;<span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/aboutAMOS">Discover AMOS More</a></font></span></span></center>
 			
 			
 		</div>
@@ -164,11 +167,10 @@
 					<br><center><font size="+3">... and Counting!</font></center>
 				    <br>
 				
+					<!--Display Images-->
 				<center><img src = "static/AMOSPictures/5716_20181012_111421.jpg" alt = "Image1" style = "width:320px;height:214px;"> &emsp;&emsp;&emsp;<img src = "static/AMOSPictures/6767_20181229_141646.jpg" alt = "Image2" style = "width:320px;height:214px;"> &emsp;&emsp;&emsp;<img src = "static/AMOSPictures/4297_20180629_110521.jpg" alt = "Image3" style = "width:320px;height:214px;"></center>
 				
 			        
-			<!--<article id="main" class="container special">
-				<a href="#" class="image featured"><img src="" alt="" /></a> -->
 				
 					<p>
 						<center><font size = "+3">We explore how to use images to learn about the world around us. In particular we focus on<br>understanding changes in natural environments and how people use public spaces.</font></center>
@@ -198,13 +200,12 @@
 				</header>
 				<footer>
 
+					<!--buttons-->
 					<br>
-					<center><span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/overviewofimages">Observe AMOS Images</a></font></span></span><span class = "buttonbackgroundDummy"><span class = "buttontext"><font size = "+3">123</font></span></span><span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/camera_map">Explore The Globe</a></font></span></span><span class = "buttonbackgroundDummy"><span class = "buttontext"><font size = "+3">123</font></span></span><span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/history">Discover AMOS More</a></font></span></span></center>
+					<center><span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/overviewofimages">Observe AMOS Images</a></font></span></span>&emsp;&emsp;&emsp;<span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/camera_map">Explore The Globe</a></font></span></span>&emsp;&emsp;&emsp;<span class = "buttonbackground"><span class = "buttontext"><font size = "+3"><a href="/datasetaccess">Use AMOS Dataset</a></font></span></span></center>
 			
 
-					<!--<a href="https://amostest.seas.gwu.edu/history">Learn More</a>
-					&emsp;&emsp;&emsp;&emsp;&emsp;
-					<a href="https://amostest.seas.gwu.edu/camera_map">View Map</a>-->
+					
 				</footer>
 			</article>
 
@@ -212,7 +213,7 @@
 
 		<!-- Footer -->
 		<div id="footer">
-			
+			<!--Links go to the corresponding pages-->
 			<div class="container">
 				
 				<img src = "/static/AMOSPictures/The Global Network of Outdoor WebcamsProperties and Applications.jpg" alt = "Image1" style = "width:201.6px;height:135px;" align = "left">
@@ -228,7 +229,7 @@
 				&emsp;&emsp;&emsp;&emsp;&emsp;
 				<div class="col">
 							<p>
-								<a href="/cameras/19">View All Cameras</a><br><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
+								<!--Hide this page until it is completely working, then display again<a href="/cameras/19">View All Cameras</a><br>--><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
 							</p>
 				</div>
 			</center>
