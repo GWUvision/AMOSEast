@@ -54,12 +54,7 @@ of the page. */
 	} */
 </style>
 
-<style type="text/css">
-	.emphasis8 {
-		color: #8A2BE2;
-		font-weight: bold;
-	}
-</style>
+
 
 <style>
 	.textoutline8 {
@@ -85,13 +80,6 @@ of the page. */
     }
 
 
-  /* This is a fix for the buttons to have a space between them */
-    .buttonbackgroundDummy8{
-        width:145px;
-        height:72px;
-        padding: 14px;
-        background-color:white;
-    }
 
 	a:link {
 		text-decoration: none;
@@ -106,7 +94,7 @@ of the page. */
 		text-decoration: none;
     }
 
-
+	/*So the background is white*/
 	.backgroundColor
 		{
 			background-color: white;
@@ -145,9 +133,7 @@ of the page. */
 
 		<!-- Inner -->
 		<div class="inner">
-			<!--Displays within the lines of the menu<header>
-				<h1><a href="/" id="logo">AMOS</a></h1>
-			</header>-->
+			
 			<header>
 				<center><a href="/"><img src="/static/logo.png" width=192.5px height=55px></img></a></center>
 			
@@ -169,7 +155,8 @@ of the page. */
 					<li>
 						<p class="textoutline8"><font size = "+3"><a href="#">Dataset</a></font></p>
 						<ul>
-							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+							<!--Hide this page until it is completely working, then display again
+							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>-->
 							<li><font size = "+2"><a href="/overviewofimages">Overview of Images</a></font></li>
 							<li><font size = "+2"><a href="/datasetaccess">Dataset Access</a></font></li>
 						</ul>
@@ -182,7 +169,7 @@ of the page. */
 
 		<!-- Main -->
 
-         <div class="backgroundColor">
+         <div class="backgroundColor"> <!--So the background is white-->
 			
 				<!--
 			{% with messages = get_flashed_messages() %} {% if messages %}
@@ -200,7 +187,7 @@ of the page. */
 				
 				<center><img src="{{ url_for('static', filename='images/'+filepath) }}" style="width:422.4px;height:282.48px" class="img-responsive center"></center>
 				
-				
+				<!--Buttons-->
 				<center><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{prev}}">Previous Camera</a></font></span></span>&emsp;&emsp;&emsp;<span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{next}}">Next Camera</a></font></span></span></center>
 				<br><br>
 			
@@ -274,7 +261,7 @@ of the page. */
 		&emsp;&emsp;&emsp;&emsp;&emsp;
 		<div class="col">
 					<p>
-						<a href="/cameras/19">View All Cameras</a><br><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
+						<!--Hide this page until it is completely working, then display again<a href="/cameras/19">View All Cameras</a><br>--><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
 					</p>
 		</div>
 	</center>
