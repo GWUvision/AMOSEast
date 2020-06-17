@@ -53,12 +53,16 @@
        
     }
 
-  /* This is a fix for the buttons to have a space between them */
-    .buttonbackgroundDummy2{
-        width:145px;
-        height:72px;
+	.buttonbackground10{
+        width:160px;
+        height:160px;
         padding: 14px;
-        background-color:white;
+        background-color:rgb(236, 104, 56);
+    }
+
+    .buttontext10{
+        color:white;
+       
     }
 
     a:link {
@@ -113,7 +117,8 @@
 					<li>
 						<p class="textoutline4"><font size = "+3"><a href="#">Dataset</a></font></p>
 						<ul>
-							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+							<!--Hide this page until it is completely working, then display again
+							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>-->
 							<li><font size = "+2"><a href="/overviewofimages">Overview of Images</a></font></li>
 							<li><font size = "+2"><a href="/datasetaccess">Dataset Access</a></font></li>
 						</ul>
@@ -129,7 +134,7 @@
 
 	<div class="container">
 		
-		<!--I removed:  <div class="wrapper style1"> earlier and did the <p> enter </p> below as a way
+		<!--I did the <p> enter </p> below as a way
 		to adjust the spacing of the page so the instructions could appear underneath the image without
 		having to make the size of the images too small-->
 		
@@ -180,6 +185,10 @@
 
 				<center><img src = "/static/AMOSPictures/6767_20181011_174352.jpg" alt = "Image1" style = "width:201.6px;height:135px;"> &emsp;&emsp;  <img src = "/static/AMOSPictures/6767_20181219_120712.jpg" alt = "Image2" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/6767_20190104_142057.jpg" alt = "Image3" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/6767_20190107_182946.jpg" alt = "Image4" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/6767_20190125_111303.jpg" alt = "Image5" style = "width:201.6px;height:135px;"> &emsp;&emsp;</center>
 				<center><img src = "/static/AMOSPictures/2813_20180625_134242.jpg" alt = "Image1" style = "width:201.6px;height:135px;"> &emsp;&emsp;  <img src = "/static/AMOSPictures/2813_20180625_223858.jpg" alt = "Image2" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/2813_20181010_103313.jpg" alt = "Image3" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/2813_20190523_011300.jpg" alt = "Image4" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/2813_20190629_141302.jpg" alt = "Image5" style = "width:201.6px;height:135px;"> &emsp;&emsp;</center>
+			
+				<center><span class = "buttonbackground10"><span class = "buttontext10"><font size = "+3"><a href="/datasetaccess">Use AMOS Dataset</a></font></span></span></center>
+
+			
 			</section>
 			<!--DON'T DELETE for more consistent spacing at the bottom of the page-->
 			<p>
@@ -206,7 +215,7 @@
 		&emsp;&emsp;&emsp;&emsp;&emsp;
 		<div class="col">
 					<p>
-						<a href="/cameras/19">View All Cameras</a><br><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
+						<!--Hide this page until it is completely working, then display again<a href="/cameras/19">View All Cameras</a><br>--><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
 					</p>
 		</div>
 	</center>
