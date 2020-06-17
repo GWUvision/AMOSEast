@@ -6,12 +6,6 @@
 -->
 <html>
 
-	<style type="text/css">
-		.emphasis9 {
-			color: #8A2BE2;
-			font-weight: bold;
-		}
-	</style>
 	
 	<style>
 		.textoutline9 {
@@ -68,7 +62,7 @@
 
   gtag('config', 'UA-121420165-1');
 </script>
-
+<!--Name to show on browser tab-->
 	<title>AMOS | All The Camera's Images</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -86,9 +80,7 @@
 
 		<!-- Inner -->
 		<div class="inner">
-			<!--Displays within the lines of the menu<header>
-				<h1><a href="/" id="logo">AMOS</a></h1>
-			</header>-->
+			
 			<header>
 				<center><a href="/"><img src="/static/logo.png" width=192.5px height=55px></img></a></center>
 			
@@ -110,7 +102,8 @@
 					<li>
 						<p class="textoutline9"><font size = "+3"><a href="#">Dataset</a></font></p>
 						<ul>
-							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+							<!--Hide this page until it is completely working, then display again
+							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>-->
 							<li><font size = "+2"><a href="/overviewofimages">Overview of Images</a></font></li>
 							<li><font size = "+2"><a href="/datasetaccess">Dataset Access</a></font></li>
 						</ul>
@@ -125,13 +118,14 @@
 		</div>
 
 		<!-- Main -->
-				<div class="backgroundColor">
+				<div class="backgroundColor"> <!--So the background is white-->
 				
 
 				<p>
 					<center>Camera Name: {{data.name}}</center>
 				</p>
 
+				<!--Display images-->
 				<center><img src="{{ url_for('static', filename='images/'+filepath) }}" style="width:422.4px;height:282.48px" class="img-responsive center"></center>
 				
 				<center><span class = "buttonbackground9"><span class = "buttontext9"><font size = "+3"><a href="/cameras/{{pager.current}}/{{pager2.prev}}">Previous Image</a></font></span></span>&emsp;&emsp;&emsp;<span class = "buttonbackground9"><span class = "buttontext9"><font size = "+3"><a href="/cameras/{{pager.current}}/{{pager2.next}}">Next Image</a></font></span></span></center>
@@ -162,7 +156,7 @@
 		&emsp;&emsp;&emsp;&emsp;&emsp;
 		<div class="col">
 					<p>
-						<a href="/cameras/19">View All Cameras</a><br><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
+						<!--Hide this page until it is completely working, then display again<a href="/cameras/19">View All Cameras</a><br>--><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
 					</p>
 		</div>
 	</center>
