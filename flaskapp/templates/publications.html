@@ -16,12 +16,12 @@
 
   gtag('config', 'UA-121420165-1');
 </script>
-
+<!--Name to show on browser tab-->
 	<title>AMOS | Publications</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="/static/assets/css/main.css" />
-	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
+	<link rel="icon" type="image/png" href="/static/logo.png" />
 	<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
 	
 <style type="text/css">
@@ -30,6 +30,7 @@
 		font-weight: bold;
 	}
 
+	/*For Navigation Menu*/
 	.textoutline5 {
 		color:rgb(255, 255, 255);
 		-webkit-text-stroke-width: 0.3px;
@@ -53,6 +54,7 @@
 		text-decoration: none;
     }
 
+/*border around images*/
 	img {
 		border: 1px solid #8A2BE2;
 	}
@@ -87,7 +89,8 @@
 					<li>
 						<p class="textoutline5"><font size = "+3"><a href="#">Dataset</a></font></p>
 						<ul>
-							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+							<!--Hide this page until it is completely working, then display again
+							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>-->
 							<li><font size = "+2"><a href="/overviewofimages">Overview of Images</a></font></li>
 							<li><font size = "+2"><a href="/datasetaccess">Dataset Access</a></font></li>
 						</ul>
@@ -104,10 +107,8 @@
 	<div class="wrapper style1">
 
 		<div class="container">
-			<!--<div class="row gtr-200">
-				<div class="col-8 col-12-mobile" id="content">
-					<article id="main">-->
 						
+			<!--All links go to the correct paper. Text and images displayed.-->
 							<h3 align = "center">Publications</h3>
 
 						<p>
@@ -357,22 +358,31 @@
 
 	<!-- Footer -->
 	<div id="footer">
+			
 		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<!-- Copyright -->
-					<div class="copyright">
-						<ul class="menu">
-							<li>&copy; GW. All rights reserved.</li>
-							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</div>
-
-				</div>
-
+			<!--Display image-->
+			<img src = "/static/AMOSPictures/The Global Network of Outdoor WebcamsProperties and Applications.jpg" alt = "Image1" style = "width:201.6px;height:135px;" align = "left">
+			
+			<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size = "+2"><a href="/publications">Back to Top</a></font></p>
+			<center><div class="row">
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				<div class="col">
+						
+				<p><a href="/">Home</a><br><a href="/aboutAMOS">About AMOS</a><br><a href="/publications">Publications</a><br><a href="/projectparticipants">Project Participants</a>
+				</p>
 			</div>
+			&emsp;&emsp;&emsp;&emsp;&emsp;
+			<div class="col">
+						<p>
+							<!--Hide this page until it is completely working, then display again<a href="/cameras/19">View All Cameras</a><br>--><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
+						</p>
+			</div>
+		</center>
+			
 		</div>
 	</div>
+
+</div>
 
 	</div>
 

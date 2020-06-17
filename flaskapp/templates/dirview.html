@@ -1,4 +1,3 @@
-{% if results %}
 <!DOCTYPE HTML>
 <!--
 	Helios by HTML5 UP
@@ -55,12 +54,7 @@ of the page. */
 	} */
 </style>
 
-<style type="text/css">
-	.emphasis8 {
-		color: #8A2BE2;
-		font-weight: bold;
-	}
-</style>
+
 
 <style>
 	.textoutline8 {
@@ -86,13 +80,6 @@ of the page. */
     }
 
 
-  /* This is a fix for the buttons to have a space between them */
-    .buttonbackgroundDummy8{
-        width:145px;
-        height:72px;
-        padding: 14px;
-        background-color:white;
-    }
 
 	a:link {
 		text-decoration: none;
@@ -107,9 +94,12 @@ of the page. */
 		text-decoration: none;
     }
 
-	body {
-		background-color: white;
-	}
+	/*So the background is white*/
+	.backgroundColor
+		{
+			background-color: white;
+		}
+
 </style>
 
 
@@ -131,7 +121,7 @@ of the page. */
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="/static/assets/css/main.css" />
-	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
+	<link rel="icon" type="image/png" href="/static/logo.png" />
 	<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript> {{ moment.include_jquery() }} {{ moment.include_moment() }}
 </head>
 
@@ -143,9 +133,7 @@ of the page. */
 
 		<!-- Inner -->
 		<div class="inner">
-			<!--Displays within the lines of the menu<header>
-				<h1><a href="/" id="logo">AMOS</a></h1>
-			</header>-->
+			
 			<header>
 				<center><a href="/"><img src="/static/logo.png" width=192.5px height=55px></img></a></center>
 			
@@ -167,7 +155,8 @@ of the page. */
 					<li>
 						<p class="textoutline8"><font size = "+3"><a href="#">Dataset</a></font></p>
 						<ul>
-							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+							<!--Hide this page until it is completely working, then display again
+							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>-->
 							<li><font size = "+2"><a href="/overviewofimages">Overview of Images</a></font></li>
 							<li><font size = "+2"><a href="/datasetaccess">Dataset Access</a></font></li>
 						</ul>
@@ -179,9 +168,8 @@ of the page. */
 		</div>
 
 		<!-- Main -->
-		
-			
 
+         <div class="backgroundColor"> <!--So the background is white-->
 			
 				<!--
 			{% with messages = get_flashed_messages() %} {% if messages %}
@@ -199,7 +187,7 @@ of the page. */
 				
 				<center><img src="{{ url_for('static', filename='images/'+filepath) }}" style="width:422.4px;height:282.48px" class="img-responsive center"></center>
 				
-				
+				<!--Buttons-->
 				<center><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{prev}}">Previous Camera</a></font></span></span>&emsp;&emsp;&emsp;<span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{next}}">Next Camera</a></font></span></span></center>
 				<br><br>
 			
@@ -245,29 +233,43 @@ of the page. */
 					<center><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="{{ results.__dict__['url'] | safe }}">Most Recently Captured Image</a></font></span></span>&emsp;&emsp;&emsp;<span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{current}}/0/">All The Camera's Images</a></font></span></span></center>
 
 					<br><br>
+					<!--DON'T DELETE for more consistent spacing at the bottom of the page-->
+			<p>
+				
+			</p>
 
+		</div>
+		</div>
+
+
+
+		<!-- Footer -->
+<div id="footer">
 			
+	<div class="container">
+		
+		<img src = "/static/AMOSPictures/The Global Network of Outdoor WebcamsProperties and Applications.jpg" alt = "Image1" style = "width:201.6px;height:135px;" align = "left">
+		
+		<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size = "+2"><a href="/cameras/19">Back to Top</a></font></p>
+		<center><div class="row">
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+			<div class="col">
+					
+			<p><a href="/">Home</a><br><a href="/aboutAMOS">About AMOS</a><br><a href="/publications">Publications</a><br><a href="/projectparticipants">Project Participants</a>
+			</p>
 		</div>
-
-
-		<!-- Footer -->
-		<div id="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<!-- Copyright -->
-						<div class="copyright">
-							<ul class="menu">
-								<li>&copy; GW. All rights reserved.</li>
-								<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-
-					</div>
-
-				</div>
-			</div>
+		&emsp;&emsp;&emsp;&emsp;&emsp;
+		<div class="col">
+					<p>
+						<!--Hide this page until it is completely working, then display again<a href="/cameras/19">View All Cameras</a><br>--><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
+					</p>
 		</div>
+	</center>
+		
+	</div>
+</div>
+
+</div>
 
 	</div>
 
@@ -285,123 +287,3 @@ of the page. */
 
 </html>
 
-{% else %}
-<!DOCTYPE HTML>
-
-<html>
-
-<head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121420165-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-121420165-1');
-	</script>
-
-	<title>AMOS | Cameras</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="/static/assets/css/main.css" />
-	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
-	<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript> {{ moment.include_jquery() }} {{ moment.include_moment() }}
-</head>
-
-<body class="no-sidebar is-preload">
-	<div id="page-wrapper">
-
-		<!-- Header -->
-		<div id="header">
-
-			<!-- Inner -->
-			<div class="inner">
-				<header>
-					<h1>No Image</h1>
-					<br/>
-					<img src="http://www.ultramotorhn.com/image/catalog/noimage.jpg" style='height: 50%; width: 50%; object-fit: contain' class="img-responsive center">
-					<br/>
-					<a href="/cameras/{{prev}}" class="button">Prev Cam </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="/cameras/{{next}}" class="button">Next Cam</a>
-				</header>
-			</div>
-
-
-			<!-- Nav -->
-			<nav id="nav">
-
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li>
-						<a href="#">Info</a>
-						<ul>
-							<li><a href="/history">History</a></li>
-							<li><a href="/moreinfo">Dataset Info</a></li>
-							<li><a href="/about">About Us</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#">Cameras</a>
-						<ul>
-							<li><a href="/cameras/19">View All Cameras</a></li>
-							<li><a href="/coolcams">View Cool Cameras</a></li>
-							<li><a href="/submitcam">Submit Cameras</a></li>
-							<li><a href="/cameras/{{ range(1, 7800) | random | safe }}">Random Camera</a></li>
-						</ul>
-					</li>
-					<li><a href="/camera_map">Map</a></li>
-					<li><a href="/cameras/{{prev}}">&larrhk; Previous Camera </a> </li>
-					<li><a href="/cameras/{{next}}">Next Camera &rarrhk;</a> </li>
-					<div class="topnav">
-						<form action="/goto" method="POST">
-							<input type="text" name="search" placeholder="Search..">
-							<button type="Go">Go</button>
-
-						</form>
-					</div>
-
-				</ul>
-
-
-			</nav>
-
-		</div>
-		<!-- Footer -->
-		<div id="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<!-- Copyright -->
-						<div class="copyright">
-							<ul class="menu">
-								<li>&copy; GW. All rights reserved.</li>
-								<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-	<!-- Scripts -->
-	<script src="/static/assets/js/jquery.min.js"></script>
-	<script src="/static/assets/js/jquery.dropotron.min.js"></script>
-	<script src="/static/assets/js/jquery.scrolly.min.js"></script>
-	<script src="/static/assets/js/jquery.scrollex.min.js"></script>
-	<script src="/static/assets/js/browser.min.js"></script>
-	<script src="/static/assets/js/breakpoints.min.js"></script>
-	<script src="/static/assets/js/util.js"></script>
-	<script src="/static/assets/js/main.js"></script>
-
-</body>
-
-</html>
-{% endif %}

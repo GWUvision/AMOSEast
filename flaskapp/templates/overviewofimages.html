@@ -13,13 +13,16 @@
   gtag('config', 'UA-121420165-1');
 </script>
 
+<!--Name to show on browser tab-->
 	<title>AMOS | Overview of Images</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="/static/assets/css/main.css" />
-	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
+	<!--Show AMOS logo as icon in browser tab-->
+	<link rel="icon" type="image/png" href="/static/logo.png" />
 	<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
 
+<!--For blue/violet text-->
 <style type="text/css">
 	.emphasis7 {
 		color: #8A2BE2;
@@ -27,6 +30,7 @@
 	}
 </style>
 
+<!--For Navigation Menu-->
 <style>
 	.textoutline4 {
 		color:rgb(255, 255, 255);
@@ -53,19 +57,23 @@
        
     }
 
-  /* This is a fix for the buttons to have a space between them */
-    .buttonbackgroundDummy2{
-        width:145px;
-        height:72px;
+	.buttonbackground10{
+        width:160px;
+        height:160px;
         padding: 14px;
-        background-color:white;
+        background-color:rgb(236, 104, 56);
+    }
+
+    .buttontext10{
+        color:white;
+       
     }
 
     a:link {
 		text-decoration: none;
 	}
 
-
+/*feedback color*/
 	a:hover{
         color: rgb(124, 190, 248);
 		-webkit-text-stroke-width: 1px;
@@ -93,7 +101,7 @@
 
 			<!-- Inner -->
 			<div class="inner">
-				
+				<!--Display AMOS logo-->
 				<header>
 					<center><a href="/"><img src="/static/logo.png" width=192.5px height=55px></img></a></center>
 				
@@ -115,7 +123,8 @@
 					<li>
 						<p class="textoutline4"><font size = "+3"><a href="#">Dataset</a></font></p>
 						<ul>
-							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+							<!--Hide this page until it is completely working, then display again
+							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>-->
 							<li><font size = "+2"><a href="/overviewofimages">Overview of Images</a></font></li>
 							<li><font size = "+2"><a href="/datasetaccess">Dataset Access</a></font></li>
 						</ul>
@@ -131,7 +140,7 @@
 
 	<div class="container">
 		
-		<!--I removed:  <div class="wrapper style1"> earlier and did the <p> enter </p> below as a way
+		<!--I did the <p> enter </p> below as a way
 		to adjust the spacing of the page so the instructions could appear underneath the image without
 		having to make the size of the images too small-->
 
@@ -139,7 +148,11 @@
 		<p>
 
 		</p>
-		
+		<!--The Interactive Component, display the image for button 1, and buttons to display the other
+		images. Each button goes to another page, but it looks identical to this page. I am not writing
+		comments on the subsequent pages, but it is the same idea. Ex: page 2 displays the image that
+		shows when button2 is pressed, and has buttons that take you to the pages that display the other
+	    most recently captured image from a specific camera.-->
             <center><img src = "http://www.webcamsdemexico.net/lapaz1/live.jpg" alt = "Image1" style = "width:422.4px;height:282.48px;"></center>
 			<center><span class = "buttonbackground3"><span class = "buttontext4"><a href="/overviewofimages"> 1 </a></span></span>&emsp;<span class = "buttonbackground3"><span class = "buttontext4"><a href="/overviewofimages2"> 2 </a></span></span>&emsp;<span class = "buttonbackground3"><span class = "buttontext4"><a href="/overviewofimages3"> 3 </a></span></span>&emsp;<span class = "buttonbackground3"><span class = "buttontext4"><a href="/overviewofimages4"> 4 </a></span></span>&emsp;<span class = "buttonbackground3"><span class = "buttontext4"><a href="/overviewofimages5"> 5 </a></span></span>&emsp;<span class = "buttonbackground3"><span class = "buttontext4"><a href="/overviewofimages6"> 6 </a></span></span>&emsp;<span class = "buttonbackground3"><span class = "buttontext4"><a href="/overviewofimages7"> 7 </a></span></span>&emsp;<span class = "buttonbackground3"><span class = "buttontext4"><a href="/overviewofimages8"> 8 </a></span></span>&emsp;<span class = "buttonbackground3"><span class = "buttontext4"><a href="/overviewofimages9"> 9 </a></span></span>&emsp;<span class = "buttonbackground3"><span class = "buttontext4"><a href="/overviewofimages10">10</a></span></span></center>					
 			
@@ -163,7 +176,8 @@
 					</center>
 				</p>
 				<br>
-				
+				<!--Display both static images committed on GitHub, and links to cameras that will dynamically
+				show the most recently captured image.-->
 				<center><img src = "/static/AMOSPictures/8296_20180628_073808.jpg" alt = "Image1" style = "width:201.6px;height:135px;"> &emsp;&emsp;  <img src = "http://cameras.skibanff.com/132m.jpg" alt = "Most Recently Captured Image" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/DC.jpg" alt = "Image3" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "https://images.wsdot.wa.gov/nw/005vc18997.jpg" alt = "Most Recently Captured Image" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/FromMap4.jpg" alt = "Image5" style = "width:201.6px;height:135px;"> &emsp;&emsp;</center>
 				<center><img src = "/static/AMOSPictures/FromMap12.jpg" alt = "Image1" style = "width:201.6px;height:135px;"> &emsp;&emsp;  <img src = "http://img1.videoprobki.com.ua/camimg/cam157-5.jpg" alt = "Most Recently Captured Image" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/613_20180616_200416.jpg" alt = "Image3" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "http://217.5.197.4/axis-cgi/jpg/image.cgi" alt = "Most Recently Captured Image" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/FromMap13.jpg" alt = "Image5" style = "width:201.6px;height:135px;"> &emsp;&emsp;</center>
 				<center><img src = "/static/AMOSPictures/5652_20180702_043229.jpg" alt = "Image1" style = "width:201.6px;height:135px;"> &emsp;&emsp;  <img src = "http://wwc.instacam.com/instacamimg/KGLS/KGLS_l.jpg" alt = "Most Recently Captured Image" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/FromMap10.jpg" alt = "Image3" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "http://www.astroweather.net/graeagle/images/driveway0000.jpg" alt = "Most Recently Captured Image" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/623_20180616_140348.jpg" alt = "Image5" style = "width:201.6px;height:135px;"> &emsp;&emsp;</center>
@@ -181,29 +195,47 @@
 					</center>
 				</p>
 
+				<!--Display Images-->
 				<center><img src = "/static/AMOSPictures/6767_20181011_174352.jpg" alt = "Image1" style = "width:201.6px;height:135px;"> &emsp;&emsp;  <img src = "/static/AMOSPictures/6767_20181219_120712.jpg" alt = "Image2" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/6767_20190104_142057.jpg" alt = "Image3" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/6767_20190107_182946.jpg" alt = "Image4" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/6767_20190125_111303.jpg" alt = "Image5" style = "width:201.6px;height:135px;"> &emsp;&emsp;</center>
 				<center><img src = "/static/AMOSPictures/2813_20180625_134242.jpg" alt = "Image1" style = "width:201.6px;height:135px;"> &emsp;&emsp;  <img src = "/static/AMOSPictures/2813_20180625_223858.jpg" alt = "Image2" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/2813_20181010_103313.jpg" alt = "Image3" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/2813_20190523_011300.jpg" alt = "Image4" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/2813_20190629_141302.jpg" alt = "Image5" style = "width:201.6px;height:135px;"> &emsp;&emsp;</center>
+			
+				<center><span class = "buttonbackground10"><span class = "buttontext10"><font size = "+3"><a href="/datasetaccess">Use AMOS Dataset</a></font></span></span></center>
+
 			</section>
+
+			<!--DON'T DELETE for more consistent spacing at the bottom of the page-->
+			<p>
+				
+			</p>
         </div>
 
 		
 <!-- Footer -->
 <div id="footer">
+			
 	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<!-- Copyright -->
-				<div class="copyright">
-					<ul class="menu">
-						<li>&copy; GW. All rights reserved.</li>
-						<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-
-			</div>
-
+		
+		<img src = "/static/AMOSPictures/The Global Network of Outdoor WebcamsProperties and Applications.jpg" alt = "Image1" style = "width:201.6px;height:135px;" align = "left">
+		
+		<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size = "+2"><a href="/overviewofimages">Back to Top</a></font></p>
+		<center><div class="row">
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+			<div class="col">
+					
+			<p><a href="/">Home</a><br><a href="/aboutAMOS">About AMOS</a><br><a href="/publications">Publications</a><br><a href="/projectparticipants">Project Participants</a>
+			</p>
 		</div>
+		&emsp;&emsp;&emsp;&emsp;&emsp;
+		<div class="col">
+					<p>
+						<!--Hide this page until it is completely working, then display again<a href="/cameras/19">View All Cameras</a><br>--><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
+					</p>
+		</div>
+	</center>
+		
 	</div>
+</div>
+
 </div>
 
         	<!-- Scripts -->

@@ -17,13 +17,16 @@
   gtag('config', 'UA-121420165-1');
 </script>
 
+<!--Name to show on browser tab-->
 	<title>AMOS | About AMOS</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="/static/assets/css/main.css" />
-	<link rel="icon" type="image/png" href="/static/assets4/images/icons/favicon.ico" />
+	<!--Show AMOS logo as icon in browser tab-->
+	<link rel="icon" type="image/png" href="/static/logo.png" />
 	<noscript><link rel="stylesheet" href="/static/assets/css/noscript.css" /></noscript>
 
+<!--For blue/violet text-->
 <style type="text/css">
 	.emphasis {
 		color: #8A2BE2;
@@ -47,6 +50,7 @@
 	}
 
 
+/*feedback color*/
     a:hover{
         color: rgb(124, 190, 248);
 		-webkit-text-stroke-width: 1px;
@@ -61,17 +65,13 @@
 <body class="no-sidebar is-preload">
 	<div id="page-wrapper">
 
-		<!--To display above the navigation bar, but purple disappears<header>
-			<h1><a href="/" id="logo">AMOS</a></h1>
-		</header>-->
 		<!-- Header -->
 		<div id="header">
 
 			<!-- Inner -->
 			<div class="inner">
-				<!--Displays within the lines of the menu<header>
-					<h1><a href="/" id="logo">AMOS</a></h1>
-				</header>-->
+				
+				<!--Display AMOS logo-->
 				<header>
 					<center><a href="/"><img src="/static/logo.png" width=192.5px height=55px></img></a></center>
 				
@@ -79,6 +79,7 @@
 			</div>
 
 			<!-- Nav -->
+			<!--Navigation Menu-->
 			<nav id="nav">
 				<ul>
 					<li><p class="textoutline2"><font size = "+3"><a href="/">Home</a></font></p></li>
@@ -93,7 +94,8 @@
 					<li>
 						<p class="textoutline2"><font size = "+3"><a href="#">Dataset</a></font></p>
 						<ul>
-							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li>
+							<!--Hide this page until it is completely working, then display again
+							<li><font size = "+2"><a href="/cameras/19">View All Cameras</a></font></li> -->
 							<li><font size = "+2"><a href="/overviewofimages">Overview of Images</a></font></li>
 							<li><font size = "+2"><a href="/datasetaccess">Dataset Access</a></font></li>
 						</ul>
@@ -108,16 +110,13 @@
 		<div class="wrapper style1">
 
 			<div class="container">
-				<!--<article id="main" class="special">
-					<header>
-						<h2>About AMOS</h2>
-					</header> -->
+				
 					<h3 align = "center">
 	
 						Background
 					</h3>
 					
-					<!--<a href="#" class="image featured"><img src="" alt="" /></a> -->
+					
 					<p>
 						<center> Construction of AMOS began in March 2006 and continues to this day. It is currently maintained<br>at
 							The George Washington University by Robert Pless. The AMOS dataset contains billions of images focusing on different natural<br>environments taken from webcams located around the world. This database is unique because it contains many natural outdoor scenes over long time periods.
@@ -126,7 +125,7 @@
 					<br>
 					<br>
 					<section>
-						
+						<!--Display images-->
 						<center><img src = "/static/AMOSPictures/367_20180616_060312.jpg" alt = "Image1" style = "width:201.6px;height:135px;"> &emsp;&emsp;  <img src = "/static/AMOSPictures/367_20180616_070317.jpg" alt = "Image2" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/367_20180616_080321.jpg" alt = "Image3" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/367_20180616_090326.jpg" alt = "Image4" style = "width:201.6px;height:135px;"> &emsp;&emsp; <img src = "/static/AMOSPictures/367_20180616_100330.jpg" alt = "Image5" style = "width:201.6px;height:135px;"> &emsp;&emsp;</center>
 						<br>
 						<br>
@@ -177,22 +176,32 @@
 
 		<!-- Footer -->
 		<div id="footer">
+			<!--Links go to the corresponding pages-->
 			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<!-- Copyright -->
-						<div class="copyright">
-							<ul class="menu">
-								<li>&copy; GW. All rights reserved.</li>
-								<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-
-					</div>
-
+				
+				<img src = "/static/AMOSPictures/The Global Network of Outdoor WebcamsProperties and Applications.jpg" alt = "Image1" style = "width:201.6px;height:135px;" align = "left">
+				
+				<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size = "+2"><a href="/aboutAMOS">Back to Top</a></font></p>
+				<center><div class="row">
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					<div class="col">
+							
+					<p><a href="/">Home</a><br><a href="/aboutAMOS">About AMOS</a><br><a href="/publications">Publications</a><br><a href="/projectparticipants">Project Participants</a>
+					</p>
 				</div>
+				&emsp;&emsp;&emsp;&emsp;&emsp;
+				<div class="col">
+					<!--Hide View All Cameras link until page is working then display again-->
+							<p>
+								<!--<a href="/cameras/19">View All Cameras</a><br>--><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
+							</p>
+				</div>
+			</center>
+				
 			</div>
 		</div>
+
+	</div>
 
 	</div>
 
