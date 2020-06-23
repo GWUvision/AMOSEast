@@ -90,7 +90,7 @@ def directory_view(ind=19):
     if(not exists(main_path)):
         #skips over all indexs that arent zfilled
         while(not exists("./static/images/" + str(ind).zfill(8))):
-            ind = next_cam(ind)
+            ind = next_cam(ind).cameraid
         # main_path = "./static/images/" + str(ind) #this will get cams that are not zfilled
 
     all_files = [f for f in os.listdir(main_path) if isfile(join(main_path, f))]
