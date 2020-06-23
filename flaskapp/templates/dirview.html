@@ -76,7 +76,7 @@ of the page. */
 
     .buttontext8{
         color:white;
-       
+
     }
 
 
@@ -133,10 +133,10 @@ of the page. */
 
 		<!-- Inner -->
 		<div class="inner">
-			
+
 			<header>
 				<center><a href="/"><img src="/static/logo.png" width=192.5px height=55px></img></a></center>
-			
+
 			</header>
 		</div>
 
@@ -170,7 +170,7 @@ of the page. */
 		<!-- Main -->
 
          <div class="backgroundColor"> <!--So the background is white-->
-			
+
 				<!--
 			{% with messages = get_flashed_messages() %} {% if messages %}
 				<ul class=flashes>
@@ -184,24 +184,24 @@ of the page. */
 				<p>
 					<center>Camera Name: {{ results.__dict__['name'] }}</center>
 				</p>
-				
+
 				<center><img src="{{ url_for('static', filename='images/'+filepath) }}" style="width:422.4px;height:282.48px" class="img-responsive center"></center>
-				
+
 				<!--Buttons-->
 				<center><span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{prev}}">Previous Camera</a></font></span></span>&emsp;&emsp;&emsp;<span class = "buttonbackground8"><span class = "buttontext8"><font size = "+3"><a href="/cameras/{{next}}">Next Camera</a></font></span></span></center>
 				<br><br>
-			
 
-			
+
+
 				<article id="main" class="special">
-					
+
 									<h3 align = "center">Camera Information</h3>
 									<br>
-							
+
 							<center><div class="row">
-					
+
 							<div class="col">
-									
+
 							<p>
 								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Latitude: &emsp;&emsp;
 								<br>
@@ -210,21 +210,21 @@ of the page. */
 								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Last Image Captured: &emsp;&emsp;
 								<br>
 								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Current Weather: &emsp;&emsp;
-								
+
 							</p>
 						    </div>
 
 							<div class="col">
-									
+
 							<p>
 								{{ results.__dict__['latitude'] |round(3) }}
 								<br>
-								{{ results.__dict__['longitude'] |round(3) }} 
+								{{ results.__dict__['longitude'] |round(3) }}
 								<br>
 								{{ moment(timestamp=image_meta.__dict__['curr_time'], local=True).format('MMMM Do YYYY, h:mm:ss a') }}
-								<br> 
+								<br>
 								{{ weather }}
-							
+
 							</p>
 							</div>
 						</div></center>
@@ -235,7 +235,7 @@ of the page. */
 					<br><br>
 					<!--DON'T DELETE for more consistent spacing at the bottom of the page-->
 			<p>
-				
+
 			</p>
 
 		</div>
@@ -245,27 +245,27 @@ of the page. */
 
 		<!-- Footer -->
 <div id="footer">
-			
+
 	<div class="container">
-		
+
 		<img src = "/static/AMOSPictures/The Global Network of Outdoor WebcamsProperties and Applications.jpg" alt = "Image1" style = "width:201.6px;height:135px;" align = "left">
-		
+
 		<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<font size = "+2"><a href="/cameras/19">Back to Top</a></font></p>
 		<center><div class="row">
 			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 			<div class="col">
-					
+
 			<p><a href="/">Home</a><br><a href="/aboutAMOS">About AMOS</a><br><a href="/publications">Publications</a><br><a href="/projectparticipants">Project Participants</a>
 			</p>
 		</div>
 		&emsp;&emsp;&emsp;&emsp;&emsp;
 		<div class="col">
 					<p>
-						<!--Hide this page until it is completely working, then display again<a href="/cameras/19">View All Cameras</a><br>--><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
+						<!--Hide this page until it is completely working, then display again--><a href="/cameras/19">View All Cameras</a><br><a href="/overviewofimages">Overview of Images</a><br><a href="/datasetaccess">Dataset Access</a><br><a href="/camera_map">Map</a>
 					</p>
 		</div>
 	</center>
-		
+
 	</div>
 </div>
 
@@ -286,4 +286,3 @@ of the page. */
 </body>
 
 </html>
-
